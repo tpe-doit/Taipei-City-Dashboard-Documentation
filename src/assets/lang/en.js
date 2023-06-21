@@ -1,3 +1,21 @@
 export const en = {
-  hi: "hello",
+  docs: "Docs",
+  "404-desc": "Page Not Found",
+  "404-message": "Available articles are listed in the menu",
+  "front-end": {
+    name: "Front End",
+    "#getting-started": "Getting Started",
+    introduction: "Introduction",
+    prerequisites: "Prerequisites",
+    "project-setup": "Project Setup",
+    "#project-structure": "Project Structure",
+    "user-interface": "User Interface",
+    "file-system": "File System",
+    "rendering-strategy": "Rendering Strategy",
+    "#dashboard": "Dashboard",
+    "introduction-to-dashboards": "Introduction to Dashboards",
+    "modifying-a-dashboard": "Modifying a Dashboard",
+    "#components": "Components",
+    "introduction-to-components": "Introduction to Components",
+  },
 };

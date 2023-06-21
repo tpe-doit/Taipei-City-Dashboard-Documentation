@@ -5,6 +5,7 @@
   --font-xl: 1.5rem;
   --font-l: 1.25rem;
   --font-m: 1rem;
+  --font-ms: 0.85rem;
   --font-s: 0.75rem;
   --font-icon: "material-icons";
   --font-code: "Courier New", Courier, monospace;
@@ -12,7 +13,7 @@
 
 .light {
   --color-background: white;
-  --color-border: #b5bcc3;
+  --color-border: #d7d7d7;
   --color-highlight: #5a9cf8;
   --color-normal-text: black;
   --color-complement-text: #888787;
@@ -55,13 +56,6 @@ p {
 }
 a {
   text-decoration: none;
-  color: var(--color-highlight);
-  font-weight: 700;
-}
-code,
-code span {
-  font-family: var(--font-code) !important;
-  background-color: var(--color-component-background) !important;
 }
 button {
   border: none;

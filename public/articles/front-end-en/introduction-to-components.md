@@ -7,7 +7,8 @@ Map layer components are components that only contain geographical data. As ment
 ## Component Configuration
 Regardless of type, all component configurations (Object) are stored in a single object where the keys are the IDs of each component. The complete list of parameters for normal components and map layer components can be found below.
 
-> *Info* 1. Statistical, geographical, and historical data for each component is stored separately as mentioned in this previous article.
+> **i01**
+> Statistical, geographical, and historical data for each component is stored separately as mentioned in [this previous article](/front-end/file-system).
 
 ### Normal
 ```json
@@ -58,8 +59,11 @@ Regardless of type, all component configurations (Object) are stored in a single
       "update_freq_unit": null  // String; update frequency unit
     }
 ```
-> *info* 2. If the component has geographical data, pass in a map configuration object. If not, pass in null. The map configuration object will be explained in greater detail in this later article.
+> **i02**
+> If the component has geographical data, pass in a map configuration object. If not, pass in null. The map configuration object will be explained in greater detail in [this later article](/front-end/supported-map-types).
 
-> *info* 3 All normal components have statistical data and a chart configuration object should be included in the component configuration. The chart configuration object will be explained in greater detail in this later article.
+> **i03**
+> All normal components have statistical data and a chart configuration object should be included in the component configuration. The chart configuration object will be explained in greater detail in [this later article](/front-end/supported-chart-types).
 
-> *info* 4. All dates should be in the following format: YYYY-MM-DDThh:mm:ssTZD (e.g. 2023-06-16T18:20:00+08:00)
+> **i04**
+> All dates should be in the following format: `YYYY-MM-DDThh:mm:ssTZD` (e.g. 2023-06-16T18:20:00+08:00)

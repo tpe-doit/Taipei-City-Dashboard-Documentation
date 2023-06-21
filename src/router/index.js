@@ -1,9 +1,26 @@
 import { createRouter, createWebHistory } from "vue-router";
+import Home from "../views/Home.vue";
+import DocPage from "../views/DocPage.vue";
 
 const routes = [
   {
     path: "/",
-    redirect: "/dashboard",
+    component: Home,
+    name: "home",
+  },
+  {
+    path: "/front-end",
+    redirect: "/front-end/introduction",
+  },
+  {
+    path: "/front-end/:id",
+    component: DocPage,
+    name: "front-end",
+    props: true,
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    redirect: "/",
   },
 ];
 

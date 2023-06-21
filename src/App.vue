@@ -1,37 +1,22 @@
 <script setup>
-import { computed, onMounted, ref } from 'vue';
-import axios from 'axios';
-import { marked } from 'marked'
-import hljs from 'highlight.js'
+import { onMounted } from 'vue';
 import { useAppStore } from './store/appStore';
 import { useI18n } from 'vue-i18n'
 
 import NavBar from './components/NavBar.vue'
 
 const appStore = useAppStore()
-const { t, locale } = useI18n()
-const text = ref('')
-const parsed = computed(() => {
-  return marked.parse(text.value)
-})
+const { locale } = useI18n()
 
 onMounted(() => {
-  document.title = '城市聯合儀表板文件';
+  document.title = appStore.lang === 'en' ? 'Docs | Taipei City Dashboard' : '文件｜城市聯合儀表板';
   locale.value = appStore.lang;
-  axios.get('/articles/demo.md').then(rs => {
-    text.value = rs.data
-    setTimeout(() => {
-      hljs.highlightAll();
-    }, 50)
-  })
 })
 </script>
 
 <template>
   <div :class="`app ${appStore.mode}`">
     <NavBar />
-    <p>{{ t('hi') }}</p>
-    <div v-html="parsed"></div>
     <RouterView></RouterView>
   </div>
 </template>

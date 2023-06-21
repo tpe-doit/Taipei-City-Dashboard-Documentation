@@ -13,6 +13,7 @@ function toggleLang() {
     localStorage.setItem("lang", changeTo);
     locale.value = changeTo;
     appStore.toggleLang(changeTo)
+    location.reload()
 }
 
 onMounted(() => {

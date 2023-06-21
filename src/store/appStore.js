@@ -4,6 +4,7 @@ export const useAppStore = defineStore("app", {
   state: () => ({
     mode: localStorage.getItem("mode") || "dark",
     lang: localStorage.getItem("lang") || "en",
+    docs: null,
   }),
   getters: {},
   actions: {
@@ -13,6 +14,10 @@ export const useAppStore = defineStore("app", {
     },
     toggleLang(lang) {
       this.lang = lang;
+      document.title =
+        this.lang === "en"
+          ? "Docs | Taipei City Dashboard"
+          : "文件｜城市聯合儀表板";
     },
   },
 });
