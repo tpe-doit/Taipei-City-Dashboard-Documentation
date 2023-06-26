@@ -11,7 +11,7 @@ There are two primary user interfaces in this project, the dashboard view (/dash
 ## /dashboard
 The dashboard view shows components in their basic chart configuration. Here, users can get a comprehensive glance at all the statistics a component has to offer. 
 
-In the dashboard view, a “more information” (4) option is also available in the bottom right corner of most components. Clicking on the button will show a dialog that displays a more detailed description of the component, including historical data (5) if available.
+In the dashboard view, a “more information” (4: 更多資訊 ***arrow_circle_right***) option is also available in the bottom right corner of most components. Clicking on the button will show a dialog that displays a more detailed description of the component, including historical data (5) if available.
 
 ## /mapview
 The map view by default lists all components in a collapsed form on the right (6) and displays a larger map (7) to the left. By clicking on the toggle (8), the component expands and renders geographical data (if available) to the map. To learn more about a data point on the map, simply click and a helpful popup (9) will appear.
@@ -19,6 +19,6 @@ The map view by default lists all components in a collapsed form on the right (6
 ## Mobile Version
 In the mobile version, several features have been modified or removed to cope with space or memory constraints. 
 
-To navigate between the dashboard view and the map view, click on the toggle (10) on the right of the settings bar. To navigate between different dashboards, click on the icon (11) to the left of the dashboard name and a navigational popup will appear. The more information option is disabled in mobile versions.
+To navigate between the dashboard view and the map view, click on the toggle (10) on the right of the settings bar. To navigate between different dashboards, click on the icon (11: ***arrow_drop_down_circle***) to the left of the dashboard name and a navigational popup will appear. The more information option is disabled in mobile versions.
 
-In the map view, click on the layers icon (12) to open up a popup from which layers to be rendered could be selected. The ability to view both charts and map layers at the same time in map view is disabled in mobile versions.
+In the map view, click on the layers icon (12: ***layers***) to open up a popup from which layers to be rendered could be selected. The ability to view both charts and map layers at the same time in map view is disabled in mobile versions.

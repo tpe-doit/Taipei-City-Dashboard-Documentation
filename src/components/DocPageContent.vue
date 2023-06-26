@@ -37,15 +37,19 @@ const parsedDoctext = computed(() => {
                     </blockquote>`
             }
         },
+        code(code, infostring, escaped) {
+            const toBeCopied = code.replaceAll(`"`, `\'`)
+            return `<pre><button onclick="navigator.clipboard.writeText(\`${toBeCopied}\`)">content_paste</button><code class="language-${infostring}">${code}</code></pre>`
+        },
         link(href, title, text) {
             if (href.includes('http')) {
                 return `<a href="${href}" target='_blank'>${text}</a>`
             }
             return `<a href="${href}">${text}</a>`
         },
-        code(code, infostring, escaped) {
-            const toBeCopied = code.replaceAll(`"`, `\'`)
-            return `<pre><button onclick="navigator.clipboard.writeText(\`${toBeCopied}\`)">content_paste</button><code class="language-${infostring}">${code}</code></pre>`
+        paragraph(text) {
+            const parsedText = text.replaceAll('<em><strong>', '<span>').replaceAll('</strong></em>', '</span>')
+            return `<p>${parsedText}</p>`
         }
     };
     marked.use({ renderer, mangle: false, headerIds: false })
@@ -93,6 +97,11 @@ onMounted(() => {
         font-size: var(--font-m);
         margin-bottom: 1.5rem;
         text-align: justify;
+
+        span {
+            font-family: var(--font-icon);
+            vertical-align: text-top;
+        }
     }
 
     a {

@@ -39,6 +39,21 @@ const nextPageIndex = computed(() => {
             <div v-else class="docpage-content">
                 <h1>{{ t(`${route.name}.${id}`) }}</h1>
                 <DocPageContent :docs="route.name" :id="id" :key="id" />
+                <a class="docpage-edit" href="/"><span>auto_fix_high</span>{{ t('edit-github') }}</a>
+                <div class="docpage-nav">
+                    <div>
+                        <router-link v-if="previousPageIndex"
+                            :to="`/${route.name}/${docsList[route.name][previousPageIndex]}`" class="prev">
+                            <h5><span>keyboard_arrow_left</span>{{ t('previous') }}</h5>
+                            <h6>{{ t(`${route.name}.${docsList[route.name][previousPageIndex]}`) }}</h6>
+                        </router-link>
+                    </div>
+                    <router-link v-if="nextPageIndex" :to="`/${route.name}/${docsList[route.name][nextPageIndex]}`"
+                        class="next">
+                        <h5>{{ t('next') }}<span>keyboard_arrow_right</span></h5>
+                        <h6>{{ t(`${route.name}.${docsList[route.name][nextPageIndex]}`) }}</h6>
+                    </router-link>
+                </div>
             </div>
         </div>
     </div>
@@ -77,13 +92,63 @@ const nextPageIndex = computed(() => {
     }
 
     &-content {
-        padding: 2rem 1.5rem 2rem 3rem;
+        padding: 2rem 1.5rem 3rem 3rem;
         overflow-y: scroll;
 
         h1 {
             margin-bottom: 1rem;
             font-size: 2rem;
         }
+    }
+
+    &-edit {
+        display: flex;
+        padding: 0.5rem 0 1.5rem;
+        color: var(--color-highlight);
+        font-size: var(--font-ms);
+        border-bottom: solid 1px var(--color-border);
+
+        span {
+            align-self: flex-start;
+            color: var(--color-highlight);
+            font-family: var(--font-icon);
+            margin-right: 0.5rem;
+        }
+    }
+
+    &-nav {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1.5rem;
+
+        h5 {
+            display: flex;
+            align-items: center;
+            color: var(--color-complement-text);
+            font-size: var(--font-s);
+            user-select: none;
+        }
+
+        span {
+            font-family: var(--font-icon);
+            color: var(--color-complement-text);
+            font-size: var(--font-m);
+        }
+
+        h6 {
+            margin-top: 4px;
+            font-size: var(--font-m);
+            font-weight: 400;
+        }
+
+        .next {
+            text-align: right;
+
+            h5 {
+                justify-content: right;
+            }
+        }
+
     }
 }
 </style>

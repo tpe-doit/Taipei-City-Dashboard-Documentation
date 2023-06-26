@@ -2,6 +2,9 @@ export const en = {
   docs: "Docs",
   "404-desc": "Page Not Found",
   "404-message": "Available articles are listed in the menu",
+  "edit-github": "Edit this Page on Github",
+  previous: "Previous Page",
+  next: "Next Page",
   "front-end": {
     name: "Front End",
     "#getting-started": "Getting Started",
