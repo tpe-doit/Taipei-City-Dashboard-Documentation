@@ -2,6 +2,7 @@
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n'
+import { useAppStore } from '../store/appStore';
 
 import SideBar from '../components/SideBar.vue'
 import DocPageContent from '../components/DocPageContent.vue'
@@ -9,6 +10,7 @@ import { docsList } from '../assets/docsList'
 
 const route = useRoute()
 const { t } = useI18n()
+const appStore = useAppStore()
 const props = defineProps(['id'])
 
 const currentPageIndex = computed(() => {
@@ -25,6 +27,9 @@ const nextPageIndex = computed(() => {
     if (docsList[route.name][currentPageIndex.value + 1][0] === "#") return currentPageIndex.value + 2
     return currentPageIndex.value + 1
 })
+const githubEditLink = computed(() => {
+    return `https://github.com/igorho2000/TUIC-Dashboard-Documentation/edit/main/public/articles/${route.name}-${appStore.lang}/${props.id}.md`
+})
 </script>
 
 <template>
@@ -39,7 +44,8 @@ const nextPageIndex = computed(() => {
             <div v-else class="docpage-content">
                 <h1>{{ t(`${route.name}.${id}`) }}</h1>
                 <DocPageContent :docs="route.name" :id="id" :key="id" />
-                <a class="docpage-edit" href="/"><span>auto_fix_high</span>{{ t('edit-github') }}</a>
+                <a class="docpage-edit" :href="githubEditLink" target="_blank" rel="noreferrer"><span>auto_fix_high</span>{{
+                    t('edit-github') }}</a>
                 <div class="docpage-nav">
                     <div>
                         <router-link v-if="previousPageIndex"

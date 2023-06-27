@@ -4,11 +4,12 @@ import { useI18n } from 'vue-i18n'
 const props = defineProps(['docs', 'docslist'])
 const { t } = useI18n()
 
+const appVersion = import.meta.env.VITE_APP_VERSION
 </script>
 
 <template>
     <aside class="sidebar">
-        <h5>{{ t(`${docs}.name`) }} {{ t('docs') }}</h5>
+        <h5>{{ t(`${docs}.name`) }} {{ t("docs") }} <code>{{ appVersion }}</code></h5>
         <div v-for="item in docslist" :key="item">
             <h6 v-if="item[0] === '#'">{{ t(`${docs}.${item}`) }}</h6>
             <router-link v-else :to="`/${docs}/${item}`">{{ t(`${docs}.${item}`) }}</router-link>
@@ -26,6 +27,15 @@ const { t } = useI18n()
     h5 {
         font-size: var(--font-m);
         user-select: none;
+
+        code {
+            font-family: var(--font-code);
+            font-weight: 400;
+            background-color: var(--color-component-background);
+            padding: 2px 4px;
+            border-radius: 5px;
+            color: var(--color-normal-text)
+        }
     }
 
     h6 {

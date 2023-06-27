@@ -60,10 +60,10 @@ Regardless of type, all component configurations (Object) are stored in a single
     }
 ```
 > **i02**
-> If the component has geographical data, pass in a map configuration object. If not, pass in null. The map configuration object will be explained in greater detail in [this later article](/front-end/supported-map-types).
+> If the component has geographical data, pass in a map configuration object. If not, pass in null. The map configuration object will be explained in greater detail in [this later article](/front-end/supported-map-types#map-config).
 
 > **i03**
-> All normal components have statistical data and a chart configuration object should be included in the component configuration. The chart configuration object will be explained in greater detail in [this later article](/front-end/supported-chart-types).
+> All normal components have statistical data and a chart configuration object should be included in the component configuration. The chart configuration object will be explained in greater detail in [this later article](/front-end/supported-chart-types#chart-config).
 
 > **i04**
 > All dates should be in the following format: `YYYY-MM-DDThh:mm:ssTZD` (e.g. 2023-06-16T18:20:00+08:00)

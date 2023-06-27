@@ -41,6 +41,13 @@ const parsedDoctext = computed(() => {
             const toBeCopied = code.replaceAll(`"`, `\'`)
             return `<pre><button onclick="navigator.clipboard.writeText(\`${toBeCopied}\`)">content_paste</button><code class="language-${infostring}">${code}</code></pre>`
         },
+        heading(text, level, raw, slugger) {
+            if (level >= 4) {
+                return `<h${level}>${text}</h${level}>`
+            }
+            const headingId = text.toLowerCase().replaceAll(' ', '-')
+            return `<h${level} id="${headingId}">${text} <a href="/${props.docs}/${props.id}#${headingId}">#</a></h${level}>`
+        },
         link(href, title, text) {
             if (href.includes('http')) {
                 return `<a href="${href}" target='_blank'>${text}</a>`
@@ -93,6 +100,22 @@ onMounted(() => {
         font-weight: 400;
     }
 
+    h2,
+    h3 {
+        a {
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        &:hover a {
+            opacity: 1;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+
     p {
         font-size: var(--font-m);
         margin-bottom: 1.5rem;
@@ -106,11 +129,17 @@ onMounted(() => {
 
     a {
         color: var(--color-highlight);
+        transition: opacity 0.2s;
+
+        &:hover {
+            opacity: 0.7;
+        }
     }
 
     img {
-        width: 70%;
-        margin-left: 15%;
+        width: 90%;
+        margin-left: 5%;
+        border-radius: 5px;
     }
 
     code {
