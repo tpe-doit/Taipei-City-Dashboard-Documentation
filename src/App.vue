@@ -24,7 +24,8 @@ onMounted(() => {
 <style scoped>
 .app {
   background-color: var(--color-background);
-  min-height: 100vh;
+  height: 100%;
+  max-height: 100vh;
   min-width: 100vw;
   overflow-x: hidden;
 }

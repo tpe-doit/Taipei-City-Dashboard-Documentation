@@ -85,12 +85,12 @@ input:focus {
   border-radius: 10px;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 850px) {
   .show-if-mobile {
     display: none !important;
   }
 }
-@media (max-width: 1000px) {
+@media (max-width: 850px) {
   .hide-if-mobile {
     display: none !important;
   }

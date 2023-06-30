@@ -34,6 +34,8 @@ Below is a reference of English and Mandarin names for all chart types.
 ```
 >**i01**
 >Charts are always referenced in English Pascal Case in the codebase, while all chart names displayed in the user interface are in Mandarin.
+>
+>The English-Mandarin reference file is located in `/src/assets/configs/apexcharts` as `chartTypes.js`.
 
 ### Bar Chart
 Bar charts are usually utilized when there is a long list of data that needs to be displayed.

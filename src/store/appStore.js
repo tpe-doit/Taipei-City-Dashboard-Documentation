@@ -2,9 +2,10 @@ import { defineStore } from "pinia";
 
 export const useAppStore = defineStore("app", {
   state: () => ({
-    mode: localStorage.getItem("mode") || "dark",
+    mode: localStorage.getItem("mode") || "light",
     lang: localStorage.getItem("lang") || "en",
     docs: null,
+    sidebar: false,
   }),
   getters: {},
   actions: {
@@ -18,6 +19,9 @@ export const useAppStore = defineStore("app", {
         this.lang === "en"
           ? "Docs | Taipei City Dashboard"
           : "文件｜城市聯合儀表板";
+    },
+    toggleSidebar(mode) {
+      this.sidebar = mode;
     },
   },
 });

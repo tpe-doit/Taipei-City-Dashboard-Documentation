@@ -35,13 +35,16 @@ const githubEditLink = computed(() => {
 <template>
     <div class="docpage">
         <div class="docpage-positioner">
+            <button class="docpage-menu-button show-if-mobile" @click="appStore.toggleSidebar(true)">
+                <span>menu</span>{{ t('menu') }}
+            </button>
             <SideBar :docs="route.name" :docslist="docsList[route.name]" />
             <div v-if="currentPageIndex === -1" class="docpage-notfound">
                 <h1>404</h1>
                 <h2>{{ t('404-desc') }}</h2>
                 <p>{{ t('404-message') }}</p>
             </div>
-            <div v-else class="docpage-content">
+            <div v-else class="docpage-content" @click="appStore.toggleSidebar(false)">
                 <h1>{{ t(`${route.name}.${id}`) }}</h1>
                 <DocPageContent :docs="route.name" :id="id" :key="id" />
                 <a class="docpage-edit" :href="githubEditLink" target="_blank" rel="noreferrer"><span>auto_fix_high</span>{{
@@ -72,14 +75,40 @@ const githubEditLink = computed(() => {
     width: 100%;
     height: calc(100vh - 60px);
 
+    @media screen and (max-width: 850px) {
+        height: calc(100% - 60px);
+    }
+
     &-positioner {
         width: 100%;
         height: 100%;
         display: grid;
         grid-template-columns: 224px 1fr;
 
+        @media screen and (max-width: 850px) {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 2.5rem 1fr;
+        }
+
         @media screen and (min-width: 1200px) {
             width: 1200px
+        }
+    }
+
+    &-menu-button {
+        display: flex;
+        align-items: center;
+        font-size: var(--font-m);
+        padding: 0.5rem 0 0 1.5rem;
+        color: var(--color-complement-text);
+        cursor: pointer;
+        width: fit-content;
+
+        span {
+            margin-right: 4px;
+            font-family: var(--font-icon);
+            color: var(--color-complement-text);
         }
     }
 
@@ -104,6 +133,11 @@ const githubEditLink = computed(() => {
         h1 {
             margin-bottom: 1rem;
             font-size: 2rem;
+        }
+
+        @media screen and (max-width: 850px) {
+            padding: 0 1.5rem 3rem 1.5rem;
+            height: calc(100vh - 210px);
         }
     }
 

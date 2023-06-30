@@ -38,7 +38,7 @@ const parsedDoctext = computed(() => {
             }
         },
         code(code, infostring, escaped) {
-            const toBeCopied = code.replaceAll(`"`, `\'`)
+            const toBeCopied = code.replaceAll(`"`, `&quot;`)
             return `<pre><button onclick="navigator.clipboard.writeText(\`${toBeCopied}\`)">content_paste</button><code class="language-${infostring}">${code}</code></pre>`
         },
         heading(text, level, raw, slugger) {
@@ -46,7 +46,7 @@ const parsedDoctext = computed(() => {
                 return `<h${level}>${text}</h${level}>`
             }
             const headingId = text.toLowerCase().replaceAll(' ', '-')
-            return `<h${level} id="${headingId}">${text} <a href="/${props.docs}/${props.id}#${headingId}">#</a></h${level}>`
+            return `<h${level} id="${headingId}">${text} <a href="#${headingId}" class="hide-if-mobile">#</a></h${level}>`
         },
         link(href, title, text) {
             if (href.includes('http')) {
@@ -60,7 +60,7 @@ const parsedDoctext = computed(() => {
         }
     };
     marked.use({ renderer, mangle: false, headerIds: false })
-    return marked.parse(doctext.value)
+    return marked.parse(doctext.value.replace(/^[\u200B\u200C\u200D\u200E\u200F\uFEFF]/, ""))
 })
 
 onMounted(() => {
@@ -140,6 +140,11 @@ onMounted(() => {
         width: 90%;
         margin-left: 5%;
         border-radius: 5px;
+
+        @media screen and (max-width: 850px) {
+            width: 100%;
+            margin-left: 0;
+        }
     }
 
     code {
@@ -164,20 +169,28 @@ onMounted(() => {
             font-family: var(--font-icon);
             font-size: var(--font-l);
             color: var(--color-complement-text);
-            transition: color 0.2s;
+            transition: color 0.2s, font-size 0.2s;
+
+            &::before {
+                font-family: "微軟正黑體", "Microsoft JhengHei", "Droid Sans", "Open Sans", "Helvetica";
+                content: "Copied!";
+                font-size: var(--font-s);
+                margin: 4px 4px 0;
+                opacity: 0;
+                transition: opacity 0.2s;
+                color: var(--color-normal-text);
+            }
 
             &:hover {
                 color: var(--color-normal-text)
             }
 
             &:focus {
-                color: var(--color-normal-text);
+                font-size: 0;
+                color: transparent;
 
                 &::before {
-                    font-family: "微軟正黑體", "Microsoft JhengHei", "Droid Sans", "Open Sans", "Helvetica";
-                    content: "copied!";
-                    font-size: var(--font-s);
-                    margin-right: 4px;
+                    opacity: 1;
                 }
             }
         }
