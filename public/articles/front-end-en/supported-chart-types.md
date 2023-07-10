@@ -7,9 +7,15 @@ To correctly render chart data, several parameters need to be set and passed int
     "color": ["#9c7a3e", …], // Array of Strings; Pass in at least one hex color code
     "types": ["BarPercentChart", …], // Array of Strings; Pass in 1-3 chart names
     "unit": "棟", // String || null; Unit of the data points
-    "categories": [] // Array of Strings || null; Required for 3D and guage data
+    "categories": [], // Array of Strings || null; Required for 3D and guage data
+    "map_filter": ["key", ["filter1", "filter2"]] // Array || null; See 1st info box below for details
 },
 ```
+
+>**i01**
+>The map filter parameter holds a configuration array that enables the chart to filter the map attached to the component. This [later article](/front-end/map-filtering) will dive deeper into how the mechanism works. 
+>
+>It is recommended to finish reading about chart types and map types before proceeding to that article.
 
 ## Chart Types
 As mentioned in [this previous article](/front-end/prerequisites#apexcharts), most charts displayed in this project are rendered using Apexcharts with the exception of Metro Charts and District Charts. 
@@ -32,7 +38,7 @@ Below is a reference of English and Mandarin names for all chart types.
     MetroChart: "捷運行駛圖"
 };
 ```
->**i01**
+>**i02**
 >Charts are always referenced in English Pascal Case in the codebase, while all chart names displayed in the user interface are in Mandarin.
 >
 >The English-Mandarin reference file is located in `/src/assets/configs/apexcharts` as `chartTypes.js`.

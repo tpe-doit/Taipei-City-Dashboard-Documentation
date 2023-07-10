@@ -1,5 +1,5 @@
 ## Overview
-Components are collections of data that make up dashboards. All components, with the exception of map layers components, contain statistical data that can be displayed in a chart or graphical form. Components can also optionally contain geographical and historical data.
+Components are collections of data that make up dashboards. All components, with the exception of map layer components, contain statistical data that can be displayed in a chart or graphical form. Components can also optionally contain geographical and historical data.
 
 ### Map Layers
 Map layer components are components that only contain geographical data. As mentioned in the previous section, map layer components are aggregated and displayed in the map layers dashboard.
@@ -16,6 +16,7 @@ Regardless of type, all component configurations (Object) are stored in a single
       "id": 7, // Number; ID number
       "index": "patrol_criminalcase", // String; index
       "history_data": false, // Boolean; whether historical data is available
+      "history_data_color": null, // Array || null; of hex color codes, defaults to chart colors
       "map_config": null, // Object || null; see 2nd info box below for details
       "Chart_config": {
        },  // Object; see 3rd info box below for details
@@ -60,7 +61,7 @@ Regardless of type, all component configurations (Object) are stored in a single
     }
 ```
 > **i02**
-> If the component has geographical data, pass in a map configuration object. If not, pass in null. The map configuration object will be explained in greater detail in [this later article](/front-end/supported-map-types#map-config).
+> If the component has geographical data, pass in a map configuration object. If not, pass in `null`. The map configuration object will be explained in greater detail in [this later article](/front-end/supported-map-types#map-config).
 
 > **i03**
 > All normal components have statistical data and a chart configuration object should be included in the component configuration. The chart configuration object will be explained in greater detail in [this later article](/front-end/supported-chart-types#chart-config).

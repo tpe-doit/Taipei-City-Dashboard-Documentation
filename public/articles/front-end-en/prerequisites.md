@@ -1,5 +1,5 @@
 ## Development Environment
-Windows or macOS are the recommended operating systems for this project. [Node.js version 16](https://nodejs.org/en) or above is also required.
+Windows or macOS is the recommended operating system for this project. [Node.js version 16](https://nodejs.org/en) or above is also required.
 
 ## Core Libraries and Packages
 ### Vue
@@ -9,10 +9,10 @@ The frontend framework of choice for this project is Vue. This project was writt
 The documentation for Vue-router can be found [here](https://router.vuejs.org/guide/).
 
 ### Pinia
-Per Vue’s official recommendation, global state management was implemented using Pinia instead of Vuex. The documentation for Pinia can be found [here](https://pinia.vuejs.org/introduction.html).
+As per Vue’s official recommendation, global state management was implemented using Pinia instead of Vuex. The documentation for Pinia can be found [here](https://pinia.vuejs.org/introduction.html).
 
 ### Apexcharts
 Apexcharts is used for most charts in this project. The documentation for Apexcharts can be found [here](https://apexcharts.com/docs).
 
 ### Mapbox
-Mapbox is a powerful mapping tool that builds on top of open street map. The documentation for Mapbox can be found [here](https://docs.mapbox.com/mapbox-gl-js/).
+Mapbox is a powerful mapping tool that builds on top of OpenStreetMap. The documentation for Mapbox can be found [here](https://docs.mapbox.com/mapbox-gl-js/).

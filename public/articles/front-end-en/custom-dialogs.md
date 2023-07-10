@@ -16,6 +16,7 @@ dialogs: { // One of the states of the dialogStore
     notificationBar: false,
     reportIssue: false,
     userSettings: false,
+    downloadData: false,
 },
 ```
 

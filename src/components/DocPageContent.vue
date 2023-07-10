@@ -18,21 +18,21 @@ const parsedDoctext = computed(() => {
             if (quote[11] === "i") {
                 quote = quote.slice(23)
                 return `<blockquote class="info">
-                    <h4>Information - ${no}</h4>
+                    <h4>${appStore.lang === "en" ? "Information" : "資訊"} - ${no}</h4>
                     <p>${quote}
                     </blockquote>`
             }
             else if (quote[11] === "w") {
                 quote = quote.slice(23)
                 return `<blockquote class="warning">
-                    <h4>Warning - ${no}</h4>
+                    <h4>${appStore.lang === "en" ? "Warning" : "警告"} - ${no}</h4>
                     <p>${quote}
                     </blockquote>`
             }
             else if (quote[11] === "t") {
                 quote = quote.slice(23)
                 return `<blockquote class="tip">
-                    <h4>Tip - ${no}</h4>
+                    <h4>${appStore.lang === "en" ? "Tip" : "小撇步"} - ${no}</h4>
                     <p>${quote}
                     </blockquote>`
             }
@@ -69,6 +69,13 @@ onMounted(() => {
         setTimeout(() => {
             hljs.highlightAll();
         }, 50)
+    }).catch((err) => {
+        axios.get(`/articles/${props.docs}-en/${props.id}.md`).then(rs => {
+            doctext.value = rs.data
+            setTimeout(() => {
+                hljs.highlightAll();
+            }, 50)
+        })
     })
 })
 

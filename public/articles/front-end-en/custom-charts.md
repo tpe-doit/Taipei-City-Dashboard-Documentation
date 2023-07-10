@@ -13,15 +13,17 @@ If a component contains more than 1 chart type, gray buttons with chart names wi
 >If you are unfamiliar with how Apexcharts works in Vue, please be sure to read through Apexchart's [documentation](https://apexcharts.com/docs/vue-charts/) on the topic before continuing.
 
 ### Anatomy of a Chart Vue Component
-All chart Vue components accept three props: `“activeChart”`, `“chart_config”`, and `“series”`. `activeChart` informs the chart Vue component whether it should be rendered; `chart_config` contains aesthetic details that specify how the chart should be rendered; `series` contains chart data.
+All chart Vue components accept three props: `“activeChart”`, `“chart_config”`, `“series”`, and `“map_config”`. `activeChart` informs the chart Vue component whether it should be rendered; `chart_config` contains aesthetic details that specify how the chart should be rendered; `series` contains chart data; `"map_config"` allows the chart to control maps attached to the same component.
 
 The following is a breakdown of a typical chart Vue component that is based on apexcharts.
 ```html
 &lt;script setup&gt;
 import { computed, ref } from 'vue'
+import { useMapStore } from '../../store/mapStore';
 
-// register the three required props
-const props = defineProps(['chart_config', 'activeChart', 'series'])
+// register the four required props
+const props = defineProps(['chart_config', 'activeChart', 'series', 'map_config'])
+const mapStore = useMapStore()
 
 // Optional.
 // a few charts require this to achieve interoperability between chart types.
@@ -40,6 +42,15 @@ const chartOptions = ref({
     labels: props.chart_config.categories ? props.chart_config.categories : [],
     ...
 })
+
+// Optional
+// Required for charts that support map filtering
+const selectedIndex = ref(null)
+
+function handleDataSelection(e, chartContext, config) {
+    // Refer to the codebase for the complete function
+    ...
+}
 &lt;/script&gt;
 
 &lt;template&gt;
@@ -48,12 +59,14 @@ const chartOptions = ref({
         &lt;!-- type: apexcharts chart type. May differ from chart name in this project --&gt;
         &lt;!-- options: pass in chartOptions --&gt;
         &lt;!-- series: pass in series or parsed series --&gt;
+        &lt;!-- dataPointSelection: if map filtering is supported --&gt;
         &lt;apexchart 
             width=&quot;80%&quot; 
             height=&quot;300px&quot; 
             type=&quot;radialBar&quot; 
             :options=&quot;chartOptions&quot; 
-            :series=&quot;parseSeries.series&quot;&gt;
+            :series=&quot;parseSeries.series&quot;
+            @dataPointSelection=&quot;handleDataSelection&quot;&gt;
         &lt;/apexchart&gt;
     &lt;/div&gt;
 &lt;/template&gt;
@@ -63,14 +76,28 @@ The following is a breakdown of a typical chart Vue component that is custom-bui
 
 ```html
 &lt;script setup&gt;
-// register the three required props
-const props = defineProps(['chart_config', 'activeChart', 'series'])
+import { computed, ref } from 'vue'
+import { useMapStore } from '../../store/mapStore';
+
+// register the four required props
+const props = defineProps(['chart_config', 'activeChart', 'series', 'map_config'])
+const mapStore = useMapStore()
+
+// Optional
+// Required for charts that support map filtering
+const selectedIndex = ref(null)
+
+function handleDataSelection(index) {
+    // Refer to the codebase for the complete function
+    ...
+}
 &lt;/script&gt;
 
 &lt;template&gt;
     &lt;!-- conditionally render the chart --&gt;
     &lt;div v-if=&quot;activeChart === 'MetroChart'&quot; class=&quot;metrochart&quot;&gt;
         &lt;!-- The layout of the chart Vue component --&gt;
+        &lt;!-- Utilize the @click event listener to enable map filtering by data selection --&gt;
     &lt;/div&gt;
 &lt;/template&gt;
 

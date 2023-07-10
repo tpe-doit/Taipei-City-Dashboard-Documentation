@@ -50,4 +50,4 @@ The fill-extrusion map type protrudes a 3D rendering of polygons from the map. T
 The line map type renders lines onto the map. Size variations include `wide`. Icon variations include `dash` which renders dashed lines instead of solid ones.
 
 ### Symbol
-The symbol map type renders points as icons. For symbol maps, the icon parameter must be passed into the map config. Available icons include `metro`, `triangle_green`, `triangle_white`, `youbike`, and `bus`.
+The symbol map type renders points as icons. For symbol maps, the icon parameter must be passed into the map config. Available icons include `metro`, `metro-density`, `triangle_green`, `triangle_white`, `youbike`, and `bus`.

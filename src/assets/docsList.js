@@ -17,6 +17,7 @@ export const docsList = {
     "supported-chart-types",
     "map-data",
     "supported-map-types",
+    "map-filtering",
     "#customization",
     "customization-overview",
     "custom-styling",

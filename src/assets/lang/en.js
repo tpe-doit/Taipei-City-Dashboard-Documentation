@@ -25,7 +25,7 @@ export const en = {
     "supported-chart-types": "Supported Chart Types",
     "map-data": "Map Data",
     "supported-map-types": "Supported Map Types",
-    "map-legend-charts": "Map Legend Charts",
+    "map-filtering": "Map Filtering",
     "#customization": "Customization",
     "customization-overview": "Customization Overview",
     "custom-styling": "Custom Styling",
