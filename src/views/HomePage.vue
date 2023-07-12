@@ -1,0 +1,322 @@
+<script setup>
+import { computed, onMounted, onUnmounted, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { useAppStore } from '../store/appStore';
+
+const { t } = useI18n();
+const appStore = useAppStore();
+
+const currentImg = ref(1);
+const lastImg = 6;
+
+onMounted(() => {
+	const switchImg = setInterval(() => {
+		if (currentImg.value === lastImg) {
+			return currentImg.value = 1;
+		}
+		currentImg.value += 1;
+		return;
+	}, 2500);
+});
+</script>
+
+<template>
+	<div class="homepage">
+		<div class="homepage-positioner">
+			<div class="homepage-header">
+				<div class="homepage-header-title">
+					<h1>{{ t('dashboard') }}</h1>
+					<h2>{{ t('dashboard-tagline') }}</h2>
+					<div>
+						<a :href="appStore.lang === 'en' ? 'https://www.youtube.com/watch?v=kJsIsQ_3uLc' : 'https://www.youtube.com/watch?v=07FODlTV74g'"
+							target="_blank" rel="noreferrer"><button class="gray">About
+								Us<span>play_circle</span></button></a>
+						<a href="https://dashboard-ver2-test.web.app/" target="_blank" rel="noreferrer"><button>Live
+								Demo</button></a>
+					</div>
+				</div>
+				<div class="homepage-header-image">
+					<img :class="`homepage-header-image-${currentImg}`" :src="`/images/home/home${currentImg}.png`">
+				</div>
+			</div>
+			<hr />
+			<div class="homepage-nav">
+				<div class="homepage-nav-card">
+					<h3>Front End Docs</h3>
+					<p>Last Updated: 23/07/12</p>
+					<h4>User Interface, Charts, Maps, etc.</h4>
+					<div>
+						<a><button class="github">Github<img src="../assets/images/github-mark.svg" /></button></a>
+						<router-link to="/front-end"><button>Get Started<span>east</span></button></router-link>
+					</div>
+				</div>
+				<div class="homepage-nav-card">
+					<h3>Back End Docs</h3>
+					<p>Coming Soon...</p>
+					<h4>Systems, data storage, user auth, etc.</h4>
+					<div>
+						<a><button class="github">Github<img src="../assets/images/github-mark.svg" /></button></a>
+					</div>
+				</div>
+			</div>
+			<br />
+			<br />
+			<br />
+			<br />
+			<!-- <hr />
+			<div class="homepage-footer">
+				<div></div>
+			</div> -->
+		</div>
+	</div>
+</template>
+
+<style scoped lang="scss">
+.homepage {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: calc(100vh - 60px);
+	max-height: calc(100vh - 60px);
+	overflow-y: scroll;
+
+	@media screen and (max-width: 850px) {
+		height: calc(100% - 60px);
+	}
+
+	&-positioner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 0 2rem;
+		width: 100%;
+		height: fit-content;
+
+		@media screen and (min-width: 1200px) {
+			width: 1200px
+		}
+	}
+
+	hr {
+		margin: 3rem 0;
+		width: 100%;
+		height: 0;
+		border: none;
+		border-top: 1px dashed var(--color-border);
+	}
+
+	&-header {
+		display: grid;
+		grid-template-columns: 3fr 400px;
+		column-gap: 2rem;
+		width: calc(100% - 3rem);
+		margin-top: 3rem;
+		padding-right: 3rem;
+
+		@media screen and (max-width: 1000px) {
+			grid-template-columns: 3fr 350px;
+			margin-top: 1.5rem;
+		}
+
+		@media screen and (max-width: 900px) {
+			width: 100%;
+			grid-template-columns: 1fr;
+			margin-top: 3rem;
+			padding-right: 0;
+		}
+
+		&-title {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+
+
+			h1 {
+				font-size: 4rem;
+				text-align: center;
+				background: linear-gradient(75deg, var(--color-complement-text), var(--color-highlight) 85%);
+				background-clip: text;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+
+				@media screen and (max-width: 550px) {
+					font-size: 2.8rem;
+				}
+			}
+
+			h2 {
+				margin: 1rem 0 1.5rem;
+				font-size: 1.8rem;
+				font-weight: 400;
+				text-align: center;
+				color: #aeaeae;
+
+				@media screen and (max-width: 550px) {
+					font-size: 1.3rem;
+					margin-top: 0.5rem;
+				}
+			}
+
+			div {
+				display: flex;
+				justify-content: center;
+			}
+		}
+
+		&-image {
+			background-color: #282a2c;
+			border-radius: 5px;
+
+			@media screen and (max-width: 1000px) {
+				margin: 3rem calc((100% - 350px) / 2) 0;
+			}
+
+			@media screen and (max-width: 550px) {
+				margin: 3rem calc((100% - 300px) / 2) 0;
+			}
+
+			img {
+				width: 400px;
+				border-radius: 5px;
+
+				@media screen and (max-width: 1000px) {
+					width: 350px;
+				}
+
+				@media screen and (max-width: 550px) {
+					width: 300px;
+				}
+			}
+
+			@for $i from 1 through 10 {
+				&-#{$i} {
+					animation-name: fadeout;
+					animation-duration: 2.5s;
+					animation-iteration-count: infinite;
+				}
+			}
+		}
+	}
+
+	&-nav {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		column-gap: 2rem;
+		padding: 0 1rem;
+
+		@media screen and (max-width: 1200px) {
+			grid-template-columns: 450px 450px;
+		}
+
+		@media screen and (max-width: 1050px) {
+			grid-template-columns: 400px 400px;
+		}
+
+		@media screen and (max-width: 900px) {
+			grid-template-columns: 500px;
+			row-gap: 2rem;
+		}
+
+		@media screen and (max-width: 550px) {
+			grid-template-columns: 320px;
+		}
+
+		&-card {
+			background-color: var(--color-component-background);
+			border-radius: 5px;
+			padding: var(--font-l);
+			margin: 1rem 0;
+			transition: box-shadow 0.2s;
+
+			@media screen and (max-width: 900px) {
+				margin: 0
+			}
+
+			&:hover {
+				box-shadow: 0 0 5px var(--color-complement-text);
+			}
+
+			h3 {
+				font-size: var(--font-xl);
+			}
+
+			p {
+				font-size: 0.9rem;
+				color: var(--color-complement-text)
+			}
+
+			h4 {
+				margin: 1.5rem 0 2rem;
+				font-size: var(--font-l);
+				font-weight: 400;
+			}
+
+
+
+			div {
+				display: flex;
+				justify-content: flex-end;
+			}
+
+
+		}
+	}
+
+	span {
+		margin-left: 4px;
+		color: white;
+		font-family: var(--font-icon);
+	}
+
+	button {
+		display: flex;
+		align-items: center;
+		margin-left: 8px;
+		padding: 6px;
+		border-radius: 5px;
+		background-color: var(--color-highlight);
+		color: white;
+		font-size: var(--font-m);
+		transition: opacity 0.2s;
+
+		&.gray {
+			background-color: var(--color-complement-text);
+		}
+
+		&.github {
+			border: 2px solid var(--color-normal-text);
+			background-color: transparent;
+			padding: 4px;
+			color: var(--color-normal-text);
+
+			img {
+				margin-left: 4px;
+				filter: var(--img-filter);
+				height: var(--font-m);
+			}
+		}
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+}
+
+@keyframes fadeout {
+	0% {
+		opacity: 0;
+	}
+
+	10% {
+		opacity: 1;
+	}
+
+	90% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+</style>

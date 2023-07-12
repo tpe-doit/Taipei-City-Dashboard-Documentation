@@ -30,9 +30,9 @@ export const docsList = {
     "contribution-overview",
     "style-guide",
     "data-sources-and-cleaning",
-    "registering-a-new-chart-type",
-    "registering-a-new-map-type",
-    "registering-a-new-component",
     "open-an-issue",
+    "adding-a-new-feature",
+    "registering-a-new-component",
+    "open-a-pull-request",
   ],
 };
