@@ -16,7 +16,7 @@ onMounted(() => {
 		}
 		currentImg.value += 1;
 		return;
-	}, 2500);
+	}, 2800);
 });
 </script>
 
@@ -29,33 +29,35 @@ onMounted(() => {
 					<h2>{{ t('dashboard-tagline') }}</h2>
 					<div>
 						<a :href="appStore.lang === 'en' ? 'https://www.youtube.com/watch?v=kJsIsQ_3uLc' : 'https://www.youtube.com/watch?v=07FODlTV74g'"
-							target="_blank" rel="noreferrer"><button class="gray">About
-								Us<span>play_circle</span></button></a>
-						<a href="https://dashboard-ver2-test.web.app/" target="_blank" rel="noreferrer"><button>Live
-								Demo</button></a>
+							target="_blank" rel="noreferrer"><button class="gray">{{ t('about-us')
+							}}<span>play_circle</span></button></a>
+						<a href="https://dashboard-ver2-test.web.app/" target="_blank" rel="noreferrer"><button>{{ t('demo')
+						}}</button></a>
 					</div>
 				</div>
 				<div class="homepage-header-image">
-					<img :class="`homepage-header-image-${currentImg}`" :src="`/images/home/home${currentImg}.png`">
+					<img :src="`/images/home/home${currentImg}.png`">
 				</div>
 			</div>
 			<hr />
 			<div class="homepage-nav">
 				<div class="homepage-nav-card">
-					<h3>Front End Docs</h3>
-					<p>Last Updated: 23/07/12</p>
-					<h4>User Interface, Charts, Maps, etc.</h4>
+					<h3>{{ t('front-end.name') }}{{ t('docs') }}</h3>
+					<p>{{ t('last-updated') }}: 23/07/12</p>
+					<h4>{{ t('front-end.desc') }}</h4>
 					<div>
-						<a><button class="github">Github<img src="../assets/images/github-mark.svg" /></button></a>
-						<router-link to="/front-end"><button>Get Started<span>east</span></button></router-link>
+						<a><button class="github">{{ t('github') }}<img
+									src="../assets/images/github-mark.svg" /></button></a>
+						<router-link to="/front-end"><button>{{ t('get-started') }}<span>east</span></button></router-link>
 					</div>
 				</div>
 				<div class="homepage-nav-card">
-					<h3>Back End Docs</h3>
-					<p>Coming Soon...</p>
-					<h4>Systems, data storage, user auth, etc.</h4>
+					<h3>{{ t('back-end.name') }}{{ t('docs') }}</h3>
+					<p>{{ t('coming-soon') }}</p>
+					<h4>{{ t('back-end.desc') }}</h4>
 					<div>
-						<a><button class="github">Github<img src="../assets/images/github-mark.svg" /></button></a>
+						<a><button class="github">{{ t('github') }}<img
+									src="../assets/images/github-mark.svg" /></button></a>
 					</div>
 				</div>
 			</div>
@@ -186,17 +188,14 @@ onMounted(() => {
 				@media screen and (max-width: 550px) {
 					width: 300px;
 				}
-			}
 
-			@for $i from 1 through 10 {
-				&-#{$i} {
-					animation-name: fadeout;
-					animation-duration: 2.5s;
-					animation-iteration-count: infinite;
-				}
+				// animation-name: fadeout;
+				// animation-duration: 2.8s;
+				// animation-iteration-count: infinite;
 			}
 		}
 	}
+
 
 	&-nav {
 		display: grid;
@@ -307,12 +306,20 @@ onMounted(() => {
 		opacity: 0;
 	}
 
-	10% {
+	5% {
+		opacity: 0;
+	}
+
+	15% {
 		opacity: 1;
 	}
 
-	90% {
+	75% {
 		opacity: 1;
+	}
+
+	85% {
+		opacity: 0;
 	}
 
 	100% {

@@ -10,7 +10,7 @@ const appVersion = import.meta.env.VITE_APP_VERSION;
 </script>
 
 <template>
-	<aside :class="{ sidebar: true, 'sidebar-open': appStore.sidebar }">
+	<aside :class="{ sidebar: true, 'sidebar-open': appStore.sidebar, 'sidebar-mobile': appStore.isMobileDevice }">
 		<h5>{{ t(`${docs}.name`) }}{{ t("docs") }} <code>{{ appVersion }}</code></h5>
 		<div v-for="item in docslist" :key="item">
 			<h6 v-if="item[0] === '#'">{{ t(`${docs}.${item}`) }}</h6>
@@ -23,8 +23,13 @@ const appVersion = import.meta.env.VITE_APP_VERSION;
 <style scoped lang="scss">
 .sidebar {
 	width: 200px;
+	height: calc(100vh - 120px);
 	padding: 2rem 0 2rem 1.5rem;
 	overflow-y: scroll;
+
+	&-mobile {
+		height: calc(100vh - 180px);
+	}
 
 	@media screen and (max-width: 850px) {
 		position: absolute;

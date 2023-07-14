@@ -1,6 +1,12 @@
 export const ch = {
 	dashboard: "城市運行儀表板",
 	"dashboard-tagline": "讓我們的儀表板，成為您的儀表板",
+	"about-us": "關於我們",
+	demo: "前往體驗版",
+	"last-updated": "上次更新",
+	"coming-soon": "即將上架",
+	github: "前往Github",
+	"get-started": "前往文件",
 	docs: "文件",
 	"404-desc": "本頁面不存在",
 	"404-message": "請於左側文章列表尋找文章",
@@ -10,6 +16,7 @@ export const ch = {
 	menu: "選單",
 	"front-end": {
 		name: "前端",
+		desc: "用戶介面、各式圖表、精美地圖等",
 		"#getting-started": "入門指南",
 		introduction: "儀表板簡介",
 		prerequisites: "核心科技與必備知識",
@@ -38,11 +45,16 @@ export const ch = {
 		"create-a-dynamic-application": "轉為動態網頁",
 		"#contribution-guide": "協作指南",
 		"contribution-overview": "協作方式概覽",
-		"style-guide": "風格指南",
+		"code-style": "程式撰寫規範",
+		"design-guide": "設計指南",
 		"data-sources-and-cleaning": "資料來源與清理",
 		"open-an-issue": "開立Issue",
 		"adding-a-new-feature": "新增新功能",
 		"registering-a-new-component": "新增新組件",
 		"open-a-pull-request": "開立Pull Request",
+	},
+	"back-end": {
+		name: "後端",
+		desc: "系統設定、數據存儲、用戶驗證等",
 	},
 };

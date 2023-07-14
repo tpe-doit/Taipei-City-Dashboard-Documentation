@@ -1,6 +1,12 @@
 export const en = {
 	dashboard: "Taipei City Dashboard",
 	"dashboard-tagline": "Our Dashboard, Made Yours",
+	"about-us": "About Us",
+	demo: "Live Demo",
+	"last-updated": "Last Updated",
+	"coming-soon": "Coming Soon",
+	github: "Github",
+	"get-started": "Get Started",
 	docs: " Docs",
 	"404-desc": "Page Not Found",
 	"404-message": "Available articles are listed in the menu",
@@ -10,6 +16,7 @@ export const en = {
 	menu: "Menu",
 	"front-end": {
 		name: "Front End",
+		desc: "User Interface, Charts, Maps, etc.",
 		"#getting-started": "Getting Started",
 		introduction: "Introduction",
 		prerequisites: "Prerequisites",
@@ -38,11 +45,16 @@ export const en = {
 		"create-a-dynamic-application": "Create a Dynamic Application",
 		"#contribution-guide": "Contribution Guide",
 		"contribution-overview": "Contribution Overview",
-		"style-guide": "Style Guide",
+		"code-style": "Code Style",
+		"design-guide": "Design Guide",
 		"data-sources-and-cleaning": "Data Sources and Cleaning",
 		"adding-a-new-feature": "Adding a New Feature",
 		"registering-a-new-component": "Registering a New Component",
 		"open-a-pull-request": "Open a Pull Request",
 		"open-an-issue": "Open an Issue",
+	},
+	"back-end": {
+		name: "Back End ",
+		desc: "Systems, data storage, user auth, etc.",
 	},
 };

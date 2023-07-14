@@ -4,7 +4,7 @@ With the exception of elements rendered by third-party packages (charts and maps
 If you are interested in styling charts (Apexcharts) and maps (Mapbox), please refer to the [Custom Charts](/front-end/custom-charts) and [Custom Maps](/front-end/custom-charts) articles.
 
 >**w01**
->For contributors, please note that when modifying this project, there are certain global and local styles that we don’t allow to be modified. In addition, there are also certain style guidelines put in place that you should follow if you would like to contribute new elements to this project. Be sure to read through our [Style Guide](/front-end/style-guide) in the next section.
+>For contributors, please note that when modifying this project, there are certain global and local styles that we don’t allow to be modified. In addition, there are also certain style guidelines put in place that you should follow if you would like to contribute new elements to this project. Be sure to read through our [Design Guide](/front-end/design-guide) in the next section.
 
 ## Global Styles
 Global styles include base styles for `HTML` elements and styles that are shared across Vue components. All global styles were written in `css` and can be found in the folder `/src/assets/styles`.
