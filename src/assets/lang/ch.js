@@ -37,7 +37,7 @@ export const ch = {
 		"map-filtering": "篩選地圖",
 		"#customization": "客製化指南",
 		"customization-overview": "客製化指南概覽",
-		"custom-styling": "客製化風格",
+		"custom-styling": "客製化樣式",
 		"custom-dialogs": "客製化彈跳視窗",
 		"custom-charts": "客製化圖表",
 		"custom-maps": "客製化地圖",

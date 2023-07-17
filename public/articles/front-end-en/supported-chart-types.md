@@ -7,7 +7,7 @@ To correctly render chart data, several parameters need to be set and passed int
     "color": ["#9c7a3e", …], // Array of Strings; Pass in at least one hex color code
     "types": ["BarPercentChart", …], // Array of Strings; Pass in 1-3 chart names
     "unit": "棟", // String || null; Unit of the data points
-    "categories": [], // Array of Strings || null; Required for 3D and guage data
+    "categories": [], // Array of Strings || null; Required for 3D and percentage data
     "map_filter": ["key", ["filter1", "filter2"]] // Array || null; See 1st info box below for details
 },
 ```

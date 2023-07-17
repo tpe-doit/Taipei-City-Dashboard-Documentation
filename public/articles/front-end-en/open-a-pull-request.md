@@ -10,7 +10,7 @@ Before opening a pull request, please make sure that the following are true:
 ***looks_4*** The pull request only resolves the issue(s) mentioned and nothing more
 
 ## Submission and Subsequent Reviews
-When you’re ready, create a pull request and fill out the pull request template. Afterward, a member of our team will review your code.
+When you’re ready, create a pull request and fill out the pull request template. We have set up several GitHub actions to automatically check your pull request. If any checks are not passed, please resolve the issue. After all of the checks have passed, a member of our team will review your code.
 
 If the pull request severely violates any guidelines in our contribution guide, the pull request may be immediately rejected.
 
