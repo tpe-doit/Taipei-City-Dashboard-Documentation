@@ -4,7 +4,7 @@ This project was transformed into a static application from the dynamic internal
 This guide will cover three methods of transitioning this project back into a semi-dynamic or completely dynamic application.
 
 ## Dynamic Data Source
-The first scenario is to partially or completely hook up the project to accept dynamic data sources but not implement a backend. Currently, all of the statistical or geographical data contained in the project are stored locally in the application. However, the methods used to retrieve the data could be easily modified to accept dynamic sources.
+The first scenario is to partially or completely hook up the project to dynamic data sources but not implement a backend. Currently, all of the statistical or geographical data contained in the project are stored locally in the application. However, the methods used to retrieve the data could be easily modified to accept dynamic sources.
 
 >**t01** 
 >If dynamic data is all you need and it’s not necessary to implement any other backend functions, we recommend also completing the modifications specified in the [previous article](/front-end/create-a-static-application) (create a static application).
@@ -20,6 +20,7 @@ For components that accept dynamic data from a remote source, add a “source”
     "types": ["ColumnChart", "RadarChart", "BarPercentChart"],
     "unit": "人",
     "categories": [],
+	"map_filter": null,
     // Add a source parameter
     "source": "https://.../api/.../..." // String; API of the data source
 },

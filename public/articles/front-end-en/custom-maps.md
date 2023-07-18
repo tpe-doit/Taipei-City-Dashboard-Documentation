@@ -7,7 +7,7 @@ The base map is the bare map seen when the map view is first loaded. The method 
 ### Change Base Map Style
 The styling for Mapbox maps is specified in a configuration object. The base map style configuration for this project is located in the file `mapStyle.js` in the folder `/src/assets/configs/mapbox`. Mapbox has a helpful online tool, [Mapbox Studio](https://studio.mapbox.com/) that allows users to create map styles via a user interface and then auto-generate a configuration object.
 
-To export the style you created in Mapbox Studio, click on “share…” in the navbar and scroll to the bottom of the dialog until you find the download option. Download the zip file then copy the contents of the json file contained within. Navigate back to `mapStyle.js` and replace the object inside with the copied contents. Reload the project and your map styles should be applied.
+To export the style you created in Mapbox Studio, click on “share…” in the navbar and scroll to the bottom of the dialog until you find the download option. Download the `zip` file then copy the contents of the `json` file contained within. Navigate back to `mapStyle.js` and replace the object inside with the copied contents. Reload the project and your map styles should be applied.
 
 ### Change Initial Location
 When the mapbox map instance is initialized, it takes in some default parameters that specify the initial location details of the map. The default location parameters for this project are stored in the file `mapConfig.js` in the folder `/src/assets/configs/mapbox` under the variable `MapObjectConfig`. The complete object can be found below.
