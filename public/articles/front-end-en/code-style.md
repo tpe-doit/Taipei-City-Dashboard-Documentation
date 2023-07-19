@@ -21,7 +21,7 @@ Constants can share the same name if within a different block scope. However, av
 >The `var` keyword for declaring variables is not permitted in this project unless absolutely necessary.
 
 ### CSS Class Names
-As mentioned in this previous article, this project uses a mix of global and scoped local styles. All class names should be named in Kebab case (e.g. `settingsbar-title`). To ensure clarity, the root class of each Vue component should be the same as the Vue component’s name in lowercase (e.g. `SettingsBar` ***east*** `.settingsbar`). Subsequent classes should use the root class name as it's first word (e.g. `.settingsbar-title`).
+As mentioned in [this previous article](/front-end/custom-styling), this project uses a mix of global and scoped local styles. All class names should be named in Kebab case (e.g. `settingsbar-title`). To ensure clarity, the root class of each Vue component should be the same as the Vue component’s name in lowercase (e.g. `SettingsBar` ***east*** `.settingsbar`). Subsequent classes should use the root class name as it's first word (e.g. `.settingsbar-title`).
 
 ## Document Structure
 As a general rule of thumb, all documents should be formatted in a clear and logical order. Comments should be added if necessary to increase clarity. If your contribution contains documents not formatted to this project’s standards, you will be asked to modify them. Some more specified guidelines are listed below.
@@ -30,7 +30,6 @@ As a general rule of thumb, all documents should be formatted in a clear and log
 All Vue components should be structured in the below format unless necessary.
 
 ```html
-<!-- Component Name: SampleComponent -->
 &lt;!-- Component Name: SampleComponent --&gt;
 &lt;script setup&gt;
 // Library, package, and Pinia Store imports. Ex:
