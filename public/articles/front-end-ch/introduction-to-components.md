@@ -29,8 +29,9 @@
     "short_desc": "...", // String; 簡短描述
     "long_desc": "...", // String; 詳細描述
     "use_case": "...", // String; 使用案例描述
-    "links": "https://…", // String || null; 相關連結
-    "tags": ["..."] // Array; 組件的標籤
+    "links": ["https://…", ...], // Array of Strings || null; 原始資料來源
+    "tags": ["..."], // Array; 組件的標籤
+	"contributors": ["tuic", ...] // Array of Strings; 貢獻者 id
 },
 ```
 
@@ -57,7 +58,8 @@
     "time_from": null, // String || null; 數據時間範圍（起始）
     "time_to": null, // String || null; 數據時間範圍（結束）
     "update_freq": null, // Number || null; 更新頻率
-    "update_freq_unit": null  // String; 更新頻率單位
+    "update_freq_unit": null,  // String; 更新頻率單位
+	"contributors": ["tuic", ...] // Array of Strings; 貢獻者 id
 }
 ```
 

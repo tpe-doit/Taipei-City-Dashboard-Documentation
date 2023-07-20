@@ -29,8 +29,9 @@ Regardless of type, all component configurations (Object) are stored in a single
       "short_desc": "...", // String; short description
       "long_desc": "...", // String; long description
       "use_case": "...", // String; use case description
-      "links": "https://…", // String || null; related links
-      "tags": ["..."] // Array; of tags that describe the component
+      "links": ["https://…", ...], // Array of Strings || null; raw data sources
+      "tags": ["..."], // Array; of tags that describe the component
+	  "contributors": ["tuic", ...] // Array of Strings; contributor id
     },
 ```
 
@@ -57,7 +58,8 @@ Regardless of type, all component configurations (Object) are stored in a single
       "time_from": null, // String || null; data time frame (from)
       "time_to": null, // String || null; data time frame (to)
       "update_freq": null, // Number || null; update frequency
-      "update_freq_unit": null  // String; update frequency unit
+      "update_freq_unit": null,  // String; update frequency unit
+	  "contributors": ["tuic", ...] // Array of Strings; contributor id
     }
 ```
 > **i02**
