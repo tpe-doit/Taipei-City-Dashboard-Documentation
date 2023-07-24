@@ -1,6 +1,5 @@
-
 ## Adding Dashboards
-In the user interface, expand the sidebar and click on the blue text. This will open up a dialog where the new dashboard name and icon are to be inputted. When the blue confirm button is clicked, the `createNewDashboard` method of the `contentStore` will be invoked. This method will create a new dashboard configuration using the inputted name and icon and then append it to the existing list of dashboards.
+In the user interface, expand the sidebar and click on the blue text. This will open up a dialog where the new dashboard name, unique index, and icon are to be inputted. When the blue confirm button is clicked, the `createNewDashboard` method of the `contentStore` will be invoked. This method will create a new dashboard configuration using the inputted name, index, and icon and then append it to the existing list of dashboards.
 
 ## Adding Components
 In the user interface, locate the settings bar and click on the add components icon  ***add_chart*** beside the dashboard name. This will open up a dialog where a list of available components will be presented. Select as many components as needed and click on the blue confirm button in the upper right corner. When clicked, the `addComponents` method of the `contentStore` will be invoked. This method will append an array of selected component IDs to the existing list of component IDs of the current dashboard.

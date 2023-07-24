@@ -144,7 +144,7 @@ const githubEditLink = computed(() => {
 	}
 
 	&-mobile {
-		height: calc(100vh - 180px);
+		height: calc(100vh - 210px);
 	}
 
 	&-edit {
