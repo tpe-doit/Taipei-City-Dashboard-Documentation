@@ -4,7 +4,7 @@ As Taipei City Dashboard transitions from an internal tool to a public platform,
 By contributing to this project, you’ll have a say in how Taipei City Dashboard 2.0 looks when it is released in early 2024. This is also a great opportunity to directly interact with Taipei City Government and TUIC. Your contributions will also be attributed to all relevant components for everyone to see.
 
 ## Become a Contributor
-This project welcomes any contributions. We manage all of our contributions on [GitHub](https://github.com/igorho2000/Taipei-City-Dashboard-Public) through issues and pull requests. 
+This project welcomes any contributions. We manage all of our contributions on [GitHub](https://github.com/tpe-doit/Taipei-City-Dashboard-FE) through issues and pull requests. 
 
 Contributions are classified into the following three types: bug reports, feature requests, and new components. These contribution types will be explained in greater detail in this [later article](/front-end/open-an-issue). 
 
@@ -17,7 +17,7 @@ You may suggest changes by opening an issue on GitHub. If we approve the change,
 To contribute to this project, certain basic guidelines must be followed. Failure to comply will result in penalties. Minor offenses may result in your contribution not being accepted. Major offenses may even result in you being banned from accessing this project.
 
 ### Code of Conduct
-When contributing to this project, all interactions must follow the guidelines laid out in the [code of conduct](https://github.com/igorho2000/Taipei-City-Dashboard-Public/blob/main/contribution/CODE_OF_CONDUCT.md).
+When contributing to this project, all interactions must follow the guidelines laid out in the [code of conduct](https://github.com/tpe-doit/Taipei-City-Dashboard-FE/blob/main/contribution/CODE_OF_CONDUCT.md).
 
 ### Contribution Process
 The complete process of contributing to this project is as follows: 

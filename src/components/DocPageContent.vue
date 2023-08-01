@@ -37,11 +37,11 @@ const parsedDoctext = computed(() => {
                     </blockquote>`;
 			}
 		},
-		code(code, infostring, escaped) {
+		code(code, infostring) {
 			const toBeCopied = code.replaceAll(`"`, `&quot;`);
 			return `<pre><button class="${appStore.lang === 'en' ? '' : 'copy-ch'}" onclick="navigator.clipboard.writeText(\`${toBeCopied}\`)">content_paste</button><code class="language-${infostring}">${code}</code></pre>`;
 		},
-		heading(text, level, raw, slugger) {
+		heading(text, level) {
 			if (level >= 4) {
 				return `<h${level}>${text}</h${level}>`;
 			}
@@ -60,6 +60,7 @@ const parsedDoctext = computed(() => {
 		}
 	};
 	marked.use({ renderer, mangle: false, headerIds: false });
+	// eslint-disable-next-line no-misleading-character-class
 	return marked.parse(doctext.value.replace(/^[\u200B\u200C\u200D\u200E\u200F\uFEFF]/, ""));
 });
 

@@ -2,7 +2,7 @@
 import { useI18n } from 'vue-i18n';
 import { useAppStore } from '../store/appStore';
 
-const props = defineProps(['docs', 'docslist']);
+defineProps(['docs', 'docslist']);
 const { t } = useI18n();
 const appStore = useAppStore();
 
