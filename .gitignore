@@ -24,3 +24,10 @@ pnpm-debug.log*
 *.sln
 *.sw?
 node_modules
+
+# Firebase
+/.firebase
+.firebase
+.firebaserc
+firebase.json
+*.cache
