@@ -18,7 +18,7 @@ In the dashboard view, a "more information" (4: 更多資訊 ***arrow_circle_rig
 ![User Interface Component](/images/front-end/user-interface-2.png)
 
 ## /mapview
-The map view by default lists all components in a collapsed form on the right (8) and displays a larger map (9) to the left. By clicking on the toggle (10), the component expands and renders geographical data (if available) to the map. To learn more about a data point on the map, simply click and a helpful popup (11) will appear.
+The map view by default lists all components in a collapsed form on the left (8) and displays a larger map (9) to the right. By clicking on the toggle (10), the component expands and renders geographical data (if available) to the map. To learn more about a data point on the map, simply click and a helpful popup (11) will appear.
 
 ![User Interface Map Page](/images/front-end/user-interface-3.png)
 

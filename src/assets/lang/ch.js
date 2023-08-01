@@ -32,7 +32,7 @@ export const ch = {
 		"introduction-to-components": "組件簡介",
 		"chart-data": "圖表資料樣式",
 		"supported-chart-types": "支援圖表類型",
-		"map-data": "地理資料樣式",
+		"map-data": "空間資料樣式",
 		"supported-map-types": "支援地圖類型",
 		"map-filtering": "篩選地圖",
 		"#customization": "客製化指南",

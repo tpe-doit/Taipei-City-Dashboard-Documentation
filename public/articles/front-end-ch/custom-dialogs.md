@@ -1,5 +1,5 @@
 ## 彈跳視窗運作原理
-每個彈跳視窗都是一個Vue元件，其在用戶界面中顯示與否由`dialogStore`控制。所有彈跳視窗Vue元件都儲存在資料夾`/src/components/dialogs`中。各個彈跳視窗在本專案中的名稱是其Vue元件檔名的Camel Case (camelCase) 形式。
+每個彈跳視窗都是一個Vue元件，其顯示與否由`dialogStore`控制。所有彈跳視窗Vue元件都儲存在資料夾`/src/components/dialogs`中。各個彈跳視窗在本專案中的名稱是其Vue元件檔名的Camel Case (camelCase) 形式。
 
 ### 彈跳視窗儲存
 `dialogStore`儲存了所有彈跳視窗的渲染狀態。本專案中所有可用的彈跳視窗如下所示。
@@ -20,7 +20,7 @@ dialogs: { // `dialogStore`的其中一個狀態(state)
 },
 ```
 
-彈跳視窗的Vue元件會根據在`dialogStore`的狀態條件性地渲染(conditionally render)，各彈跳視窗顯示的預設值為`false`。
+彈跳視窗的Vue元件會根據在`dialogStore`的狀態條件性地渲染(conditionally render)，各彈跳視窗顯示狀態的預設值為`false`。
 
 ### 彈跳視窗Vue元件的結構
 以下是一個典型的彈跳視窗Vue元件的架構。
@@ -81,7 +81,7 @@ dialogs: { // `dialogStore`的其中一個狀態(state)
 >了解更多有關 Vue teleport [的資訊](https://vuejs.org/guide/built-ins/teleport.html)。
 >了解更多有關 Vue transitions [的資訊](https://vuejs.org/guide/built-ins/transition.html)。
 
-本專案有撰寫一個用來包裝彈跳視窗的 Vue 元件 `DialogContainer` 可用於將彈跳視窗置於螢幕中間。此包裝元件負責處理teleport、過渡(transition)效果、條件式渲染和背景覆蓋(overlay)。下面是一個使用此包裝元件的彈跳視窗 Vue 元件的架構。
+本專案有撰寫一個用來包裝彈跳視窗的 Vue 元件 `DialogContainer` 可用於將彈跳視窗置於螢幕中間。此包裝Vue元件負責處理teleport、過渡(transition)效果、條件式渲染和背景覆蓋(overlay)。下面是一個使用此包裝元件的彈跳視窗 Vue 元件的架構。
 
 
 ```html
@@ -102,16 +102,16 @@ dialogs: { // `dialogStore`的其中一個狀態(state)
 關閉彈跳視窗則需呼叫 `dialogStore` 的 `hideAllDialogs` 函式。該函式會將除了 `notificationBar` 之外的所有彈跳視窗狀態切換為 `false`。
 
 ### 特殊彈跳視窗
-此專案中有三個與其他彈跳視窗稍有不同的特殊彈跳視窗。這是因為需要在這些彈跳視窗中填充額外的資訊。
+此專案中有三個與其他彈跳視窗稍有不同的特殊彈跳視窗。這是因為需要在這些彈跳視窗中顯示額外的資訊。
 
 **`moreInfo`** 彈跳視窗可透過呼叫 `dialogStore` 的 `showMoreInfo` 函式來打開。該函式以目標組件的**組件配置**作為參數，並渲染顯示更詳細組件資訊的視窗。
 
-**`reportIssue`** 彈跳視窗可透過呼叫 `dialogStore` 的 `showReportIssue` 函式來打開。該函式以目標組件的**名稱(name)**和**ID(id)**作為參數，並渲染一個表單供使用者提交問題回報。
+**`reportIssue`** 彈跳視窗可透過呼叫 `dialogStore` 的 `showReportIssue` 函式來打開。該函式以目標組件的**名稱(name)**和**ID**作為參數，並渲染一個表單供使用者提交問題回報。
 
-**`notificationBar`** 彈跳視窗可透過呼叫 `dialogStore` 的 `showNotification` 函式來打開。該函式接收兩個參數：**狀態(status)**（可為 「success」 或 「fail」）和要顯示的**訊息(message)**。這將在儀表板頂部渲染一個推播通知。
+**`notificationBar`** 彈跳視窗可透過呼叫 `dialogStore` 的 `showNotification` 函式來打開。該函式接收兩個參數：**狀態(status)**（可為 「success」 或 「fail」）和要顯示的**訊息(message)**。這將在用戶介面上方渲染一個推播通知。
 
 ## 建立新的彈跳視窗
-首先，決定一個彈跳視窗名稱並創建一個遵循彈跳視窗 Vue 元件結構的 Vue 元件。接著，在 `dialogStore` 中註冊該彈跳視窗，將其名稱添加到現有的彈跳視窗列表中。最後，將該彈跳視窗 Vue 元件添加到應用程式中。建議將彈跳視窗 Vue 元件放在觸發它的元素旁邊，例如按鈕。
+首先，決定彈跳視窗名稱並創建一個遵循彈跳視窗 Vue 元件結構的 Vue 元件。接著，在 `dialogStore` 中註冊該彈跳視窗，將其名稱添加到現有的彈跳視窗列表中。最後，將該彈跳視窗 Vue 元件添加到應用程式中。建議將彈跳視窗 Vue 元件放在觸發它的元素旁邊，例如按鈕。
 
 >**w01**
->不要將彈跳視窗 Vue 元件添加到應用程式中的多個位置。這將在啟用該彈跳視窗時重複渲染。
+>不要將彈跳視窗 Vue 元件添加到應用程式中的多個位置，不然啟用該彈跳視窗時會有重複渲染情形。

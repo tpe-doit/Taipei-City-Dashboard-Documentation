@@ -25,7 +25,7 @@ Two-Dimensional Data (henceforth referred to as 2D data) is data that could be f
 **Supported Chart Types:** Donut Chart, Bar Chart, Column Chart, Treemap Chart, District Chart, Metro Chart, Radar Chart
 
 >**i01**
->The keys (x) for District Charts must be the full Mandarin name (e.g. 大安區) of all twelve Taipei City districts in the following order:
+>If using District Charts, the keys (x) must be the full Mandarin name (e.g. 大安區) of all twelve Taipei City districts in the following order:
 >
 >`["北投區", "士林區", "內湖區", "南港區", "松山區", "信義區", "中山區", "大同區", "中正區", "萬華區", "大安區", "文山區"]`
 
@@ -72,7 +72,7 @@ Three-Dimensional Data (henceforth referred to as 3D data) is data that could be
 }
 ```
 
-**Supported Chart Types:** Column Chart, Bar Percent Chart, Radar Chart
+**Supported Chart Types:** Column Chart, Bar Percent Chart, Radar Chart, District Chart
 
 ### Time Series Data
 Time Series Data (henceforth referred to as time data) is data that could be formatted in simple **key-value (x-y)** pairs where the keys are timestamps. For time data, both keys (x) and values (y) should be listed in a `json` file in the below format.

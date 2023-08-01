@@ -1,13 +1,13 @@
 ## 顯示圖表
-如[此先前文章](/front-end/rendering-strategy)中簡要介紹的，每當頁面加載時，會呼叫 API 獲取組件的統計資料。一旦獲取到資料，將在圖表配置中加入`"chart_data"`參數，並填入資料，最後儲存在 `contentStore` 中，以便在整個應用程序中均能使用。
+如[此先前文章](/front-end/rendering-strategy)中簡介的，每當頁面加載時，會呼叫 API 獲取組件的統計資料。一旦獲取到資料，將在圖表配置中加入`"chart_data"`參數，並填入資料，最後儲存在 `contentStore` 中，以便在整個應用程式中均能使用。
 
 ### 組件容器(Container)
 負責渲染圖表的 Vue 元件分別是`ComponentContainer`和`ComponentMapContainer`，分別用於儀表板頁面和地圖頁面。這兩個 Vue 元件均位於`/src/components/components`。
 
-如果一個組件包含多個圖表類型，將在組件容器頂部顯示以圖表名稱為標題的灰色按鈕，用戶可以透過這些按鈕切換圖表類型。此效果是透過在渲染它的 Vue 元件中儲存當前顯示的圖表名稱，並有條件地渲染圖表Vue元件達成的。
+如果一個組件包含多個圖表類型，將在組件容器頂部顯示以圖表名稱為標題的灰色按鈕，用戶可以點擊這些按鈕以切換圖表類型。此效果是透過在渲染它的 Vue 元件中儲存當前顯示的圖表名稱，並有條件地渲染圖表Vue元件達成的。
 
 >**w01**
->如果您對當前可用的圖表類型及其對應的英文和中文名稱不熟悉，請先閱讀[此先前文章](/front-end/supported-chart-types)。
+>如果您對目前支援的圖表類型及其對應的中英名稱不熟悉，請先閱讀[此先前文章](/front-end/supported-chart-types)。
 
 >**w02**
 >如果您對Apexcharts在Vue中的運作方式不熟悉，請先閱讀Apexchart的[相關文件](https://apexcharts.com/docs/vue-charts/)。
@@ -111,8 +111,8 @@ function handleDataSelection(index) {
 ```
 
 ## 建立新的圖表類型
-首先，決定一個圖表名稱，然後創建一個符合圖表 Vue 元件結構的 Vue 元件。如果使用 Apexcharts 來渲染該圖表，亦須填寫相關的圖表選項(`chartOptions`)設置。
+首先，決定圖表名稱，然後建立一個遵循圖表 Vue 元件結構的 Vue 元件。如果使用 Apexcharts 來渲染該圖表，亦須填寫相關的圖表選項(`chartOptions`)。
 
-接下來，註冊該圖表，將其添加到 `/src/assets/configs/apexcharts` 中的 `chartTypes.js` 文件的列表中。然後在 `/src` 目錄下的 `main.js` 中將該圖表 Vue 元件註冊為全局 Vue 元件。
+接下來，註冊該圖表，將其添加到 `/src/assets/configs/apexcharts` 中的 `chartTypes.js` 文件的列表中。然後在 `/src` 目錄下的 `main.js` 中將該圖表 Vue 元件註冊為全域 Vue 元件。
 
 最後，在任何組件配置中添加該圖表名稱以渲染它。

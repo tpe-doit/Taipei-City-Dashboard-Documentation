@@ -1,5 +1,5 @@
 ## Scope
-With the exception of elements rendered by third-party packages (charts and maps), this entire project was styled via vanilla `css` or `scss`. The absence of a UI library allows for a high degree of customizability. A mix of global styles and local styles was utilized to achieve the styling of this project.
+With the exception of elements rendered by third-party packages (e.g Mapbox, Apexcharts), this entire project was styled via vanilla `css` or `scss`. The absence of a UI library allows for a high degree of customizability. A mix of global styles and local styles was utilized to achieve the styling of this project.
 
 If you are interested in styling charts (Apexcharts) and maps (Mapbox), please refer to the [Custom Charts](/front-end/custom-charts) and [Custom Maps](/front-end/custom-charts) articles.
 
@@ -31,7 +31,7 @@ This project heavily uses style variables to ensure uniformity of colors, fonts,
 ```
 
 >**i01**
->All icons in this project are rendered using a special icon font (material icons) provided by [Google Fonts](https://fonts.google.com/icons?icon.style=Rounded&icon.set=Material+Icons). The icon style chosen for this project is “rounded”. The font file can be found in the folder `/src/assets/fonts`. 
+>All icons in this project are rendered using a special icon font (material icons) provided by [Google Fonts](https://fonts.google.com/icons?icon.style=Rounded&icon.set=Material+Icons). The icon style chosen for this project is “rounded”. The font file can be found in the folder `/public/fonts`. 
 
 ## Local Styles
 Local styles are scoped to the Vue component it belongs to. This means that the effects of the styles specified are limited to `HTML` elements within that Vue component. All local styles were written in `scss` and are located at the bottom of all Vue components. As a convention, the root class of each Vue component is the same as its file name without spaces and all lowercase.

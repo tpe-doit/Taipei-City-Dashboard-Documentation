@@ -5,7 +5,7 @@ Components are collections of data that make up dashboards. All components, with
 Map layer components are components that only contain geographical data. As mentioned in the previous section, map layer components are aggregated and displayed in the map layers dashboard.
 
 ## Component Configuration
-Regardless of type, all component configurations (Object) are stored in a single object where the keys are the IDs of each component. The complete list of parameters for normal components and map layer components can be found below.
+Each component has two unique identification codes: ID and Index. The ID is a unique serial number for the component, while the Index is an English string that makes it easier to identify the content of the component. The statistical data and historical data under each component should be saved using the ID as the filename. Regardless of type, all component configurations (Object) are stored in a single object where the keys are the IDs of each component. The complete list of parameters for normal components and map layer components can be found below.
 
 > **i01**
 > Statistical, geographical, and historical data for each component is stored separately as mentioned in [this previous article](/front-end/file-system).
@@ -13,7 +13,7 @@ Regardless of type, all component configurations (Object) are stored in a single
 ### Normal
 ```json
 "7": {
-      "id": 7, // Number; ID number
+      "id": 7, // Number; Unique serial number
       "index": "patrol_criminalcase", // String; index
       "history_data": false, // Boolean; whether historical data is available
       "history_data_color": null, // Array || null; of hex color codes, defaults to chart colors

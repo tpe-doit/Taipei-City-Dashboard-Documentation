@@ -1,9 +1,9 @@
 ## 程式檢查
 本專案使用 Prettier 進行程式自動編排和 Eslint 進行程式檢查。在專案的根目錄中，可以找到這兩個工具的配置檔。它們分別是 `.eslintrc.json` 和 `.prettierrc`。請不要對這兩個配置文件進行修改。
 
-我們建議使用 [VS Code](https://code.visualstudio.com/) 作為您的 IDE，並安裝 [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) 和 [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 擴充功能。在根目錄中，也有一個名為 `.vscode` 的資料夾，其中包含 VS Code 的設置，這將使您在儲存檔案時程式即會被自動編排。
+我們建議使用 [VS Code](https://code.visualstudio.com/) 作為您的 IDE，並安裝 [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) 和 [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 擴充功能。在根目錄中，也有一個名為 `.vscode` 的資料夾，其中包含 VS Code 的設置，這將使您在儲存檔案時程式即會自動編排。
 
-在開啟pull request之前，您必須在根目錄的終端執行 `npm run lint` 並解決任何問題。有關開啟pull request的詳細過程將在 [這裡](/front-end/open-a-pull-request) 進行更詳細的解釋。
+在開立pull request之前，您必須在根目錄的終端執行 `npm run lint` 並解決任何問題。有關開立pull request的詳細過程將在 [這裡](/front-end/open-a-pull-request) 進行更詳細的解釋。
 
 ## 變量和檔案命名
 所有新變量(variable)和檔案名都應該是獨特且具有描述性的。如果您的貢獻包含變量或檔案名不清楚或不合規的情況，我們將要求您進行修改。下面列出了一些更具體的規範。
@@ -21,13 +21,13 @@
 >在此專案中，除非絕對必要，不允許使用 `var` 來宣告變量。
 
 ### CSS 類名 (class name)
-正如在[之前的文章](/front-end/custom-styling)中提到的，這個專案使用全域和局部樣式均有使用。所有類名都應使用 Kebab case 命名（例如 `settingsbar-title`）。每個 Vue 元件的根類(root class)應該與其 Vue 元件的名稱相同並轉為全小寫（例如 `SettingsBar` 對應 `.settingsbar`）。後續的類名應該使用根類名作為其第一個字（例如 `.settingsbar-title`）。
+正如在[之前的文章](/front-end/custom-styling)中提到的，這個專案全域和局部樣式均有使用。所有類名(class name)都應使用 Kebab case 命名（例如 `settingsbar-title`）。每個 Vue 元件的根類(root class)應該與其 Vue 元件的名稱相同並轉為全小寫（例如 `SettingsBar` 對應 `.settingsbar`）。後續的類名應該使用根類名作為其第一個字（例如 `.settingsbar-title`）。
 
 ## 文件結構
-所有文件應該按照清晰且合乎邏輯的順序進行編排。如果您的貢獻包含未按照該專案標準編排的文件，我們將要求您進行修改。下面列出了一些更具體的規範。
+所有文件應該按照清晰且合乎邏輯的順序進行編排。如果您的貢獻包含未按照本專案標準編排的文件，我們將要求您進行修改。下面列出了一些更具體的規範。
 
 ### Vue 元件
-除非必要，否則所有 Vue 元件應該按照以下格式編排。
+除非必要，所有 Vue 元件應該按照以下格式編排。
 
 ```html
 &lt;!-- 本程式片段專有名詞多，如非必要不進行翻譯 --&gt;

@@ -31,7 +31,7 @@ export const MapObjectConfig = {
 ```
 
 ### Change Default Added Layers
-Shortly after the map is initialized, the `initializeBasicLayers` method of the `mapStore` is invoked and two default layers are added to the map. The two layers added provide labels for Taipei’s districts and villages. The styles for these two layers are also stored in the file `mapConfig.js`.
+Shortly after the map is initialized, the `initializeBasicLayers` method of the `mapStore` is invoked and three default layers are added to the map. The first two layers added provide labels for Taipei’s districts and villages. Those layers are stored as local `geojsons`. The third layer is a 3d model of buildings in Taipei. This layer is stored in Mapbox Tileset and more information could be found in [this previous article](/front-end/project-setup). The styles for these three layers are also stored in the file `mapConfig.js`.
 
 To edit, simply remove or replace the layers specified in the `initializeBasicLayers` method.
 

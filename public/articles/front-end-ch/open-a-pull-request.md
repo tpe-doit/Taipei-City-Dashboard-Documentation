@@ -1,5 +1,5 @@
 ## Commits
-對於本專案，沒有硬性規定commit message應該如何撰寫，請遵循一般常理(best practice)即可。然而，我們有要求所有的commit必須被簽名驗證(signed and verified)。簽名過的commits 在 GitHub 上會有一個小的已驗證(verified)圖示顯示在commit message旁邊。如果您對如何簽名commit不熟悉，請參考 GitHub 的 [這個指南](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)。
+本專案沒有硬性規定commit message應該如何撰寫，請遵循一般常理(best practice)即可。然而，我們有要求所有的commit必須被簽名驗證(signed and verified)。簽名過的commits 在 GitHub 上會有一個小的已驗證(verified)圖示顯示在commit message旁邊。如果您對如何簽名commit不熟悉，請參考 GitHub 的 [這個指南](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)。
 
 ## 在開啟pull request之前
 在開啟pull request之前，請確保以下事項屬實：
@@ -24,7 +24,7 @@
 >***looks_4*** The pull request only resolves the issue(s) mentioned and nothing more
 
 ## 提交和後續審查
-當您準備好時，請建立一個pull request並填寫pull request模板。如果您希望被歸屬於這個專案，也請記得在模板中填寫一些個人資料。
+當您準備好時，請開立一個pull request並填寫pull request模板。如果您希望被歸屬於這個專案，也請記得在模板中填寫一些個人資料。
 
 我們已設置多個 GitHub actions 來自動檢查您的pull request。如果有任何檢查未通過，請解決。當所有檢查都通過後，我們團隊的成員將審查您的程式。
 

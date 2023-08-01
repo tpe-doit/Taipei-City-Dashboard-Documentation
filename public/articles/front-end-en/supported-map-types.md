@@ -32,13 +32,13 @@ The complete map config object can be found below.
 >In Mapbox, each map type supports numerous paint properties that control visual details such as color, size, blur, etc. To customize a map beyond its default form, simply pass in any paint property supported by Mapbox. ([Mapbox layers docs](https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/))
 
 >**w01**
->The color paint property for all map types should ALWAYS be specified or nothing will be rendered.
+>As the default color for all map types is black, the color paint property (e.g `fill-color`, `circle-color`, etc.) for all map types should ALWAYS be specified.
 
 ## Map Types
 5 map types are supported in this project. Each map type has preset default styling applied which is listed in the file `mapConfig.js` located at `/src/assets/configs/mapbox`. Several maps also support preset variations to the default styling. This is achieved by specifying the size or icon parameters in the map config.
 
 ### Circle
-The circle map type renders points as circles on the map. Size variations include `small` and `big`. Icon variations include `heatmap` which blurs the dots to create a heatmap-like effect when zoomed out.
+The circle map type renders points as circles on the map. `Size` variations include `small` and `big`. `Icon` variations include `heatmap` which blurs the dots to create a heatmap-like effect when zoomed out.
 
 ### Fill
 The fill map type renders polygons onto the map. There are no preset variations. 
@@ -47,7 +47,7 @@ The fill map type renders polygons onto the map. There are no preset variations.
 The fill-extrusion map type protrudes a 3D rendering of polygons from the map. There are no preset variations.
 
 ### Line
-The line map type renders lines onto the map. Size variations include `wide`. Icon variations include `dash` which renders dashed lines instead of solid ones.
+The line map type renders lines onto the map. `Size` variations include `wide`. `Icon` variations include `dash` which renders dashed lines instead of solid ones.
 
 ### Symbol
-The symbol map type renders points as icons. For symbol maps, the icon parameter must be passed into the map config. Available icons include `metro`, `metro-density`, `triangle_green`, `triangle_white`, `youbike`, and `bus`.
+The symbol map type renders points as icons. For symbol maps, the `icon` parameter must be passed into the map config. Available icons include `metro`, `metro-density`, `triangle_green`, `triangle_white`, `youbike`, and `bus`.
