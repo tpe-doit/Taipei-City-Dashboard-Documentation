@@ -4,7 +4,7 @@
 透過對這個專案貢獻，您將能在城市運行儀表板 2.0 於2024年初發布前，針對其功能與呈現方式發表意見。這也是與台北市政府和臺北大數據中心（TUIC）直接互動的絕佳機會。您的貢獻也會被歸屬於所有相關的組件，供所有用戶查看。
 
 ## 成為協作者
-本專案歡迎任何貢獻。我們透過issues和pull requests在 [GitHub](https://github.com/igorho2000/Taipei-City-Dashboard-Public) 上管理所有貢獻。
+本專案歡迎任何貢獻。我們透過issues和pull requests在 [GitHub](https://github.com/tpe-doit/Taipei-City-Dashboard-FE) 上管理所有貢獻。
 
 貢獻分為以下三種類型：錯誤回報(bug report)、新功能請求(feature request)和新組件(new component)。這些貢獻類型將在[稍後的文章](/front-end/open-an-issue)中詳細解釋。
 
@@ -17,7 +17,7 @@
 協作本專案必須遵循一些基本準則。輕微違規可能導致您的貢獻不被接受。重大違規甚至可能導致您被列入本專案的黑名單。
 
 ### 行為守則
-在協作本專案時，所有互動必須遵循 [行為守則](https://github.com/igorho2000/Taipei-City-Dashboard-Public/blob/main/contribution/CODE_OF_CONDUCT.md) 中的規定。
+在協作本專案時，所有互動必須遵循 [行為守則](https://github.com/tpe-doit/Taipei-City-Dashboard-FE/blob/main/contribution/CODE_OF_CONDUCT.md) 中的規定。
 
 ### 貢獻流程
 完整的貢獻流程如下：

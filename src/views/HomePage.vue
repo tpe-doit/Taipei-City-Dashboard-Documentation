@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, onUnmounted, ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useAppStore } from '../store/appStore';
 
@@ -10,7 +10,7 @@ const currentImg = ref(1);
 const lastImg = 6;
 
 onMounted(() => {
-	const switchImg = setInterval(() => {
+	setInterval(() => {
 		if (currentImg.value === lastImg) {
 			return currentImg.value = 1;
 		}
@@ -46,7 +46,8 @@ onMounted(() => {
 					<p>{{ t('last-updated') }}: 23/07/12</p>
 					<h4>{{ t('front-end.desc') }}</h4>
 					<div>
-						<a><button class="github">{{ t('github') }}<img
+						<a href="https://github.com/tpe-doit/Taipei-City-Dashboard-FE" target="_blank"
+							rel="noreferrer"><button class="github">{{ t('github') }}<img
 									src="../assets/images/github-mark.svg" /></button></a>
 						<router-link to="/front-end"><button>{{ t('get-started') }}<span>east</span></button></router-link>
 					</div>

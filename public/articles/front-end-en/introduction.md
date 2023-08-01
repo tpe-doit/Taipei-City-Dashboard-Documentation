@@ -40,7 +40,7 @@ If you are interested in working with the codebase of this project in any way, i
 If you come across any issues or typos in this documentation, feel free to click on the "**Edit this Page on Github**" button located at the bottom of each article and suggest changes. You may also contact us directly via email.
 
 ## License and Copyright
-The codebase for this project is released under the [MIT license](https://github.com/igorho2000/TUIC-Dashboard-Documentation/blob/main/LICENSE), which allows any modifications and commercialization without restriction. Regardless, attribution of any kind is welcome and encouraged.
+The codebase for this project is released under the [MIT license](https://github.com/tpe-doit/Taipei-City-Dashboard-FE/blob/main/LICENSE), which allows any modifications and commercialization without restriction. Regardless, attribution of any kind is welcome and encouraged.
 
 We reserve the copyright to all statistical and geographical data included for demo purposes in this project. Reproduction, sharing, or commercialization is only permitted if the guidelines of [CC BY-SA 4.0 (Attribution-ShareAlike 4.0 International)](https://creativecommons.org/licenses/by-sa/4.0/) are followed.
 

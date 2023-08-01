@@ -40,7 +40,7 @@
 如果您在本文件中遇到任何問題或錯字，歡迎點擊每篇文章底部的「於Github編輯此文章」按鈕並提出修改建議。您也可以透過電子郵件直接聯繫我們。
 
 ## 授權和版權
-本專案的程式碼是以[MIT許可證](https://github.com/igorho2000/TUIC-Dashboard-Documentation/blob/main/LICENSE)下發行，允許無限制的修改和商業化。但是，我們仍歡迎並鼓勵提供任何形式的歸屬。
+本專案的程式碼是以[MIT許可證](https://github.com/tpe-doit/Taipei-City-Dashboard-FE/blob/main/LICENSE)下發行，允許無限制的修改和商業化。但是，我們仍歡迎並鼓勵提供任何形式的歸屬。
 
 我們保留本專案展示用的所有統計和地理數據的版權。只有在遵循[CC BY-SA 4.0（姓名標示-相同方式共享 4.0 國際）](https://creativecommons.org/licenses/by-sa/4.0/)的指南時，才允許複製、分享或商業化。
 
