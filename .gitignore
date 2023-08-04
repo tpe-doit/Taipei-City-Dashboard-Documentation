@@ -5,9 +5,10 @@
 
 
 # local env files
+.env
 .env.production
-# .env.local
-# .env.*.local
+.env.local
+.env.*.local
 
 # Log files
 npm-debug.log*
