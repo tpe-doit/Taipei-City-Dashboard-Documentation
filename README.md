@@ -1,4 +1,4 @@
-# Taipei City Dashboard Documentation
+# <img src='src/assets/images/TUIC.svg' height='28'>   Taipei City Dashboard Documentation
 
 [Docs Website]() | [Taipei City Dashboard FE GitHub](https://github.com/tpe-doit/Taipei-City-Dashboard-FE)
 
