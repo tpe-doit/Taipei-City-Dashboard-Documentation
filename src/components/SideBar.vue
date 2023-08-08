@@ -6,7 +6,7 @@ defineProps(['docs', 'docslist']);
 const { t } = useI18n();
 const appStore = useAppStore();
 
-const appVersion = import.meta.env.VITE_APP_VERSION;
+const appVersion = "v2.0";
 </script>
 
 <template>

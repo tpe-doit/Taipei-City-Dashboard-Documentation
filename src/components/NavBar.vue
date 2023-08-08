@@ -27,14 +27,15 @@ onMounted(() => {
 			<img src="../assets/images/TUIC.svg" alt="tuic logo"
 				:style="{ filter: appStore.mode === 'dark' ? 'invert(1)' : 'none' }" />
 			<div>
-				<h1>城市運行儀表板文件</h1>
+				<h1>臺北城市儀表板文件</h1>
 				<h2>Taipei City Dashboard Documentation</h2>
 			</div>
 		</a>
 		<div class="navbar-control">
 			<button @click="toggleLang"><span>translate</span></button>
 			<label class="toggleswitch">
-				<input type="checkbox" @change="appStore.toggleMode" v-model="mode">
+				<label for="light-dark-mode-toggle" :style="{ display: 'none' }">light-dark-mode-toggle</label>
+				<input type="checkbox" id="light-dark-mode-toggle" @change="appStore.toggleMode" v-model="mode">
 				<span class="toggleswitch-slider"></span>
 			</label>
 		</div>
@@ -66,6 +67,7 @@ onMounted(() => {
 
 		img {
 			height: 45px;
+			width: 22.94px;
 			margin: 0 var(--font-m);
 		}
 	}

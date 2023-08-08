@@ -13,7 +13,7 @@ onBeforeMount(() => {
 });
 
 onMounted(() => {
-	document.title = appStore.lang === 'en' ? 'Docs | Taipei City Dashboard' : '文件｜城市聯合儀表板';
+	document.title = appStore.lang === 'en' ? 'Docs | Taipei City Dashboard' : '文件｜臺北城市儀表板';
 	locale.value = appStore.lang;
 });
 </script>
