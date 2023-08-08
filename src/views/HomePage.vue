@@ -34,7 +34,8 @@ onMounted(() => {
 						<a :href="appStore.lang === 'en' ? 'https://www.youtube.com/watch?v=kJsIsQ_3uLc' : 'https://www.youtube.com/watch?v=07FODlTV74g'"
 							target="_blank" rel="noreferrer"><button class="gray">{{ t('about-us')
 							}}<span>play_circle</span></button></a>
-						<a href="https://dashboard-ver2-test.web.app/" target="_blank" rel="noreferrer"><button>{{ t('demo')
+						<a href="https://tuic.gov.taipei/dashboard-demo" target="_blank" rel="noreferrer"><button>{{
+							t('demo')
 						}}</button></a>
 					</div>
 				</div>

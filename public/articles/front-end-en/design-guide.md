@@ -30,7 +30,7 @@ All contributors of this project should keep this visual guide in mind to ensure
 
 ### System Colors
 
-In this project, adhere to specific color rules based on `CSS` variables. The main background color is set to `#090909` using the `--color-background variable`, while all borders use the `--color-border` variable with a color value of `#494b4e`. Important elements are highlighted in a vibrant blue shade (`#5a9cf8`) with the `--color-highlight` variable. Normal text appears in white through the `--color-normal-text` variable, and less important texts complementing the main content use `#888787`, set by the `--color-complement-text` variable. The majority of UI elements utilize the `--color-component-background` variable with a background color of `#282a2c`, ensuring a cohesive design across the application.
+In this project, adhere to specific color rules based on `CSS` variables. The main background color is set to `#090909` using the `--color-background` variable, while all borders use the `--color-border` variable with a color value of `#494b4e`. Important elements are highlighted in a vibrant blue shade (`#5a9cf8`) with the `--color-highlight` variable. Normal text appears in white through the `--color-normal-text` variable, and less important texts complementing the main content use `#888787`, set by the `--color-complement-text` variable. The majority of UI elements utilize the `--color-component-background` variable with a background color of `#282a2c`, ensuring a cohesive design across the application.
 
 ![Color Guide](/images/front-end/color-guide-en.png)
 
