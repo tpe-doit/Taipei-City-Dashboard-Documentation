@@ -26,7 +26,10 @@ onMounted(() => {
 			<div class="homepage-header">
 				<div class="homepage-header-title">
 					<h1>{{ t('dashboard') }}</h1>
-					<h2>{{ t('dashboard-tagline') }}</h2>
+					<div :style="{ width: 'fit-content' }">
+						<h2>{{ t('dashboard-tagline') }}</h2>
+					</div>
+
 					<div>
 						<a :href="appStore.lang === 'en' ? 'https://www.youtube.com/watch?v=kJsIsQ_3uLc' : 'https://www.youtube.com/watch?v=07FODlTV74g'"
 							target="_blank" rel="noreferrer"><button class="gray">{{ t('about-us')
@@ -57,8 +60,8 @@ onMounted(() => {
 					<p>{{ t('coming-soon') }}</p>
 					<h4>{{ t('back-end.desc') }}</h4>
 					<div>
-						<a><button class="github">{{ t('github') }}<img
-									src="../assets/images/github-mark.svg" /></button></a>
+						<!-- <a><button class="github">{{ t('github') }}<img
+									src="../assets/images/github-mark.svg" /></button></a> -->
 					</div>
 				</div>
 			</div>
@@ -132,15 +135,17 @@ onMounted(() => {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
+			align-items: center;
 
 
 			h1 {
 				font-size: 4rem;
 				text-align: center;
-				background: linear-gradient(75deg, var(--color-complement-text), var(--color-highlight) 85%);
+				background: linear-gradient(75deg, var(--color-complement-text), var(--color-highlight) 70%, var(--color-complement-text), );
 				background-clip: text;
 				-webkit-background-clip: text;
 				-webkit-text-fill-color: transparent;
+				animation: title-gradient 10s linear none infinite;
 
 				@media screen and (max-width: 550px) {
 					font-size: 2.8rem;
@@ -148,11 +153,18 @@ onMounted(() => {
 			}
 
 			h2 {
-				margin: 1rem 0 1.5rem;
+				margin: 1rem auto 1.5rem;
+				padding-right: 4px;
+				border-right: .15em solid transparent;
 				font-size: 1.8rem;
 				font-weight: 400;
 				text-align: center;
 				color: #aeaeae;
+				animation:
+					typing 2.4s steps(40, end),
+					blink-caret .8s step-end 8;
+				overflow: hidden;
+				white-space: nowrap;
 
 				@media screen and (max-width: 550px) {
 					font-size: 1.3rem;
@@ -325,6 +337,42 @@ onMounted(() => {
 
 	100% {
 		opacity: 0;
+	}
+}
+
+@keyframes title-gradient {
+	0% {
+		background-position: 0;
+	}
+
+	50% {
+		background-position: 600px;
+	}
+
+	100% {
+		background-position: 0;
+	}
+}
+
+@keyframes typing {
+	from {
+		width: 0
+	}
+
+	to {
+		width: 100%
+	}
+}
+
+@keyframes blink-caret {
+
+	from,
+	to {
+		border-color: transparent
+	}
+
+	50% {
+		border-color: var(--color-highlight);
 	}
 }
 </style>

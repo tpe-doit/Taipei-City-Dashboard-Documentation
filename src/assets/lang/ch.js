@@ -1,5 +1,5 @@
 export const ch = {
-	dashboard: "城市運行儀表板",
+	dashboard: "臺北城市儀表板",
 	"dashboard-tagline": "讓我們的儀表板，成為您的儀表板",
 	"about-us": "關於我們",
 	demo: "前往體驗版",
