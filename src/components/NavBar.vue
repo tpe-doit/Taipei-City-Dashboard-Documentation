@@ -3,6 +3,7 @@ import { onMounted, ref } from 'vue';
 import { useAppStore } from '../store/appStore';
 import { useI18n } from "vue-i18n";
 
+const { BASE_URL } = import.meta.env;
 const appStore = useAppStore();
 const { locale } = useI18n();
 
@@ -23,7 +24,7 @@ onMounted(() => {
 
 <template>
 	<div class="navbar">
-		<a class="navbar-logo" href="/">
+		<a class="navbar-logo" :href="`${BASE_URL}/`">
 			<img src="../assets/images/TUIC.svg" alt="tuic logo"
 				:style="{ filter: appStore.mode === 'dark' ? 'invert(1)' : 'none' }" />
 			<div>

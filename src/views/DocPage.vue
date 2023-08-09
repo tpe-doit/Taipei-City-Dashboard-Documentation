@@ -28,7 +28,7 @@ const nextPageIndex = computed(() => {
 	return currentPageIndex.value + 1;
 });
 const githubEditLink = computed(() => {
-	return `https://github.com/tpe-doit/Taipei-City-Dashboard-Documentation/edit/main/public/articles/${route.name}-${appStore.lang}/${props.id}.md`;
+	return `https://github.com/tpe-doit/Taipei-City-Dashboard-Documentation/edit/main/src/assets/articles/${route.name}-${appStore.lang}/${props.id}.md`;
 });
 </script>
 

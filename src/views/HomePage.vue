@@ -3,6 +3,7 @@ import { onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useAppStore } from '../store/appStore';
 
+const { BASE_URL } = import.meta.env;
 const { t } = useI18n();
 const appStore = useAppStore();
 
@@ -40,7 +41,7 @@ onMounted(() => {
 					</div>
 				</div>
 				<div class="homepage-header-image">
-					<img :src="`/images/home/home${currentImg}.png`">
+					<img :src="`${BASE_URL}/images/home/home${currentImg}.png`">
 				</div>
 			</div>
 			<hr />
