@@ -9,6 +9,10 @@ on:
     pull_request:
         branches: ["main"]
 
+branding:
+    icon: "package"
+    color: "orange"
+
 jobs:
     build:
         runs-on: ubuntu-latest
