@@ -11,10 +11,6 @@
 #
 name: "CodeQL"
 
-branding:
-    icon: "award"
-    color: "yellow"
-
 on:
     push:
         branches: ["main"]
@@ -83,3 +79,7 @@ jobs:
               uses: github/codeql-action/analyze@v2
               with:
                   category: "/language:${{matrix.language}}"
+
+branding:
+    icon: "award"
+    color: "yellow"
