@@ -1,10 +1,9 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import viteCompression from "vite-plugin-compression";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	plugins: [vue(), viteCompression()],
+	plugins: [vue()],
 	build: {
 		rollupOptions: {
 			output: {
@@ -20,5 +19,8 @@ export default defineConfig({
 			},
 		},
 		chunkSizeWarningLimit: 1600,
+		assetsInlineLimit: 10000,
 	},
+	base: "/documentation",
+	assetsInclude: ["**/*.md"],
 });

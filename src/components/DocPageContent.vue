@@ -1,10 +1,10 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue';
-import axios from 'axios';
 import { marked } from 'marked';
 import hljs from 'highlight.js';
 import { useAppStore } from '../store/appStore';
 
+const { BASE_URL } = import.meta.env;
 const props = defineProps(['docs', 'id']);
 const appStore = useAppStore();
 
@@ -48,11 +48,14 @@ const parsedDoctext = computed(() => {
 			const headingId = text.toLowerCase().replaceAll(' ', '-');
 			return `<h${level} id="${headingId}">${text} <a href="#${headingId}" class="hide-if-mobile">#</a></h${level}>`;
 		},
+		image(href, title, text) {
+			return `<img src="${BASE_URL}${href}" alt="${text}" >`;
+		},
 		link(href, title, text) {
 			if (href.includes('http')) {
 				return `<a href="${href}" target='_blank'>${text}</a>`;
 			}
-			return `<a href="${href}">${text}</a>`;
+			return `<a href="${BASE_URL}${href}">${text}</a>`;
 		},
 		paragraph(text) {
 			const parsedText = text.replaceAll('<em><strong>', '<span>').replaceAll('</strong></em>', '</span>');
@@ -64,20 +67,32 @@ const parsedDoctext = computed(() => {
 	return marked.parse(doctext.value.replace(/^[\u200B\u200C\u200D\u200E\u200F\uFEFF]/, ""));
 });
 
-onMounted(() => {
-	axios.get(`/articles/${props.docs}-${appStore.lang}/${props.id}.md`).then(rs => {
-		doctext.value = rs.data;
+onMounted(async () => {
+	const module = await import(`../assets/articles/${props.docs}-${appStore.lang}/${props.id}.md`);
+	fetch(module.default).then(async res => {
+		return await res.text();
+	}).then(text => {
+		doctext.value = text;
 		setTimeout(() => {
 			hljs.highlightAll();
 		}, 50);
-	}).catch((err) => {
-		axios.get(`/articles/${props.docs}-en/${props.id}.md`).then(rs => {
-			doctext.value = rs.data;
-			setTimeout(() => {
-				hljs.highlightAll();
-			}, 50);
-		});
 	});
+
+	// axios.get(`${BASE_URL}/articles/`, {
+	// 	responseType: 'text'
+	// }).then(rs => {
+	// 	doctext.value = rs.data;
+	// 	setTimeout(() => {
+	// 		hljs.highlightAll();
+	// 	}, 50);
+	// }).catch((err) => {
+	// 	axios.get(`${BASE_URL}/articles/${props.docs}-en/${props.id}.md`).then(rs => {
+	// 		doctext.value = rs.data;
+	// 		setTimeout(() => {
+	// 			hljs.highlightAll();
+	// 		}, 50);
+	// 	});
+	// });
 })
 
 </script>
