@@ -58,7 +58,7 @@ const parsedDoctext = computed(() => {
 			return `<a href="${BASE_URL}${href}">${text}</a>`;
 		},
 		paragraph(text) {
-			const parsedText = text.replaceAll('<em><strong>', '<span>').replaceAll('</strong></em>', '</span>');
+			const parsedText = text.replaceAll('<em><strong>', '<span>').replaceAll('<strong><em>', '<span>').replaceAll('</strong></em>', '</span>').replaceAll('</em></strong>', '</span>');
 			return `<p>${parsedText}</p>`;
 		}
 	};

@@ -34,3 +34,4 @@ firebase.json
 *.cache
 
 dist.tar.gz
+*.sh

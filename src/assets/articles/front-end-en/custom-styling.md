@@ -29,12 +29,12 @@ This project heavily uses style variables to ensure uniformity of colors, fonts,
 	--font-l: 1.25rem;
 	--font-m: 1rem;
 	--font-s: 0.75rem;
-	--font-icon: "material-icons";
+	--font-icon: "Material Icons Round";
 }
 ```
 
 > **i01**
-> All icons in this project are rendered using a special icon font (material icons) provided by [Google Fonts](https://fonts.google.com/icons?icon.style=Rounded&icon.set=Material+Icons). The icon style chosen for this project is “rounded”. The font file can be found in the folder `/public/fonts`.
+> All icons in this project are rendered using a special icon font (material icons) provided by [Google Fonts](https://fonts.google.com/icons?icon.style=Rounded&icon.set=Material+Icons). The icon style chosen for this project is “rounded”. The font is fetched via `CDN` when `index.html` is loaded.
 
 ## Local Styles
 
