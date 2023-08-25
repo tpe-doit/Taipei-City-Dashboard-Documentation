@@ -24,9 +24,14 @@ VITE_MAPBOXTILE=mapbox:// // 在這裡輸入 Mapbox Tileset 連結（台北市�
 
 首先，從[這裡](https://drive.google.com/file/d/1cMBrq1gmSNAioogFZNqA5IyAmhXoeLVs/view?usp=drive_link)下載模型檔案(`geojson`)；再來，打開 Mapbox Studio 並前往 [「Tilesets」](https://studio.mapbox.com/tilesets/)；點擊「New Tileset」並上傳先前下載的模型檔案；上傳完成後，將 tileset 打開並點擊 「share & use」；複製「Tileset ID」並加到 `.env` 檔案中的`VITE_MAPBOXTILE`變量後(直接貼在「mapbox://」後面)。
 
-## 新增展示用空間資料
+## 解壓縮展示用空間資料
 
-本專案的空間資料由於檔案大小較大，因此儲存在他處。請從[這裡](https://drive.google.com/drive/folders/17E-4BRcuHpXg9o5evOWlwY4fI_06VWRd?usp=sharing)下載資料夾並且解壓縮，然後，將資料夾移入本專案的`/public`資料夾。
+本專案的空間資料由於檔案大小較大，因此在上傳 GitHub 前有先壓縮。請在根目錄中打開終端 (terminal) 並執行下列指令。
+
+```bash
+cd /public
+tar xmzf mapData.tar.gz
+```
 
 ## 本地運行
 

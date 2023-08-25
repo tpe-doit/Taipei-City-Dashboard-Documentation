@@ -77,22 +77,6 @@ onMounted(async () => {
 			hljs.highlightAll();
 		}, 50);
 	});
-
-	// axios.get(`${BASE_URL}/articles/`, {
-	// 	responseType: 'text'
-	// }).then(rs => {
-	// 	doctext.value = rs.data;
-	// 	setTimeout(() => {
-	// 		hljs.highlightAll();
-	// 	}, 50);
-	// }).catch((err) => {
-	// 	axios.get(`${BASE_URL}/articles/${props.docs}-en/${props.id}.md`).then(rs => {
-	// 		doctext.value = rs.data;
-	// 		setTimeout(() => {
-	// 			hljs.highlightAll();
-	// 		}, 50);
-	// 	});
-	// });
 })
 
 </script>
