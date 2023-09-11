@@ -10,7 +10,7 @@ const appVersion = "v2.0";
 </script>
 
 <template>
-	<aside :class="{ sidebar: true, 'sidebar-open': appStore.sidebar, 'sidebar-mobile': appStore.isMobileDevice }">
+	<aside :class="{ sidebar: true, 'sidebar-open': appStore.sidebar }">
 		<h5>{{ t(`${docs}.name`) }}{{ t("docs") }} <code>{{ appVersion }}</code></h5>
 		<div v-for="item in docslist" :key="item">
 			<h6 v-if="item[0] === '#'">{{ t(`${docs}.${item}`) }}</h6>
@@ -24,12 +24,9 @@ const appVersion = "v2.0";
 .sidebar {
 	width: 200px;
 	height: calc(100vh - 120px);
+	height: calc(var(--vh) * 100 - 120px);
 	padding: 2rem 0 2rem 1.5rem;
 	overflow-y: scroll;
-
-	&-mobile {
-		height: calc(100vh - 180px);
-	}
 
 	@media screen and (max-width: 850px) {
 		position: absolute;

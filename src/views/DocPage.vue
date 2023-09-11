@@ -44,8 +44,7 @@ const githubEditLink = computed(() => {
 				<h2>{{ t('404-desc') }}</h2>
 				<p>{{ t('404-message') }}</p>
 			</div>
-			<div v-else :class="{ 'docpage-content': true, 'docpage-mobile': appStore.isMobileDevice }"
-				@click="appStore.toggleSidebar(false)">
+			<div v-else class="docpage-content" @click="appStore.toggleSidebar(false)">
 				<h1>{{ t(`${route.name}.${id}`) }}</h1>
 				<DocPageContent :docs="route.name" :id="id" :key="id" />
 				<a class="docpage-edit" :href="githubEditLink" target="_blank" rel="noreferrer"><span>auto_fix_high</span>{{
@@ -75,6 +74,7 @@ const githubEditLink = computed(() => {
 	justify-content: center;
 	width: 100%;
 	height: calc(100vh - 60px);
+	height: calc(var(--vh) * 100 - 60px);
 
 	@media screen and (max-width: 850px) {
 		height: calc(100% - 60px);
@@ -130,6 +130,7 @@ const githubEditLink = computed(() => {
 	&-content {
 		padding: 2rem 1.5rem 3rem 3rem;
 		height: calc(100vh - 120px);
+		height: calc(var(--vh) * 100 - 120px);
 		overflow-y: scroll;
 
 		h1 {
@@ -139,12 +140,7 @@ const githubEditLink = computed(() => {
 
 		@media screen and (max-width: 850px) {
 			padding: 0 1.5rem 3rem 1.5rem;
-			height: calc(100vh - 210px);
 		}
-	}
-
-	&-mobile {
-		height: calc(100vh - 210px);
 	}
 
 	&-edit {

@@ -9,6 +9,7 @@
 	--font-s: 0.75rem;
 	--font-icon: "Material Icons Round";
 	--font-code: "Courier New", Courier, monospace;
+	--vh: 1vh;
 }
 
 .light {

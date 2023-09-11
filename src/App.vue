@@ -10,6 +10,14 @@ const { locale } = useI18n();
 
 onBeforeMount(() => {
 	appStore.checkIfMobile();
+
+	let vh = window.innerHeight * 0.01;
+	document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+	window.addEventListener('resize', () => {
+		let vh = window.innerHeight * 0.01;
+		document.documentElement.style.setProperty('--vh', `${vh}px`);
+	});
 });
 
 onMounted(() => {
@@ -28,8 +36,10 @@ onMounted(() => {
 <style scoped>
 .app {
 	background-color: var(--color-background);
-	height: 100%;
+	height: 100vh;
+	height: calc(var(--vh) * 100);
 	max-height: 100vh;
+	max-height: calc(var(--vh) * 100);
 	min-width: 100vw;
 	overflow-x: hidden;
 }
