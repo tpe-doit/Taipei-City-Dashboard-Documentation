@@ -85,7 +85,9 @@ onMounted(() => {
 	justify-content: center;
 	width: 100%;
 	height: calc(100vh - 60px);
+	height: calc(var(--vh) * 100 - 60px);
 	max-height: calc(100vh - 60px);
+	max-height: calc(var(--vh) * 100 - 60px);
 	overflow-y: scroll;
 
 	@media screen and (max-width: 850px) {

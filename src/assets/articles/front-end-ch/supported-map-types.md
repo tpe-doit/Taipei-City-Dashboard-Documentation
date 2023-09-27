@@ -1,4 +1,5 @@
 ## 地圖配置
+
 為了正確呈現地圖資料，需要將地圖配置填入組件配置中的`map_config`參數，正如 [這篇先前的文章](/front-end/introduction-to-components#component-configuration) 所述。
 
 為讓每個組件可以包含數個地圖圖層，地圖配置的形式為 Array ，清單的每個項目即為一個圖層的設定。當在地圖頁面展開組件時，所有附屬於該組件的地圖將同時被呼叫並渲染。
@@ -9,11 +10,11 @@
 "map_config": [
     {
         // String; 必須是唯一的並與地圖資料之檔案名稱相同
-        "index": "socl_welfare", 
+        "index": "socl_welfare",
         // Object; 支援所有 Mapbox 的Paint屬性。詳情參見第一個資訊框。
         "paint": {
             "fill-color": [] // 詳見第一個警告框。
-        }, 
+        },
         "property": [
             // key: String; 地圖資料中的屬性名稱
             // name: String; 在使用者介面中顯示的名稱
@@ -29,26 +30,48 @@
 ],
 ```
 
->**i01**
->在 Mapbox 中，每個地圖類型均支援數個Paint屬性，用於控制地圖視覺呈現，如顏色、大小、模糊度等。如要微調地圖的預設形式，只需傳遞任何 Mapbox 支援的Paint屬性即可。 ([Mapbox 圖層文件](https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/))
+> **i01**
+> 在 Mapbox 中，每個地圖類型均支援數個 Paint 屬性，用於控制地圖視覺呈現，如顏色、大小、模糊度等。如要微調地圖的預設形式，只需傳遞任何 Mapbox 支援的 Paint 屬性即可。 ([Mapbox 圖層文件](https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/))
 
->**w01**
->各地圖類型的顏色預設皆為黑色，因此所有地圖類型的顏色Paint屬性(e.g `fill-color`, `circle-color`, etc.)都應該被指定。
+> **w01**
+> 其中一個地圖類型「arc」並不是 Mapbox 內建的地圖種類，因此只支援`arc-color`、`arc-width`、`arc-opacity`三種 Paint 屬性，相關格式規範請參閱下方地圖類型的說明。
+
+> **w02**
+> 各地圖類型的顏色預設皆為黑色，因此所有地圖類型的顏色 Paint 屬性(e.g `fill-color`, `circle-color`, etc.)都應該被指定。
 
 ## 地圖類型
-本專案支援 5 種地圖類型。每個地圖類型都有預設的樣式，相關設定位於 `/src/assets/configs/mapbox` 的 `mapConfig.js` 檔案中。有些地圖亦支援一些預設變形。這可以透過在地圖配置中指定大小(size)或圖示(icon)參數來實現。
+
+本專案支援 6 種地圖類型。每個地圖類型都有預設的樣式，相關設定位於 `/src/assets/configs/mapbox` 的 `mapConfig.js` 檔案中。有些地圖亦支援一些預設變形。這可以透過在地圖配置中指定大小(size)或圖示(icon)參數來實現。
 
 ### Circle
-Circle地圖類型在地圖上將點(Point)渲染為圓圈。`size`變化包括 `small` 和 `big`。`icon`變化包括 `heatmap`，此效果在地圖拉遠時會將點變模糊，形成類似熱力圖的效果。
+
+Circle 地圖類型在地圖上將點(Point)渲染為圓圈。`size`變化包括 `small` 和 `big`。`icon`變化包括 `heatmap`，此效果在地圖拉遠時會將點變模糊，形成類似熱力圖的效果。
 
 ### Fill
-Fill地圖類型在地圖上渲染多邊形(Polygon)。沒有預設變化。
+
+Fill 地圖類型在地圖上渲染多邊形(Polygon)。沒有預設變化。
 
 ### Fill-extrusion
-Fill-extrusion地圖類型從地圖上突出顯示多邊形(Polygon)的 3D 渲染。沒有預設變化。
+
+Fill-extrusion 地圖類型從地圖上突出顯示多邊形(Polygon)的 3D 渲染。沒有預設變化。
 
 ### Line
-Line地圖類型在地圖上渲染線條(Line)。`size`變化包括 `wide`。`icon`變化包括 `dash`，呈現虛線而不是實線。
+
+Line 地圖類型在地圖上渲染線條(Line)。`size`變化包括 `wide`。`icon`變化包括 `dash`，呈現虛線而不是實線。
 
 ### Symbol
-Symbol地圖類型在地圖上將點(Point)渲染為圖示。如使用symbol地圖，必須將`icon`參數傳遞給地圖配置。目前可用的圖示包括 `metro`、`metro-density`、`triangle_green`、`triangle_white`、`youbike` 和 `bus`。
+
+Symbol 地圖類型在地圖上將點(Point)渲染為圖示。如使用 symbol 地圖，必須將`icon`參數傳遞給地圖配置。目前可用的圖示包括 `metro`、`metro-density`、`triangle_green`、`triangle_white`、`youbike` 和 `bus`。
+
+### Arc
+
+Arc 地圖類型在地圖上將線條(Line)渲染成立體曲線，Arc 地圖圖資的單一線條都只能包含兩個點，多餘點位均不會被渲染。Arc 地圖並不是 Mapbox 的內建地圖類型，因此只支援三個屬性，規格如下：
+
+```json
+"paint": {
+	"arc-color": ["#ffffff", "#f34523"], // Array of Strings;
+	// 單色曲線僅需提供一個色碼; 雙色漸層請提供兩個色碼
+	"arc-width": 4, // Number
+	"arc-opacity": 0.5, // Number; 0-1
+}
+```

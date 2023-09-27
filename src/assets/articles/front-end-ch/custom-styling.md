@@ -29,12 +29,12 @@
 	--font-l: 1.25rem;
 	--font-m: 1rem;
 	--font-s: 0.75rem;
-	--font-icon: "material-icons";
+	--font-icon: "Material Icons Round";
 }
 ```
 
 > **i01**
-> 本專案中的所有圖示都使用一個特殊的圖示字體（Material Icons）來渲染，該字體由[Google Fonts](https://fonts.google.com/icons?icon.style=Rounded&icon.set=Material+Icons)提供。本專案選擇了「圓角(Rounded)」的圖示風格。字體設定檔可以在文件夾`/public/fonts`中找到。
+> 本專案中的所有圖示都使用一個特殊的圖示字體（Material Icons）來渲染，該字體由[Google Fonts](https://fonts.google.com/icons?icon.style=Rounded&icon.set=Material+Icons)提供。本專案選擇了「圓角(Rounded)」的圖示風格。本字體是在`index.html`初次載入時透過`CDN`獲取的。
 
 ## 局部樣式
 
