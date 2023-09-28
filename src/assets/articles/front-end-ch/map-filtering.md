@@ -1,4 +1,5 @@
 ## 機制
+
 地圖篩選功能讓使用者能透過圖表來篩選該組件的地圖圖層。如要在一個組件啟動地圖篩選，必須填寫圖表配置 (`chart_config`) 的 `map_filter` 參數。下面展示了應該填入 `map_filter` 的詳細內容。
 
 ```json
@@ -16,20 +17,22 @@
 
 啟用篩選是透過呼叫 `mapStore` 的 `addLayerFilter` 函式來達成的。該函式接受三個參數，要篩選的地圖圖層的 Index、要篩選的屬性 (property)、在篩選後應該保留的值。關閉篩選是透過呼叫 `mapStore` 的 `clearLayerFilter` 函式來實現的。該函式只需要篩選的地圖圖層的 Index 作為參數。
 
->**i01**
->地圖圖層的 Index 為 `'${在 map_config 中指定的索引}-${地圖類型}'`。
+> **i01**
+> 地圖圖層的 Index 為 `'${在 map_config 中指定的索引}-${地圖類型}'`。
 
 ## 支援範圍
+
 如希望組件能夠支援地圖篩選，以下條件需要被滿足。
 
 首先，組件的統計和空間資料必須密切相關。換句話說，統計數據的類別（x-axis categories）應在空間資料中有相應的屬性 (property)。
 
->**i02**
->例如，組件的圖表可能展示每個行政區的街燈數量。在這種情況下如要支援地圖篩選，該組件的空間資料必須包含行政區的屬性。
+> **i02**
+> 例如，組件的圖表可能展示每個行政區的街燈數量。在這種情況下如要支援地圖篩選，該組件的空間資料必須包含行政區的屬性。
 
 再者，統計資料的類別的順序應保持恆定且不變，以便與空間資料正確配對。
 
 最後，每個組件只能篩選一個地圖圖層。
 
 ### 支援的圖表類型
-橫向長條圖(BarChart)、長條圖(%)(BarPercentChart)、縱向長條圖(ColumnChart)、行政區圖(DistrictChart)、圓餅圖(DonutChart)、量表圖(GuageChart)、地圖圖例(MapLegend)、矩形圖(TreemapChart)。
+
+橫向長條圖(BarChart)、長條圖(%)(BarPercentChart)、縱向長條圖(ColumnChart)、行政區圖(DistrictChart)、圓餅圖(DonutChart)、量表圖(GuageChart)、地圖圖例(MapLegend)、矩形圖(TreemapChart)、熱力圖(HeatmapChart)。
