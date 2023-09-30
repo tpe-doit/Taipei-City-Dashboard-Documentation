@@ -63,7 +63,7 @@ The line map type renders lines onto the map. `Size` variations include `wide`. 
 
 The symbol map type renders points as icons. For symbol maps, the `icon` parameter must be passed into the map config. Available icons include `metro`, `metro-density`, `triangle_green`, `triangle_white`, `youbike`, and `bus`.
 
-### Arc
+### Arc **_new_**
 
 The arc map type renders lines as 3D arcs. Each line should only contain 2 points as any additional points wouldn't be rendered. The arc map type was custom built and as such only supports the following three paint properties:
 

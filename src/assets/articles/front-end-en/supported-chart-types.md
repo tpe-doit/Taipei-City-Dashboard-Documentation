@@ -123,6 +123,6 @@ Metro charts display the density of metro train carriages on a given metro line.
 
 District charts are used to display lists where the keys are Taipei City districts. By default, larger values are rendered with higher opacity.
 
-### Heatmap Charts
+### Heatmap Charts **_new_**
 
 Heatmap charts are used to display three-dimensional data in a grid form. Each grid cell is asigned a different color based on its value.
