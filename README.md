@@ -1,5 +1,7 @@
 # <img src='src/assets/images/TUIC.svg' height='28'> Taipei City Dashboard Documentation
 
+> 歡慶中華民國國慶 🇹🇼 Happy Double Tenth Day 🔟🔟
+
 [Docs Website](https://tuic.gov.taipei/documentation) | [Taipei City Dashboard FE GitHub](https://github.com/tpe-doit/Taipei-City-Dashboard-FE)
 
 ## Contribute to the Docs
