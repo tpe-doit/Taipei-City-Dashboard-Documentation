@@ -56,6 +56,8 @@ onMounted(() => {
 
 	&-logo {
 		display: flex;
+		// position: relative;
+		// overflow: visible;
 
 		h1 {
 			font-weight: 500;
@@ -70,6 +72,14 @@ onMounted(() => {
 			height: 45px;
 			width: 22.94px;
 			margin: 0 var(--font-m);
+
+			// &.nationalday {
+			// 	position: absolute;
+			// 	top: -2px;
+			// 	left: 218px;
+			// 	width: auto;
+			// 	height: 2rem;
+			// }
 		}
 	}
 
