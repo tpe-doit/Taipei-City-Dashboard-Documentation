@@ -1,143 +1,156 @@
 ## Supported Data Types
+
 This project currently supports 4 main chart data types. Each data type has a predefined format and set of supported charts that could be utilized for visualization. To learn more about the supported chart types, refer to [this later article](/front-end/supported-chart-types).
 
 ### Two-Dimensional Data
+
 Two-Dimensional Data (henceforth referred to as 2D data) is data that could be formatted in simple **key-value (x-y)** pairs. For 2D data, both keys (x) and values (y) should be listed in a `json` file in the below format.
 
 **Format:**
+
 ```json
 {
-  "data": [
-    {
-      "name": "", // 2D data doesn't require the name parameter
-      "data": [
-        // key (x): String, value (y): Number
-        { "x": "機車竊盜", "y": 17 }, 
-        { "x": "住宅竊盜", "y": 12 },
-        { "x": "汽車竊盜", "y": 3 },
-        { "x": "搶奪", "y": 0 },
-        { "x": "強盜", "y": 0 }
-      ]
-    }
-  ]
+	"data": [
+		{
+			"name": "", // 2D data doesn't require the name parameter
+			"data": [
+				// key (x): String, value (y): Number
+				{ "x": "機車竊盜", "y": 17 },
+				{ "x": "住宅竊盜", "y": 12 },
+				{ "x": "汽車竊盜", "y": 3 },
+				{ "x": "搶奪", "y": 0 },
+				{ "x": "強盜", "y": 0 }
+			]
+		}
+	]
 }
 ```
+
 **Supported Chart Types:** Donut Chart, Bar Chart, Column Chart, Treemap Chart, District Chart, Metro Chart, Radar Chart
 
->**i01**
->If using District Charts, the keys (x) must be the full Mandarin name (e.g. 大安區) of all twelve Taipei City districts in the following order:
+> **i01**
+> If using District Charts, the keys (x) must be the full Mandarin name (e.g. 大安區) of all twelve Taipei City districts in the following order:
 >
->`["北投區", "士林區", "內湖區", "南港區", "松山區", "信義區", "中山區", "大同區", "中正區", "萬華區", "大安區", "文山區"]`
+> `["北投區", "士林區", "內湖區", "南港區", "松山區", "信義區", "中山區", "大同區", "中正區", "萬華區", "大安區", "文山區"]`
 
->**i02**
->More details regarding the key-value pairs for Metro Charts are explained in [this later article](/front-end/supported-chart-types#metro-chart).
+> **i02**
+> More details regarding the key-value pairs for Metro Charts are explained in [this later article](/front-end/supported-chart-types#metro-chart).
 
 ### Three-Dimensional Data
+
 Three-Dimensional Data (henceforth referred to as 3D data) is data that could be categorized into a **key-subcategory-value (x-y-z)** format. For 3D data, keys (x) should be listed in an array in the chart config (as mentioned in [this later article](/front-end/supported-chart-types#chart-config)), while subcategories (y) and values (z) should be listed in a `json` file in the below format.
 
 **Format:**
+
 ```json
 // keys (x): Array of Strings
 // ["士林區","大安區","文山區","松山區","南港區","大同區","中山區","內湖區","北投區","中正區","萬華區","信義區"]
 // keys are listed separately in chart config
 {
-  "data": [
-    {
-      // subcategory (y): String
-      "name": "低收", 
-      // values (z): Array of Numbers
-      // value placement corresponds to keys (x)
-      "data": [
-        5330, 1889, 5752, 1702, 2542, 3019, 2441, 3183, 4519, 1773, 6770, 3065
-      ] 
-    },
-    {
-      "name": "中低收",
-      "data": [
-        1740, 754, 2204, 561, 1170, 980, 921, 1423, 1508, 518, 2540, 1215
-      ]
-    },
-    {
-      "name": "身障補助",
-      "data": [696, 252, 688, 186, 425, 343, 351, 565, 635, 234, 751, 442]
-    },
-    {
-      "name": "身障",
-      "data": [
-        13240, 11383, 12378, 7970, 6084, 6387, 9481, 10683, 11800, 6401, 11299,
-        10196
-      ]
-    }
-  ]
+	"data": [
+		{
+			// subcategory (y): String
+			"name": "低收",
+			// values (z): Array of Numbers
+			// value placement corresponds to keys (x)
+			"data": [
+				5330, 1889, 5752, 1702, 2542, 3019, 2441, 3183, 4519, 1773,
+				6770, 3065
+			]
+		},
+		{
+			"name": "中低收",
+			"data": [
+				1740, 754, 2204, 561, 1170, 980, 921, 1423, 1508, 518, 2540,
+				1215
+			]
+		},
+		{
+			"name": "身障補助",
+			"data": [696, 252, 688, 186, 425, 343, 351, 565, 635, 234, 751, 442]
+		},
+		{
+			"name": "身障",
+			"data": [
+				13240, 11383, 12378, 7970, 6084, 6387, 9481, 10683, 11800, 6401,
+				11299, 10196
+			]
+		}
+	]
 }
 ```
 
-**Supported Chart Types:** Column Chart, Bar Percent Chart, Radar Chart, District Chart
+**Supported Chart Types:** Column Chart, Bar Percent Chart, Radar Chart, District Chart, Heatmap Chart
 
 ### Time Series Data
+
 Time Series Data (henceforth referred to as time data) is data that could be formatted in simple **key-value (x-y)** pairs where the keys are timestamps. For time data, both keys (x) and values (y) should be listed in a `json` file in the below format.
 
 **Format:**
+
 ```json
 {
-  "data": [
-    {
-      // Series Name: String
-      // Optional if only 1 series
-      "name": "進站",
-      "data": [
-        // key (x): String (Time Stamp), value (y): Number
-        { "x": "2023-05-25T06:29:00Z", "y": 19891  },
-        { "x": "2023-05-25T06:59:00Z", "y": 42930  },
-        { "x": "2023-05-25T07:29:00Z", "y": 83705  },
-        { "x": "2023-05-25T07:59:00Z", "y": 121326 },
-        { "x": "2023-05-25T08:29:00Z", "y": 128056 }
-      ]
-    },
-    // Additional Series (Optional)
-    { 
-      "name": "出站",
-      "data": [
-        // keys (x) must be the same as first serie
-        { "x": "2023-05-25T06:29:00Z", "y": 9263  }, 
-        { "x": "2023-05-25T06:59:00Z", "y": 23142  },
-        { "x": "2023-05-25T07:29:00Z", "y": 49352  },
-        { "x": "2023-05-25T07:59:00Z", "y": 92718  },
-        { "x": "2023-05-25T08:29:00Z", "y": 124858  }
-      ]
-    }
-  ]
+	"data": [
+		{
+			// Series Name: String
+			// Optional if only 1 series
+			"name": "進站",
+			"data": [
+				// key (x): String (Time Stamp), value (y): Number
+				{ "x": "2023-05-25T06:29:00Z", "y": 19891 },
+				{ "x": "2023-05-25T06:59:00Z", "y": 42930 },
+				{ "x": "2023-05-25T07:29:00Z", "y": 83705 },
+				{ "x": "2023-05-25T07:59:00Z", "y": 121326 },
+				{ "x": "2023-05-25T08:29:00Z", "y": 128056 }
+			]
+		},
+		// Additional Series (Optional)
+		{
+			"name": "出站",
+			"data": [
+				// keys (x) must be the same as first serie
+				{ "x": "2023-05-25T06:29:00Z", "y": 9263 },
+				{ "x": "2023-05-25T06:59:00Z", "y": 23142 },
+				{ "x": "2023-05-25T07:29:00Z", "y": 49352 },
+				{ "x": "2023-05-25T07:59:00Z", "y": 92718 },
+				{ "x": "2023-05-25T08:29:00Z", "y": 124858 }
+			]
+		}
+	]
 }
 ```
+
 **Supported Chart Types:** Timeline Separate Chart, Timeline Stacked Chart
 
 ### Percentage Data
+
 Percentage Data is data that could be formatted in simple **key-value (x-y)** pairs where the values are percentages. To provide more context behind percentage values, the divisor and the remainder (subtracting the divisor from the total) should also be provided. For percentage data, keys (x) should be listed in an array in the chart config (as mentioned in [this later article](/front-end/supported-chart-types#chart-config)), while the divisor and the remainder should be listed in a `json` file in the below format.
 
 **Format:**
+
 ```json
 // keys (x): Array of Strings
 // ["運行中公車", "運行中路線"]
 // keys are listed separately in chart config
 {
-  "data": [
-    // Serie 1: Divisor
-    {
-      // Title for Divisors
-      "name": "營運中",
-      // Divisor: Array of Numbers
-      // value placement corresponds to keys (x)
-      "data": [1564, 273]
-    },
-    // Serie 2: Remainder
-    {
-      // Title for Remainders
-      "name": "未營運",
-      // Remainder: Array of Numbers
-      // value placement corresponds to keys (x)
-      "data": [164, 109]
-    }
-  ]
+	"data": [
+		// Serie 1: Divisor
+		{
+			// Title for Divisors
+			"name": "營運中",
+			// Divisor: Array of Numbers
+			// value placement corresponds to keys (x)
+			"data": [1564, 273]
+		},
+		// Serie 2: Remainder
+		{
+			// Title for Remainders
+			"name": "未營運",
+			// Remainder: Array of Numbers
+			// value placement corresponds to keys (x)
+			"data": [164, 109]
+		}
+	]
 }
 // *Percentages are calculated by the charts
 ```

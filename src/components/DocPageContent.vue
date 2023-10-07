@@ -42,11 +42,12 @@ const parsedDoctext = computed(() => {
 			return `<pre><button class="${appStore.lang === 'en' ? '' : 'copy-ch'}" onclick="navigator.clipboard.writeText(\`${toBeCopied}\`)">content_paste</button><code class="language-${infostring}">${code}</code></pre>`;
 		},
 		heading(text, level) {
+			const parsedText = text.replaceAll('<em><strong>new', '<span>new').replaceAll('<strong><em>new', '<span>new').replaceAll('</strong></em>', '</span>').replaceAll('</em></strong>', '</span>');
 			if (level >= 4) {
-				return `<h${level}>${text}</h${level}>`;
+				return `<h${level}>${parsedText}</h${level}>`;
 			}
-			const headingId = text.toLowerCase().replaceAll(' ', '-');
-			return `<h${level} id="${headingId}">${text} <a href="#${headingId}" class="hide-if-mobile">#</a></h${level}>`;
+			const headingId = parsedText.toLowerCase().replaceAll(' ', '-').replaceAll('<span>', '').replaceAll('</span>', '');
+			return `<h${level} id="${headingId}">${parsedText} <a href="#${headingId}" class="hide-if-mobile">#</a></h${level}>`;
 		},
 		image(href, title, text) {
 			return `<img src="${BASE_URL}${href}" alt="${text}" >`;
@@ -109,9 +110,14 @@ onMounted(async () => {
 
 	h2,
 	h3 {
+		display: flex;
+		align-items: center;
+
 		a {
+			margin-left: 6px;
 			opacity: 0;
 			transition: opacity 0.2s;
+			user-select: none;
 		}
 
 		&:hover a {
@@ -120,6 +126,17 @@ onMounted(async () => {
 			&:hover {
 				opacity: 0.7;
 			}
+		}
+
+		span {
+			font-size: var(--font-m);
+			background-color: rgb(213, 181, 0);
+			padding: 1px 2px;
+			margin-left: 6px;
+			border-radius: 5px;
+			font-weight: 700;
+			user-select: none;
+			pointer-events: none;
 		}
 	}
 

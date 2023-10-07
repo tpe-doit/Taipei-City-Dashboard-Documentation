@@ -63,7 +63,7 @@ Line 地圖類型在地圖上渲染線條(Line)。`size`變化包括 `wide`。`i
 
 Symbol 地圖類型在地圖上將點(Point)渲染為圖示。如使用 symbol 地圖，必須將`icon`參數傳遞給地圖配置。目前可用的圖示包括 `metro`、`metro-density`、`triangle_green`、`triangle_white`、`youbike` 和 `bus`。
 
-### Arc
+### Arc **_new_**
 
 Arc 地圖類型在地圖上將線條(Line)渲染成立體曲線，Arc 地圖圖資的單一線條都只能包含兩個點，多餘點位均不會被渲染。Arc 地圖並不是 Mapbox 的內建地圖類型，因此只支援三個屬性，規格如下：
 
