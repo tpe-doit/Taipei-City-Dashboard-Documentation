@@ -1,6 +1,35 @@
-## 本地安裝
+## 快速架設專案
 
-首先，fork 官方的 GitHub repository，然後將其 clone 或下載到您的電腦上。接下來，在根目錄中打開終端 (terminal) 並執行 `npm install`。
+### Docker
+
+**_looks_one_** 在電腦上安裝 [Docker](https://www.docker.com/products/docker-desktop/) 並執行之。
+
+**_looks_two_** Fork [專案 Repository](https://github.com/tpe-doit/Taipei-City-Dashboard-FE) 並將其 clone 至電腦。在 Repository 終端執行 `pwd` (mac) 或 `cd` 以獲得完整的檔案路徑。
+
+**_looks_3_** 在系統終端執行以下指令，並以步驟二得到的檔案路徑取代 "&lt;repository path&gt;" 。
+
+```bash
+docker run -v &lt;repository path&gt;:/opt/Taipei-City-Dashboard-FE -p 80:80 -it node:18.18.1-alpine3.18  sh
+```
+
+**_looks_4_** 執行以下指令以進入專案資料夾並安裝相關套件。
+
+```bash
+cd /opt/Taipei-City-Dashboard-FE
+npm install
+```
+
+**_looks_5_** 現在執行 `npm run dev` 即可以啟動本地伺服器。
+
+### 本地安裝
+
+**_looks_one_** 在您的電腦下載 [Node.js](https://nodejs.org/en)。
+
+**_looks_two_** Fork [專案 Repository](https://github.com/tpe-doit/Taipei-City-Dashboard-FE) 並將其 clone 至電腦。
+
+**_looks_3_** 在 Repository 終端執行 `npm install` 。
+
+**_looks_4_** 現在執行 `npm run dev` 即可以啟動本地伺服器。
 
 ## 添加 .env 文件
 
@@ -32,7 +61,3 @@ VITE_MAPBOXTILE=mapbox:// // 在這裡輸入 Mapbox Tileset 連結（台北市�
 cd /public
 tar xmzf mapData.tar.gz
 ```
-
-## 本地運行
-
-在 repository 的終端中運行 `npm run dev`。
