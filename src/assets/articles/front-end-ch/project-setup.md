@@ -47,7 +47,7 @@ VITE_MAPBOXTILE=mapbox:// // 在這裡輸入 Mapbox Tileset 連結（台北市�
 填寫變量 `VITE_MAPBOXTOKEN`，如此才能使用 Mapbox 渲染本專案中的地圖。請創建一個 Mapbox 帳戶，並按照[這個指南](https://docs.mapbox.com/help/getting-started/access-tokens/)來創建您自己的 Mapbox 金鑰。
 
 > **t01**
-> 如果您不是使用您 Mapbox 帳號的預設公開金鑰，記得將 https://localhost:5173 加入您使用的金鑰的核准網域清單。
+> 如果您不是使用您 Mapbox 帳號的預設公開金鑰，記得將 https://localhost:80 加入您使用的金鑰的核准網域清單。
 
 ### 新增台北市大樓 3D 模型 (非必要)
 
