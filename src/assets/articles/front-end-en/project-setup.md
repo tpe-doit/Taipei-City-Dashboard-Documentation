@@ -58,6 +58,6 @@ First, download the model file (`geojson`) [here](https://drive.google.com/file/
 Due to size restrictions, the directory containing the demo map data of this project is compressed. Extract the directory by running the following commands in the repository terminal.
 
 ```bash
-cd /public
+cd ./public
 tar xmzf mapData.tar.gz
 ```
