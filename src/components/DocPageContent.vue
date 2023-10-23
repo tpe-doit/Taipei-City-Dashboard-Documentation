@@ -176,7 +176,21 @@ onMounted(async () => {
 		background-color: var(--color-component-background);
 		padding: 2px 4px;
 		border-radius: 5px;
-		color: var(--color-normal-text)
+		color: var(--color-normal-text);
+		overflow-y: scroll;
+
+		&::-webkit-scrollbar {
+			height: 8px;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: var(--color-complement-text);
+			border-radius: 8px;
+		}
+
+		&::-webkit-scrollbar-corner {
+			background-color: var(--color-component-background);
+		}
 	}
 
 	pre {
