@@ -20,10 +20,10 @@ export const ch = {
 		"#getting-started": "入門指南",
 		introduction: "儀表板簡介",
 		prerequisites: "核心科技與必備知識",
-		"project-setup": "下載並設置專案",
+		"project-setup": "下載並設定專案",
 		"#project-structure": "專案架構",
 		"user-interface": "用戶介面",
-		"file-system": "檔案存儲系統",
+		"file-system": "檔案儲存系統",
 		"rendering-strategy": "畫面渲染策略",
 		"#dashboard": "儀表板指南",
 		"introduction-to-dashboards": "儀表板簡介",
@@ -55,6 +55,6 @@ export const ch = {
 	},
 	"back-end": {
 		name: "後端",
-		desc: "系統設定、數據存儲、用戶驗證等",
+		desc: "系統設定、數據儲存、用戶驗證等",
 	},
 };
