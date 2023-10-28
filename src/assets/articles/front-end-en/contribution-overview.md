@@ -4,6 +4,9 @@ As Taipei City Dashboard transitions from an internal tool to a public platform,
 
 By contributing to this project, you’ll have a say in how Taipei City Dashboard 2.0 looks when it is released in early 2024. This is also a great opportunity to directly interact with Taipei City Government and TUIC. Your contributions will also be attributed to all relevant components for everyone to see.
 
+> **i01**
+> We cordially invite you to participate in [Taipei Codefest 2023](https://codefest.taipei) from Nov. 18 - 19. The main objective of this competition is to develop new components and features for Taipei City Dashboard. With a top prize of NT$300,000, this is an opportunity you wouldn't want to miss. Register now!
+
 ## Become a Contributor
 
 This project welcomes any contributions. We manage all of our contributions on [GitHub](https://github.com/tpe-doit/Taipei-City-Dashboard-FE) through issues and pull requests.

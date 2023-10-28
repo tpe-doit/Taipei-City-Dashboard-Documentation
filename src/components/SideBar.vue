@@ -6,12 +6,13 @@ defineProps(['docs', 'docslist']);
 const { t } = useI18n();
 const appStore = useAppStore();
 
-const appVersion = "v2.0";
+const appVersion = "v1.0.0-Beta.2";
 </script>
 
 <template>
 	<aside :class="{ sidebar: true, 'sidebar-open': appStore.sidebar }">
-		<h5>{{ t(`${docs}.name`) }}{{ t("docs") }} <code>{{ appVersion }}</code></h5>
+		<code>{{ appVersion }}</code>
+		<h5>{{ t(`${docs}.name`) }}{{ t("docs") }}</h5>
 		<div v-for="item in docslist" :key="item">
 			<h6 v-if="item[0] === '#'">{{ t(`${docs}.${item}`) }}</h6>
 			<router-link v-else :to="`/${docs}/${item}`" @click="appStore.toggleSidebar(false)">{{ t(`${docs}.${item}`)
@@ -43,15 +44,17 @@ const appVersion = "v2.0";
 	h5 {
 		font-size: var(--font-m);
 		user-select: none;
+		margin-top: 8px;
+	}
 
-		code {
-			font-family: var(--font-code);
-			font-weight: 400;
-			background-color: var(--color-component-background);
-			padding: 2px 4px;
-			border-radius: 5px;
-			color: var(--color-normal-text)
-		}
+	code {
+		font-family: var(--font-code);
+		font-weight: 400;
+		font-size: 12px;
+		background-color: var(--color-border);
+		padding: 3px 4px 2px;
+		border-radius: 5px;
+		color: var(--color-normal-text)
 	}
 
 	h6 {
