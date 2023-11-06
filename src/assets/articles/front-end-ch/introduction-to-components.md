@@ -75,4 +75,4 @@
 > 所有一般組件都有統計資料，因此組件配置中應包含圖表配置。圖表配置將在[後面的文章](/front-end/supported-chart-types#chart-config)中詳細介紹。
 
 > **i04**
-> 所有日期應使用以下格式：`YYYY-MM-DDThh:mm:ssTZD`（例如 2023-06-16T18:20:00+08:00）
+> 所有日期時間均應為台灣時區(UTC+8)，並使用 ISO 8601 格式：`YYYY-MM-DDThh:mm:ssTZD`（例如 2023-06-16T18:20:00+08:00）
