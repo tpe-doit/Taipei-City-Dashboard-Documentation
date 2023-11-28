@@ -54,12 +54,3 @@ VITE_MAPBOXTILE=mapbox:// # 在這裡輸入 Mapbox Tileset 連結（台北市大
 首先，從[這裡](https://drive.google.com/file/d/1cMBrq1gmSNAioogFZNqA5IyAmhXoeLVs/view?usp=drive_link)下載模型檔案(`geojson`)；再來，打開 MapBox Studio 並前往 [「Tilesets」](https://studio.mapbox.com/tilesets/)；點擊「New Tileset」並上傳先前下載的模型檔案；上傳完成後，將 tileset 打開並點擊 「share & use」；複製「Tileset ID」並加到 `.env` 檔案中的`VITE_MAPBOXTILE`變量後(直接貼在「mapbox://」後面)。
 
 返回 MapBox 上的 tileset，在畫面左側會看見一個標題為"Vector Layers"的側邊欄。將標題底下多邊形 (polygon) 圖層的名稱 (會是以"tp_building_height"開頭) 複製下來。接下來，返回本專案的程式庫，並前往 `/src/assets/configs/mapbox/mapConfig.js`。尋找一個名為 "TaipeiBuilding" 的物件並以先前複製之多邊形圖層名稱取代 "source-layer" 的值。
-
-## 解壓縮展示用空間資料
-
-本專案的空間資料由於檔案大小較大，因此在上傳 GitHub 前有先壓縮。請在根目錄中打開終端 (terminal) 並執行下列指令。
-
-```bash
-cd ./public
-tar xmzf mapData.tar.gz
-```

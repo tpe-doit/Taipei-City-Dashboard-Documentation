@@ -37,22 +37,53 @@
 
 除非必要，所有 Vue 元件應該按照以下格式編排。
 
-```html
-&lt;!-- 本程式片段專有名詞多，如非必要不進行翻譯 --&gt; &lt;!-- Component Name:
-SampleComponent --&gt; &lt;script setup&gt; // Library, package, and Pinia Store
-imports. Ex: import { ref, computed, onMounted } from 'vue'; import {
-useContentStore } from '../store/contentStore'; // Component, config, utility
-function imports. Ex: import AddComponent from './dialogs/AddComponent.vue'; //
-Library, package, and Pinia Store constant declarations. Ex: const contentStore
-= useContentStore(); // Props and Emits. Ex: const props =
-defineProps('sample'); // Local Data. Ex: const isDashboard = ref(false); //
-Computed Properties. Ex: const sampleComputed = computed(() =&gt; { return
-&quot;sample&quot; }) // Methods. Ex: handleSubmit() { return } // Life Cycle
-Hooks. Ex: onMounted(() =&gt; { isDashboard.value = true; }) &lt;/script&gt;
-&lt;template&gt; &lt;div class=&quot;samplecomponent&quot;&gt; &lt;!--
-其餘HTML元素 --&gt; &lt;/div&gt; &lt;/template&gt; &lt;style scoped
-lang=&quot;scss&quot;&gt; .samplecomponent { /* ...styling; 見以下有關CSS的段落
-*/ } &lt;/style&gt;
+```js
+&lt;!-- 本程式片段專有名詞多，如非必要不進行翻譯 --&gt;
+&lt;!-- Component Name: SampleComponent --&gt;
+&lt;script setup&gt;
+// Library, package, and Pinia Store imports. Ex:
+import { ref, computed, onMounted } from 'vue';
+import { useContentStore } from '../store/contentStore';
+
+// Component, config, utility function imports. Ex:
+import AddComponent from './dialogs/AddComponent.vue';P
+
+// Library, package, and Pinia Store constant declarations. Ex:
+const contentStore = useContentStore();
+
+// Props and Emits. Ex:
+const props = defineProps('sample');
+
+// Local Data. Ex:
+const isDashboard = ref(false);
+
+// Computed Properties. Ex:
+const sampleComputed = computed(() =&gt; {
+	return &quot;sample&quot;
+})
+
+// Methods. Ex:
+handleSubmit() {
+	return
+}
+
+// Life Cycle Hooks. Ex:
+onMounted(() =&gt; {
+	isDashboard.value = true;
+})
+&lt;/script&gt;
+
+&lt;template&gt;
+	&lt;div class=&quot;samplecomponent&quot;&gt;
+		&lt;!-- Rest of the template --&gt;
+	&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;style scoped lang=&quot;scss&quot;&gt;
+.samplecomponent {
+	/* ...styling; 見以下有關CSS的段落 */
+}
+&lt;/style&gt;
 ```
 
 ### CSS

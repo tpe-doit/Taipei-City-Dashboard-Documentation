@@ -54,12 +54,3 @@ Fill in the variable `VITE_MAPBOXTOKEN` with a Mapbox access token which will al
 First, download the model file (`geojson`) [here](https://drive.google.com/file/d/1cMBrq1gmSNAioogFZNqA5IyAmhXoeLVs/view?usp=drive_link). Then, open Mapbox Studio and navigate to ["Tilesets"](https://studio.mapbox.com/tilesets/). Click on "New Tileset" and upload the downloaded file. After the upload has been completed, open the tileset and click on "share & use". Copy the "Tileset ID" and append it to the variable `VITE_MAPBOXTILE` in the `.env` file (paste it after "mapbox://").
 
 Navigate back to the tileset on MapBox. On the left of the screen, you will see a sidebar titled "Vector Layers". Copy the name of the polygon layer (it should start with "tp_building_height") below the title. Then, return to project repository and navigate to `/src/assets/configs/mapbox/mapConfig.js`. Find a object called "TaipeiBuilding" and replace the parameter "source-layer" with the polygon layer name you copied.
-
-## Extract Demo Map Data
-
-Due to size restrictions, the directory containing the demo map data of this project is compressed. Extract the directory by running the following commands in the repository terminal.
-
-```bash
-cd ./public
-tar xmzf mapData.tar.gz
-```
