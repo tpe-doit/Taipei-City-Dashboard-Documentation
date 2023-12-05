@@ -48,7 +48,7 @@ onMounted(() => {
 			<div class="homepage-nav">
 				<div class="homepage-nav-card">
 					<h3>{{ t('front-end.name') }}{{ t('docs') }}</h3>
-					<p>{{ t('last-updated') }}: 23/07/12</p>
+					<p>{{ t('last-updated') }}: 23/12/05</p>
 					<h4>{{ t('front-end.desc') }}</h4>
 					<div>
 						<a href="https://github.com/tpe-doit/Taipei-City-Dashboard-FE" target="_blank"
