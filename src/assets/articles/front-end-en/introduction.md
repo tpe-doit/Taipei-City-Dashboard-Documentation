@@ -65,6 +65,11 @@ _contributors_
 [![陳俊嘉](/images/contributors/陳俊嘉.png)**陳俊嘉**](https://github.com/11044123/Taipei-City-Dashboard-FE)
 [![沈鈺芳](/images/contributors/沈鈺芳.png)**沈鈺芳**](https://github.com/11044123/Taipei-City-Dashboard-FE)
 [![黃愉翔](/images/contributors/黃愉翔.png)**黃愉翔**](https://github.com/huangyyuuu)
+[![林育緹](/images/contributors/林育緹.png)**林育緹**](https://github.com/oohyuti)
+[![王佑豪](/images/contributors/王佑豪.png)**王佑豪**](https://github.com/vnaticzhock)
+[![謝芝嫻](/images/contributors/謝芝嫻.png)**謝芝嫻**](https://github.com/pigbearhsien)
+[![賴彥良](/images/contributors/賴彥良.png)**賴彥良**](https://github.com/yenlianglai)
+[![蔡立倫](/images/contributors/蔡立倫.png)**Lawrence Tsai**](https://github.com/tsailawrence)
 
 ## Contact Us
 
