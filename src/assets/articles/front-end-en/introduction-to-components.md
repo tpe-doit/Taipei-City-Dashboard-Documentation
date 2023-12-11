@@ -22,8 +22,9 @@ Each component has two unique identification codes: ID and Index. The ID is a un
       "history_data": false, // Boolean; whether historical data is available
       "history_data_color": null, // Array || null; of hex color codes, defaults to chart colors
       "map_config": null, // Object || null; see 2nd info box below for details
+	  "map_filter": null, // Object || null; see 3rd info box below for details
       "Chart_config": {
-       },  // Object; see 3rd info box below for details
+       },  // Object; see 4th info box below for details
       "name": "刑事統計", // String; component name
       "source": "警察局", // String; source name
       "time_from": "2023-01-01T23:59:59+08:00", // String || null; data time frame (from)
@@ -46,6 +47,7 @@ Each component has two unique identification codes: ID and Index. The ID is a un
       "id": 115, // Number; ID number
       "index": "6f3842dd",  // String; index
       "map_config": {}, // Object; see 2nd info box below for details
+	  "map_filter": null, // Object || null; see 3rd info box below for details
       "chart_config": {
         "types": ["MapLegend"]
       }, // Object; Always this value for map layer components
@@ -72,7 +74,10 @@ Each component has two unique identification codes: ID and Index. The ID is a un
 > If the component has geographical data, pass in a map configuration object. If not, pass in `null`. The map configuration object will be explained in greater detail in [this later article](/front-end/supported-map-types#map-config).
 
 > **i03**
-> All normal components have statistical data and a chart configuration object should be included in the component configuration. The chart configuration object will be explained in greater detail in [this later article](/front-end/supported-chart-types#chart-config).
+> Pass in a map filter configuration object to support map filtering via charts. If not, pass in `null`. The map filter configuration object will be explained in greater detail in [this later article](/front-end/map-filtering).
 
 > **i04**
+> All normal components have statistical data and a chart configuration object should be included in the component configuration. The chart configuration object will be explained in greater detail in [this later article](/front-end/supported-chart-types#chart-config).
+
+> **i05**
 > All dates and times should be based on Taiwan's Timezone (UTC+8) and follow the ISO 8601 format: `YYYY-MM-DDThh:mm:ssTZD` (e.g. 2023-06-16T18:20:00+08:00)

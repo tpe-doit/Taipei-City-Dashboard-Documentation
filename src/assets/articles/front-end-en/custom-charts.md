@@ -13,7 +13,7 @@ If a component contains more than 1 chart type, gray buttons with chart names wi
 >If you are unfamiliar with how Apexcharts works in Vue, please be sure to read through Apexchart's [documentation](https://apexcharts.com/docs/vue-charts/) on the topic before continuing.
 
 ### Anatomy of a Chart Vue Component
-All chart Vue components accept four props: `“activeChart”`, `“chart_config”`, `“series”`, and `“map_config”`. `activeChart` informs the chart Vue component whether it should be rendered; `chart_config` contains aesthetic details that specify how the chart should be rendered; `series` contains chart data; `"map_config"` allows the chart to control maps attached to the same component.
+All chart Vue components accept four props: `“activeChart”`, `“chart_config”`, `“series”`, and `“map_config”`. `activeChart` informs the chart Vue component whether it should be rendered; `chart_config` contains aesthetic details that specify how the chart should be rendered; `series` contains chart data; `"map_config"` allows the chart to control maps attached to the same component; `map_filter` stores additional map filtering configurations.
 
 The following is a breakdown of a typical chart Vue component that is based on apexcharts.
 ```html
@@ -22,7 +22,7 @@ import { computed, ref } from 'vue'
 import { useMapStore } from '../../store/mapStore';
 
 // register the four required props
-const props = defineProps(['chart_config', 'activeChart', 'series', 'map_config'])
+const props = defineProps(['chart_config', 'activeChart', 'series', 'map_config', 'map_filter'])
 const mapStore = useMapStore()
 
 // Optional.

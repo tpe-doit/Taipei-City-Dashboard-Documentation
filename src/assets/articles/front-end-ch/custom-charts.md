@@ -13,16 +13,17 @@
 >如果您對Apexcharts在Vue中的運作方式不熟悉，請先閱讀Apexchart的[相關文件](https://apexcharts.com/docs/vue-charts/)。
 
 ### 圖表 Vue 元件的結構
-所有圖表 Vue 元件都接受四個屬性(props)：`“activeChart”`、`“chart_config”`、`“series”` 和 `“map_config”`。`activeChart` 屬性通知圖表 Vue 元件是否應該被渲染；`chart_config` 屬性包含指定圖表如何渲染的相關設定；`series` 屬性包含統計資料；`"map_config"` 使圖表能控制附加在同一組件的地圖。
+所有圖表 Vue 元件都接受四個屬性(props)：`“activeChart”`、`“chart_config”`、`“series”` 和 `“map_config”`。`activeChart` 屬性通知圖表 Vue 元件是否應該被渲染；`chart_config` 屬性包含指定圖表如何渲染的相關設定；`series` 屬性包含統計資料；`"map_config"` 使圖表能控制附加在同一組件的地圖；`map_filter` 儲存額外的地圖篩選設定.
 
 以下是一個以 Apexcharts 為基底的圖表 Vue 元件的架構。
+
 ```html
 &lt;script setup&gt;
 import { computed, ref } from 'vue'
 import { useMapStore } from '../../store/mapStore';
 
 // 註冊四個屬性(props)
-const props = defineProps(['chart_config', 'activeChart', 'series', 'map_config'])
+const props = defineProps(['chart_config', 'activeChart', 'series', 'map_config', 'map_filter'])
 const mapStore = useMapStore()
 
 // 選擇性包含

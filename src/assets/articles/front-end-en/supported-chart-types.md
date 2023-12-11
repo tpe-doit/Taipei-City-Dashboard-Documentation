@@ -8,14 +8,8 @@ To correctly render chart data, several parameters need to be set and passed int
     "types": ["BarPercentChart", …], // Array of Strings; Pass in 1-3 chart names
     "unit": "棟", // String || null; Unit of the data points
     "categories": [], // Array of Strings || null; Required for 3D and percentage data
-    "map_filter": ["key", ["filter1", "filter2"]] // Array || null; See 1st info box below for details
 },
 ```
-
-> **i01**
-> The map filter parameter holds a configuration array that enables the chart to filter the map attached to the component. This [later article](/front-end/map-filtering) will dive deeper into how the mechanism works.
->
-> It is recommended to finish reading about chart types and map types before proceeding to that article.
 
 ## Chart Types
 
@@ -42,7 +36,7 @@ Below is a reference of English and Mandarin names for all chart types.
 };
 ```
 
-> **i02**
+> **i01**
 > Charts are always referenced in English Pascal Case in the codebase, while all chart names displayed in the user interface are in Mandarin.
 >
 > The English-Mandarin reference file is located in `/src/assets/configs/apexcharts` as `chartTypes.js`.
@@ -123,6 +117,6 @@ Metro charts display the density of metro train carriages on a given metro line.
 
 District charts are used to display lists where the keys are Taipei City districts. By default, larger values are rendered with higher opacity.
 
-### Heatmap Charts **_new_**
+### Heatmap Charts
 
 Heatmap charts are used to display three-dimensional data in a grid form. Each grid cell is asigned a different color based on its value.

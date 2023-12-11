@@ -22,8 +22,9 @@
     "history_data": false, // Boolean; 是否有歷史數據
     "history_data_color": null, // Array || null; hex色碼，預設為圖表顏色
     "map_config": null, // Object || null; 詳見下方第2個資訊匡
+	"map_filter": null, // Object || null; 詳見下方第3個資訊匡
     "chart_config": {
-    },  // Object; 詳見下方第3個資訊匡
+    },  // Object; 詳見下方第4個資訊匡
     "name": "刑事統計", // String; 組件名稱
     "source": "警察局", // String; 來源名稱
     "time_from": "2023-01-01T23:59:59+08:00", // String || null; 數據時間範圍（起始）
@@ -46,6 +47,7 @@
     "id": 115, // Number; ID
     "index": "6f3842dd",  // String; 索引
     "map_config": {}, // Object; 詳見下方第2個資訊匡
+	"map_filter": null, // Object || null; 詳見下方第3個資訊匡
     "chart_config": {
         "types": ["MapLegend"]
     }, // Object; 地圖層組件始終為此值
@@ -72,7 +74,10 @@
 > 如果組件具有空間資料，請輸入地圖配置。如果沒有，請輸入 `null`。地圖配置將在[後面的文章](/front-end/supported-map-types#map-config)中詳細介紹。
 
 > **i03**
-> 所有一般組件都有統計資料，因此組件配置中應包含圖表配置。圖表配置將在[後面的文章](/front-end/supported-chart-types#chart-config)中詳細介紹。
+> 如果組件希望支援以圖表篩選地圖的功能，請輸入地圖篩選配置。如果沒有，請輸入 `null`。地圖篩選配置將在[後面的文章](/front-end/map-filtering)中詳細介紹。
 
 > **i04**
+> 所有一般組件都有統計資料，因此組件配置中應包含圖表配置。圖表配置將在[後面的文章](/front-end/supported-chart-types#chart-config)中詳細介紹。
+
+> **i05**
 > 所有日期時間均應為台灣時區(UTC+8)，並使用 ISO 8601 格式：`YYYY-MM-DDThh:mm:ssTZD`（例如 2023-06-16T18:20:00+08:00）
