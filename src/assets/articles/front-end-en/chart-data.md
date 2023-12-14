@@ -80,7 +80,7 @@ Three-Dimensional Data (henceforth referred to as 3D data) is data that could be
 }
 ```
 
-**Supported Chart Types:** Column Chart, Bar Percent Chart, Radar Chart, District Chart, Heatmap Chart
+**Supported Chart Types:** Column Chart, Bar Percent Chart, Radar Chart, District Chart, Heatmap Chart, Polar Area Chart
 
 ### Time Series Data
 

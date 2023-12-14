@@ -80,7 +80,7 @@
 }
 ```
 
-**支援的圖表類型：** 縱向長條圖(ColumnChart)、長條圖(%)(BarPercentChart)、雷達圖(RadarChart)、行政區圖(DistrictChart)、熱力圖(HeatmapChart)
+**支援的圖表類型：** 縱向長條圖(ColumnChart)、長條圖(%)(BarPercentChart)、雷達圖(RadarChart)、行政區圖(DistrictChart)、熱力圖(HeatmapChart)、極座標圖(PolarAreaChart)
 
 ### 時間序列資料
 

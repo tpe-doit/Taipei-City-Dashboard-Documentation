@@ -16,11 +16,11 @@
 
 ### 依各圖層中屬性 (By Param)
 
-By Param 模式依組件中各圖層中所存的屬性進行篩選。被篩選屬性的各個值需要與圖表x軸與y軸對應，並完全相同，本模式才能順利運作。
+By Param 模式依組件中各圖層中所存的屬性進行篩選。被篩選屬性的各個值需要與圖表 x 軸與 y 軸對應，並完全相同，本模式才能順利運作。
 
 ### 依地圖圖層 (By Layer)
 
-By Layer 模式依組件中各圖層的名稱篩選，開關各圖層。各圖層的名稱(title)需要與圖表x軸對應，並完全相同，本模式才能順利運作。
+By Layer 模式依組件中各圖層的名稱篩選，開關各圖層。各圖層的名稱(title)需要與圖表 x 軸對應，並完全相同，本模式才能順利運作。
 
 ## 運作機制
 
@@ -30,4 +30,4 @@ By Layer 模式依組件中各圖層的名稱篩選，開關各圖層。各圖�
 
 ## 支援的圖表類型
 
-橫向長條圖(BarChart)、長條圖(%)(BarPercentChart)、縱向長條圖(ColumnChart)、行政區圖(DistrictChart)、圓餅圖(DonutChart)、量表圖(GuageChart)、地圖圖例(MapLegend)、矩形圖(TreemapChart)、熱力圖(HeatmapChart)。
+橫向長條圖(BarChart)、長條圖(%)(BarPercentChart)、縱向長條圖(ColumnChart)、行政區圖(DistrictChart)、圓餅圖(DonutChart)、量表圖(GuageChart)、地圖圖例(MapLegend)、矩形圖(TreemapChart)、熱力圖(HeatmapChart)、極座標圖(PolarAreaChart)。

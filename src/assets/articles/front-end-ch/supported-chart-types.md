@@ -33,6 +33,7 @@
     DistrictChart: "行政區圖",
     MetroChart: "捷運行駛圖",
 	HeatmapChart: "熱力圖",
+	PolarAreaChart: "極座標圖",
 	ColumnLineChart: "長條折線圖",
 	BarChartWithGoal: "長條圖(目標)",
 	IconPercentChart: "圖示比例圖"
@@ -123,6 +124,10 @@
 ### 熱力圖
 
 熱力圖用於顯示三維資料，以網格形式呈現，並依據網格值的高低呈現不同顏色。
+
+### 極座標圖 **_new_**
+
+極座標圖用於顯示三維資料，以數個扇形組成。
 
 ### 長條折線圖 **_new_**
 

@@ -1,6 +1,6 @@
 ## Map Filter Config
 
-Map filtering is a useful feature that allows users to filter out a subset of geographical data attached to a component using charts. 
+Map filtering is a useful feature that allows users to filter out a subset of geographical data attached to a component using charts.
 
 To activate map filtering for a component, the `map_filter` parameter of the component configuration must be filled in. A breakdown of the object that should be passed into `map_filter` is shown below.
 
@@ -32,4 +32,4 @@ Turning on a filter is achieved by calling the `addByParamFilter` or `addByLayer
 
 ### Charts that Support Map Filtering
 
-Bar Chart, Bar Percent Chart, Column Chart, District Chart, Donut Chart, Guage Chart, Map Legend Chart, Treemap Chart, and Heatmap Chart.
+Bar Chart, Bar Percent Chart, Column Chart, District Chart, Donut Chart, Guage Chart, Map Legend Chart, Treemap Chart, Heatmap Chart, and Polar Area Chart.
