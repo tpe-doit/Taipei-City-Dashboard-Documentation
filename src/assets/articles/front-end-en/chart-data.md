@@ -120,7 +120,7 @@ Time Series Data (henceforth referred to as time data) is data that could be for
 }
 ```
 
-**Supported Chart Types:** Timeline Separate Chart, Timeline Stacked Chart
+**Supported Chart Types:** Timeline Separate Chart, Timeline Stacked Chart, Column Line Chart
 
 ### Percentage Data
 
@@ -140,7 +140,8 @@ Percentage Data is data that could be formatted in simple **key-value (x-y)** pa
 			"name": "營運中",
 			// Divisor: Array of Numbers
 			// value placement corresponds to keys (x)
-			"data": [1564, 273]
+			"data": [1564, 273],
+			"icon": "" // Only for IconPercentCharts (google icons)
 		},
 		// Serie 2: Remainder
 		{
@@ -148,11 +149,12 @@ Percentage Data is data that could be formatted in simple **key-value (x-y)** pa
 			"name": "未營運",
 			// Remainder: Array of Numbers
 			// value placement corresponds to keys (x)
-			"data": [164, 109]
+			"data": [164, 109],
+			"icon": "" // Only for IconPercentCharts (google icons)
 		}
 	]
 }
 // *Percentages are calculated by the charts
 ```
 
-**Supported Chart Types:** Guage Chart, Bar Percent Chart
+**Supported Chart Types:** Guage Chart, Bar Percent Chart, Bar Chart With Goal, Icon Percent Chart

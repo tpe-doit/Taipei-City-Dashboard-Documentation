@@ -120,7 +120,7 @@
 }
 ```
 
-**支援的圖表類型：** 折線圖(比較)(TimelineSeparateChart)、折線圖(堆疊)(TimelineStackedChart)
+**支援的圖表類型：** 折線圖(比較)(TimelineSeparateChart)、折線圖(堆疊)(TimelineStackedChart)、長條折線圖(ColumnLineChart)
 
 ### 百分比資料
 
@@ -140,7 +140,8 @@
 			"name": "營運中",
 			// 除數：Array of Numbers
 			// value 的位置對應到 keys 的排序 (x)
-			"data": [1564, 273]
+			"data": [1564, 273],
+			"icon": "" // 僅適用於圖示比例圖 (google icons)
 		},
 		// 系列 2：餘數（總數減除數）
 		{
@@ -148,11 +149,12 @@
 			"name": "未營運",
 			// 餘數：Array of Numbers
 			// value 的位置對應到 keys 的排序 (x)
-			"data": [164, 109]
+			"data": [164, 109],
+			"icon": "" // 僅適用於圖示比例圖 (google icons)
 		}
 	]
 }
 // *百分比由圖表自動計算
 ```
 
-**支援的圖表類型：** 量表圖(GuageChart)、長條圖(%)(BarPercentChart)
+**支援的圖表類型：** 量表圖(GuageChart)、長條圖(%)(BarPercentChart)、長條圖(目標)(BarChartWithGoal)、圖示比例圖(IconPercentChart)
