@@ -59,6 +59,10 @@ const parsedDoctext = computed(() => {
 			return `<a href="${BASE_URL}${href}">${text}</a>`;
 		},
 		paragraph(text) {
+			if (text.includes('<em>contributors</em>')) {
+				const parsedContributors = text.replaceAll('<em>contributors</em>', '').replaceAll('<strong>', '<p>').replaceAll('</strong>', '</p>');
+				return `<div class="docpagecontent-contributors">${parsedContributors}</div>`;
+			}
 			const parsedText = text.replaceAll('<em><strong>', '<span>').replaceAll('<strong><em>', '<span>').replaceAll('</strong></em>', '</span>').replaceAll('</em></strong>', '</span>');
 			return `<p>${parsedText}</p>`;
 		}
@@ -91,6 +95,7 @@ onMounted(async () => {
 .docpagecontent {
 	display: flex;
 	flex-direction: column;
+	overflow: visible;
 
 	h2 {
 		margin-top: 0.5rem;
@@ -292,6 +297,58 @@ onMounted(async () => {
 		p {
 			margin-bottom: 0;
 			margin-top: 1rem;
+		}
+	}
+
+	&-contributors {
+		display: flex;
+		flex-wrap: wrap;
+		overflow: visible;
+		margin-bottom: 24px;
+
+		a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			overflow: visible;
+			margin: 0.25rem 0.25rem 0 0;
+
+			img {
+				height: 3rem;
+				width: 3rem;
+				border: solid 1px var(--color-border);
+				border-radius: 50%;
+				margin: 0;
+				transition: opacity 0.2s;
+
+				&:hover+p {
+					display: block;
+					opacity: 1;
+				}
+			}
+
+			p {
+				display: none;
+				position: absolute;
+				top: -22px;
+				margin: 0;
+				padding: 2px 4px;
+				border-radius: 4px;
+				background-color: var(--color-border);
+				opacity: 0;
+				font-size: var(--font-s);
+				text-wrap: nowrap;
+				transition: opacity 0.2s;
+			}
+
+			&:hover {
+				opacity: 1;
+			}
+
+			&:hover>img {
+				opacity: 0.7;
+			}
 		}
 	}
 }

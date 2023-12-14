@@ -97,11 +97,11 @@ Time Series Data (henceforth referred to as time data) is data that could be for
 			"name": "進站",
 			"data": [
 				// key (x): String (Time Stamp), value (y): Number
-				{ "x": "2023-05-25T06:29:00Z", "y": 19891 },
-				{ "x": "2023-05-25T06:59:00Z", "y": 42930 },
-				{ "x": "2023-05-25T07:29:00Z", "y": 83705 },
-				{ "x": "2023-05-25T07:59:00Z", "y": 121326 },
-				{ "x": "2023-05-25T08:29:00Z", "y": 128056 }
+				{ "x": "2023-05-25T06:29:00+08:00", "y": 19891 },
+				{ "x": "2023-05-25T06:59:00+08:00", "y": 42930 },
+				{ "x": "2023-05-25T07:29:00+08:00", "y": 83705 },
+				{ "x": "2023-05-25T07:59:00+08:00", "y": 121326 },
+				{ "x": "2023-05-25T08:29:00+08:00", "y": 128056 }
 			]
 		},
 		// Additional Series (Optional)
@@ -109,18 +109,18 @@ Time Series Data (henceforth referred to as time data) is data that could be for
 			"name": "出站",
 			"data": [
 				// keys (x) must be the same as first serie
-				{ "x": "2023-05-25T06:29:00Z", "y": 9263 },
-				{ "x": "2023-05-25T06:59:00Z", "y": 23142 },
-				{ "x": "2023-05-25T07:29:00Z", "y": 49352 },
-				{ "x": "2023-05-25T07:59:00Z", "y": 92718 },
-				{ "x": "2023-05-25T08:29:00Z", "y": 124858 }
+				{ "x": "2023-05-25T06:29:00+08:00", "y": 9263 },
+				{ "x": "2023-05-25T06:59:00+08:00", "y": 23142 },
+				{ "x": "2023-05-25T07:29:00+08:00", "y": 49352 },
+				{ "x": "2023-05-25T07:59:00+08:00", "y": 92718 },
+				{ "x": "2023-05-25T08:29:00+08:00", "y": 124858 }
 			]
 		}
 	]
 }
 ```
 
-**Supported Chart Types:** Timeline Separate Chart, Timeline Stacked Chart
+**Supported Chart Types:** Timeline Separate Chart, Timeline Stacked Chart, Column Line Chart
 
 ### Percentage Data
 
@@ -140,7 +140,8 @@ Percentage Data is data that could be formatted in simple **key-value (x-y)** pa
 			"name": "營運中",
 			// Divisor: Array of Numbers
 			// value placement corresponds to keys (x)
-			"data": [1564, 273]
+			"data": [1564, 273],
+			"icon": "" // Only for IconPercentCharts (google icons)
 		},
 		// Serie 2: Remainder
 		{
@@ -148,11 +149,12 @@ Percentage Data is data that could be formatted in simple **key-value (x-y)** pa
 			"name": "未營運",
 			// Remainder: Array of Numbers
 			// value placement corresponds to keys (x)
-			"data": [164, 109]
+			"data": [164, 109],
+			"icon": "" // Only for IconPercentCharts (google icons)
 		}
 	]
 }
 // *Percentages are calculated by the charts
 ```
 
-**Supported Chart Types:** Guage Chart, Bar Percent Chart
+**Supported Chart Types:** Guage Chart, Bar Percent Chart, Bar Chart With Goal, Icon Percent Chart

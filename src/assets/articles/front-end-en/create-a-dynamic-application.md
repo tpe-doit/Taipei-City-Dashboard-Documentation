@@ -20,7 +20,6 @@ For components that accept dynamic data from a remote source, add a “source”
     "types": ["ColumnChart", "RadarChart", "BarPercentChart"],
     "unit": "人",
     "categories": [],
-	"map_filter": null,
     // Add a source parameter
     "source": "https://.../api/.../..." // String; API of the data source
 },

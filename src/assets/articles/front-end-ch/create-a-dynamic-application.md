@@ -23,7 +23,6 @@
     "types": ["ColumnChart", "RadarChart", "BarPercentChart"],
     "unit": "人",
     "categories": [],
-	"map_filter": null,
     // 添加一個source參數
     "source": "https://.../api/.../..." // String；數據源的 API
 },
