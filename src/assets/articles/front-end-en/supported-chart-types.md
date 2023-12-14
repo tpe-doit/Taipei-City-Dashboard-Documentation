@@ -32,7 +32,10 @@ Below is a reference of English and Mandarin names for all chart types.
     TreemapChart: "矩形圖",
     DistrictChart: "行政區圖",
     MetroChart: "捷運行駛圖",
-	HeatmapChart: "熱力圖"
+	HeatmapChart: "熱力圖",
+	ColumnLineChart: "長條折線圖",
+	BarChartWithGoal: "長條圖(目標)",
+	IconPercentChart: "圖示比例圖"
 };
 ```
 
@@ -117,6 +120,18 @@ Metro charts display the density of metro train carriages on a given metro line.
 
 District charts are used to display lists where the keys are Taipei City districts. By default, larger values are rendered with higher opacity.
 
-### Heatmap Charts
+### Heatmap Chart
 
 Heatmap charts are used to display three-dimensional data in a grid form. Each grid cell is asigned a different color based on its value.
+
+### Column Line Chart **_new_**
+
+Column line charts are used to display time series data where the first serie is displayed as columns and the second serie is displayed as a line.
+
+### Bar Chart With Goal **_new_**
+
+Bar chart with goal adds an additional dimension to ordinary bar charts, showing the target value of each category.
+
+### Icon Percent Chart **_new_**
+
+Icon percent charts displays percentage data via a grid of two separate icons.
