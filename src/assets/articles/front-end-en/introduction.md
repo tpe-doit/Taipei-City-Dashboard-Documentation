@@ -70,6 +70,11 @@ _contributors_
 [![徐慶怡](/images/contributors/徐慶怡.png)**Panda Chui**](https://github.com/pandaachuitwm)
 [![林昭宏](/images/contributors/林昭宏.png)**Toma Lin**](https://github.com/Toma-L)
 [![蔡宜秀](/images/contributors/蔡宜秀.png)**Ellen Tsai**](https://github.com/EllenTsaitw)
+[![李冠儀](/images/contributors/李冠儀.png)**Gary Lee**](https://github.com/gary920209)
+[![陳柏睿](/images/contributors/陳柏睿.png)**Rake Chen**](https://github.com/rakechen-0307)
+[![吳典睿](/images/contributors/吳典睿.png)**吳典睿**](https://github.com/dienruei123)
+[![劉庭均](/images/contributors/劉庭均.png)**David Liu**](https://github.com/Davidliu012)
+[![吳承羲](/images/contributors/吳承羲.png)**吳承羲**](https://github.com/chengxi061)
 [![黃梓睿](/images/contributors/黃梓睿.png)**黃梓睿**](https://github.com/11044123)
 [![廖偉翔](/images/contributors/廖偉翔.png)**廖偉翔**](https://github.com/XinRed)
 [![陳俊嘉](/images/contributors/陳俊嘉.png)**陳俊嘉**](https://github.com/11044123/Taipei-City-Dashboard-FE)
@@ -80,6 +85,10 @@ _contributors_
 [![謝芝嫻](/images/contributors/謝芝嫻.png)**謝芝嫻**](https://github.com/pigbearhsien)
 [![賴彥良](/images/contributors/賴彥良.png)**賴彥良**](https://github.com/yenlianglai)
 [![蔡立倫](/images/contributors/蔡立倫.png)**Lawrence Tsai**](https://github.com/tsailawrence)
+[![林柔安](/images/contributors/林柔安.png)**Anne Lin**](https://github.com/anne030303)
+[![陳宇修](/images/contributors/陳宇修.png)**陳宇修**](https://github.com/Kenny-Snub-Nose-Monk)
+[![黃亘立](/images/contributors/黃亘立.png)**黃亘立**](https://github.com/j450nhuang)
+[![卓易霆](/images/contributors/卓易霆.png)**卓易霆**](https://github.com/artgistim)
 
 ## Contact Us
 

@@ -26,7 +26,7 @@
 }
 ```
 
-**支援的圖表類型：** 圓餅圖(DonutChart)、橫向長條圖(BarChart)、縱向長條圖(ColumnChart)、矩形圖(TreemapChart)、行政區圖(DistrictChart)、捷運行駛圖(MetroChart)、雷達圖(RadarChart)
+**支援的圖表類型：** 圓餅圖(DonutChart)、橫向長條圖(BarChart)、縱向長條圖(ColumnChart)、矩形圖(TreemapChart)、行政區圖(DistrictChart)、捷運行駛圖(MetroChart)、雷達圖(RadarChart)、極座標圖(PolarAreaChart)
 
 > **i01**
 > 行政區圖的 key (x) 必須為台北市 12 個行政區的全名（例如：大安區），並遵循以下順序：
