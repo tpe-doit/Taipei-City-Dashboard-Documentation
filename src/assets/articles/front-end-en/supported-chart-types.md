@@ -33,6 +33,7 @@ Below is a reference of English and Mandarin names for all chart types.
     DistrictChart: "行政區圖",
     MetroChart: "捷運行駛圖",
 	HeatmapChart: "熱力圖",
+	PolarAreaChart: "極座標圖",
 	ColumnLineChart: "長條折線圖",
 	BarChartWithGoal: "長條圖(目標)",
 	IconPercentChart: "圖示比例圖"
@@ -123,6 +124,10 @@ District charts are used to display lists where the keys are Taipei City distric
 ### Heatmap Chart
 
 Heatmap charts are used to display three-dimensional data in a grid form. Each grid cell is asigned a different color based on its value.
+
+### Polar Area Chart **_new_**
+
+Polar Area Charts are used to display three-dimensional data in circular pie slices.
 
 ### Column Line Chart **_new_**
 

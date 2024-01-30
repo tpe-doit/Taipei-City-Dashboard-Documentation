@@ -2,18 +2,19 @@
 import { onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useAppStore } from '../store/appStore';
+import ComponentContainer from '../components/homepage/ComponentContainer.vue';
+import { components } from '../assets/homepageComponents';
 
-const { BASE_URL } = import.meta.env;
 const { t } = useI18n();
 const appStore = useAppStore();
 
-const currentImg = ref(1);
+const currentImg = ref(0);
 const lastImg = 6;
 
 onMounted(() => {
 	setInterval(() => {
 		if (currentImg.value === lastImg) {
-			return currentImg.value = 1;
+			return currentImg.value = 0;
 		}
 		currentImg.value += 1;
 		return;
@@ -30,40 +31,38 @@ onMounted(() => {
 					<div :style="{ width: 'fit-content' }">
 						<h2>{{ t('dashboard-tagline') }}</h2>
 					</div>
-
 					<div>
 						<a :href="appStore.lang === 'en' ? 'https://www.youtube.com/watch?v=kJsIsQ_3uLc' : 'https://www.youtube.com/watch?v=07FODlTV74g'"
 							target="_blank" rel="noreferrer"><button class="gray">{{ t('about-us')
-							}}<span>play_circle</span></button></a>
+							}}<span>play_circle</span></button></a><a
+							href="https://github.com/tpe-doit/Taipei-City-Dashboard" target="_blank"
+							rel="noreferrer"><button class="github">{{ t('github') }}<img
+									src="../assets/images/github-mark.svg" /></button></a>
 						<a href="https://tuic.gov.taipei/dashboard-demo" target="_blank" rel="noreferrer"><button>{{
-							t('demo')
+							t('platform')
 						}}</button></a>
 					</div>
 				</div>
 				<div class="homepage-header-image">
-					<img :src="`${BASE_URL}/images/home/home${currentImg}.png`">
+					<ComponentContainer :content="components[currentImg]" />
 				</div>
 			</div>
 			<hr />
 			<div class="homepage-nav">
 				<div class="homepage-nav-card">
 					<h3>{{ t('front-end.name') }}{{ t('docs') }}</h3>
-					<p>{{ t('last-updated') }}: 23/12/05</p>
+					<p>{{ t('last-updated') }}: 24/02/02</p>
 					<h4>{{ t('front-end.desc') }}</h4>
 					<div>
-						<a href="https://github.com/tpe-doit/Taipei-City-Dashboard-FE" target="_blank"
-							rel="noreferrer"><button class="github">{{ t('github') }}<img
-									src="../assets/images/github-mark.svg" /></button></a>
 						<router-link to="/front-end"><button>{{ t('get-started') }}<span>east</span></button></router-link>
 					</div>
 				</div>
 				<div class="homepage-nav-card">
 					<h3>{{ t('back-end.name') }}{{ t('docs') }}</h3>
-					<p>{{ t('coming-soon') }}</p>
+					<p>{{ t('last-updated') }}: 24/02/02</p>
 					<h4>{{ t('back-end.desc') }}</h4>
 					<div>
-						<!-- <a><button class="github">{{ t('github') }}<img
-									src="../assets/images/github-mark.svg" /></button></a> -->
+						<router-link to="/back-end"><button>{{ t('get-started') }}<span>east</span></button></router-link>
 					</div>
 				</div>
 			</div>
@@ -98,7 +97,7 @@ onMounted(() => {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		padding: 0 2rem;
+		padding: 0 1rem;
 		width: 100%;
 		height: fit-content;
 
@@ -183,32 +182,11 @@ onMounted(() => {
 		}
 
 		&-image {
-			background-color: #282a2c;
-			border-radius: 5px;
+			display: flex;
+			justify-content: center;
 
 			@media screen and (max-width: 1000px) {
-				margin: 3rem calc((100% - 350px) / 2) 0;
-			}
-
-			@media screen and (max-width: 550px) {
-				margin: 3rem calc((100% - 300px) / 2) 0;
-			}
-
-			img {
-				width: 400px;
-				border-radius: 5px;
-
-				@media screen and (max-width: 1000px) {
-					width: 350px;
-				}
-
-				@media screen and (max-width: 550px) {
-					width: 300px;
-				}
-
-				// animation-name: fadeout;
-				// animation-duration: 2.8s;
-				// animation-iteration-count: infinite;
+				margin-top: 3rem;
 			}
 		}
 	}
@@ -301,13 +279,13 @@ onMounted(() => {
 
 		&.github {
 			border: 2px solid var(--color-normal-text);
-			background-color: transparent;
+			background-color: black;
 			padding: 4px;
-			color: var(--color-normal-text);
+			color: white;
 
 			img {
 				margin-left: 4px;
-				filter: var(--img-filter);
+				filter: invert(1);
 				height: var(--font-m);
 			}
 		}

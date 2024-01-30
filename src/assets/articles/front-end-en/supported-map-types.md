@@ -41,7 +41,7 @@ The complete map config object can be found below.
 
 ## Map Types
 
-5 map types are supported in this project. Each map type has preset default styling applied which is listed in the file `mapConfig.js` located at `/src/assets/configs/mapbox`. Several maps also support preset variations to the default styling. This is achieved by specifying the size or icon parameters in the map config.
+8 map types are supported in this project. Each map type has preset default styling applied which is listed in the file `mapConfig.js` located at `/src/assets/configs/mapbox`. Several maps also support preset variations to the default styling. This is achieved by specifying the size or icon parameters in the map config.
 
 ### Circle
 
@@ -73,5 +73,20 @@ The arc map type renders lines as 3D arcs. Each line should only contain 2 point
 	// Fill in 1 color code for single color arcs; 2 colors for a gradient arc
 	"arc-width": 4, // Number
 	"arc-opacity": 0.5, // Number; 0-1
+}
+```
+
+### Voronoi **_new_**
+
+The voronoi map type generates voronoi boundaries from points. The resulting map layer can be styled the same way as line maps (see above).
+
+### Isoline **_new_**
+
+The isoline map type generates contour lines from points and their respective values. Each point must contain a property that is a number. The key of the property defaults to `value` but can be modified by passing in the `isoline-key` parameter (see below). The resulting map layer can be styled the same way as line maps (see above).
+
+```json
+"paint": {
+	"isoline-key": "" // null || String; Defaults to "value"
+	// ...other line paint properties
 }
 ```

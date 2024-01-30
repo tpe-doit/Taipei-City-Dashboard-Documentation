@@ -1,0 +1,48 @@
+/* Cleaned */
+
+.apexcharts-tooltip {
+	box-shadow: 0px 0px 5px black !important;
+}
+.apexcharts-tooltip .chart-tooltip,
+.chart-tooltip {
+	padding: 5px 10px 5px 5px;
+	border: solid 1px #494b4e !important;
+	border-radius: 5px !important;
+	background-color: #282a2c !important;
+	box-shadow: 0px 0px 5px black !important;
+	outline: none !important;
+}
+.apexcharts-tooltip {
+	border: solid 1px var(--color-border) !important;
+}
+.chart-tooltip h6 {
+	color: var(--color-complement-text);
+	font-size: 0.75rem;
+}
+.chart-tooltip span {
+	color: white;
+	font-size: var(--font-ms);
+}
+.apexcharts-canvas,
+.vue-apexcharts {
+	overflow: visible !important;
+}
+.apexcharts-yaxis-label,
+.apexcharts-xaxis-label,
+.apexcharts-legend-text {
+	fill: var(--color-complement-text) !important;
+	color: var(--color-complement-text) !important;
+}
+.vue-apexcharts {
+	display: flex;
+	justify-content: center;
+}
+.apexcharts-zoom-icon {
+	display: none;
+}
+.apexcharts-reset-icon {
+	width: fit-content !important;
+}
+.apexcharts-reset-icon p {
+	color: var(--color-highlight) !important;
+}

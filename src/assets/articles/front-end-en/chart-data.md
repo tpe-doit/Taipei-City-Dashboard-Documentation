@@ -26,7 +26,7 @@ Two-Dimensional Data (henceforth referred to as 2D data) is data that could be f
 }
 ```
 
-**Supported Chart Types:** Donut Chart, Bar Chart, Column Chart, Treemap Chart, District Chart, Metro Chart, Radar Chart
+**Supported Chart Types:** Donut Chart, Bar Chart, Column Chart, Treemap Chart, District Chart, Metro Chart, Radar Chart, Polar Area Chart
 
 > **i01**
 > If using District Charts, the keys (x) must be the full Mandarin name (e.g. 大安區) of all twelve Taipei City districts in the following order:
@@ -80,7 +80,7 @@ Three-Dimensional Data (henceforth referred to as 3D data) is data that could be
 }
 ```
 
-**Supported Chart Types:** Column Chart, Bar Percent Chart, Radar Chart, District Chart, Heatmap Chart
+**Supported Chart Types:** Column Chart, Bar Percent Chart, Radar Chart, District Chart, Heatmap Chart, Polar Area Chart
 
 ### Time Series Data
 

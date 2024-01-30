@@ -41,7 +41,7 @@
 
 ## 地圖類型
 
-本專案支援 6 種地圖類型。每個地圖類型都有預設的樣式，相關設定位於 `/src/assets/configs/mapbox` 的 `mapConfig.js` 檔案中。有些地圖亦支援一些預設變形。這可以透過在地圖配置中指定大小(size)或圖示(icon)參數來實現。
+本專案支援 8 種地圖類型。每個地圖類型都有預設的樣式，相關設定位於 `/src/assets/configs/mapbox` 的 `mapConfig.js` 檔案中。有些地圖亦支援一些預設變形。這可以透過在地圖配置中指定大小(size)或圖示(icon)參數來實現。
 
 ### Circle
 
@@ -73,5 +73,20 @@ Arc 地圖類型在地圖上將線條(Line)渲染成立體曲線，Arc 地圖圖
 	// 單色曲線僅需提供一個色碼; 雙色漸層請提供兩個色碼
 	"arc-width": 4, // Number
 	"arc-opacity": 0.5, // Number; 0-1
+}
+```
+
+### Voronoi **_new_**
+
+Voronoi 地圖類型將點(Point)渲染為沃羅諾邊界。本地圖種類的 paint 屬性、預設的樣式等與 line 地圖類型完全相同。
+
+### Isoline **_new_**
+
+Isoline 地圖類型將點(Point)渲染為等高線。每個點都必須對應到一個值(存於地圖屬性 properties)，地圖屬性的 key 預設為 `value` ，但可以藉由 `isoline-key` paint 屬性更改 (見下)。本地圖種類的 paint 屬性、預設的樣式等與 line 地圖類型完全相同。
+
+```json
+"paint": {
+	"isoline-key": "" // null || String; 預設為 "value"
+	// ...其他 line paint 屬性
 }
 ```
