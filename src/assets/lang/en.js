@@ -3,6 +3,7 @@ export const en = {
 	"dashboard-tagline": "Our Dashboard, Made Yours",
 	"about-us": "About Us",
 	demo: "Live Demo",
+	platform: "Official Site",
 	"last-updated": "Last Updated",
 	"coming-soon": "Coming Soon",
 	github: "Github",
