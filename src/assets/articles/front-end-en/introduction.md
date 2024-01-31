@@ -26,19 +26,17 @@ Our dashboard, made yours.
 
 Based on the above vision, we decided to begin development on Taipei City Dashboard 2.0. Unlike its predecessor, Taipei City Dashboard 2.0 will be a public platform instead of an internal tool. The codebase for Taipei City Dashboard will also be open-sourced, inviting all interested parties to participate in the development of this platform.
 
-We have since completed the initial layouts and basic functionalities of Taipei City Dashboard 2.0 and feel the time is right to begin sharing the development process with the general public. From now on, you will be able to suggest features and changes to Taipei City Dashboard and develop the platform alongside us. We are excited for you to join Taipei City Dashboard’s journey!
+We have since completed the front-end and back-end of Taipei City Dashboard 2.0. From now on, you will be able to suggest features and changes to Taipei City Dashboard and develop the platform alongside us. We are excited for you to join Taipei City Dashboard’s journey!
 
 ## What to Expect from This Documentation
 
-This documentation covers the front-end portion of the in-development Taipei City Dashboard 2.0. This documentation will go through every major aspect of this project, providing a thorough understanding of how this project works.
+This documentation covers the front-end portion of Taipei City Dashboard 2.0. This documentation will go through every major aspect of this project, providing a thorough understanding of how this project works.
 
 > **i01**
 > The front-end portion of the in-development Taipei City Dashboard 2.0 will henceforth be referred to as **“this project”** throughout the documentation.
 
-> **w01**
-> Due to its static and open-source nature, the project only includes the dashboard UI. The admin UI is and will not be provided.
->
-> Regardless, we have taken steps to ensure that it will be easy to transform this project into a dynamic application. Check out our guide on the topic [here](/front-end/create-a-dynamic-application).
+> **t01**
+> Please refer [here](/back-end) for the back-end documentation.
 
 If you are interested in working with the codebase of this project in any way, it is recommended to read through the first four sections. The [first article in section 5](/front-end/customization-overview) will provide further suggestions on which subsequent articles to focus on, depending on how you would like to use this project.
 
@@ -46,7 +44,7 @@ If you come across any issues or typos in this documentation, feel free to click
 
 ## License and Copyright
 
-The codebase for this project is released under the [AGPL-3 License](https://github.com/tpe-doit/Taipei-City-Dashboard-FE/blob/main/LICENSE), which permits any type of modification and commercialization. However, if you use our codebase in any way, you must provide attribution. In addition, all modifications should be made available for other users of this product.
+The codebase for this project is released under the [AGPL-3 License](https://github.com/tpe-doit/Taipei-City-Dashboard/blob/main/LICENSE), which permits any type of modification and commercialization. However, if you use our codebase in any way, you must provide attribution. In addition, all modifications should be made available for other users of this product.
 
 ## Contributors
 
@@ -92,6 +90,6 @@ _contributors_
 
 ## Contact Us
 
-TUIC Official Email (tuic@gov.taipei)
+tuic@gov.taipei (TUIC Official Email)
 
-Igor Ho, Front-end Engineer of TUIC (ey2816@gov.taipei)
+ey2816@gov.taipei (Igor Ho, TUIC Full-stack Engineer)

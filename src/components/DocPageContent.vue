@@ -41,6 +41,20 @@ const parsedDoctext = computed(() => {
 			const toBeCopied = code.replaceAll(`"`, `&quot;`);
 			return `<pre><button class="${appStore.lang === 'en' ? '' : 'copy-ch'}" onclick="navigator.clipboard.writeText(\`${toBeCopied}\`)">content_paste</button><code class="language-${infostring}">${code}</code></pre>`;
 		},
+		codespan(code) {
+			if (code === 'GET') {
+				return `<code style="background-color: #6bdd9a; color: black; font-weight: bold">${code}</code>`;
+			} else if (code === 'POST') {
+				return `<code style="background-color: #fce47d; color: black; font-weight: bold">${code}</code>`;
+			} else if (code === 'PATCH') {
+				return `<code style="background-color: #c0a9e1; color: black; font-weight: bold">${code}</code>`;
+			} else if (code === 'DEL') {
+				return `<code style="background-color: #f7998e; color: black; font-weight: bold">${code}</code>`;
+			} else if (code === 'DB') {
+				return `<code style="background-color: #008bb9; color: black; font-weight: bold">${code}</code>`;
+			}
+			return `<code>${code}</code>`;
+		},
 		heading(text, level) {
 			const parsedText = text.replaceAll('<em><strong>new', '<span>new').replaceAll('<strong><em>new', '<span>new').replaceAll('</strong></em>', '</span>').replaceAll('</em></strong>', '</span>');
 			if (level >= 4) {

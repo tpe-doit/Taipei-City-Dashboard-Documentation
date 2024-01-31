@@ -4,16 +4,13 @@ Depending on your role and goals, different approaches are recommended when refe
 
 ### To Contribute to this Project
 
-Since we mainly accept new component contributions to this project, the most important articles in this section for contributors would be [Custom Styling](/front-end/custom-styling), [Custom Charts](/front-end/custom-charts), and [Custom Maps](/front-end/custom-maps). The aforementioned articles will be helpful if a new chart or map type is required for your new component.
+The most important articles in this section for contributors would be [Custom Styling](/front-end/custom-styling), [Custom Dialogs](/front-end/custom-dialogs), [Custom Charts](/front-end/custom-charts), and [Custom Maps](/front-end/custom-maps).
 
 Afterward, skip to the contribution guide section to better understand contribution methods, guidelines, and scope.
 
-> **t01**
-> This is also the primary goal for participants of the [Taipei Codefest 2023](https://codefest.taipei).
-
 ### To Replicate this Project
 
-If your goal is to keep the existing layout and functions of this project, merely replacing the data displayed and deploying this project elsewhere, the final two articles will be most helpful. If you only wish to display static information, read through the guide to [Create a Static Application](/front-end/create-a-static-application). If you wish to display dynamic information or even implement a backend, read through the guide to [Create a Dynamic Application](/front-end/create-a-dynamic-application).
+If your goal is to keep the existing layout and functions of this project, merely replacing the data displayed and deploying this project elsewhere, the final two articles will be most helpful. If you only wish to display static information, read through the guide to [Create a Static Application](/front-end/create-a-static-application). If you wish to display dynamic information and need to modify the back-end, please refer to the [Back End Docs](/back-end) of this project.
 
 ### To Build on this Project and Create a Custom Dashboard
 

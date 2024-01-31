@@ -6,17 +6,25 @@ The dialogStore stores the render status of all dialogs. All of the available di
 
 ```js
 dialogs: { // One of the states of the dialogStore
-    addComponent: false,
-    addDashboard: false,
-    dashboardSettings: false,
-    initialWarning: false,
-    mobileLayers: false,
-    mobileNavigation: false,
-    moreInfo: false,
-    notificationBar: false,
-    reportIssue: false,
-    userSettings: false,
-    downloadData: false,
+    // Admin Dialogs: /components/dialogs/admin
+	adminComponentSettings: false,
+	adminAddEditDashboards: false,
+	adminEditIssue: false,
+	adminAddComponent: false,
+	adminDeleteDashboard: false,
+	// Public Dialogs: /components/dialogs
+	addComponent: false,
+	addDashboard: false,
+	dashboardSettings: false,
+	addEditDashboards: false,
+	initialWarning: false,
+	login: false,
+	mobileLayers: false,
+	mobileNavigation: false,
+	moreInfo: false,
+	notificationBar: false,
+	reportIssue: false,
+	userSettings: false,
 },
 ```
 

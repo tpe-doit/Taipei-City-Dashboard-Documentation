@@ -4,7 +4,7 @@
 
 **_looks_one_** 在電腦上安裝 [Docker](https://www.docker.com/products/docker-desktop/) 並執行之。
 
-**_looks_two_** Fork [專案 Repository](https://github.com/tpe-doit/Taipei-City-Dashboard-FE) 並將其 clone 至電腦。在 Repository 終端執行 `pwd` (mac) 或 `cd` 以獲得完整的檔案路徑。
+**_looks_two_** Fork [專案 Repository](https://github.com/tpe-doit/Taipei-City-Dashboard) 並將其 clone 至電腦。在 Repository 終端執行 `pwd` (mac) 或 `cd` 以獲得完整的檔案路徑。
 
 **_looks_3_** 在系統終端執行以下指令，並以步驟二得到的檔案路徑取代 "&lt;repository path&gt;" 。
 

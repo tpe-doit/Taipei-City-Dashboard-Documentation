@@ -1,74 +1,39 @@
 ## Overview
 
-Components are collections of data that make up dashboards. All components, with the exception of map layer components, contain statistical data that can be displayed in a chart or graphical form. Components can also optionally contain geographical and historical data.
-
-### Map Layers
-
-Map layer components are components that only contain geographical data. As mentioned in the previous section, map layer components are aggregated and displayed in the map layers dashboard.
+Components are collections of data that make up dashboards. All components, contain statistical data that can be displayed in a chart or graphical form. Components can also optionally contain geographical and historical data.
 
 ## Component Configuration
 
-Each component has two unique identification codes: ID and Index. The ID is a unique serial number for the component, while the Index is an English string that makes it easier to identify the content of the component. The statistical data and historical data under each component should be saved using the ID as the filename. Regardless of type, all component configurations (Object) are stored in a single object where the keys are the IDs of each component. The complete list of parameters for normal components and map layer components can be found below.
+Each component has two unique identification codes: ID and Index. The ID is a unique serial number for the component, while the Index is an English string that makes it easier to identify the content of the component. Component configurations (Object) are returned in an array. The complete list of parameters can be found below.
+
+[`GET` `/api/v1/component`](/back-end/component-config-apis) [`DB` `dashboardmanager.components`](/back-end/components-db)
+
+```json
+[{
+    "id": 7, // Number; Unique serial number
+    "index": "patrol_criminalcase", // String; index
+	"chart_config": {},  // Object; see 1st info box below for details
+	"query_data": "time", // two_d || three_d || time || percent || map_legend; chart data type
+    "map_config": null, // Object || null; see 2nd info box below for details
+	"map_filter": null, // Object || null; see 3rd info box below for details
+	"history_config": null, // Object || null; see 4th info box below for details
+    "name": "刑事統計", // String; component name
+    "source": "警察局", // String; source name
+    "time_from": "halfyear_ago", // String; see 5th info box below for details
+    "time_to": "now", // "now" || null;
+    "update_freq": 1, // Number || null; update frequency
+    "update_freq_unit": "month", // String; update frequency unit
+    "short_desc": "...", // String; short description
+    "long_desc": "...", // String; long description
+    "use_case": "...", // String; use case description
+    "links": ["https://…", ...], // Array of Strings || null; raw data sources
+    "tags": ["..."], // Array; of tags that describe the component
+	"contributors": ["tuic", ...] // Array of Strings; contributor id
+}]
+```
 
 > **i01**
-> Statistical, geographical, and historical data for each component is stored separately as mentioned in [this previous article](/front-end/file-system).
-
-### Normal
-
-```json
-"7": {
-      "id": 7, // Number; Unique serial number
-      "index": "patrol_criminalcase", // String; index
-      "history_data": false, // Boolean; whether historical data is available
-      "history_data_color": null, // Array || null; of hex color codes, defaults to chart colors
-      "map_config": null, // Object || null; see 2nd info box below for details
-	  "map_filter": null, // Object || null; see 3rd info box below for details
-      "Chart_config": {
-       },  // Object; see 4th info box below for details
-      "name": "刑事統計", // String; component name
-      "source": "警察局", // String; source name
-      "time_from": "2023-01-01T23:59:59+08:00", // String || null; data time frame (from)
-      "time_to": "2023-05-01T23:59:59+08:00", // String || null; data time frame (to)
-      "update_freq": 1, // Number || null; update frequency
-      "update_freq_unit": "month", // String; update frequency unit
-      "short_desc": "...", // String; short description
-      "long_desc": "...", // String; long description
-      "use_case": "...", // String; use case description
-      "links": ["https://…", ...], // Array of Strings || null; raw data sources
-      "tags": ["..."], // Array; of tags that describe the component
-	  "contributors": ["tuic", ...] // Array of Strings; contributor id
-    },
-```
-
-### Map Layers
-
-```json
-"115": {
-      "id": 115, // Number; ID number
-      "index": "6f3842dd",  // String; index
-      "map_config": {}, // Object; see 2nd info box below for details
-	  "map_filter": null, // Object || null; see 3rd info box below for details
-      "chart_config": {
-        "types": ["MapLegend"]
-      }, // Object; Always this value for map layer components
-      "chart_data": [
-        {
-          "color": "#c87a74", // String; hex color code
-          "type": "fill", // String; map type
-          "name": "高潛勢", // String; name
-          "value": null, // Number || null; number of data points if applicable
-          "unit": null, // String || null; unit of data points
-         },
-      ], // Array; of objects
-      "name": "土壤液化潛勢", // String; component name
-      "source": "工務局", // String; source name
-      "time_from": null, // String || null; data time frame (from)
-      "time_to": null, // String || null; data time frame (to)
-      "update_freq": null, // Number || null; update frequency
-      "update_freq_unit": null,  // String; update frequency unit
-	  "contributors": ["tuic", ...] // Array of Strings; contributor id
-    }
-```
+> All components have statistical data and a chart configuration object should be included in the component configuration. The chart configuration object will be explained in greater detail in [this later article](/front-end/supported-chart-types#chart-config).
 
 > **i02**
 > If the component has geographical data, pass in a map configuration object. If not, pass in `null`. The map configuration object will be explained in greater detail in [this later article](/front-end/supported-map-types#map-config).
@@ -77,7 +42,9 @@ Each component has two unique identification codes: ID and Index. The ID is a un
 > Pass in a map filter configuration object to support map filtering via charts. If not, pass in `null`. The map filter configuration object will be explained in greater detail in [this later article](/front-end/map-filtering).
 
 > **i04**
-> All normal components have statistical data and a chart configuration object should be included in the component configuration. The chart configuration object will be explained in greater detail in [this later article](/front-end/supported-chart-types#chart-config).
+> If the component has historical data, pass in a historical data configuration object. If not, pass in `null`. The historical data configuration object will be explained in greater detail in [this later article](/front-end/history-data).
 
 > **i05**
-> All dates and times should be based on Taiwan's Timezone (UTC+8) and follow the ISO 8601 format: `YYYY-MM-DDThh:mm:ssTZD` (e.g. 2023-06-16T18:20:00+08:00)
+> For components that display static or demo data, pass in `static` or `demo`. For components that display the newest data available, pass in `current`. For components that display data since a certain time ago, pass in `day_ago`, `week_ago`, `month_ago`, `quarter_ago`, `halfyear_ago`, `year_ago`, `twoyear_ago`, `fiveyear_ago`, `tenyear_ago`, or `max`. For components that display data since the beginning of a certain time, pass in `day_start`, `week_start`, `month_start`, `quarter_start` or `year_start`.
+>
+> The application will calculate the specific dates and times to query the back-end for data.

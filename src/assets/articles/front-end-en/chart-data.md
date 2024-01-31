@@ -1,10 +1,12 @@
 ## Supported Data Types
 
-This project currently supports 4 main chart data types. Each data type has a predefined format and set of supported charts that could be utilized for visualization. To learn more about the supported chart types, refer to [this later article](/front-end/supported-chart-types).
+This project currently supports 5 main chart data types. Each data type has a predefined format and set of supported charts that could be utilized for visualization. To learn more about the supported chart types, refer to [this later article](/front-end/supported-chart-types).
 
-### Two-Dimensional Data
+[`GET` `/api/v1/component/:id/chart`](/back-end/component-data-apis) [`DB` `dashboardmanager.components`](/back-end/components-db)
 
-Two-Dimensional Data (henceforth referred to as 2D data) is data that could be formatted in simple **key-value (x-y)** pairs. For 2D data, both keys (x) and values (y) should be listed in a `json` file in the below format.
+### Two-Dimensional Data (two_d)
+
+Two-Dimensional Data (henceforth referred to as 2D data) is data that could be formatted in simple **key-value (x-y)** pairs.
 
 **Format:**
 
@@ -12,7 +14,6 @@ Two-Dimensional Data (henceforth referred to as 2D data) is data that could be f
 {
 	"data": [
 		{
-			"name": "", // 2D data doesn't require the name parameter
 			"data": [
 				// key (x): String, value (y): Number
 				{ "x": "機車竊盜", "y": 17 },
@@ -36,17 +37,29 @@ Two-Dimensional Data (henceforth referred to as 2D data) is data that could be f
 > **i02**
 > More details regarding the key-value pairs for Metro Charts are explained in [this later article](/front-end/supported-chart-types#metro-chart).
 
-### Three-Dimensional Data
+### Three-Dimensional Data (three_d)
 
-Three-Dimensional Data (henceforth referred to as 3D data) is data that could be categorized into a **key-subcategory-value (x-y-z)** format. For 3D data, keys (x) should be listed in an array in the chart config (as mentioned in [this later article](/front-end/supported-chart-types#chart-config)), while subcategories (y) and values (z) should be listed in a `json` file in the below format.
+Three-Dimensional Data (henceforth referred to as 3D data) is data that could be categorized into a **key-subcategory-value (x-y-z)** format.
 
 **Format:**
 
 ```json
-// keys (x): Array of Strings
-// ["士林區","大安區","文山區","松山區","南港區","大同區","中山區","內湖區","北投區","中正區","萬華區","信義區"]
-// keys are listed separately in chart config
 {
+	// keys (x): Array of Strings
+	"categories": [
+		"士林區",
+		"大安區",
+		"文山區",
+		"松山區",
+		"南港區",
+		"大同區",
+		"中山區",
+		"內湖區",
+		"北投區",
+		"中正區",
+		"萬華區",
+		"信義區"
+	],
 	"data": [
 		{
 			// subcategory (y): String
@@ -82,9 +95,9 @@ Three-Dimensional Data (henceforth referred to as 3D data) is data that could be
 
 **Supported Chart Types:** Column Chart, Bar Percent Chart, Radar Chart, District Chart, Heatmap Chart, Polar Area Chart
 
-### Time Series Data
+### Time Series Data (time)
 
-Time Series Data (henceforth referred to as time data) is data that could be formatted in simple **key-value (x-y)** pairs where the keys are timestamps. For time data, both keys (x) and values (y) should be listed in a `json` file in the below format.
+Time Series Data (henceforth referred to as time data) is data that could be formatted in simple **key-value (x-y)** pairs where the keys are timestamps.
 
 **Format:**
 
@@ -93,7 +106,6 @@ Time Series Data (henceforth referred to as time data) is data that could be for
 	"data": [
 		{
 			// Series Name: String
-			// Optional if only 1 series
 			"name": "進站",
 			"data": [
 				// key (x): String (Time Stamp), value (y): Number
@@ -124,15 +136,14 @@ Time Series Data (henceforth referred to as time data) is data that could be for
 
 ### Percentage Data
 
-Percentage Data is data that could be formatted in simple **key-value (x-y)** pairs where the values are percentages. To provide more context behind percentage values, the divisor and the remainder (subtracting the divisor from the total) should also be provided. For percentage data, keys (x) should be listed in an array in the chart config (as mentioned in [this later article](/front-end/supported-chart-types#chart-config)), while the divisor and the remainder should be listed in a `json` file in the below format.
+Percentage Data is data that could be formatted in simple **key-value (x-y)** pairs where the values are percentages. To provide more context behind percentage values, the divisor and the remainder (subtracting the divisor from the total) should also be provided.
 
 **Format:**
 
 ```json
-// keys (x): Array of Strings
-// ["運行中公車", "運行中路線"]
-// keys are listed separately in chart config
 {
+	// keys (x): Array of Strings
+	"categories": ["運行中公車", "運行中路線"],
 	"data": [
 		// Serie 1: Divisor
 		{
@@ -158,3 +169,25 @@ Percentage Data is data that could be formatted in simple **key-value (x-y)** pa
 ```
 
 **Supported Chart Types:** Guage Chart, Bar Percent Chart, Bar Chart With Goal, Icon Percent Chart
+
+### Map Legend Data (map_legend)
+
+Map Legend Data is stored in configuration objects that are used to render map legends. The format is as follows:
+
+**Format:**
+
+```json
+{
+	"data": [
+		{
+			"name": "居住推估人數", // String; Legend title
+			"type": "fill-extrusion", // String; Map type
+			"icon": null, // String || null; Only for symbol maps
+			"value": 843306 // Optional
+		},
+		...
+	]
+}
+```
+
+**Supported Chart Types:** Map Legend

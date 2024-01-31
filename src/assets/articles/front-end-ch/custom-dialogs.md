@@ -5,18 +5,26 @@
 `dialogStore`儲存了所有彈跳視窗的渲染狀態。本專案中所有可用的彈跳視窗如下所示。
 
 ```js
-dialogs: { // `dialogStore`的其中一個狀態(state)
-    addComponent: false,
-    addDashboard: false,
-    dashboardSettings: false,
-    initialWarning: false,
-    mobileLayers: false,
-    mobileNavigation: false,
-    moreInfo: false,
-    notificationBar: false,
-    reportIssue: false,
-    userSettings: false,
-    downloadData: false,
+dialogs: { // dialogStore 其中一個狀態
+    // 管理員彈跳視窗: /components/dialogs/admin
+	adminComponentSettings: false,
+	adminAddEditDashboards: false,
+	adminEditIssue: false,
+	adminAddComponent: false,
+	adminDeleteDashboard: false,
+	// 公共彈跳視窗: /components/dialogs
+	addComponent: false,
+	addDashboard: false,
+	dashboardSettings: false,
+	addEditDashboards: false,
+	initialWarning: false,
+	login: false,
+	mobileLayers: false,
+	mobileNavigation: false,
+	moreInfo: false,
+	notificationBar: false,
+	reportIssue: false,
+	userSettings: false,
 },
 ```
 

@@ -27,7 +27,8 @@
 	--font-to-icon: 1.2;
 	--font-xl: 1.5rem;
 	--font-l: 1.25rem;
-	--font-m: 1rem;
+	--font-m: 18px;
+	--font-ms: 1rem;
 	--font-s: 0.75rem;
 	--font-icon: "Material Icons Round";
 }

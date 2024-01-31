@@ -1,23 +1,32 @@
-## Adding Dashboards
-In the user interface, expand the sidebar and click on the blue text. This will open up a dialog where the new dashboard name, unique index, and icon are to be inputted. When the blue confirm button is clicked, the `createNewDashboard` method of the `contentStore` will be invoked. This method will create a new dashboard configuration using the inputted name, index, and icon and then append it to the existing list of dashboards.
+> **i01**
+> All of the methods (titles) in this article are located in the `contentStore`.
 
-## Adding Components
-In the user interface, locate the settings bar and click on the add components icon  ***add_chart*** beside the dashboard name. This will open up a dialog where a list of available components will be presented. Select as many components as needed and click on the blue confirm button in the upper right corner. When clicked, the `addComponents` method of the `contentStore` will be invoked. This method will append an array of selected component IDs to the existing list of component IDs of the current dashboard.
+## createDashboard
 
-## Favorite or Unfavorite a Component
-In the dashboard view, there is a heart icon ***favorite*** in the upper right corner of each component. If the icon is gray, clicking it will trigger the `favoriteComponent` method of the `contentStore`. This method will append the component to the favorites dashboard. Conversely, if the icon is red, clicking it will trigger the `unfavoriteComponent` method of the `contentStore`. This method will remove the component from the favorites dashboard.
+[`POST` `/api/v1/dashboard`](/back-end/dashboard-apis)
 
-## Delete Components
-In the dashboard, there is a delete icon ***delete*** in the upper right corner of each component. Clicking the icon will invoke the `deleteComponent` method of the `contentStore`. This method will remove the component from the current dashboard.
+In the user interface, expand the sidebar and click on the blue text. This will open up a dialog where the new dashboard name, icon, and components are to be inputted. Click on the blue button to confirm.
 
-## Dashboard Settings
-In the user interface, locate the settings bar and click on the gear icon ***settings*** next to the add components icon. This will open up a dialog where dashboard settings could be made.
+## editCurrentDashboard
 
-### Change Dashboard Name
-Input the desired new dashboard name and click on the blue confirm button. When clicked, the `changeCurrentDashboardName` method of the `contentStore` will be invoked. This method will replace the original dashboard name with the newly inputted one.
+[`PATCH` `/api/v1/dashboard/:index`](/back-end/dashboard-apis)
 
-### Delete Dashboard
-Click on the check box to indicate your desire to delete the current dashboard. A red delete button will appear. When clicked the `deleteCurrentDashboard` method of the `contentStore` will be invoked. This method will remove the current dashboard’s configuration from the list of dashboards.
+In the user interface, locate the settings bar and click on the gear icon **_settings_** next to the add components icon. This will open up a dialog where dashboard settings could be made.
 
->**w01** 
->Adding dashboards, adding components, and dashboard settings are unavailable in the mobile version.
+## deleteCurrentDashboard
+
+[`DEL` `/api/v1/dashboard/:index`](/back-end/dashboard-apis)
+
+In dashboard settings, click on the check box to indicate your desire to delete the current dashboard. A red delete button will appear. Click to delete the dashboard.
+
+## deleteComponent
+
+[`PATCH` `/api/v1/dashboard/:index`](/back-end/dashboard-apis)
+
+In the dashboard, there is a delete icon **_delete_** in the upper right corner of each component. Clicking the icon will remove the component from the current dashboard.
+
+## favoriteComponent / unfavoriteComponent
+
+[`PATCH` `/api/v1/dashboard/:favorite-dashboard-index`](/back-end/dashboard-apis)
+
+In the dashboard view, there is a heart icon **_favorite_** in the upper right corner of each component. If the icon is gray, clicking it will favorite the component. Conversely, if the icon is red, clicking it will unfavorite the component.
