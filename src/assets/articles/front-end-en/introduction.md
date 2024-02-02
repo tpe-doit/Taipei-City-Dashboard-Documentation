@@ -33,7 +33,7 @@ We have since completed the front-end and back-end of Taipei City Dashboard 2.0.
 This documentation covers the front-end portion of Taipei City Dashboard 2.0. This documentation will go through every major aspect of this project, providing a thorough understanding of how this project works.
 
 > **i01**
-> The front-end portion of the in-development Taipei City Dashboard 2.0 will henceforth be referred to as **“this project”** throughout the documentation.
+> The front-end portion of Taipei City Dashboard 2.0 will henceforth be referred to as **“this project”** throughout the documentation. Unless otherwise specified, all file paths assume `/Taipei-City-Dashboard-FE` as the root directory.
 
 > **t01**
 > Please refer [here](/back-end) for the back-end documentation.

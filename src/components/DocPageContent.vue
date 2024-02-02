@@ -52,6 +52,10 @@ const parsedDoctext = computed(() => {
 				return `<code style="background-color: #f7998e; color: black; font-weight: bold">${code}</code>`;
 			} else if (code === 'DB') {
 				return `<code style="background-color: #008bb9; color: black; font-weight: bold">${code}</code>`;
+			} else if (code === 'PK') {
+				return `<code style="background-color: gold; color: black; font-weight: bold">${code}</code>`;
+			} else if (code === 'FK') {
+				return `<code style="background-color: silver; color: black; font-weight: bold">${code}</code>`;
 			}
 			return `<code>${code}</code>`;
 		},
@@ -311,6 +315,32 @@ onMounted(async () => {
 		p {
 			margin-bottom: 0;
 			margin-top: 1rem;
+		}
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		margin-bottom: 1.5rem;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+
+		th,
+		td {
+			border: solid 1px var(--color-border);
+			padding: 0.5rem;
+			text-align: center;
+		}
+
+		th {
+			background-color: var(--color-border);
+		}
+		
+		td:first-child {
+			width: 110px;
+		}
+		td:nth-child(2) {
+			text-align: left;
 		}
 	}
 

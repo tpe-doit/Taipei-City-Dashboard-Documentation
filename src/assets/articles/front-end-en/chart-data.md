@@ -134,7 +134,7 @@ Time Series Data (henceforth referred to as time data) is data that could be for
 
 **Supported Chart Types:** Timeline Separate Chart, Timeline Stacked Chart, Column Line Chart
 
-### Percentage Data
+### Percentage Data (percent)
 
 Percentage Data is data that could be formatted in simple **key-value (x-y)** pairs where the values are percentages. To provide more context behind percentage values, the divisor and the remainder (subtracting the divisor from the total) should also be provided.
 

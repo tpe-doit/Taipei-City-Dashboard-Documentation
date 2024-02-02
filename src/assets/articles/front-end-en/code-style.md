@@ -1,3 +1,6 @@
+> **w01**
+> This article only covers the coding style for the front-end. If you will also be developing our back-end, please refer to [the back-end coding style guide](/back-end/code-style).
+
 ## Code Linting
 This project uses Prettier for formatting code and Eslint for linting code. In the root directory of this project, the configuration files for the two tools could be found. They are `.eslintrc.json` and `.prettierrc` respectively. Any modifications to the two configuration files are not allowed.
 

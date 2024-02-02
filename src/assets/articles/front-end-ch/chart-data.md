@@ -134,7 +134,7 @@
 
 **支援的圖表類型：** 折線圖(比較)(TimelineSeparateChart)、折線圖(堆疊)(TimelineStackedChart)、長條折線圖(ColumnLineChart)
 
-### 百分比資料
+### 百分比資料 (percent)
 
 百分比資料是可以以 **key-value (x-y)** 編排的資料，其中 value 是百分比。如希望顯示百分比資料應提供除數（重點顯示的數據）和餘數（總數減除數），百分比的計算會由圖表 Vue 元件執行。
 
