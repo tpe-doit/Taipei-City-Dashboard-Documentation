@@ -4,7 +4,7 @@ For the most optimal development experience, we recommend using a device with Wi
 
 ### Development Tools
 
-If you wish to follow our [project setup guide](/back-end/project-setup), please ensure the following development tools are installed on your computer: [Go](https://golang.org/), [Git](https://git-scm.com/) (and optionally GitHub Desktop), [Docker](https://www.docker.com/) (and optionally Docker Desktop), [Postman](https://www.postman.com/). If you will also be working with our front-end, please also install [Node.js LTS](https://nodejs.org/en).
+If you wish to follow our [project setup guide](/back-end/project-setup), please ensure the following development tools are installed on your computer: [Go](https://golang.org/), [Git](https://git-scm.com/) (and optionally GitHub Desktop), Docker (via installing [Docker Desktop](https://www.docker.com/products/docker-desktop/)), [Postman](https://www.postman.com/). If you will also be working with our front-end, please also install [Node.js LTS](https://nodejs.org/en).
 
 ### Text Editor
 

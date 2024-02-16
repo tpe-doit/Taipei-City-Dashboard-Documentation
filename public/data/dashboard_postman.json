@@ -1,0 +1,1051 @@
+{
+	"info": {
+		"_postman_id": "98236b95-f7f8-400c-90d4-248644bc30ac",
+		"name": "Dashboard",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28327543",
+		"_collection_link": "https://tuic-dev.postman.co/workspace/Taipei-City-Dashboard-BE~29c09118-3b12-42f9-b5b6-289b92291fa6/collection/28327543-98236b95-f7f8-400c-90d4-248644bc30ac?action=share&source=collection_link&creator=28327543"
+	},
+	"item": [
+		{
+			"name": "Components",
+			"item": [
+				{
+					"name": "Get All Components",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/{{version}}/component",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"component"
+							],
+							"query": [
+								{
+									"key": "pagesize",
+									"value": "2",
+									"description": "Default: All",
+									"disabled": true
+								},
+								{
+									"key": "pagenum",
+									"value": "7",
+									"description": "Default: 1",
+									"disabled": true
+								},
+								{
+									"key": "filterby",
+									"value": "id",
+									"disabled": true
+								},
+								{
+									"key": "filtermode",
+									"value": "gt",
+									"description": "eq, ne, gt, lt, in",
+									"disabled": true
+								},
+								{
+									"key": "filtervalue",
+									"value": "5",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "id",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "desc",
+									"description": "default asc",
+									"disabled": true
+								},
+								{
+									"key": "searchbyindex",
+									"value": "public",
+									"disabled": true
+								},
+								{
+									"key": "searchbyname",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Component By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{version}}/component/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"component",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Component Chart Data By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Time_from",
+								"value": "2023-04-11T17:17:56+08:00",
+								"type": "text"
+							},
+							{
+								"key": "Time_to",
+								"value": "2024-01-11T17:17:56+08:00",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/{{version}}/component/:id/chart",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"component",
+								":id",
+								"chart"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Component History Data By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "time_from",
+								"value": "2024-01-08T17:14:24+08:00",
+								"type": "text"
+							},
+							{
+								"key": "time_to",
+								"value": "2024-01-11T17:14:24+08:00",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/{{version}}/component/:id/history",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"component",
+								":id",
+								"history"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "140"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Component",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"update_freq\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{version}}/component/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"component",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "164"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Chart Config",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"types\": [\"DistrictChart\", \"BarChart\"],\n    \"unit\": \"件\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{version}}/component/:id/chart",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"component",
+								":id",
+								"chart"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Map Config",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"自行車道\",\n    \"type\": \"line\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{version}}/component/:id/map",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"component",
+								":id",
+								"map"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Component",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{version}}/component/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"component",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "74"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dashboards",
+			"item": [
+				{
+					"name": "Get All Dashboards",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/{{version}}/dashboard",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"dashboard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Dashboard By Index",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{version}}/dashboard/:index",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"dashboard",
+								":index"
+							],
+							"variable": [
+								{
+									"key": "index",
+									"value": "transport"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Personal Dashboard",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// 假設JWT保存在回應的 JSON 主體中的 token 字段中",
+									"var jsonResponse = pm.response.json();",
+									"var jwtToken = jsonResponse.token;",
+									"",
+									"// 將JWT設定為Postman變數",
+									"pm.environment.set(\"jwt_token\", jwtToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Last attempt\",\n    \"components\": [],\n    \"icon\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{version}}/dashboard",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"dashboard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Public Dashboard",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"index\": \"test3\",\n    \"name\": \"test\",\n    \"components\": [],\n    \"icon\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{version}}/dashboard/public",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"dashboard",
+								"public"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Dashboard Index",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{version}}/dashboard/check-index/:index",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"dashboard",
+								"check-index",
+								":index"
+							],
+							"variable": [
+								{
+									"key": "index",
+									"value": "18ba1c7dacfc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Dashboard",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"社會安全\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{version}}/dashboard/:index",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"dashboard",
+								":index"
+							],
+							"variable": [
+								{
+									"key": "index",
+									"value": "test3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Dashboard",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// 假設JWT保存在回應的 JSON 主體中的 token 字段中",
+									"var jsonResponse = pm.response.json();",
+									"var jwtToken = jsonResponse.token;",
+									"",
+									"// 將JWT設定為Postman變數",
+									"pm.environment.set(\"jwt_token\", jwtToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{version}}/dashboard/:index",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"dashboard",
+								":index"
+							],
+							"variable": [
+								{
+									"key": "index",
+									"value": "test3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Issues",
+			"item": [
+				{
+					"name": "Get All Issues",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{version}}/issue?filterbystatus=待處理, 已處理",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"issue"
+							],
+							"query": [
+								{
+									"key": "pagesize",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "pagenum",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "filterbystatus",
+									"value": "待處理, 已處理"
+								},
+								{
+									"key": "sort",
+									"value": "updated_at",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "desc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Issue",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"test\",\n    \"description\": \"test\",\n    \"user_name\": \"Chu\",\n    \"user_id\": \"ChuChuTrain\",\n    \"context\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{version}}/issue",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"issue"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Issue By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"updated_by\": \"Chu\",\n    \"status\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{version}}/issue/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"issue",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Get Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// 假設JWT保存在回應的 JSON 主體中的 token 字段中",
+									"var jsonResponse = pm.response.json();",
+									"var jwtToken = jsonResponse.token;",
+									"",
+									"// 將JWT設定為Postman變數",
+									"pm.environment.set(\"jwt_token\", jwtToken);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "tuic@gov.taipei",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "TUIC",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/{{version}}/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{version}}",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Isso - test",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://demo.jrsys.com.tw/isso/oauth2/authorize?response_type=code&scope=uuid%20account%20verify_level%20id_no&client_id=24beef9ca99be72f486c791e1324adfa1c30bda1&status=abc124",
+							"protocol": "https",
+							"host": [
+								"demo",
+								"jrsys",
+								"com",
+								"tw"
+							],
+							"path": [
+								"isso",
+								"oauth2",
+								"authorize"
+							],
+							"query": [
+								{
+									"key": "response_type",
+									"value": "code"
+								},
+								{
+									"key": "scope",
+									"value": "uuid%20account%20verify_level%20id_no"
+								},
+								{
+									"key": "client_id",
+									"value": "24beef9ca99be72f486c791e1324adfa1c30bda1"
+								},
+								{
+									"key": "status",
+									"value": "abc124"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Isso - prod",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://id.taipei/isso/oauth2/authorize?response_type=code&client_id=d8fc874b990113d714b0da2d2ba6047995b0f653&scope=uuid%20account%20member_type%20verify_level",
+							"protocol": "https",
+							"host": [
+								"id",
+								"taipei"
+							],
+							"path": [
+								"isso",
+								"oauth2",
+								"authorize"
+							],
+							"query": [
+								{
+									"key": "response_type",
+									"value": "code"
+								},
+								{
+									"key": "client_id",
+									"value": "d8fc874b990113d714b0da2d2ba6047995b0f653"
+								},
+								{
+									"key": "scope",
+									"value": "uuid%20account%20member_type%20verify_level"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Taipeipass - prod",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "*grant_type",
+									"value": "authorization_code",
+									"type": "text"
+								},
+								{
+									"key": "*client_id",
+									"value": "d8fc874b990113d714b0da2d2ba6047995b0f653",
+									"type": "text"
+								},
+								{
+									"key": "*client_secret",
+									"value": "3de6b80c73e8294e2876c9811859ee734f0a53d2",
+									"type": "text"
+								},
+								{
+									"key": "*code",
+									"value": "SHMsqy",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://id.taipei/tpcd/oauth/token",
+							"protocol": "https",
+							"host": [
+								"id",
+								"taipei"
+							],
+							"path": [
+								"tpcd",
+								"oauth",
+								"token"
+							],
+							"query": [
+								{
+									"key": "response_type",
+									"value": "code",
+									"disabled": true
+								},
+								{
+									"key": "client_id",
+									"value": "d8fc874b990113d714b0da2d2ba6047995b0f653",
+									"disabled": true
+								},
+								{
+									"key": "scope",
+									"value": "uuid%20account%20member_type%20verify_level",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

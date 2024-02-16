@@ -4,7 +4,7 @@
 
 ### 開發工具
 
-如果您希望使用我們的[專案設定指南](/back-end/project-setup)，請確保您的電腦上有安裝了以下開發工具：[Go](https://golang.org/)、[Git](https://git-scm.com/)（也可以額外安裝 GitHub Desktop）、[Docker](https://www.docker.com/)（也可以額外安裝 Docker Desktop）、[Postman](https://www.postman.com/)。如果您也會開發我們的前端，亦請安裝 [Node.js LTS](https://nodejs.org/en).
+如果您希望使用我們的[專案設定指南](/back-end/project-setup)，請確保您的電腦上有安裝了以下開發工具：[Go](https://golang.org/)、[Git](https://git-scm.com/)（也可以額外安裝 GitHub Desktop）、Docker (建議透過安裝 [Docker Desktop](https://www.docker.com/products/docker-desktop/))、[Postman](https://www.postman.com/)。如果您也會開發我們的前端，亦請安裝 [Node.js LTS](https://nodejs.org/en).
 
 ### 程式編輯器
 
