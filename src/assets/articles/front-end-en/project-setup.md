@@ -18,6 +18,7 @@ VITE_MAPBOXTILE= # See Info 2
 
 ## Server ENV Configs
 ...
+DASHBOARD_DEFAULT_USERNAME= # Creates a default admin account. Fill in any username.
 DASHBOARD_DEFAULT_Email= # Creates a default admin account. Fill in any email.
 DASHBOARD_DEFAULT_PASSWORD= # Fill in any password for the admin account.
 
@@ -53,38 +54,31 @@ PGADMIN_DEFAULT_PASSWORD= # Fill in any password for the pgadmin account.
 
 **_looks_4_** In the terminal, execute the following commands one by one to create a docker network and start the containers.
 
-Creates a Docker network named `br_dashboard` with a specified subnet. (Can modify the network subnet as needed.)
+>**t01**
+> If you encounter any issues, please check the docker logs. Common mistakes include not filling in the `.env` file correctly, not having the Docker engine running, not having the correct network settings, or not removing the `/docker/db-data` folder (if present) before running the setup.
+
+Create a Docker network named `br_dashboard` with a specified subnet.
 
 ```bash
 docker network create --driver=bridge --subnet=192.168.128.0/24 --gateway=192.168.128.1  br_dashboard
 ```
 
-Run the DB containers:
+Run DB related containers. After executing this command, check the if all containers are running. Please also wait until the database is fully initialized (check docker logs and see the message, `database system is ready to accept connections`, is present) before running the next command.
 
 ```bash
 docker-compose -f docker-compose-db.yaml up -d
 ```
 
-> **i03**
-> Using the docker logs command to view the PostgreSQL container log, seeing database system is ready to accept connections indicates that PostgreSQL has started successfully.
-
-Initializing the frontend and backend environments: (The containers will stop running once the initialization is complete.)
+Initialize the frontend and backend environments. The containers created via this command are temporary. Please wait until the containers stop running before running the next command.
 
 ```bash
 docker-compose -f docker-compose-init.yaml up -d
 ```
 
-> **i04**
+> **i03**
 > Within the docker-compose-init.yaml file, three containers are tasked with the following responsibilities:
-> dashboard-fe-init: Execute npm install.
-> dashboard-be-init-manager: Initialize the manager DB.
-> dashboard-be-init-dashboard: Initialize the dashboard DB.
-
-> **i05**
-> To reinitialize the backend database data, kindly follow these steps: 
-> Firstly, ensure the relevant containers are closed. 
-> Next, delete the corresponding database volume. 
-> Finally, restart the relevant containers sequentially.
+>
+> `dashboard-fe-init`: Execute npm install; `dashboard-be-init-manager`: Initialize the manager DB; `dashboard-be-init-dashboard`: Initialize the dashboard DB.
 
 Run the frontend and backend services:
 
@@ -92,32 +86,23 @@ Run the frontend and backend services:
 docker-compose up -d
 ```
 
->**t01**
-> We recommend checking the status of the containers by running `docker ps` or the Docker Desktop dashboard and ensuring that there are no issues. 
+> **i04**
+> From now on, if you would like to reinitiate the databases, please follow the steps below:
 >
-> If you encounter any issues, please check the docker logs. Common mistakes include not filling in the `.env` file correctly, not having the Docker engine running, not having the correct network settings, or not removing the `/docker/db-data` folder (if present) before running the setup.
+> Firstly, ensure that all relevant containers are closed or deleted. Next, delete the `/docker/db-data` directory. Finally, execute the above three `docker-compose` commands.
 
-## Adding Demo Data
+**_looks_5_** The project should now be running locally. Open your browser and navigate to [https://localhost:8080](https://localhost:8080). You should see the dashboard homepage. If you encounter any issues, please check the docker logs or the console in the browser.
+
+## Further Development Setup
+
+### PGAdmin
+
+To register the 2 Postgres databases in pgAdmin, follow the steps below:
 
 **_looks_one_** Open pgAdmin (https://localhost:8889/login) and log in with the credentials you filled in the `.env` file. Then, right-click on "Servers" in the top left corner and select "Register" > "Server...". In the "General" tab, fill in "Name" with `dashboard`. Then, in the "Connection" tab, fill in "Host name/address" with `postgres-data`, "Username" with `postgres`, and "Password" with the password you filled in the `.env` file (`DB_DASHBOARD_PASSWORD`). Click "Save" and then "Connect".
 
 **_looks_two_** Repeat the first step but in the "General" tab, fill in "Name" instead with `dashboardmanager`. And in the "Connection" tab, fill in "Host name/address" instead with `postgres-manager`, and "Password" with the password you filled in the `.env` file (`DB_MANAGER_PASSWORD`). Click "Save" and then "Connect".
 
-**_looks_3_** In the "dashboard" server check if a database called `dashboard` has been created. If not, right-click on "Databases" and select "Create" > "Database...". Fill in "Database" with `dashboard` and click "Save". Repeat the same process for the "dashboardmanager" server but fill in "Database" with `dashboardmanager`.
-
-**_looks_4_** In the "dashboard" server, right-click on the `dashboard` database and select "...Restore". In the "Filename" field, click on the ***folder*** button. In the dialog, click on "..." > "Upload" then drop [this file (dashboard-demo.sql)](/public/data/dashboard-demo.sql) into the box. After selecting the uploaded file, click "Select" and "Restore". Repeat the same process for the "dashboardmanager" server but upload [this file (dashboardmanager-demo.sql)](/public/data/dashboardmanager-demo.sql) instead. After the restoration is complete, you can check "Schemas" > "public" > "Tables" to see if the data has been successfully added.
-
-> **i06**
-> The two files are sql files that contain demo data for the dashboard and dashboard manager databases. Due to role permissions, errors may be thrown when restoring the databases. As long as the data has been successfully added, these errors can be ignored.
-
-**_looks_5_** Open docker desktop and click on the `dashboard-be` container. Then, click on "Terminal" and run the following command to migrate the remaining schemas for the dashboard manager database:
-
-```bash
-go run main.go migrateDB
-```
-
-**_looks_6_** The project should now be running locally. Open your browser and navigate to [https://localhost:8080](https://localhost:8080). You should see the dashboard homepage. If you encounter any issues, please check the docker logs or the console in the browser.
-
-## Postman
+### Postman
 
 To better test the APIs of this product, we recommend using Postman. The collection file for the APIs can be found <a href="/public/data/dashboard_postman.json" download>here</a>. After downloading the file, open Postman and click on "Import" > "Choose Files" and select the downloaded file. The collection will then be added to your Postman workspace. Also import the environment file <a href="/public/data/dashboard_postman_env.json" download>here</a> and select the environment in the top right corner of Postman.
