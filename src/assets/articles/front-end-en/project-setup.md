@@ -51,25 +51,40 @@ PGADMIN_DEFAULT_PASSWORD= # Fill in any password for the pgadmin account.
 >
 >Navigate back to the tileset on MapBox. On the left of the screen, you will see a sidebar titled "Vector Layers". Copy the name of the polygon layer (it should start with "tp_building_height") below the title. Then, return to project repository and navigate to `/src/assets/configs/mapbox/mapConfig.js`. Find a object called "TaipeiBuilding" and replace the parameter "source-layer" with the polygon layer name you copied.
 
-**_looks_4_** In the terminal, execute the following commands one by one to first create a docker network, then build the images and finally start the containers.
+**_looks_4_** In the terminal, execute the following commands one by one to create a docker network and start the containers.
 
-Create a docker network:
+Creates a Docker network named `br_dashboard` with a specified subnet. (Can modify the network subnet as needed.)
 
 ```bash
 docker network create --driver=bridge --subnet=192.168.128.0/24 --gateway=192.168.128.1  br_dashboard
 ```
 
-Build DB related images:
+Run the DB containers:
 
 ```bash
 docker-compose -f docker-compose-db.yaml up -d
 ```
 
-Set up the frontend and backend environments: (The containers created via this command are temporary and will stop running after the setup is complete.)
+> **i03**
+> Using the docker logs command to view the PostgreSQL container log, seeing database system is ready to accept connections indicates that PostgreSQL has started successfully.
+
+Initializing the frontend and backend environments: (The containers will stop running once the initialization is complete.)
 
 ```bash
 docker-compose -f docker-compose-init.yaml up -d
 ```
+
+> **i04**
+> Within the docker-compose-init.yaml file, three containers are tasked with the following responsibilities:
+> dashboard-fe-init: Execute npm install.
+> dashboard-be-init-manager: Initialize the manager DB.
+> dashboard-be-init-dashboard: Initialize the dashboard DB.
+
+> **i05**
+> To reinitialize the backend database data, kindly follow these steps: 
+> Firstly, ensure the relevant containers are closed. 
+> Next, delete the corresponding database volume. 
+> Finally, restart the relevant containers sequentially.
 
 Run the frontend and backend services:
 
@@ -92,7 +107,7 @@ docker-compose up -d
 
 **_looks_4_** In the "dashboard" server, right-click on the `dashboard` database and select "...Restore". In the "Filename" field, click on the ***folder*** button. In the dialog, click on "..." > "Upload" then drop [this file (dashboard-demo.sql)](/public/data/dashboard-demo.sql) into the box. After selecting the uploaded file, click "Select" and "Restore". Repeat the same process for the "dashboardmanager" server but upload [this file (dashboardmanager-demo.sql)](/public/data/dashboardmanager-demo.sql) instead. After the restoration is complete, you can check "Schemas" > "public" > "Tables" to see if the data has been successfully added.
 
-> **i03**
+> **i06**
 > The two files are sql files that contain demo data for the dashboard and dashboard manager databases. Due to role permissions, errors may be thrown when restoring the databases. As long as the data has been successfully added, these errors can be ignored.
 
 **_looks_5_** Open docker desktop and click on the `dashboard-be` container. Then, click on "Terminal" and run the following command to migrate the remaining schemas for the dashboard manager database:
