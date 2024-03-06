@@ -271,10 +271,10 @@ onMounted(async () => {
 		background-color: var(--color-border);
 		margin-bottom: 1.5rem;
 		padding: 1rem;
-		border-radius: 0.5rem;
+		border-radius: 5px;
 
 		&.info {
-			border-left: 4px solid var(--color-highlight);
+			border-left: 5px solid var(--color-highlight);
 
 			h4:before {
 				content: "info_outline";
@@ -285,7 +285,7 @@ onMounted(async () => {
 		}
 
 		&.warning {
-			border-left: 4px solid rgb(227, 42, 42);
+			border-left: 5px solid rgb(227, 42, 42);
 
 			h4:before {
 				content: "warning_amber";
@@ -296,7 +296,7 @@ onMounted(async () => {
 		}
 
 		&.tip {
-			border-left: 4px solid rgb(29, 187, 29);
+			border-left: 5px solid rgb(29, 187, 29);
 
 			h4:before {
 				content: "lightbulb_outline";

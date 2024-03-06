@@ -18,6 +18,6 @@ type Issue struct {
 }
 ```
 
-**Columns of Note:**
+**值得注意的欄位：**
 
-`status` is either `待處理` (pending), `處理中` (ongoing), `已處理` (completed), or `不處理` (rejected); `decision_desc` must be filled out if `status` is `已處理` or `不處理`.
+`status` 為 `待處理`、`處理中`、`已處理`、`不處理`；如果 `status` 是 `已處理` 或 `不處理`，`decision_desc`欄位需要被填寫.

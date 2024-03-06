@@ -4,7 +4,7 @@
 
 **_looks_two_** Start the Docker engine via opening Docker Desktop or the command line. Then, open the repository terminal and change the directory to `/docker` (`cd docker`).
 
-**_looks_3_** In the docker directory, there is an `.env.template` file. Copy that file and rename it to `.env`. Most of the variables have already been pre-filled and some are labeled `[External Dev Don't Need to Fill]`. Please do not change the values of those variables. However, you will need to fill in the following 8 variables yourself:
+**_looks_3_** In the docker directory, there is an `.env.template` file. Copy that file and rename it to `.env`. Most of the variables have already been pre-filled and some are labeled `[External Dev Don't Need to Fill]`. Please do not change the values of those variables. However, you will need to fill in the following 9 variables yourself:
 
 ```bash
 ## Docker image tag
@@ -13,7 +13,7 @@
 ## Frontend ENV Configs
 ...
 VITE_MAPBOXTOKEN= # See Info 1
-VITE_MAPBOXTILE= # See Info 2
+VITE_MAPBOXTILE=mapbox:// # See Info 2
 ...
 
 ## Server ENV Configs
@@ -85,6 +85,9 @@ Run the frontend and backend services:
 ```bash
 docker-compose up -d
 ```
+
+> **t02**
+> The frontend supports hot-reloading, so you can make changes to the code and see the changes reflected in the browser. However, the backend does not support hot-reloading. If you make changes to the backend code, you will need to restart the `dashboard-be` container.
 
 > **i04**
 > From now on, if you would like to reinitiate the databases, please follow the steps below:

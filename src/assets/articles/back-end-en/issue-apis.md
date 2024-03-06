@@ -48,7 +48,7 @@
 | Item        | Description |
 | ----------- | ----------- |
 | Permissions | `Admin`     |
-| Query Params       | `pagesize` ---------------- Number of components per page.<br>`pagenum` ------------------ Page number. Requires `pagesize`.<br>`filterbystatus` ----- Statuses to filter by. e.g. 待處理, 已處理<br>`sort` ----------------------- Column to sort by.<br>`order` --------------------- "asc", "desc". |
+| Query Params       | `pagesize` ---------------- Number of issues per page.<br>`pagenum` ------------------ Page number. Requires `pagesize`.<br>`filterbystatus` ----- Statuses to filter by. e.g. 待處理, 已處理<br>`sort` ----------------------- Column to sort by.<br>`order` --------------------- "asc", "desc". |
 
 **Response:**
 

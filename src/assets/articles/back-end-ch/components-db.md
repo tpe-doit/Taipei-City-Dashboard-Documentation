@@ -1,8 +1,8 @@
-## Overview
+## 概述
 
-Three tables are used to store the configurations of dashboard components. When joined, the tables provide the complete [component config](/front-end/introduction-to-components) required by the front-end.
+本專案使用三個表來儲存儀表板組件的配置。當這些表連接 (join) 起來時，將能組成前端所需的完整[組件配置](/front-end/introduction-to-components)。
 
-`components` is the main table. It stores all component configurations except for chart and map configurations which are stored in `component_charts` and `component_maps` respectively. The `components` and `component_charts` tables are joined via the `components.index` and `component_charts.index` columns. While the `components` and `component_maps` tables are joined via the `components.map_config_ids` and `component_maps.id` columns.
+`components` 是主表。它儲存所有組件相關設定，圖表和地圖配置除外。上述兩個配置分別另外儲存在 `component_charts` 和 `component_maps` 表中。`components` 和 `component_charts` 表透過 `components.index` 和 `component_charts.index` 欄連接。而 `components` 和 `component_maps` 表則透過 `components.map_config_ids` 和 `component_maps.id` 欄連接。
 
 ## components
 
@@ -36,11 +36,11 @@ type Component struct {
 }
 ```
 
-**Columns of Note:**
+**值得注意的欄位：**
 
-`map_config_ids` is used solely for the purpose of joining the `components` and `component_maps` tables; `query_chart` and `query_history` store the SQL queries used to retrieve data for the chart and history components respectively. More information on the queries will be disclosed in the [component data APIs article](/back-end/component-data-apis).
+`map_config_ids` 僅用於連接 `components` 和 `component_maps` 表；`query_chart` 和 `query_history` 分別儲存用來檢索圖表和歷史資料的 SQL 指令。SQL 指令的相關撰寫指南可以在 [組件資料 API 文章](/back-end/component-data-apis)中找到。
 
-More information on front-end requirements for the `components` table can be found in the [here](/front-end/introduction-to-components).
+`components` 表各欄位的詳細填寫方式（以確保前端相容性）可以在[這裡](/front-end/introduction-to-components)找到。
 
 ## component_charts
 
@@ -55,7 +55,7 @@ type ComponentChart struct {
 }
 ```
 
-More information on front-end requirements for the `component_charts` table can be found in the [here](/front-end/supported-chart-types).
+`component_charts` 表各欄位的詳細填寫方式（以確保前端相容性）可以在[這裡](/front-end/supported-chart-types)找到。
 
 ## component_maps
 
@@ -75,4 +75,4 @@ type ComponentMap struct {
 }
 ```
 
-More information on front-end requirements for the `component_maps` table can be found in the [here](/front-end/supported-map-types).
+`component_maps` 表各欄位的詳細填寫方式（以確保前端相容性）可以在[這裡](/front-end/supported-map-types)找到。

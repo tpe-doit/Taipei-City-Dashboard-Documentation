@@ -1,8 +1,8 @@
-## Overview
+## 概述
 
-The `auth_users`, `roles`, and `groups` tables are used to manage user access to the application. `auth_users` contains user information; `roles` contains three predefined roles (admin, editor, and viewer) and their permissions; and `groups` contains the permission groups that users can be assigned to.
+`auth_users`、`roles` 和 `groups` 表用於管理用戶資訊與權限。`auth_users` 包含用戶資訊；`roles` 包含三個預定義角色（admin、editor、viewer）及其權限；而 `groups` 包含用戶可以被分配到的權限群組。
 
-The `auth_user_group_roles` table is used to manage the relationship between users, groups, and roles. Users can be assigned to multiple groups, and each group can have multiple roles.
+`auth_user_group_roles` 表用於管理用戶、群組和角色之間的關係。用戶可以被分配到多個群組，且每個群組可以有多個角色。
 
 ## auth_users
 
@@ -29,9 +29,9 @@ type AuthUser struct {
 }
 ```
 
-**Columns of Note:**
+**值得注意的欄位**
 
-`idno`, `tp_uuid`, `tp_account`, `tp_member_type`, `tp_verify_level` are used to store user information from Taipei Pass.
+`idno`、`tp_uuid`、`tp_account`、`tp_member_type`、`tp_verify_level` 用於儲存使用臺北通登入的用戶資訊。
 
 ## roles
 
@@ -47,7 +47,7 @@ type Role struct {
 }
 ```
 
-**Snapshot:**
+**概覽：**
 
 | id | name   | access_control | modify | read |
 |----|--------|----------------|--------|------|
@@ -69,7 +69,7 @@ type Group struct {
 }
 ```
 
-Any public content is assigned to the `public` group, `id` 1. When a new user is created, a personal group is created for them, and they are assigned to it.
+任何公開內容都會被分配到 `public` 群組，`id` 為 1。當建立新用戶時，應用程式會為他們建立一個私人群組，並將新用戶分配到該群組。
 
 ## auth_user_group_roles
 
