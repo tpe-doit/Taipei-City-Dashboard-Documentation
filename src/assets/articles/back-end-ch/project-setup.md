@@ -46,24 +46,24 @@ PGADMIN_DEFAULT_PASSWORD= # pgadmin 帳戶密碼。
 > 用 Mapbox 金鑰填寫變數 `VITE_MAPBOXTOKEN`，這將允許此專案中的地圖被渲染。透過建立一個 Mapbox 帳戶並按照[此指南](https://docs.mapbox.com/help/getting-started/access-tokens/)建立您自己的 Mapbox 金鑰。如果您不使用 Mapbox 帳戶的預設公開金鑰，請記得將 https://localhost:8080 添加到您的金鑰支援的 url 列表中。
 
 > **i02**
-> 此變數會在地圖上添加一個3D建物圖層。此步驟為可選，可以將變數留空。
+> 此變數會在地圖上添加一個 3D 建物圖層。此步驟為可選，可以將變數留空。
 >
-> 首先，[在此處](https://drive.google.com/file/d/1cMBrq1gmSNAioogFZNqA5IyAmhXoeLVs/view?usp=drive_link)下載模型檔案(`geojson`)。然後，打開Mapbox Studio並移動到["Tilesets"](https://studio.mapbox.com/tilesets/)。點擊"New Tileset"並上傳下載的文件。上傳完成後，打開tileset並點擊"share & use"。複製"Tileset ID"並將其添加到`.env`文件中的變數`VITE_MAPBOXTILE`（貼在"mapbox://"後面）。
+> 首先，[在此處](https://drive.google.com/file/d/1cMBrq1gmSNAioogFZNqA5IyAmhXoeLVs/view?usp=drive_link)下載模型檔案(`geojson`)。然後，打開 Mapbox Studio 並移動到["Tilesets"](https://studio.mapbox.com/tilesets/)。點擊"New Tileset"並上傳下載的文件。上傳完成後，打開 tileset 並點擊"share & use"。複製"Tileset ID"並將其添加到`.env`文件中的變數`VITE_MAPBOXTILE`（貼在"mapbox://"後面）。
 >
->返回MapBox上的tileset。在螢幕的左側，您會看到一個名為"Vector Layers"的側欄。複製標題下方的圖層名稱（應以"tp_building_height"開頭）。然後，返回到程式庫並移動到`/src/assets/configs/mapbox/mapConfig.js`。找到一個名為"TaipeiBuilding"的物件，並將"source-layer"參數替換為您複製的圖層名稱。
+> 返回 MapBox 上的 tileset。在螢幕的左側，您會看到一個名為"Vector Layers"的側欄。複製標題下方的圖層名稱（應以"tp_building_height"開頭）。然後，返回到程式庫並移動到`/src/assets/configs/mapbox/mapConfig.js`。找到一個名為"TaipeiBuilding"的物件，並將"source-layer"參數替換為您複製的圖層名稱。
 
-**_looks_4_** 在終端中，依次執行以下指令以建立一個docker network並啟動容器。
+**_looks_4_** 在終端中，依次執行以下指令以建立一個 docker network 並啟動容器。
 
->**t01**
-> 如果您遇到任何問題，請檢查docker logs。常見的錯誤包括`.env`文件填寫不正確，Docker引擎未啟動，網絡設定不正確，或者在執行指令之前未刪除`/docker/db-data`資料夾（如果存在）。
+> **t01**
+> 如果您遇到任何問題，請檢查 docker logs。常見的錯誤包括`.env`文件填寫不正確，Docker 引擎未啟動，網絡設定不正確，或者在執行指令之前未刪除`/docker/db-data`資料夾（如果存在）。
 
-建立一個名為`br_dashboard`的Docker network。
+建立一個名為`br_dashboard`的 Docker network。
 
 ```bash
 docker network create --driver=bridge --subnet=192.168.128.0/24 --gateway=192.168.128.1  br_dashboard
 ```
 
-啟動與DB相關的容器。執行此指令後，檢查所有容器是否正在運行。在執行下一個指令之前，請等待資料庫完全初始化（檢查docker logs 並檢查輸出中是否有 `database system is ready to accept connections`）。
+啟動與 DB 相關的容器。執行此指令後，檢查所有容器是否正在運行。在執行下一個指令之前，請等待資料庫完全初始化（檢查 docker logs 並檢查輸出中是否有 `database system is ready to accept connections`）。
 
 ```bash
 docker-compose -f docker-compose-db.yaml up -d
@@ -76,9 +76,9 @@ docker-compose -f docker-compose-init.yaml up -d
 ```
 
 > **i03**
-> 在docker-compose-init.yaml文件中，有三個容器被賦予以下任務：
+> 在 docker-compose-init.yaml 文件中，有三個容器被賦予以下任務：
 >
-> `dashboard-fe-init`：執行npm install；`dashboard-be-init-manager`：初始化 dashboardmanager DB；`dashboard-be-init-dashboard`：初始化 dashboard DB。
+> `dashboard-fe-init`：執行 npm install；`dashboard-be-init-manager`：初始化 dashboardmanager DB；`dashboard-be-init-dashboard`：初始化 dashboard DB。
 
 啟動前端和後端服務：
 

@@ -14,8 +14,8 @@ For history data, the query type defaults to `time` and query strings must have 
 
 ## Query Types
 
->**t01**
->We recommend that you familiarize yourself with the [chart data article](/front-end/chart-data) in the front-end docs before reading this section.
+> **t01**
+> We recommend that you familiarize yourself with the [chart data article](/front-end/chart-data) in the front-end docs before reading this section.
 
 ### two_d
 
@@ -45,9 +45,9 @@ type TwoDimensionalData struct {
 
 ```sql
 -- For '臺北市陳情系統 circular'
-SELECT case_subtype AS x_axis, SUM(case_count) AS data 
-FROM app_calcu_weekly_hellotaipei 
-WHERE create_time BETWEEN '%s' AND '%s' 
+SELECT case_subtype AS x_axis, SUM(case_count) AS data
+FROM app_calcu_weekly_hellotaipei
+WHERE create_time BETWEEN '%s' AND '%s'
 GROUP BY case_subtype ORDER BY data desc
 ```
 
@@ -86,20 +86,20 @@ type ThreeDimensionalData struct {
 -- For '全市屋齡分布 building_age'
 SELECT tname AS x_axis, age AS y_axis, COUNT(age) AS data FROM
 	(
-		SELECT 
-			tname, 
-			CASE WHEN age_2021<=5 THEN '<=5年' WHEN age_2021>5 AND age_2021<=20 THEN '5-20年' WHEN age_2021>20 AND age_2021<=40 THEN '20-40年' WHEN age_2021>40 THEN '>40年' ELSE '無' END age 
+		SELECT
+			tname,
+			CASE WHEN age_2021<=5 THEN '<=5年' WHEN age_2021>5 AND age_2021<=20 THEN '5-20年' WHEN age_2021>20 AND age_2021<=40 THEN '20-40年' WHEN age_2021>40 THEN '>40年' ELSE '無' END age
 			FROM building_age
 	) AS t
 WHERE age != '無'
 GROUP BY tname, age
-ORDER BY 
-	ARRAY_POSITION(ARRAY['北投區', '士林區', '內湖區', '南港區', '松山區', '信義區', '中山區', '大同區', '中正區', '萬華區', '大安區', '文山區']::varchar[], t.tname), 
+ORDER BY
+	ARRAY_POSITION(ARRAY['北投區', '士林區', '內湖區', '南港區', '松山區', '信義區', '中山區', '大同區', '中正區', '萬華區', '大安區', '文山區']::varchar[], t.tname),
 	ARRAY_POSITION(ARRAY['<=5年', '5-20年', '20-40年', '>40年'], t.age);
 ```
 
->**i01**
->It it neccessary to order `three_d`, `percent`, and `time` data by `x_axis` and `y_axis` to ensure the data is parsed correctly.
+> **i01**
+> It it neccessary to order `three_d`, `percent`, and `time` data by `x_axis` and `y_axis` to ensure the data is parsed correctly.
 
 ### percent
 
@@ -109,15 +109,15 @@ The `percent` query type shares the same format as the `three_d` query type, but
 
 ```sql
 -- For 'YouBike使用情況 youbike_availability'
-SELECT 
-	'Youbike在站車輛' AS x_axis, 
-	unnest(ARRAY['可借車輛', '空位']) AS y_axis, 
+SELECT
+	'Youbike在站車輛' AS x_axis,
+	unnest(ARRAY['可借車輛', '空位']) AS y_axis,
 	unnest(ARRAY[sbi, bemp]) AS data FROM
 	(
 		SELECT sbi, bemp
-		FROM app_calcu_hour_traffic_youbike 
-		WHERE bike_type = 2 
-		ORDER BY _ctime desc 
+		FROM app_calcu_hour_traffic_youbike
+		WHERE bike_type = 2
+		ORDER BY _ctime desc
 		LIMIT 1
 	) AS t
 ```
@@ -176,7 +176,7 @@ ORDER BY y_axis, x_axis;
 
 ```sql
 -- For '捷運人流趨勢 metro_passengers'
-SELECT date_trunc('%s', sdatetime) AS x_axis, sum(outcount) AS data 
+SELECT date_trunc('%s', sdatetime) AS x_axis, sum(outcount) AS data
 FROM traffic_metro_capacity_realtime_history
 WHERE sdatetime BETWEEN '%s' AND '%s'
 GROUP BY x_axis
@@ -200,7 +200,7 @@ type MapLegendData struct {
 
 ```sql
 -- For '居職人口推估 fet_work_live'
-SELECT 
+SELECT
 	unnest(ARRAY['居住推估人數', '工作推估人數']) AS name,
 	unnest(ARRAY[SUM(CASE pop_live WHEN null THEN 0 ELSE pop_live::NUMERIC END), SUM(CASE pop_work WHEN null THEN 0 ELSE pop_work::NUMERIC END)]) AS value,
 	'fill-extrusion' as type
@@ -211,10 +211,10 @@ FROM tp_fet_work_live
 
 `GET` `/component/:id/chart`
 
-| Item        | Description |
-| ----------- | ----------- |
-| Permissions | `Guest`     |
-| Headers     | `Time_from` ---- Start time for the query. Optional.<br>`Time_to` -------- End time for the query. Optional. |
+| Item         | Description                                                                                                |
+| ------------ | ---------------------------------------------------------------------------------------------------------- |
+| Permissions  | `Guest`                                                                                                    |
+| Query Params | `timefrom` ---- Start time for the query. Optional.<br>`timeto` -------- End time for the query. Optional. |
 
 **Response:**
 
@@ -228,10 +228,10 @@ FROM tp_fet_work_live
 
 `GET` `/component/:id/history`
 
-| Item        | Description |
-| ----------- | ----------- |
-| Permissions | `Guest`     |
-| Headers     | `Time_from` ---- Start time for the query. Required.<br>`Time_to` -------- End time for the query. Required. |
+| Item         | Description                                                                                                |
+| ------------ | ---------------------------------------------------------------------------------------------------------- |
+| Permissions  | `Guest`                                                                                                    |
+| Query Params | `timefrom` ---- Start time for the query. Required.<br>`timeto` -------- End time for the query. Required. |
 
 **Response:**
 
