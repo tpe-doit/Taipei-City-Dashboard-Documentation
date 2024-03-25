@@ -1,10 +1,10 @@
 {
-	"id": "b5a6a26e-8bb6-47d7-87be-7bf95358d440",
+	"id": "9f687922-64f2-4d3d-85aa-f84c42926250",
 	"name": "development",
 	"values": [
 		{
 			"key": "url",
-			"value": "https://citydashboard.taipei",
+			"value": "http://localhost:8088",
 			"type": "default",
 			"enabled": true
 		},
@@ -22,6 +22,6 @@
 		}
 	],
 	"_postman_variable_scope": "environment",
-	"_postman_exported_at": "2024-02-15T10:15:48.682Z",
-	"_postman_exported_using": "Postman/10.23.1"
+	"_postman_exported_at": "2024-03-25T01:51:33.459Z",
+	"_postman_exported_using": "Postman/10.24.7"
 }

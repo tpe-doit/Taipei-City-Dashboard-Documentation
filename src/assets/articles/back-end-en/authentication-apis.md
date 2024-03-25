@@ -71,7 +71,20 @@ The email and password to use are the ones you filled into the .env file when fi
 
 **Response:**
 
-Same as the response of Email and Password Authentication.
+```json
+{
+	"isso_token": "...", // Token returned by Taipei Pass
+	"token": "ey...", // Token returned by the backend
+	"user": {} // Same as email auth
+}
+```
+
+`POST` `/auth/logout`
+
+| Item         | Description                                     |
+| ------------ | ----------------------------------------------- |
+| Permissions  | `User`                                          |
+| Query Params | `isso_token` The auth token sent by Taipei Pass |
 
 ## Middlewares
 

@@ -32,7 +32,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/{{version}}/component",
+							"raw": "{{url}}/{{version}}/component?sort=id&order=desc",
 							"host": [
 								"{{url}}"
 							],
@@ -71,14 +71,12 @@
 								},
 								{
 									"key": "sort",
-									"value": "id",
-									"disabled": true
+									"value": "id"
 								},
 								{
 									"key": "order",
 									"value": "desc",
-									"description": "default asc",
-									"disabled": true
+									"description": "default asc"
 								},
 								{
 									"key": "searchbyindex",
@@ -123,7 +121,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "5"
+									"value": "43"
 								}
 							]
 						}
@@ -147,17 +145,19 @@
 						"header": [
 							{
 								"key": "Time_from",
-								"value": "2023-04-11T17:17:56+08:00",
-								"type": "text"
+								"value": "",
+								"type": "text",
+								"disabled": true
 							},
 							{
 								"key": "Time_to",
-								"value": "2024-01-11T17:17:56+08:00",
-								"type": "text"
+								"value": "",
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"url": {
-							"raw": "{{url}}/{{version}}/component/:id/chart",
+							"raw": "{{url}}/{{version}}/component/:id/chart?timefrom=2023-04-11T17:17:56+08:00&timeto=2024-01-11T17:17:56+08:00",
 							"host": [
 								"{{url}}"
 							],
@@ -166,6 +166,16 @@
 								"component",
 								":id",
 								"chart"
+							],
+							"query": [
+								{
+									"key": "timefrom",
+									"value": "2023-04-11T17:17:56+08:00"
+								},
+								{
+									"key": "timeto",
+									"value": "2024-01-11T17:17:56+08:00"
+								}
 							],
 							"variable": [
 								{
@@ -195,16 +205,18 @@
 							{
 								"key": "time_from",
 								"value": "2024-01-08T17:14:24+08:00",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							},
 							{
 								"key": "time_to",
 								"value": "2024-01-11T17:14:24+08:00",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"url": {
-							"raw": "{{url}}/{{version}}/component/:id/history",
+							"raw": "{{url}}/{{version}}/component/:id/history?timefrom=2024-01-08T17:14:24+08:00&timeto=2024-01-11T17:14:24+08:00",
 							"host": [
 								"{{url}}"
 							],
@@ -214,10 +226,20 @@
 								":id",
 								"history"
 							],
+							"query": [
+								{
+									"key": "timefrom",
+									"value": "2024-01-08T17:14:24+08:00"
+								},
+								{
+									"key": "timeto",
+									"value": "2024-01-11T17:14:24+08:00"
+								}
+							],
 							"variable": [
 								{
 									"key": "id",
-									"value": "140"
+									"value": ""
 								}
 							]
 						}
@@ -386,7 +408,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "74"
+									"value": "70"
 								}
 							]
 						}
@@ -721,7 +743,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/{{version}}/issue?filterbystatus=待處理, 已處理",
+							"raw": "{{url}}/{{version}}/issue?filterbystatus=處理, 已處",
 							"host": [
 								"{{url}}"
 							],
@@ -742,7 +764,7 @@
 								},
 								{
 									"key": "filterbystatus",
-									"value": "待處理, 已處理"
+									"value": "處理, 已處"
 								},
 								{
 									"key": "sort",
@@ -846,7 +868,7 @@
 			"name": "Auth",
 			"item": [
 				{
-					"name": "Get Token",
+					"name": "Email Login",
 					"event": [
 						{
 							"listen": "test",
@@ -860,7 +882,8 @@
 									"pm.environment.set(\"jwt_token\", jwtToken);",
 									""
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -869,13 +892,13 @@
 							"type": "basic",
 							"basic": [
 								{
-									"key": "username",
-									"value": "tuic@gov.taipei",
+									"key": "password",
+									"value": "",
 									"type": "string"
 								},
 								{
-									"key": "password",
-									"value": "TUIC",
+									"key": "username",
+									"value": "",
 									"type": "string"
 								}
 							]
@@ -901,12 +924,12 @@
 					"response": []
 				},
 				{
-					"name": "Isso - test",
+					"name": "Isso Login - test",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "https://demo.jrsys.com.tw/isso/oauth2/authorize?response_type=code&scope=uuid%20account%20verify_level%20id_no&client_id=24beef9ca99be72f486c791e1324adfa1c30bda1&status=abc124",
+							"raw": "https://demo.jrsys.com.tw/isso/oauth2/authorize?response_type=code",
 							"protocol": "https",
 							"host": [
 								"demo",
@@ -923,18 +946,6 @@
 								{
 									"key": "response_type",
 									"value": "code"
-								},
-								{
-									"key": "scope",
-									"value": "uuid%20account%20verify_level%20id_no"
-								},
-								{
-									"key": "client_id",
-									"value": "24beef9ca99be72f486c791e1324adfa1c30bda1"
-								},
-								{
-									"key": "status",
-									"value": "abc124"
 								}
 							]
 						}
@@ -942,12 +953,12 @@
 					"response": []
 				},
 				{
-					"name": "Isso - prod",
+					"name": "Isso Login - prod",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "https://id.taipei/isso/oauth2/authorize?response_type=code&client_id=d8fc874b990113d714b0da2d2ba6047995b0f653&scope=uuid%20account%20member_type%20verify_level",
+							"raw": "https://id.taipei/isso/oauth2/authorize?response_type=code",
 							"protocol": "https",
 							"host": [
 								"id",
@@ -962,83 +973,6 @@
 								{
 									"key": "response_type",
 									"value": "code"
-								},
-								{
-									"key": "client_id",
-									"value": "d8fc874b990113d714b0da2d2ba6047995b0f653"
-								},
-								{
-									"key": "scope",
-									"value": "uuid%20account%20member_type%20verify_level"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Taipeipass - prod",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "*grant_type",
-									"value": "authorization_code",
-									"type": "text"
-								},
-								{
-									"key": "*client_id",
-									"value": "d8fc874b990113d714b0da2d2ba6047995b0f653",
-									"type": "text"
-								},
-								{
-									"key": "*client_secret",
-									"value": "3de6b80c73e8294e2876c9811859ee734f0a53d2",
-									"type": "text"
-								},
-								{
-									"key": "*code",
-									"value": "SHMsqy",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "https://id.taipei/tpcd/oauth/token",
-							"protocol": "https",
-							"host": [
-								"id",
-								"taipei"
-							],
-							"path": [
-								"tpcd",
-								"oauth",
-								"token"
-							],
-							"query": [
-								{
-									"key": "response_type",
-									"value": "code",
-									"disabled": true
-								},
-								{
-									"key": "client_id",
-									"value": "d8fc874b990113d714b0da2d2ba6047995b0f653",
-									"disabled": true
-								},
-								{
-									"key": "scope",
-									"value": "uuid%20account%20member_type%20verify_level",
-									"disabled": true
 								}
 							]
 						}
@@ -1096,7 +1030,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Igor H\"\n}",
+							"raw": "{\n    \"name\": \"Igor Ho\",\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1145,7 +1079,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/{{version}}/user?pagesize=10&page=1&searchbyname=&searchbyid=1",
+							"raw": "{{url}}/{{version}}/user?pagesize=10&page=1&searchbyname=&searchbyid=1&sort=id&order=asc",
 							"host": [
 								"{{url}}"
 							],
@@ -1169,6 +1103,14 @@
 								{
 									"key": "searchbyid",
 									"value": "1"
+								},
+								{
+									"key": "sort",
+									"value": "id"
+								},
+								{
+									"key": "order",
+									"value": "asc"
 								}
 							]
 						}
@@ -1192,7 +1134,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Igor Ho\",\n    \"is_blacked\": false\n}",
+							"raw": "{\n    \"name\": \"Igor H\",\n    \"is_blacked\": false\n}",
 							"options": {
 								"raw": {
 									"language": "json"

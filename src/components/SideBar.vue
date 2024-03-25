@@ -6,7 +6,7 @@ defineProps(['docs', 'docslist']);
 const { t } = useI18n();
 const appStore = useAppStore();
 
-const appVersion = "v2.0.0";
+const appVersion = "v2.0";
 </script>
 
 <template>
@@ -16,7 +16,7 @@ const appVersion = "v2.0.0";
 		<div v-for="item in docslist" :key="item">
 			<h6 v-if="item[0] === '#'">{{ t(`${docs}.${item}`) }}</h6>
 			<router-link v-else :to="`/${docs}/${item}`" @click="appStore.toggleSidebar(false)">{{ t(`${docs}.${item}`)
-			}}</router-link>
+				}}</router-link>
 		</div>
 	</aside>
 </template>

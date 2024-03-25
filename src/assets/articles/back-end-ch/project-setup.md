@@ -108,4 +108,4 @@ docker-compose up -d
 
 ### Postman
 
-為了測試本專案的 API，我們建議使用 Postman。API 的 collection 可以在<a href="/public/data/dashboard_postman.json" download>這裡</a>下載。下載檔案後，打開 Postman 並點擊 "Import" > "Choose Files"，然後選擇下載的檔案。Collection 將會被添加到您的 Postman 工作區。同時也請匯入<a href="/public/data/dashboard_postman_env.json" download>這個</a>環境設定檔 ，並在 Postman 介面的右上角選擇環境。
+為了測試本專案的 API，我們建議使用 Postman。API 的 collection 可以在<a href="/documentation/data/dashboard_postman.json" download>這裡</a>下載。下載檔案後，打開 Postman 並點擊 "Import" > "Choose Files"，然後選擇下載的檔案。Collection 將會被添加到您的 Postman 工作區。同時也請匯入<a href="/documentation/data/dashboard_postman_env.json" download>這個</a>環境設定檔 ，並在 Postman 介面的右上角選擇環境。

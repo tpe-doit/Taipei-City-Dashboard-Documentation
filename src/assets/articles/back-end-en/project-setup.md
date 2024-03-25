@@ -50,11 +50,11 @@ PGADMIN_DEFAULT_PASSWORD= # Fill in any password for the pgadmin account.
 >
 > First, download the model file (`geojson`) [here](https://drive.google.com/file/d/1cMBrq1gmSNAioogFZNqA5IyAmhXoeLVs/view?usp=drive_link). Then, open Mapbox Studio and navigate to ["Tilesets"](https://studio.mapbox.com/tilesets/). Click on "New Tileset" and upload the downloaded file. After the upload has been completed, open the tileset and click on "share & use". Copy the "Tileset ID" and append it to the variable `VITE_MAPBOXTILE` in the `.env` file (paste it after "mapbox://").
 >
->Navigate back to the tileset on MapBox. On the left of the screen, you will see a sidebar titled "Vector Layers". Copy the name of the polygon layer (it should start with "tp_building_height") below the title. Then, return to project repository and navigate to `/src/assets/configs/mapbox/mapConfig.js`. Find a object called "TaipeiBuilding" and replace the parameter "source-layer" with the polygon layer name you copied.
+> Navigate back to the tileset on MapBox. On the left of the screen, you will see a sidebar titled "Vector Layers". Copy the name of the polygon layer (it should start with "tp_building_height") below the title. Then, return to project repository and navigate to `/src/assets/configs/mapbox/mapConfig.js`. Find a object called "TaipeiBuilding" and replace the parameter "source-layer" with the polygon layer name you copied.
 
 **_looks_4_** In the terminal, execute the following commands one by one to create a docker network and start the containers.
 
->**t01**
+> **t01**
 > If you encounter any issues, please check the docker logs. Common mistakes include not filling in the `.env` file correctly, not having the Docker engine running, not having the correct network settings, or not removing the `/docker/db-data` folder (if present) before running the setup.
 
 Create a Docker network named `br_dashboard` with a specified subnet.
@@ -108,4 +108,4 @@ To register the 2 Postgres databases in pgAdmin, follow the steps below:
 
 ### Postman
 
-To better test the APIs of this product, we recommend using Postman. The collection file for the APIs can be found <a href="/public/data/dashboard_postman.json" download>here</a>. After downloading the file, open Postman and click on "Import" > "Choose Files" and select the downloaded file. The collection will then be added to your Postman workspace. Also import the environment file <a href="/public/data/dashboard_postman_env.json" download>here</a> and select the environment in the top right corner of Postman.
+To better test the APIs of this product, we recommend using Postman. The collection file for the APIs can be found <a href="/documentation/data/dashboard_postman.json" download>here</a>. After downloading the file, open Postman and click on "Import" > "Choose Files" and select the downloaded file. The collection will then be added to your Postman workspace. Also import the environment file <a href="/documentation/data/dashboard_postman_env.json" download>here</a> and select the environment in the top right corner of Postman.
