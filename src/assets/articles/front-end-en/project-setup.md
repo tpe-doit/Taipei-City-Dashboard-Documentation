@@ -94,7 +94,7 @@ docker-compose up -d
 >
 > Firstly, ensure that all relevant containers are closed or deleted. Next, delete the `/docker/db-data` directory. Finally, execute the above three `docker-compose` commands.
 
-**_looks_5_** The project should now be running locally. Open your browser and navigate to [https://localhost:8080](https://localhost:8080). You should see the dashboard homepage. If you encounter any issues, please check the docker logs or the console in the browser.
+**_looks_5_** The project should now be running locally. Open your browser and navigate to [https://localhost:8080](https://localhost:8080). You should see the dashboard homepage. To login by email, open the login dialog then hold down `shift` and click the TUIC logo. If you encounter any issues, please check the docker logs or the console in the browser.
 
 ## Further Development Setup
 
