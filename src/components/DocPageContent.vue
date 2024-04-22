@@ -41,6 +41,24 @@ const parsedDoctext = computed(() => {
 			const toBeCopied = code.replaceAll(`"`, `&quot;`);
 			return `<pre><button class="${appStore.lang === 'en' ? '' : 'copy-ch'}" onclick="navigator.clipboard.writeText(\`${toBeCopied}\`)">content_paste</button><code class="language-${infostring}">${code}</code></pre>`;
 		},
+		codespan(code) {
+			if (code === 'GET') {
+				return `<code style="background-color: #6bdd9a; color: black; font-weight: bold">${code}</code>`;
+			} else if (code === 'POST') {
+				return `<code style="background-color: #fce47d; color: black; font-weight: bold">${code}</code>`;
+			} else if (code === 'PATCH') {
+				return `<code style="background-color: #c0a9e1; color: black; font-weight: bold">${code}</code>`;
+			} else if (code === 'DEL') {
+				return `<code style="background-color: #f7998e; color: black; font-weight: bold">${code}</code>`;
+			} else if (code === 'DB') {
+				return `<code style="background-color: #008bb9; color: black; font-weight: bold">${code}</code>`;
+			} else if (code === 'PK') {
+				return `<code style="background-color: gold; color: black; font-weight: bold">${code}</code>`;
+			} else if (code === 'FK') {
+				return `<code style="background-color: silver; color: black; font-weight: bold">${code}</code>`;
+			}
+			return `<code>${code}</code>`;
+		},
 		heading(text, level) {
 			const parsedText = text.replaceAll('<em><strong>new', '<span>new').replaceAll('<strong><em>new', '<span>new').replaceAll('</strong></em>', '</span>').replaceAll('</em></strong>', '</span>');
 			if (level >= 4) {
@@ -253,10 +271,10 @@ onMounted(async () => {
 		background-color: var(--color-border);
 		margin-bottom: 1.5rem;
 		padding: 1rem;
-		border-radius: 0.5rem;
+		border-radius: 5px;
 
 		&.info {
-			border-left: 4px solid var(--color-highlight);
+			border-left: 5px solid var(--color-highlight);
 
 			h4:before {
 				content: "info_outline";
@@ -267,7 +285,7 @@ onMounted(async () => {
 		}
 
 		&.warning {
-			border-left: 4px solid rgb(227, 42, 42);
+			border-left: 5px solid rgb(227, 42, 42);
 
 			h4:before {
 				content: "warning_amber";
@@ -278,7 +296,7 @@ onMounted(async () => {
 		}
 
 		&.tip {
-			border-left: 4px solid rgb(29, 187, 29);
+			border-left: 5px solid rgb(29, 187, 29);
 
 			h4:before {
 				content: "lightbulb_outline";
@@ -297,6 +315,32 @@ onMounted(async () => {
 		p {
 			margin-bottom: 0;
 			margin-top: 1rem;
+		}
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		margin-bottom: 1.5rem;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+
+		th,
+		td {
+			border: solid 1px var(--color-border);
+			padding: 0.5rem;
+			text-align: center;
+		}
+
+		th {
+			background-color: var(--color-border);
+		}
+		
+		td:first-child {
+			width: 110px;
+		}
+		td:nth-child(2) {
+			text-align: left;
 		}
 	}
 

@@ -7,13 +7,15 @@
     "color": ["#9c7a3e", …], // Array of Strings; 至少填入一個hex色碼
     "types": ["BarPercentChart", …], // Array of Strings; 填入 1-3 個圖表名稱（英文名）
     "unit": "棟", // String || null; 資料的單位
-    "categories": [], // Array of Strings || null; 3D 和百分比資料才需要填寫
+	"categories": [], // Array of Strings || null; 呼叫 API 時會自動填入
 },
 ```
 
-## 圖表類型
+[`DB` `dashboardmanager.component_charts`](/back-end/components-db)
 
-如[此前一篇文章](/front-end/prerequisites#apexcharts)所述，本專案中大多數圖表是使用 Apexcharts 來呈現的，唯獨捷運行駛圖和行政區圖不在其列。
+在資料庫中，圖表配置分開儲存於 `component_charts` table ，並在呼叫 API 時與 `components` table 結合。
+
+## 圖表類型
 
 每個圖表的 Vue 元件位於 `/src/components/charts` 資料夾中。對於使用 Apexcharts 呈現的圖表，它們各自的 Vue 元件都包含一個 `chartOptions` 物件，可以填入各種[Apexcharts 參數](https://apexcharts.com/docs/options/annotations/)。有些圖表 Vue 元件還包含清理函式(parsing functions)，用於清理圖表資料。這樣可以增加圖表之間的互通性，使相同的資料集可以呈現多種不同的圖表類型。
 
@@ -90,30 +92,31 @@
 
 ```json
 {
-  "data": [
-    // 系列1：車站 ID 遞升的行駛方向
-    {
-      // 線路 ID：同台北捷運
-      "name": "R",
-      "data": [
-        // 鍵 (x)：String；車站 ID
-        // 值 (y)：String；車廂密度級別 1-4 按車廂順序
-        { "x": "15", "y": "222222" },
-        { "x": "05", "y": "111121" },
-        ...
-      ]
-    },
-    // 系列2：車站 ID 遞降的行駛方向
-    {
-      // 線路 ID：同台北捷運
-      "name": "R",
-      "data": [
-        { "x": "14", "y": "111111" },
-        { "x": "11", "y": "111111" },
-        ...
-      ]
-    }
-  ]
+  	"data": [
+		{
+			"data": [
+				{
+					// {{ ID 遞升 (A) 或遞減 (D) }} + {{車站 ID (同北捷官方)}}
+					"x": "AR13",
+					// 每個號碼代表一個車廂的擁擠程度 (1-4)
+					"y": 222222
+				},
+				{
+					"x": "DR11",
+					"y": 111122
+				},
+				{
+					"x": "AR15",
+					"y": 111122
+				},
+				{
+					"x": "AR10",
+					"y": 121121
+				},
+				...
+			]
+		}
+  	]
 }
 ```
 

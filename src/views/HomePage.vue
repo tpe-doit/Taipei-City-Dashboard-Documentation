@@ -34,13 +34,13 @@ onMounted(() => {
 					<div>
 						<a :href="appStore.lang === 'en' ? 'https://www.youtube.com/watch?v=kJsIsQ_3uLc' : 'https://www.youtube.com/watch?v=07FODlTV74g'"
 							target="_blank" rel="noreferrer"><button class="gray">{{ t('about-us')
-							}}<span>play_circle</span></button></a><a
+								}}<span>play_circle</span></button></a><a
 							href="https://github.com/tpe-doit/Taipei-City-Dashboard" target="_blank"
 							rel="noreferrer"><button class="github">{{ t('github') }}<img
 									src="../assets/images/github-mark.svg" /></button></a>
-						<a href="https://tuic.gov.taipei/dashboard-demo" target="_blank" rel="noreferrer"><button>{{
-							t('platform')
-						}}</button></a>
+						<a href="https://citydashboard.taipei" target="_blank" rel="noreferrer"><button>{{
+						t('platform')
+					}}</button></a>
 					</div>
 				</div>
 				<div class="homepage-header-image">
@@ -54,7 +54,8 @@ onMounted(() => {
 					<p>{{ t('last-updated') }}: 24/02/02</p>
 					<h4>{{ t('front-end.desc') }}</h4>
 					<div>
-						<router-link to="/front-end"><button>{{ t('get-started') }}<span>east</span></button></router-link>
+						<router-link to="/front-end"><button>{{ t('get-started')
+								}}<span>east</span></button></router-link>
 					</div>
 				</div>
 				<div class="homepage-nav-card">
@@ -62,7 +63,8 @@ onMounted(() => {
 					<p>{{ t('last-updated') }}: 24/02/02</p>
 					<h4>{{ t('back-end.desc') }}</h4>
 					<div>
-						<router-link to="/back-end"><button>{{ t('get-started') }}<span>east</span></button></router-link>
+						<router-link to="/back-end"><button>{{ t('get-started')
+								}}<span>east</span></button></router-link>
 					</div>
 				</div>
 			</div>

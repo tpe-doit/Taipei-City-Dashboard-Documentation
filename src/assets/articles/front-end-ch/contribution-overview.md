@@ -2,16 +2,13 @@
 
 隨著臺北城市儀表板由內部工具轉變為公共平台，我們希望它能更好地滿足台北市市民與政策制定者的需求。這也是為什麼我們決定在專案仍處在開發中時就將其發布的原因。
 
-透過對這個專案貢獻，您將能在臺北城市儀表板 2.0 於 2024 年初發布前，針對其功能與呈現方式發表意見。這也是與台北市政府和臺北大數據中心（TUIC）直接互動的絕佳機會。您的貢獻也會被歸屬於所有相關的組件，供所有用戶查看。
-
-> **i01**
-> 邀請您於 11/18 - 11/19 參與[2023 臺北程式設計節](https://codefest.taipei)。本次比賽主題即為針對臺北城市儀表板進行優化、組件開發，第一名獎金更高達 30 萬元臺幣。你還再等什麼？手刀報名呀！
+透過對這個專案貢獻，您將能針對臺北城市儀表板 2.0 的功能與呈現方式發表意見。這也是與台北市政府和臺北大數據中心（TUIC）直接互動的絕佳機會。您的貢獻也會被歸屬於所有相關的組件，供所有用戶查看。
 
 ## 成為協作者
 
-本專案歡迎任何貢獻。我們透過 issues 和 pull requests 在 [GitHub](https://github.com/tpe-doit/Taipei-City-Dashboard-FE) 上管理所有貢獻。
+本專案歡迎任何貢獻。我們透過 issues 和 pull requests 在 [GitHub](https://github.com/tpe-doit/Taipei-City-Dashboard) 上管理所有貢獻。
 
-貢獻分為以下三種類型：錯誤回報(bug report)、新功能請求(feature request)和新組件(new component)。這些貢獻類型將在[稍後的文章](/front-end/open-an-issue)中詳細解釋。
+貢獻分為以下三種類型：錯誤回報(bug report)和新功能請求(feature request)。這些貢獻類型將在[稍後的文章](/front-end/open-an-issue)中詳細解釋。
 
 您可以在 GitHub 上開立 issue 來建議修改項目。如果我們批准了修改項目，您可以選擇讓我們進行開發，或者自行開發。
 
@@ -24,7 +21,7 @@
 
 ### 行為守則
 
-在協作本專案時，所有互動必須遵循 [行為守則](https://github.com/tpe-doit/Taipei-City-Dashboard-FE/blob/main/.github/CODE_OF_CONDUCT.md) 中的規定。
+在協作本專案時，所有互動必須遵循 [行為守則](https://github.com/tpe-doit/Taipei-City-Dashboard/blob/main/.github/CODE_OF_CONDUCT.md) 中的規定。
 
 ### 貢獻流程
 

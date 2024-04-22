@@ -12,6 +12,10 @@
 }
 ```
 
+[`DB` `dashboardmanager.components`](/back-end/components-db)
+
+`map_filter` 物件直接儲存在 `component` table 中。
+
 ## 篩選模式
 
 ### 依各圖層中屬性 (By Param)

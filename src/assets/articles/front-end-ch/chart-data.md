@@ -1,10 +1,12 @@
 ## 支援的資料類型
 
-本專案目前支援 4 種圖表資料類型。每種資料類型都有預定的格式並支援一組圖表。如要了解更多有關各圖表類型的資訊，請參考[下一篇文章](/front-end/supported-chart-types)。
+本專案目前支援 5 種圖表資料類型。每種資料類型都有預定的格式並支援一組圖表。如要了解更多有關各圖表類型的資訊，請參考[下一篇文章](/front-end/supported-chart-types)。
 
-### 二維資料
+[`GET` `/api/v1/component/:id/chart`](/back-end/component-data-apis) [`DB` `dashboardmanager.components`](/back-end/components-db)
 
-二維資料（以下簡稱 2D 資料）是可以使用簡單的**key-value（x-y）**編排的資料。2D 資料中的 key（x）和 value（y）都應以以下格式在 `json` 檔案中列出。
+### 二維資料 (two_d)
+
+二維資料（以下簡稱 2D 資料）是可以使用簡單的 **key-value (x-y)** 編排的資料。
 
 **格式：**
 
@@ -12,7 +14,6 @@
 {
 	"data": [
 		{
-			"name": "", // 2D 資料不需要 name 參數
 			"data": [
 				// key (x): String，value (y): Number
 				{ "x": "機車竊盜", "y": 17 },
@@ -36,17 +37,29 @@
 > **i02**
 > 有關捷運行駛圖的 key-value 格式，請參[下一篇文章](/front-end/supported-chart-types#metro-chart)。
 
-### 三維資料
+### 三維資料 (three_d)
 
-三維資料（以下簡稱 3D 資料）是可以以 **key-子類別(subcategory)-value（x-y-z）** 編排的資料。3D 資料的 key（x）應在圖表配置中以 Array 的形式列出（如[下一篇文章](/front-end/supported-chart-types#chart-config)中所述），而子類別（y）和 value（z）則應以以下格式在 `json` 檔案中列出。
+三維資料（以下簡稱 3D 資料）是可以以 **key-子類別(subcategory)-value（x-y-z）** 編排的資料。
 
 **格式：**
 
 ```json
-// keys (x): Array of Strings
-// ["北投區", "士林區", "內湖區", "南港區", "松山區", "信義區", "中山區", "大同區", "中正區", "萬華區", "大安區", "文山區"]
-// keys 應在圖表配置中列出
 {
+	// keys (x): Array of Strings
+	"categories": [
+		"士林區",
+		"大安區",
+		"文山區",
+		"松山區",
+		"南港區",
+		"大同區",
+		"中山區",
+		"內湖區",
+		"北投區",
+		"中正區",
+		"萬華區",
+		"信義區"
+	],
 	"data": [
 		{
 			// 子類別 (y): String
@@ -82,9 +95,9 @@
 
 **支援的圖表類型：** 縱向長條圖(ColumnChart)、長條圖(%)(BarPercentChart)、雷達圖(RadarChart)、行政區圖(DistrictChart)、熱力圖(HeatmapChart)、極座標圖(PolarAreaChart)
 
-### 時間序列資料
+### 時間序列資料 (time)
 
-時間序列資料（以下簡稱時間資料）是可以以 **key-value (x-y)** 編排的資料，其中 key 是時間戳記。時間資料的 key（x）和 value（y）都應以以下格式列在一個 `json` 檔案中。
+時間序列資料（以下簡稱時間資料）是可以以 **key-value (x-y)** 編排的資料，其中 key 是時間戳記。
 
 **格式：**
 
@@ -93,7 +106,6 @@
 	"data": [
 		{
 			// 系列(series)名稱：String
-			// 如果只有一個系列則為非必填
 			"name": "進站",
 			"data": [
 				// key (x)：String（時間戳記），value (y)：Number
@@ -122,17 +134,16 @@
 
 **支援的圖表類型：** 折線圖(比較)(TimelineSeparateChart)、折線圖(堆疊)(TimelineStackedChart)、長條折線圖(ColumnLineChart)
 
-### 百分比資料
+### 百分比資料 (percent)
 
-百分比資料是可以以 **key-value (x-y)** 編排的資料，其中 value 是百分比。如希望顯示百分比資料應提供除數（重點顯示的數據）和餘數（總數減除數），百分比的計算會由圖表 Vue 元件執行。百分比資料的 key（x）應在圖表配置中以 Array 的形式列出（如 [此下一篇文章](/front-end/supported-chart-types#chart-config) 所述），而除數和餘數應以以下格式列在一個 `json` 檔案中。
+百分比資料是可以以 **key-value (x-y)** 編排的資料，其中 value 是百分比。如希望顯示百分比資料應提供除數（重點顯示的數據）和餘數（總數減除數），百分比的計算會由圖表 Vue 元件執行。
 
 **格式：**
 
 ```json
-// key (x)：Array of Strings
-// ["運行中公車", "運行中路線"]
-// key應於圖表配置中列出
 {
+	// key (x)：Array of Strings
+	"categories": ["運行中公車", "運行中路線"],
 	"data": [
 		// 系列 1：除數（重點顯示的數據）
 		{
@@ -158,3 +169,25 @@
 ```
 
 **支援的圖表類型：** 量表圖(GuageChart)、長條圖(%)(BarPercentChart)、長條圖(目標)(BarChartWithGoal)、圖示比例圖(IconPercentChart)
+
+### 圖例資料 (map_legend)
+
+圖例資料是以配置 Object 形式儲存，形式如下。
+
+**格式：**
+
+```json
+{
+	"data": [
+		{
+			"name": "居住推估人數", // String; 圖例名稱
+			"type": "fill-extrusion", // String; 地圖類型
+			"icon": null, // String || null; 僅適用於 symbol 地圖
+			"value": 843306 // Optional
+		},
+		...
+	]
+}
+```
+
+**支援的圖表類型：** 地圖圖例 (MapLegend)

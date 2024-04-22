@@ -19,6 +19,16 @@ const routes = [
 		props: true,
 	},
 	{
+		path: "/back-end",
+		redirect: "/back-end/introduction",
+	},
+	{
+		path: "/back-end/:id",
+		component: DocPage,
+		name: "back-end",
+		props: true,
+	},
+	{
 		path: "/:pathMatch(.*)*",
 		redirect: "/",
 	},

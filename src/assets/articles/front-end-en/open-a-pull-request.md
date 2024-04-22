@@ -17,6 +17,9 @@ When you’re ready, create a pull request and fill out the pull request templat
 
 We have set up several GitHub actions to automatically check your pull request. If any checks are not passed, please resolve the issue. After all of the checks have passed, a member of our team will review your code.
 
+>**t01**
+>As the project repository also contains back-end code, our GitHub actions also check for back-end code style and errors. If you are only contributing to the front-end, and the back-end checks fail, please first check if any back-end code was modified in your pull request. If not, please tag a repository maintainer ([@igorho2000](https://github.com/igorho2000) or [@ann125697](https://github.com/ann125697)) to resolve the issue.
+
 If the pull request severely violates any guidelines in our contribution guide, the pull request may be immediately rejected.
 
 If only minor problems are found, they will be posted in the pull request comments. Be sure to check your pull request periodically and complete any required modifications. After all problems and issues are resolved, the pull request will be merged into the official repository.

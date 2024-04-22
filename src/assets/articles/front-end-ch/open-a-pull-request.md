@@ -31,6 +31,9 @@
 
 我們已設定多個 GitHub actions 來自動檢查您的 pull request。如果有任何檢查未通過，請解決。當所有檢查都通過後，我們團隊的成員將審查您的程式。
 
+> **t02**
+> 由於本專案也包含後端程式碼，我們的 GitHub Actions 也會檢查後端程式碼。如果您只對前端做出貢獻，但後端相關測試失敗，請先檢查您的 pull request 是否修改了任何後端程式碼。如果沒有，請標記程式庫管理員 ([@igorho2000](https://github.com/igorho2000) 或 [@ann125697](https://github.com/ann125697)) 解決。
+
 如果 pull request 嚴重違反了本協作指南中的任何準則，則可能會立即被拒絕。
 
 如果只有輕微問題，我們將在 pull request 的評論中留言需要修改的項目。請定期檢查您的 pull request 並完成任何所需的修改。當所有問題都得到解決後，pull request 將合併到官方 repository 中。

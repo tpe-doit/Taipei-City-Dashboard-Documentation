@@ -7,6 +7,7 @@ import { useAppStore } from '../store/appStore';
 import SideBar from '../components/SideBar.vue';
 import DocPageContent from '../components/DocPageContent.vue';
 import { docsList } from '../assets/docsList';
+import { videoList } from '../assets/videoList';
 
 const route = useRoute();
 const { t } = useI18n();
@@ -30,6 +31,9 @@ const nextPageIndex = computed(() => {
 const githubEditLink = computed(() => {
 	return `https://github.com/tpe-doit/Taipei-City-Dashboard-Documentation/edit/main/src/assets/articles/${route.name}-${appStore.lang}/${props.id}.md`;
 });
+const associatedVideos = computed(() => {
+	return videoList[props.id];
+});
 </script>
 
 <template>
@@ -46,9 +50,20 @@ const githubEditLink = computed(() => {
 			</div>
 			<div v-else class="docpage-content" @click="appStore.toggleSidebar(false)">
 				<h1>{{ t(`${route.name}.${id}`) }}</h1>
+				<div v-if="associatedVideos" class="docpage-content-video">
+					<a v-for="video in associatedVideos" :href="video.url" :key="`video-${video.titleEn}`"
+						target="_blank" rel="noreferrer">
+						<span>play_circle</span>
+						<div>
+							<h5>{{ video.titleCh }}</h5>
+							<h6>{{ video.titleEn }}</h6>
+						</div>
+					</a>
+				</div>
 				<DocPageContent :docs="route.name" :id="id" :key="id" />
-				<a class="docpage-edit" :href="githubEditLink" target="_blank" rel="noreferrer"><span>auto_fix_high</span>{{
-					t('edit-github') }}</a>
+				<a class="docpage-edit" :href="githubEditLink" target="_blank"
+					rel="noreferrer"><span>auto_fix_high</span>{{
+				t('edit-github') }}</a>
 				<div class="docpage-nav">
 					<div>
 						<router-link v-if="previousPageIndex"
@@ -141,6 +156,50 @@ const githubEditLink = computed(() => {
 		@media screen and (max-width: 850px) {
 			padding: 0 1.5rem 3rem 1.5rem;
 		}
+
+		&-video {
+			display: flex;
+			flex-wrap: wrap;
+			margin: var(--font-m) 0 var(--font-s);
+			column-gap: var(--font-s);
+			row-gap: var(--font-s);
+
+			a {
+				display: flex;
+				align-items: center;
+				padding: 0.5rem 0.75rem;
+				border-radius: 5px;
+				background-color: var(--color-component-background);
+				color: var(--color-complement-text);
+				text-decoration: none;
+				transition: opacity 0.3s;
+
+				&:hover {
+					opacity: 0.7;
+				}
+
+				span {
+					font-family: var(--font-icon);
+					color: var(--color-complement-text);
+					font-size: var(--font-l);
+					margin-right: 0.5rem;
+				}
+
+				div {
+					h5 {
+						font-size: var(--font-m);
+						font-weight: 400;
+					}
+
+					h6 {
+						font-size: var(--font-s);
+						font-weight: 400;
+						color: var(--color-complement-text);
+					}
+				}
+			}
+
+		}
 	}
 
 	&-edit {
@@ -193,4 +252,4 @@ const githubEditLink = computed(() => {
 
 	}
 }
-</style>
+</style>import { videoList } from '../assets/videoList';

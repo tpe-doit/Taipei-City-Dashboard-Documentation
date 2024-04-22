@@ -33,7 +33,11 @@ onMounted(() => {
 			</div>
 		</a>
 		<div class="navbar-control">
-			<button @click="toggleLang"><span>translate</span></button>
+			<button @click="toggleLang">
+				<p :style="{ marginTop: appStore.lang === 'en' ? '0px' : '1px' }">{{ appStore.lang === 'en' ? '中' : 'EN'
+					}}
+				</p>
+			</button>
 			<label class="toggleswitch">
 				<label for="light-dark-mode-toggle" :style="{ display: 'none' }">light-dark-mode-toggle</label>
 				<input type="checkbox" id="light-dark-mode-toggle" @change="appStore.toggleMode" v-model="mode">
@@ -72,34 +76,28 @@ onMounted(() => {
 			height: 45px;
 			width: 22.94px;
 			margin: 0 var(--font-m);
-
-			// &.nationalday {
-			// 	position: absolute;
-			// 	top: -2px;
-			// 	left: 218px;
-			// 	width: auto;
-			// 	height: 2rem;
-			// }
 		}
 	}
 
 	&-control {
 		display: flex;
-		align-items: flex-end;
+		align-items: center;
 		margin-right: var(--font-m);
 
 		button {
+			height: 2rem;
+			display: flex;
+			align-items: center;
 			margin-right: var(--font-s);
 
-			span {
+			p {
 				color: var(--color-complement-text);
-				font-family: var(--font-icon);
 				font-size: var(--font-m);
 				transition: color 0.2s;
-			}
 
-			&:hover span {
-				color: var(--color-normal-text)
+				&:hover {
+					color: var(--color-normal-text)
+				}
 			}
 		}
 	}

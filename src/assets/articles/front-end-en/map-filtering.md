@@ -14,6 +14,10 @@ To activate map filtering for a component, the `map_filter` parameter of the com
 }
 ```
 
+[`DB` `dashboardmanager.components`](/back-end/components-db)
+
+The `map_filter` object is stored directly in the `components` table.
+
 ## Modes
 
 ### By Param

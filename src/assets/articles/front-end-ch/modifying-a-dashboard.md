@@ -1,23 +1,32 @@
-## 新增儀表板
-展開側邊欄並點擊藍色的「新增」按鈕。這將打開一個彈跳視窗，您可以輸入新的儀表板名稱、索引(index)和圖標。當點擊藍色確認按鈕時，將執行 `contentStore` 的 `createNewDashboard` 函式。該函式將使用輸入的名稱、索引和圖標創建一個新的儀表板配置，然後將其新增到現有的儀表板列表中。
+> **i01**
+> 本文章中的所有函式（標題）都位於 `contentStore` 中。
 
-## 新增組件
-找到設定列並點擊儀表板名稱旁邊的新增組件圖標 ***add_chart***。這將打開一個彈跳視窗，其中會列出所有可新增的組件。選擇所需的組件並點擊右上角的藍色確認按鈕，點擊後，將執行 `contentStore` 的 `addComponents` 函式。該函式將將被選取的組件 ID 新增到當前儀表板的組件 ID 列表中。
+## createDashboard（新增儀表板）
 
-## 收藏或取消收藏組件
-在儀表板頁面(/dashboard)中，每個組件的右上角有一個愛心圖標 ***favorite***。如果圖標是灰色的，點擊它將觸發 `contentStore` 的 `favoriteComponent` 函式。該函式將將該組件新增到收藏儀表板中。相反，如果圖標是粉紅色的，點擊它將觸發 `contentStore` 的 `unfavoriteComponent` 函式。該函式將從收藏儀表板中刪除該組件。
+[`POST` `/api/v1/dashboard`](/back-end/dashboard-apis)
 
-## 刪除組件
-在儀表板頁面(/dashboard)中，每個組件的右上角有一個刪除圖標 ***delete***。點擊該圖標將執行 `contentStore` 的 `deleteComponent` 函式。該函式將從當前儀表板中刪除該組件。
+展開側邊欄並點擊藍色的「新增」按鈕。這將打開一個彈跳視窗，您可以輸入新的儀表板名稱、圖示和組件。點擊藍色按鈕以確認新增。
 
-## 儀表板設定
-找到設定列並點擊新增組件圖標旁邊的齒輪圖標 ***settings***。這將打開一個彈跳視窗以進行儀表板設定。
+## editCurrentDashboard（儀表板設定）
 
-### 更改儀表板名稱
-輸入新儀表板名稱，然後點擊藍色確認按鈕。點擊後，將執行 `contentStore` 的 `changeCurrentDashboardName` 函式。該函式將用新輸入的名稱替換原始儀表板名稱。
+[`PATCH` `/api/v1/dashboard/:index`](/back-end/dashboard-apis)
 
-### 刪除儀表板
-勾選選取框以表示您希望刪除當前儀表板，視窗中將出現一個紅色的刪除按鈕。點擊後，將執行 `contentStore` 的 `deleteCurrentDashboard` 函式。該函式將從儀表板列表中刪除當前儀表板的配置。
+找到設定列並點擊新增組件圖示旁邊的齒輪圖示 **_settings_**。這將打開一個彈跳視窗以進行儀表板設定。
 
->**w01** 
->在行動版中無法新增儀表板、新增組件和進行儀表板設定。
+## deleteCurrentDashboard（刪除儀表板）
+
+[`DEL` `/api/v1/dashboard/:index`](/back-end/dashboard-apis)
+
+在儀表板設定中，勾選選取框以表示您希望刪除當前儀表板，視窗中將出現一個紅色的刪除按鈕，點擊後以刪除儀表板。
+
+## deleteComponent（刪除組件）
+
+[`PATCH` `/api/v1/dashboard/:index`](/back-end/dashboard-apis)
+
+在儀表板頁面(/dashboard)中，每個組件的右上角有一個刪除圖示 **_delete_**。點擊該圖示將從當前儀表板中刪除該組件。
+
+## favoriteComponent / unfavoriteComponent（收藏或取消收藏組件）
+
+[`PATCH` `/api/v1/dashboard/:favorite-dashboard-index`](/back-end/dashboard-apis)
+
+在儀表板頁面(/dashboard)中，每個組件的右上角有一個愛心圖示 **_favorite_**。如果圖示是灰色的，點擊它會將該組件加入收藏。相反，如果圖示是粉紅色的，點擊它將使該組件從收藏儀表板中移除。

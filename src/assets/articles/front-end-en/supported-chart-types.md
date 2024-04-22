@@ -7,13 +7,15 @@ To correctly render chart data, several parameters need to be set and passed int
     "color": ["#9c7a3e", …], // Array of Strings; Pass in at least one hex color code
     "types": ["BarPercentChart", …], // Array of Strings; Pass in 1-3 chart names
     "unit": "棟", // String || null; Unit of the data points
-    "categories": [], // Array of Strings || null; Required for 3D and percentage data
+    "categories": [], // Array of Strings || null; Automatically appended during API call
 },
 ```
 
-## Chart Types
+[`DB` `dashboardmanager.component_charts`](/back-end/components-db)
 
-As mentioned in [this previous article](/front-end/prerequisites#apexcharts), most charts displayed in this project are rendered using Apexcharts with the exception of Metro Charts and District Charts.
+In the database, chart configs are stored separately in the `component_charts` table and joined with the `components` table during API calls.
+
+## Chart Types
 
 The Vue components for each chart could be found in the folder `/src/components/charts`. For Apexcharts-based charts, their respective Vue components all contain a `chartOptions` object where various [Apexcharts parameters](https://apexcharts.com/docs/options/annotations/) could be passed in. Some chart Vue components also include parsing functions to clean chart data. This is to increase the interoperability between charts, allowing the same dataset to render multiple different chart types.
 
@@ -90,30 +92,32 @@ Metro charts display the density of metro train carriages on a given metro line.
 
 ```json
 {
-  "data": [
-    // Serie 1: direction where station id is ascending
-    {
-      // Line ID: Same as Taipei Metro
-      "name": "R",
-      "data": [
-        // key (x): String; Station ID
-        // value (y): String; Density Levels 1-4 in carriage order
-        { "x": "15", "y": "222222" },
-        { "x": "05", "y": "111121" },
-        ...
-      ]
-    },
-    // Serie 2: direction where station id is descending
-    {
-      // Line ID: Same as Taipei Metro
-      "name": "R",
-      "data": [
-        { "x": "14", "y": "111111" },
-        { "x": "11", "y": "111111" },
-        ...
-      ]
-    }
-  ]
+  	"data": [
+		{
+			"data": [
+				{
+					// {{ ID Ascending (A) or Descending (D) }} + {{Station ID (Taipei Metro)}}
+					"x": "AR13",
+					// Each number represents a train carriage
+					// Least to most crowded: 1-4
+					"y": 222222
+				},
+				{
+					"x": "DR11",
+					"y": 111122
+				},
+				{
+					"x": "AR15",
+					"y": 111122
+				},
+				{
+					"x": "AR10",
+					"y": 121121
+				},
+				...
+			]
+		}
+  	]
 }
 ```
 

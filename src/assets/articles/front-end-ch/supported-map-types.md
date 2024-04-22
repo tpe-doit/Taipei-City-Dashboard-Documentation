@@ -1,7 +1,5 @@
 ## 地圖配置
 
-為了正確呈現地圖資料，需要將地圖配置填入組件配置中的`map_config`參數，正如 [這篇先前的文章](/front-end/introduction-to-components#component-configuration) 所述。
-
 為讓每個組件可以包含數個地圖圖層，地圖配置的形式為 Array ，清單的每個項目即為一個圖層的設定。當在地圖頁面展開組件時，所有附屬於該組件的地圖將同時被呼叫並渲染。
 
 以下是完整的地圖配置物件。
@@ -22,21 +20,23 @@
             { "key": "cnt_low_income", "name": "低收入人口數" },
         ], // Array of Objects; 在地圖的彈出式視窗中顯示的屬性
         "title": "社福人口", // String; 地圖名稱
-        "type": "fill", // String; 輸入 5 種任一種可用的地圖類型
+        "type": "fill", // String; 輸入 8 種任一種可用的地圖類型
         "size": null, // String || null; 額外預設樣式設定，參見下一節
-        "icon": null // String || null; 額外預設樣式設定，參見下一節
+        "icon": null, // String || null; 額外預設樣式設定，參見下一節
+		"source": "raster" // "raster" || "geojson"
     },
     …
 ],
 ```
 
+[`DB` `dashboardmanager.component_maps`](/back-end/components-db)
+
+在資料庫中，圖表配置分開儲存於 `component_maps` table ，並在呼叫 API 時與 `components` table 結合。
+
 > **i01**
 > 在 Mapbox 中，每個地圖類型均支援數個 Paint 屬性，用於控制地圖視覺呈現，如顏色、大小、模糊度等。如要微調地圖的預設形式，只需傳遞任何 Mapbox 支援的 Paint 屬性即可。 ([Mapbox 圖層文件](https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/))
 
 > **w01**
-> 其中一個地圖類型「arc」並不是 Mapbox 內建的地圖種類，因此只支援`arc-color`、`arc-width`、`arc-opacity`三種 Paint 屬性，相關格式規範請參閱下方地圖類型的說明。
-
-> **w02**
 > 各地圖類型的顏色預設皆為黑色，因此所有地圖類型的顏色 Paint 屬性(e.g `fill-color`, `circle-color`, etc.)都應該被指定。
 
 ## 地圖類型

@@ -1,7 +1,5 @@
 ## Map Config
 
-To correctly render map data, several parameters need to be set and passed into the component configuration as mentioned in [this previous article](/front-end/introduction-to-components#component-configuration).
-
 This project supports more than one map for each component. As such, the `map_config` parameter in the component configuration takes an array of map config objects, with each map config representing one map. When a component is expanded in the map view, all maps attached to that component will be rendered simultaneously.
 
 The complete map config object can be found below.
@@ -22,21 +20,23 @@ The complete map config object can be found below.
             { "key": "cnt_low_income", "name": "低收入人口數" },
         ], // Array of Objects; properties to show in map popup
         "title": "社福人口", // String; map name
-        "type": "fill", // String; pass in 1 of the 5 available map types
+        "type": "fill", // String; pass in 1 of the 8 available map types
         "size": null, // String || null; additional preset style setting. See next section.
-        "icon": null // String || null; additional preset style setting. See next section
+        "icon": null, // String || null; additional preset style setting. See next section
+		"source": "raster" // "raster" || "geojson"
     },
     …
 ],
 ```
 
+[`DB` `dashboardmanager.component_maps`](/back-end/components-db)
+
+In the database, map configs are stored separately in the `component_maps` table and joined with the `components` table during API calls.
+
 > **i01**
 > In Mapbox, each map type supports numerous paint properties that control visual details such as color, size, blur, etc. To customize a map beyond its default form, simply pass in any paint property supported by Mapbox. ([Mapbox layers docs](https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/))
 
 > **w01**
-> One of the map types, "arc", is custom-built and not a native Mapbox feature. As such, this map type only supports 3 paint properties: `arc-color`, `arc-width`, and `arc-opacity`. For more information, please refer to the section below.
-
-> **w02**
 > As the default color for all map types is black, the color paint property (e.g `fill-color`, `circle-color`, etc.) for all map types should ALWAYS be specified.
 
 ## Map Types
