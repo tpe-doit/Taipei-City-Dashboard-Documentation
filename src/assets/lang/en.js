@@ -17,7 +17,7 @@ export const en = {
 	menu: "Menu",
 	"front-end": {
 		name: "Front End",
-		desc: "User Interface, Charts, Maps, etc.",
+		desc: "User Interface, Components, Maps, etc.",
 		"#getting-started": "Getting Started",
 		introduction: "Introduction",
 		prerequisites: "Prerequisites",

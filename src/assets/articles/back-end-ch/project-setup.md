@@ -82,6 +82,9 @@ docker-compose -f docker-compose-init.yaml up -d
 
 啟動前端和後端服務：
 
+> **w01**
+> 下方指令也會啟動一個 Nginx 服務. 如果您不需要 `https`，請將 `/docker/nginx/conf.d/default.conf` 中 11-15 行註解掉 ; 如需要，請產生一個 ssl 憑證 (`citydashboard-fullchain1.pem`) 與 private key (`citydashboard-privkey.pem`) 並儲存於 `/docker/nginx/ssl`。
+
 ```bash
 docker-compose up -d
 ```

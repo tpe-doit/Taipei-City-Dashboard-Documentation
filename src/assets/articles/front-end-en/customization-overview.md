@@ -4,7 +4,7 @@ Depending on your role and goals, different approaches are recommended when refe
 
 ### To Contribute to this Project
 
-The most important articles in this section for contributors would be [Custom Styling](/front-end/custom-styling), [Custom Dialogs](/front-end/custom-dialogs), [Custom Charts](/front-end/custom-charts), and [Custom Maps](/front-end/custom-maps).
+The most important articles in this section for contributors would be [Custom Styling](/front-end/custom-styling), [Custom Dialogs](/front-end/custom-dialogs), and [Custom Maps](/front-end/custom-maps).
 
 Afterward, skip to the contribution guide section to better understand contribution methods, guidelines, and scope.
 

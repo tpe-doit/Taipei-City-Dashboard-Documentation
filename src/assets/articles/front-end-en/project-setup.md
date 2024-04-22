@@ -82,6 +82,9 @@ docker-compose -f docker-compose-init.yaml up -d
 
 Run the frontend and backend services:
 
+> **w01**
+> The following command will also run a nginx service. If you don't require `https`, comment out lines 11-15 in `/docker/nginx/conf.d/default.conf`; If you do, generate a ssl certificate (`citydashboard-fullchain1.pem`) and private key (`citydashboard-privkey.pem`) and store it in `/docker/nginx/ssl`.
+
 ```bash
 docker-compose up -d
 ```

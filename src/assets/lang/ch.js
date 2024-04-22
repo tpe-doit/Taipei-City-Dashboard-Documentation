@@ -17,7 +17,7 @@ export const ch = {
 	menu: "選單",
 	"front-end": {
 		name: "前端",
-		desc: "用戶介面、各式圖表、精美地圖等",
+		desc: "用戶介面、資料組件、精美地圖等",
 		"#getting-started": "入門指南",
 		introduction: "儀表板簡介",
 		prerequisites: "核心科技與必備知識",

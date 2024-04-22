@@ -4,7 +4,7 @@
 
 ### 貢獻至本專案
 
-對於協作者來說，本指南中最重要的文章是[客製化樣式](/front-end/custom-styling)、」[客製化彈跳視窗](/front-end/custom-dialogs)、[客製化圖表](/front-end/custom-charts)和[客製化地圖](/front-end/custom-maps)。
+對於協作者來說，本指南中最重要的文章是[客製化樣式](/front-end/custom-styling)、[客製化彈跳視窗](/front-end/custom-dialogs)和[客製化地圖](/front-end/custom-maps)。
 
 接著，請跳到下一章(協作指南)，以更好了解貢獻方法、準則和範圍。
 
