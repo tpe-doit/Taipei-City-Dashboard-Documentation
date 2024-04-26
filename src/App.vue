@@ -2,6 +2,7 @@
 import { onBeforeMount, onMounted } from 'vue';
 import { useAppStore } from './store/appStore';
 import { useI18n } from 'vue-i18n';
+import axios from 'axios';
 
 import NavBar from './components/NavBar.vue';
 
