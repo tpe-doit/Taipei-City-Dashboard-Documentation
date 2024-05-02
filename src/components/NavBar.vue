@@ -38,10 +38,10 @@ onMounted(() => {
 					}}
 				</p>
 			</button>
-			<label class="toggleswitch">
+			<label class="doc-toggleswitch">
 				<label for="light-dark-mode-toggle" :style="{ display: 'none' }">light-dark-mode-toggle</label>
 				<input type="checkbox" id="light-dark-mode-toggle" @change="appStore.toggleMode" v-model="mode">
-				<span class="toggleswitch-slider"></span>
+				<span class="doc-toggleswitch-slider"></span>
 			</label>
 		</div>
 	</div>

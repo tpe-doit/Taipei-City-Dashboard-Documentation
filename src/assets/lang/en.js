@@ -87,4 +87,8 @@ export const en = {
 		"open-an-issue": "Open an Issue",
 		"open-a-pull-request": "Open a Pull Request",
 	},
+	"data-end": {
+		name: "Data Pipeline",
+		desc: "Coming Soon...",
+	},
 };

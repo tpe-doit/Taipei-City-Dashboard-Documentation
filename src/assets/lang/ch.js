@@ -87,4 +87,8 @@ export const ch = {
 		"open-an-issue": "開立Issue",
 		"open-a-pull-request": "開立Pull Request",
 	},
+	"data-end": {
+		name: "資料端",
+		desc: "敬請期待...",
+	},
 };
