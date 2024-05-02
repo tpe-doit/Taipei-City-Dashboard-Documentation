@@ -90,7 +90,9 @@ docker-compose up -d
 ```
 
 > **t02**
-> The frontend supports hot-reloading, so you can make changes to the code and see the changes reflected in the browser. However, the backend does not support hot-reloading. If you make changes to the backend code, you will need to restart the `dashboard-be` container.
+> The frontend supports hot-reloading, so you can make changes to the code and see the changes reflected in the browser (for Windows users, add `watch: {usePolling: true}` to the `server` property in `vite.config.js`).
+>
+> The backend does not support hot-reloading. If you make changes to the backend code, you will need to restart the `dashboard-be` container.
 
 > **i04**
 > From now on, if you would like to reinitiate the databases, please follow the steps below:

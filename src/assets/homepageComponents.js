@@ -3,7 +3,7 @@ export const components = [
 		id: 156,
 		index: "maternity_hospitals",
 		chart_config: {
-			types: "PolarAreaChart",
+			types: ["PolarAreaChart"],
 			unit: "家",
 			color: ["#FFADAD", "#E06666", "#C12525"],
 			categories: [
@@ -35,6 +35,7 @@ export const components = [
 				data: [2, 6, 3, 2, 6, 3, 7, 1, 3, 3, 15, 4],
 			},
 		],
+		time_from: "demo",
 		name: "生育補助合約醫院",
 		source: "衛生局",
 	},
@@ -67,7 +68,7 @@ export const components = [
 				"#00ff00",
 				"#00ff00",
 			],
-			types: "TreemapChart",
+			types: ["TreemapChart"],
 			unit: "km²",
 		},
 		chart_data: [
@@ -100,6 +101,7 @@ export const components = [
 				],
 			},
 		],
+		time_from: "demo",
 		source: "都發局",
 		name: "都市計畫用地類型",
 	},
@@ -117,7 +119,7 @@ export const components = [
 				"#60819C",
 				"#2F8AB1",
 			],
-			types: "BarChart",
+			types: ["BarChart"],
 			unit: "間",
 		},
 		chart_data: [
@@ -135,6 +137,7 @@ export const components = [
 			},
 		],
 		name: "社福機構",
+		time_from: "demo",
 		source: "社會局",
 	},
 	{
@@ -142,7 +145,7 @@ export const components = [
 		index: "building_age",
 		chart_config: {
 			color: ["#9c7a3e", "#b7e28e", "#7febd0", "#8ce8ff"],
-			types: "ColumnChart",
+			types: ["ColumnChart"],
 			unit: "棟",
 			categories: [
 				"北投區",
@@ -186,6 +189,7 @@ export const components = [
 				data: [48, 91, 71, 12, 6, 5, 49, 25, 33, 14, 38, 73],
 			},
 		],
+		time_from: "demo",
 		name: "全市屋齡分布",
 		source: "都發局/消防局",
 	},
@@ -193,7 +197,7 @@ export const components = [
 		id: 142,
 		index: "youbike_weekend",
 		chart_config: {
-			types: "HeatmapChart",
+			types: ["HeatmapChart"],
 			categories: [
 				"北投區",
 				"士林區",
@@ -282,6 +286,7 @@ export const components = [
 				data: [0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 3, 29],
 			},
 		],
+		time_from: "demo",
 		name: "YouBike週末群像",
 		source: "臺北大數據中心",
 	},
@@ -289,7 +294,7 @@ export const components = [
 		id: 162,
 		index: "permeable_paving",
 		chart_config: {
-			types: "DonutChart",
+			types: ["DonutChart"],
 			unit: "m²",
 			color: ["#80C69A", "#FFAD66", "#9EDBFF", "#FFCA9C", "#20E1FF"],
 		},
@@ -320,6 +325,7 @@ export const components = [
 				],
 			},
 		],
+		time_from: "demo",
 		name: "透水鋪面",
 		source: "工務局",
 	},
@@ -327,7 +333,7 @@ export const components = [
 		id: 107,
 		index: "aed",
 		chart_config: {
-			types: "DistrictChart",
+			types: ["DistrictChart"],
 			color: ["#A25FAD"],
 			unit: "台",
 		},
@@ -350,6 +356,7 @@ export const components = [
 				],
 			},
 		],
+		time_from: "demo",
 		name: "AED分布",
 		source: "衛生局",
 	},

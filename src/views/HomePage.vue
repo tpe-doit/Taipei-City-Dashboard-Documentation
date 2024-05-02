@@ -1,8 +1,9 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { DashboardComponent } from 'city-dashboard-component';
 import { useAppStore } from '../store/appStore';
-import ComponentContainer from '../components/homepage/ComponentContainer.vue';
+
 import { components } from '../assets/homepageComponents';
 
 const { t } = useI18n();
@@ -44,14 +45,14 @@ onMounted(() => {
 					</div>
 				</div>
 				<div class="homepage-header-image">
-					<ComponentContainer :content="components[currentImg]" />
+					<DashboardComponent :config="components[currentImg]" :footer="false"
+						:style="{ width: '400px', height: '350px' }" :key="`component-${currentImg}`" />
 				</div>
 			</div>
 			<hr />
 			<div class="homepage-nav">
 				<div class="homepage-nav-card">
 					<h3>{{ t('front-end.name') }}{{ t('docs') }}</h3>
-					<p>{{ t('last-updated') }}: 24/02/02</p>
 					<h4>{{ t('front-end.desc') }}</h4>
 					<div>
 						<router-link to="/front-end"><button>{{ t('get-started')
@@ -60,12 +61,19 @@ onMounted(() => {
 				</div>
 				<div class="homepage-nav-card">
 					<h3>{{ t('back-end.name') }}{{ t('docs') }}</h3>
-					<p>{{ t('last-updated') }}: 24/02/02</p>
 					<h4>{{ t('back-end.desc') }}</h4>
 					<div>
 						<router-link to="/back-end"><button>{{ t('get-started')
 								}}<span>east</span></button></router-link>
 					</div>
+				</div>
+				<div class="homepage-nav-card">
+					<h3>{{ t('data-end.name') }}{{ t('docs') }}</h3>
+					<h4>{{ t('data-end.desc') }}</h4>
+					<!-- <div>
+						<router-link to="/data-end"><button>{{ t('get-started')
+								}}<span>east</span></button></router-link>
+					</div> -->
 				</div>
 			</div>
 			<br />
@@ -196,21 +204,21 @@ onMounted(() => {
 
 	&-nav {
 		display: grid;
-		grid-template-columns: 500px 500px;
-		column-gap: 2rem;
+		grid-template-columns: 350px 350px 350px;
+		column-gap: 1rem;
 		padding: 0 1rem;
 
 		@media screen and (max-width: 1200px) {
-			grid-template-columns: 450px 450px;
+			grid-template-columns: 300px 300px 300px;
 		}
 
 		@media screen and (max-width: 1050px) {
-			grid-template-columns: 400px 400px;
+			grid-template-columns: 280px 280px 280px;
 		}
 
 		@media screen and (max-width: 900px) {
 			grid-template-columns: 500px;
-			row-gap: 2rem;
+			row-gap: 1rem;
 		}
 
 		@media screen and (max-width: 550px) {
