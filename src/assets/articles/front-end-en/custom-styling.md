@@ -2,7 +2,7 @@
 
 With the exception of elements rendered by third-party packages (e.g Mapbox, Apexcharts), this entire project was styled via vanilla `css` or `scss`. The absence of a UI library allows for a high degree of customizability. A mix of global styles and local styles was utilized to achieve the styling of this project.
 
-If you are interested in styling charts (Apexcharts) and maps (Mapbox), please refer to the [Custom Charts](/front-end/custom-charts) and [Custom Maps](/front-end/custom-maps) articles.
+If you are interested in styling maps (Mapbox), please refer to the [Custom Maps](/front-end/custom-maps) article.
 
 > **w01**
 > For contributors, please note that when modifying this project, there are certain global and local styles that we don’t allow to be modified. In addition, there are also certain style guidelines put in place that you should follow if you would like to contribute new elements to this project. Be sure to read through our [Design Guide](/front-end/design-guide) in the next section.
