@@ -85,8 +85,8 @@ onMounted(() => {
 						<h4>{{ t('api-tester') }}</h4>
 						<span>arrow_circle_right</span>
 					</router-link>
-					<router-link class="homepage-utility-card" to="/" :style="{ opacity: 0.5 }">
-						<h4>{{ t('component-registry') }}</h4>
+					<router-link class="homepage-utility-card" to="/component-registry">
+						<h4>{{ t('component-registry.name') }}</h4>
 						<span>arrow_circle_right</span>
 					</router-link>
 					<router-link class="homepage-utility-card" to="/" :style="{ opacity: 0.5 }">
