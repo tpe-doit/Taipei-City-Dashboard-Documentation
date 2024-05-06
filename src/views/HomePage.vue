@@ -5,6 +5,7 @@ import { DashboardComponent } from 'city-dashboard-component';
 import { useAppStore } from '../store/appStore';
 
 import { components } from '../assets/homepageComponents';
+import { RouterLink } from 'vue-router';
 
 const { t } = useI18n();
 const appStore = useAppStore();
@@ -74,6 +75,24 @@ onMounted(() => {
 						<router-link to="/data-end"><button>{{ t('get-started')
 								}}<span>east</span></button></router-link>
 					</div> -->
+				</div>
+			</div>
+			<hr />
+			<div class="homepage-utility">
+				<h3>{{ t('more') }}</h3>
+				<div class="homepage-nav">
+					<router-link class="homepage-utility-card" to="/" :style="{ opacity: 0.5 }">
+						<h4>{{ t('api-tester') }}</h4>
+						<span>arrow_circle_right</span>
+					</router-link>
+					<router-link class="homepage-utility-card" to="/" :style="{ opacity: 0.5 }">
+						<h4>{{ t('component-registry') }}</h4>
+						<span>arrow_circle_right</span>
+					</router-link>
+					<router-link class="homepage-utility-card" to="/" :style="{ opacity: 0.5 }">
+						<h4>{{ t('data-pipeline-registry') }}</h4>
+						<span>arrow_circle_right</span>
+					</router-link>
 				</div>
 			</div>
 			<br />
@@ -263,6 +282,40 @@ onMounted(() => {
 			}
 
 
+		}
+	}
+
+	&-utility {
+		h3 {
+			text-align: center;
+			font-size: var(--font-xl);
+			margin-bottom: 2rem;
+		}
+
+		&-card {
+			display: flex;
+			align-items: center;
+			background-color: var(--color-component-background);
+			border-radius: 5px;
+			padding: var(--font-l);
+			transition: box-shadow 0.2s;
+			margin: 4px 0;
+
+			&:hover {
+				box-shadow: 0 0 5px var(--color-complement-text);
+				cursor: pointer;
+			}
+
+			h4 {
+				font-size: var(--font-l);
+				font-weight: 400;
+			}
+
+			span {
+				margin-left: 8px !important;
+				color: var(--color-normal-text) !important;
+				font-size: var(--font-l);
+			}
 		}
 	}
 
