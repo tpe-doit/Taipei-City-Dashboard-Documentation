@@ -8,6 +8,8 @@
 
 [`GET` `/api/v1/component`](/back-end/component-config-apis) [`DB` `dashboardmanager.components`](/back-end/components-db)
 
+_[使用 API 測試器測試這支 API](/api)_
+
 ```json
 [{
     "id": 7, // Number; 必須是獨特的編號並與統計資料和歷史資料的檔名相同

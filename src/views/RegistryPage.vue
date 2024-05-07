@@ -32,10 +32,6 @@ onMounted(() => {
 <template>
 	<div class="registrypage">
 		<div class="registrypage-positioner">
-			<div class="registrypage-back">
-				<span>arrow_back</span>
-				<RouterLink to="/">Back Home</RouterLink>
-			</div>
 			<h1>{{ t('component-registry.name') }}</h1>
 			<div class="registrypage-table">
 				<div class="registrypage-table-legend">
@@ -145,31 +141,6 @@ onMounted(() => {
 
 		@media screen and (max-width: 850px) {
 			padding: 2rem 1rem 1rem 1rem;
-		}
-	}
-
-	&-back {
-		display: flex;
-		align-items: center;
-		align-self: flex-start;
-		font-size: var(--font-m);
-		color: var(--color-complement-text);
-		margin-bottom: 1rem;
-		cursor: pointer;
-		transition: opacity 0.2s;
-
-		span {
-			margin-right: 4px;
-			font-family: var(--font-icon);
-			color: var(--color-complement-text);
-		}
-
-		a {
-			color: var(--color-complement-text);
-		}
-
-		&:hover {
-			opacity: 0.7;
 		}
 	}
 

@@ -16,6 +16,8 @@
 
 [`GET` `/api/v1/dashboard`](/back-end/dashboard-apis) [`DB` `dashboardmanager.dashboards`](/back-end/dashboards-db)
 
+_[使用 API 測試器測試這支 API](/api)_
+
 ```json
 {
     "name": "民情熱議", // String; 儀表板的名稱

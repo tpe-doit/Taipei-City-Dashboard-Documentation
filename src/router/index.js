@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "../views/HomePage.vue";
 import DocPage from "../views/DocPage.vue";
 import RegistryPage from "../views/RegistryPage.vue";
+import ApiPage from "../views/ApiPage.vue";
 
 const routes = [
 	{
@@ -33,6 +34,11 @@ const routes = [
 		path: "/component-registry",
 		component: RegistryPage,
 		name: "component-registry",
+	},
+	{
+		path: "/api",
+		component: ApiPage,
+		name: "api",
 	},
 	{
 		path: "/:pathMatch(.*)*",

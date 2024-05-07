@@ -335,10 +335,11 @@ onMounted(async () => {
 		th {
 			background-color: var(--color-border);
 		}
-		
+
 		td:first-child {
 			width: 110px;
 		}
+
 		td:nth-child(2) {
 			text-align: left;
 		}

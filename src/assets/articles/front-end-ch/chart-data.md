@@ -4,6 +4,8 @@
 
 [`GET` `/api/v1/component/:id/chart`](/back-end/component-data-apis) [`DB` `dashboardmanager.components`](/back-end/components-db)
 
+_[使用 API 測試器測試這支 API](/api)_
+
 ### 二維資料 (two_d)
 
 二維資料（以下簡稱 2D 資料）是可以使用簡單的 **key-value (x-y)** 編排的資料。

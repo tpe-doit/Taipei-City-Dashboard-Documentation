@@ -7,7 +7,6 @@ export const ch = {
 	"last-updated": "上次更新",
 	"coming-soon": "即將上架",
 	more: "小工具專區",
-	"api-tester": "API 測試器",
 	"data-pipeline-registry": "儀表板資料流清單",
 	github: "前往Github",
 	"get-started": "前往文件",
@@ -18,6 +17,15 @@ export const ch = {
 	previous: "前一篇文章",
 	next: "下一篇文章",
 	menu: "選單",
+	"api-tester": {
+		name: "API 測試器",
+		call: "呼叫 API",
+		doc: "API 文件",
+		config: "取得組件配置",
+		chart: "取得組件圖表資料",
+		history: "取得組件歷史資料",
+		dashboard: "取得儀表板",
+	},
 	"component-registry": {
 		name: "儀表板組件清單",
 		legend: "圖例",

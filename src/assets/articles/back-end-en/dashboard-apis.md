@@ -4,9 +4,11 @@
 
 `GET` `/api/v1/dashboard`
 
-| Item        | Description |
-| ----------- | ----------- |
-| Permissions | `Guest` Only public dashboards <br> `User` `Admin` Public and personal dashboards  |
+_[Try out the API in our API Tester](/api)_
+
+| Item        | Description                                                                       |
+| ----------- | --------------------------------------------------------------------------------- |
+| Permissions | `Guest` Only public dashboards <br> `User` `Admin` Public and personal dashboards |
 
 **Response:**
 
@@ -24,9 +26,9 @@
 
 `GET` `/api/v1/dashboard/:index`
 
-| Item        | Description |
-| ----------- | ----------- |
-| Permissions | `Guest` Only public dashboards <br> `User` `Admin` Public and personal dashboards  |
+| Item        | Description                                                                       |
+| ----------- | --------------------------------------------------------------------------------- |
+| Permissions | `Guest` Only public dashboards <br> `User` `Admin` Public and personal dashboards |
 
 **Response:**
 
@@ -43,8 +45,8 @@
 
 `POST` `/api/v1/dashboard`
 
-| Item        | Description |
-| ----------- | ----------- |
+| Item        | Description    |
+| ----------- | -------------- |
 | Permissions | `User` `Admin` |
 
 **Body:**
@@ -74,7 +76,7 @@ Call this API first to check if the index is available.
 
 | Item        | Description |
 | ----------- | ----------- |
-| Permissions | `Admin` |
+| Permissions | `Admin`     |
 
 **Response:**
 
@@ -89,7 +91,7 @@ Call this API first to check if the index is available.
 
 | Item        | Description |
 | ----------- | ----------- |
-| Permissions | `Admin` |
+| Permissions | `Admin`     |
 
 **Body:**
 
@@ -114,8 +116,8 @@ Call this API first to check if the index is available.
 
 `PATCH` `/api/v1/dashboard/:index`
 
-| Item        | Description |
-| ----------- | ----------- |
+| Item        | Description                                                                 |
+| ----------- | --------------------------------------------------------------------------- |
 | Permissions | `User` Only personal dashboards <br> `Admin` Personal and public dashboards |
 
 **Body:**
@@ -123,7 +125,7 @@ Call this API first to check if the index is available.
 ```json
 {
 	// Dashboard config fields to update. e.g.
-	"name": "New Name",
+	"name": "New Name"
 	// Cannot update `index`
 	// The above field should be updated manually in the database
 }
@@ -144,8 +146,8 @@ Call this API first to check if the index is available.
 
 `DEL` `/api/v1/dashboard/:index`
 
-| Item        | Description |
-| ----------- | ----------- |
+| Item        | Description                                                                 |
+| ----------- | --------------------------------------------------------------------------- |
 | Permissions | `User` Only personal dashboards <br> `Admin` Personal and public dashboards |
 
 **Response:**

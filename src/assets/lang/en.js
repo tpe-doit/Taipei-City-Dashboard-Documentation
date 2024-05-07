@@ -7,7 +7,6 @@ export const en = {
 	"last-updated": "Last Updated",
 	"coming-soon": "Coming Soon",
 	more: "Utility Tools",
-	"api-tester": "API Tester",
 	"data-pipeline-registry": "Data Pipeline Registry",
 	github: "Github",
 	"get-started": "Get Started",
@@ -18,6 +17,15 @@ export const en = {
 	previous: "Previous Page",
 	next: "Next Page",
 	menu: "Menu",
+	"api-tester": {
+		name: "API Tester",
+		call: "Call API",
+		doc: "API Documentation",
+		config: "Get Component Config By ID",
+		chart: "Get Component Chart Data",
+		history: "Get Component History Data",
+		dashboard: "Get All Dashboards",
+	},
 	"component-registry": {
 		name: "Component Registry",
 		legend: "Legend",

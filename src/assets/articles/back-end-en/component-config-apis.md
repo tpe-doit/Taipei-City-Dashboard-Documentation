@@ -4,6 +4,8 @@
 
 `GET` `/component`
 
+_[Try out the API in our API Tester](/api)_
+
 | Item         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Permissions  | `Guest`                                                                                                                                                                                                                                                                                                                                                                                                                                          |
@@ -27,6 +29,8 @@
 ### Get Component By ID
 
 `GET` `/component/:id`
+
+_[Try out the API in our API Tester](/api)_
 
 | Item        | Description |
 | ----------- | ----------- |
@@ -56,7 +60,7 @@
 ```json
 {
 	// Component config fields to update. e.g.
-	"name": "New Name",
+	"name": "New Name"
 	// Cannot update `id`, `index`, `map_config_ids`, `query_type`, `query_chart`, `query_history`
 	// The above fields should be updated manually in the database
 }
@@ -86,7 +90,7 @@
 ```json
 {
 	// Chart config fields to update. e.g.
-	"unit": "km",
+	"unit": "km"
 	// Cannot update `index`
 	// The above field should be updated manually in the database
 }
@@ -116,7 +120,7 @@
 ```json
 {
 	// Map config fields to update. e.g.
-	"type": "line",
+	"type": "line"
 	// Cannot update `id`
 	// The above field should be updated manually in the database
 }
@@ -137,8 +141,8 @@
 
 `DEL` `/component/:id`
 
->**w01**
->In BETA. Currently not in use by the front-end.
+> **w01**
+> In BETA. Currently not in use by the front-end.
 
 | Item        | Description |
 | ----------- | ----------- |
