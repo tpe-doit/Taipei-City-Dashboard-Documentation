@@ -71,10 +71,10 @@ onMounted(() => {
 				<div class="homepage-nav-card">
 					<h3>{{ t('data-end.name') }}{{ t('docs') }}</h3>
 					<h4>{{ t('data-end.desc') }}</h4>
-					<!-- <div>
+					<div>
 						<router-link to="/data-end"><button>{{ t('get-started')
 								}}<span>east</span></button></router-link>
-					</div> -->
+					</div>
 				</div>
 			</div>
 			<hr />

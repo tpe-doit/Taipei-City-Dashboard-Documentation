@@ -31,6 +31,16 @@ const routes = [
 		props: true,
 	},
 	{
+		path: "/data-end",
+		redirect: "/data-end/introduction",
+	},
+	{
+		path: "/data-end/:id",
+		component: DocPage,
+		name: "data-end",
+		props: true,
+	},
+	{
 		path: "/component-registry",
 		component: RegistryPage,
 		name: "component-registry",

@@ -1,18 +1,14 @@
----
-title: 通用函式-轉換地理空間
-
----
-
-
 ## 前言
-`通用函式-轉換地理空間` 包含3維Polygon轉成2維、LineString轉成MultiLineString、Polygon轉成MultiPolygon、根據x, y加入Point欄位、geometry轉成WKBGeometry格式。其中有部分為子函式，以下將不會說明子函式。可在 `/dag/utils/transform_geometry.py` 找到此module。
+
+`通用函式-轉換地理空間` 包含 3 維 Polygon 轉成 2 維、LineString 轉成 MultiLineString、Polygon 轉成 MultiPolygon、根據 x, y 加入 Point 欄位、geometry 轉成 WKBGeometry 格式。其中有部分為子函式，以下將不會說明子函式。可在 `/dag/utils/transform_geometry.py` 找到此 module。
 
 > **w01**
 > 務必確認你已經查看[確認設定檔](/data-end/dag-config)章節並設置完成。
 
 > **w02**
 > 範例程式都會添加以下幾行程式，以確保將本專案的路徑加入環境變數，從而能找到 `utils` 與 `settings` 等資料夾。
-> ``` python
+>
+> ```python
 > import os
 > import sys
 >
@@ -21,9 +17,12 @@ title: 通用函式-轉換地理空間
 > ```
 
 ## 函式說明
+
 ### def convert_geometry_to_wkbgeometry(gdf, from_crs)
-對包含geometry欄位的gpd.geoDataFrame增加一個WKBGeometry格式的`wkb_geometry`欄位。輸出結果固定為 `EPSG:4326`，也就是 `WGS84` 坐標系。
-``` python
+
+對包含 geometry 欄位的 gpd.geoDataFrame 增加一個 WKBGeometry 格式的`wkb_geometry`欄位。輸出結果固定為 `EPSG:4326`，也就是 `WGS84` 坐標系。
+
+```python
 import os
 import sys
 
@@ -46,6 +45,7 @@ gdf = gpd.GeoDataFrame(data, geometry=poly, crs='EPSG:3826')
 gdf = convert_geometry_to_wkbgeometry(gdf, from_crs=3826)
 print(gdf.iloc[0])
 ```
+
 ```
 >>> print(gdf.iloc[0])
 id                                                              1
@@ -56,8 +56,10 @@ Name: 0, dtype: object
 ```
 
 ### def add_point_wkbgeometry_column_to_df(data, x, y, from_crs)
-將x, y資料製成一個名為 `geometry` 的包含Point資料的欄位。同時加入另一個名為 `wkb_geometry` 的表示同樣資料但格式轉換為WKBGeometry的欄位。
-``` python
+
+將 x, y 資料製成一個名為 `geometry` 的包含 Point 資料的欄位。同時加入另一個名為 `wkb_geometry` 的表示同樣資料但格式轉換為 WKBGeometry 的欄位。
+
+```python
 import os
 import sys
 
@@ -76,6 +78,7 @@ y = pd.Series([2779407.0527, ''])
 gdf = add_point_wkbgeometry_column_to_df(data, x, y, from_crs=3826)
 print(gdf.iloc[0])
 ```
+
 ```
 >>> print(gdf.iloc[0])
 id                                                          1
@@ -88,8 +91,10 @@ Name: 0, dtype: object
 ```
 
 ### def convert_3d_polygon_to_2d_polygon(geometry)
-將包含z軸的3D Polygon轉成沒有z軸的2D Polygon。
-``` python
+
+將包含 z 軸的 3D Polygon 轉成沒有 z 軸的 2D Polygon。
+
+```python
 import os
 import sys
 
@@ -116,8 +121,10 @@ print(geos_poly)
 ```
 
 ### def convert_linestring_to_multilinestring(geo)
-將LineString修改為MultiLineString，通常是因為欄位值混雜此兩種格式，修改為同一種格式以符合DB欄位型態。範例如下:
-``` python
+
+將 LineString 修改為 MultiLineString，通常是因為欄位值混雜此兩種格式，修改為同一種格式以符合 DB 欄位型態。範例如下:
+
+```python
 import os
 import sys
 
@@ -132,6 +139,7 @@ geos = gpd.GeoSeries([LineString([[0,0], [1,1]]), LineString([[0,0], [1,1]])])
 geos_mline = geos.apply(convert_linestring_to_multilinestring)
 print(geos_mline)
 ```
+
 ```
 >>> print(geos_mline)
 0    MULTILINESTRING ((0.00000 0.00000, 1.00000 1.0...
@@ -139,10 +147,11 @@ print(geos_mline)
 dtype: geometry
 ```
 
-
 ### def convert_polygon_to_multipolygon(geo)
-將Polygon修改為MultiPolygon，通常是因為欄位值混雜此兩種格式，修改為同一種格式以符合DB欄位型態。
-``` python
+
+將 Polygon 修改為 MultiPolygon，通常是因為欄位值混雜此兩種格式，修改為同一種格式以符合 DB 欄位型態。
+
+```python
 import os
 import sys
 
@@ -158,6 +167,7 @@ geos = gpd.GeoSeries([poly, poly])
 geos_mpoly = geos.apply(convert_polygon_to_multipolygon)
 print(geos_mpoly)
 ```
+
 ```
 >>> print(geos_mpoly)
 0    MULTIPOLYGON (((0.00000 0.00000, 1.00000 1.000...

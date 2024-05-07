@@ -1,17 +1,14 @@
----
-title: 通用函式-抽取階段
-
----
-
 ## 前言
-`通用函式-抽取資料` 包含了取得、抽取資料的函式，包含下載、解壓縮、取得data.taipei API、取得data.taipei檔案更新時間、讀取geoJOSN的範例、讀取SHPfile的範例、讀取KML的範例。你可以在 `/dags/utils/extract_stage.py` 找到此module。
+
+`通用函式-抽取資料` 包含了取得、抽取資料的函式，包含下載、解壓縮、取得 data.taipei API、取得 data.taipei 檔案更新時間、讀取 geoJOSN 的範例、讀取 SHPfile 的範例、讀取 KML 的範例。你可以在 `/dags/utils/extract_stage.py` 找到此 module。
 
 > **w01**
 > 務必確認你已經查看[確認設定檔](/data-end/dag-config)章節並設置完成。
 
 > **w02**
 > 範例程式都會添加以下幾行程式，以確保將本專案的路徑加入環境變數，從而能找到 `utils` 與 `settings` 等資料夾。
-> ``` python
+>
+> ```python
 > import os
 > import sys
 >
@@ -19,11 +16,13 @@ title: 通用函式-抽取階段
 > sys.path.append(dags_path)
 > ```
 
-
 ## 函式說明
+
 ### def download_file(filename, url, file_folder)
+
 從 `url` 下載檔案儲存成 `{file_folder}/{filename}`，回傳下載成功檔案的完整路徑。範例如下:
-``` python
+
+```python
 # Read GeoJSON
 # GeoJSON is a special format of JSON that represents geographical data
 # The extension of a geoJSON file can be .geojson or .json.
@@ -43,6 +42,7 @@ local_file = download_file(FILE_NAME, URL)
 gdata = gpd.read_file(local_file, encoding=FILE_ENCODING, driver="GeoJSON")
 print(gdata)
 ```
+
 ```
  >>> output:
    Id     名稱            面積    類型  集水區  物理型  水文HY  濱水植  水質WQ  生物BI  MIWC2017                                           geometry
@@ -50,10 +50,11 @@ print(gdata)
 
 ```
 
-
 ### def unzip_file_to_target_folder(zip_file, unzip_path):
+
 將 `zip_file` 解壓縮至 `unzip_path` 資料夾。
-``` python
+
+```python
 # Read Shapefile
 # Shapefile is a popular geospatial vector data format for geographic information system software.
 # The shapefile is a set of files with the same name but different extensions.
@@ -81,6 +82,7 @@ target_shp_file = [f for f in os.listdir(unzip_path) if f.endswith("shp")][0]
 gdata = gpd.read_file(f"{unzip_path}/{target_shp_file}", encoding=FILE_ENCODING)
 print(gdata)
 ```
+
 ```
 >>> print(gdata)
         ID Debrisno  ... Dbno_old                                           geometry
@@ -100,8 +102,10 @@ print(gdata)
 ```
 
 ### def get_data_taipei_api(rid):
-根據 `rid` 組合成data.taipei API URL，迴圈取得所有資料後回傳。(API一次最多回傳1000筆)
-``` python
+
+根據 `rid` 組合成 data.taipei API URL，迴圈取得所有資料後回傳。(API 一次最多回傳 1000 筆)
+
+```python
 import os
 import sys
 
@@ -114,14 +118,17 @@ res = get_data_taipei_api(rid)
 df = pd.DataFrame(res)
 print(df.iloc[0])
 ```
+
 ```
 >>> print(res[0])
 {'_id': 1, '_importdate': {'date': '2024-03-01 14:46:51.602832', 'timezone_type': 3, 'timezone': 'Asia/Taipei'}, '機構名稱': '郵政醫院（委託中英醫療社團法人經營）', '地址': '臺北市中正區福州街14號', 'x': '121.5186982', 'y': '25.02874869'}
 ```
 
 ### def read_kml(file):
-讀取 `file` 的kml檔案成gpd.GeoDataFrame。
-``` python
+
+讀取 `file` 的 kml 檔案成 gpd.GeoDataFrame。
+
+```python
 import os
 import sys
 
@@ -136,6 +143,7 @@ res = download_file(FILE_NAME, URL)
 df = read_kml(res)
 print(df.iloc[0])
 ```
+
 ```
 >>> print(df.iloc[0])
 _id                                                            1
@@ -148,15 +156,17 @@ Name: 0, dtype: object
 ```
 
 > **i02**
-> .kmz檔案的讀取方式非常類同，只需要一點調整:
+> .kmz 檔案的讀取方式非常類同，只需要一點調整:
+>
 > 1. rename file extension from `{file_name}.kmz` to `{file_name}.zip`
 > 2. unzip `{file_name}.zip`
 > 3. read file `doc.kml` in the unzipped folder
 
-
 ### def get_data_taipei_file_last_modified_time(page_id, rank)
-取得data.taipei指定 `page_id` 頁面的檔案更新時間，通常在頁面下方，下載資料按鈕的左邊。一個頁面可能有多個檔案與更新時間，可使用 `rank` 參數取得指定位置(0表示最上面)。
-``` python
+
+取得 data.taipei 指定 `page_id` 頁面的檔案更新時間，通常在頁面下方，下載資料按鈕的左邊。一個頁面可能有多個檔案與更新時間，可使用 `rank` 參數取得指定位置(0 表示最上面)。
+
+```python
 import os
 import sys
 
@@ -169,14 +179,17 @@ PAGE_ID = "4fefd1b3-58b9-4dab-af00-724c715b0c58"
 res = get_data_taipei_file_last_modified_time(PAGE_ID)
 print(res)
 ```
+
 ```
 >>> print(res)
 '2023-06-06 09:53:08'
 ```
 
 ### def get_data_taipei_page_change_time(page_id, rank)
-取得data.taipei指定 `page_id` 頁面的異動時間，通常在頁面左方頁籤。一個頁面可能有多個異動時間，可使用 `rank` 參數取得指定位置(0表示最上面)。
-``` python
+
+取得 data.taipei 指定 `page_id` 頁面的異動時間，通常在頁面左方頁籤。一個頁面可能有多個異動時間，可使用 `rank` 參數取得指定位置(0 表示最上面)。
+
+```python
 import os
 import sys
 
@@ -189,6 +202,7 @@ PAGE_ID = "4fefd1b3-58b9-4dab-af00-724c715b0c58"
 res = get_data_taipei_page_change_time(PAGE_ID)
 print(res)
 ```
+
 ```
 >>> print(res)
 2023-09-08 10:02:06

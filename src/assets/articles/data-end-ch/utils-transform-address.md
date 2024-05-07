@@ -1,17 +1,14 @@
----
-title: 通用函式-轉換地址
-
----
-
 ## 前言
-`通用函式-轉換地址` 用於清洗、標準化、分解地址，建議適用於台北市地址。其中有部分為子函式，將不會說明子函式。可在 `/dag/utils/transform_address.py` 找到此module。
+
+`通用函式-轉換地址` 用於清洗、標準化、分解地址，建議適用於台北市地址。其中有部分為子函式，將不會說明子函式。可在 `/dag/utils/transform_address.py` 找到此 module。
 
 > **w01**
 > 務必確認你已經查看[確認設定檔](/data-end/dag-config)章節並設置完成。
 
 > **w02**
 > 範例程式都會添加以下幾行程式，以確保將本專案的路徑加入環境變數，從而能找到 `utils` 與 `settings` 等資料夾。
-> ``` python
+>
+> ```python
 > import os
 > import sys
 >
@@ -19,11 +16,13 @@ title: 通用函式-轉換地址
 > sys.path.append(dags_path)
 > ```
 
-
 ## 函式說明
+
 ### def clean_data(addr)
+
 清洗地址，包含全形轉半形、去除括弧、去除標點符號、替換常見錯字、處理部分難字、段的數字改為國字數字等...
-``` python
+
+```python
 import os
 import sys
 
@@ -36,6 +35,7 @@ addres = pd.Series(['台北市信義區3民路四段３00號-1(3室)', '信義�
 ca = clean_data(addres)
 print(ca)
 ```
+
 ```
 >>> print(ca)
 0    台北市信義區三民路四段300號之1
@@ -44,12 +44,14 @@ dtype: object
 ```
 
 ### def main_process(addr_cleaned)
+
 辨識並切分地址，同時提供程式判斷信心等級。
 
-
 ### def save_data(addr, addr_cleaned, standard_addr_list)
-與 `main_process` 配套使用，將結果轉換為pd.DataFrame。
-``` python
+
+與 `main_process` 配套使用，將結果轉換為 pd.DataFrame。
+
+```python
 import os
 import sys
 
@@ -68,6 +70,7 @@ standard_addr_list = main_process(addr_cleaned)
 result, output = save_data(addres, addr_cleaned, standard_addr_list)
 print(result.iloc[0])
 ```
+
 ```
 >>> print(result.iloc[0])
 status                                                 not null

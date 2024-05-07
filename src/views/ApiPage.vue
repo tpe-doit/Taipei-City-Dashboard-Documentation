@@ -112,7 +112,7 @@ async function getAllDashboards() {
 				<div class="apipage-tester-url">
 					<code style="background-color: #6bdd9a; color: black; font-weight: bold">GET</code>
 					<code>/component/</code>
-					<input v-model="componentHistoryQuery" @keypress.enter="getComponentChart">
+					<input v-model="componentHistoryQuery" @keypress.enter="getComponentHistory">
 					<code>/history</code>
 				</div>
 				<div class="apipage-tester-button">
