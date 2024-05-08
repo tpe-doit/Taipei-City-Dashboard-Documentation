@@ -1,5 +1,5 @@
 
-包含下載、解壓縮、取得 data.taipei API、取得 data.taipei 檔案更新時間、讀取 geoJOSN 的範例、讀取 SHPfile 的範例、讀取 KML 的範例。您可以在 `/dags/utils/extract_stage.py` 找到此 module。
+包含下載、解壓縮、取得 data.taipei API、取得 data.taipei 檔案更新時間、讀取 GeoJSON 的範例、讀取 SHPfile 的範例、讀取 KML 的範例。您可以在 `/dags/utils/extract_stage.py` 找到此 module。
 
 > **w01**
 > 務必確認您已經查看[下載並設定專案](/data-end/project-setup)章節並設置完成。

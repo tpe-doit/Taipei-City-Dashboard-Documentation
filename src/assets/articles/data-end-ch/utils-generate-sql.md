@@ -34,10 +34,10 @@ for table in table_name:
     print(create_table_sql)
 ```
 
-其中，若 `IS_HISTRORY_TABLE` 設定為 `True`，代表需同時建立 current 與 histroy 表，會產出創建兩張表所需的 SQL。
+其中，若 `IS_HISTRORY_TABLE` 設定為 `True`，代表需同時建立 current 與 history 表，會產出創建兩張表所需的 SQL。
 
 > **i02**
-> histroy 表以 current 表名稱加上後"\_history"
+> history 表以 current 表名稱加上後"\_history"
 
 > **i03**
 > `current+history` 的設計，是為了同時滿足快速與留存歷史資料。比如 YouBike 站點狀態雖然只呈現當下的即時資料，但我們留存所有歷史資料以供未來分析應用。長期下來，history 表會變得冗餘而查詢時間過長；因此另存 current 表，只留最後一次的資料，快速回應前端需求。

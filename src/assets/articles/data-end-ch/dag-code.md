@@ -3,7 +3,7 @@
 在程式碼說明之前，一些特殊的規則或強烈建議說明如下。
 
 > **w01**
-> 本專案的時間欄位都會加上時區資訊，採[IOS 8601](https://en.wikipedia.org/wiki/ISO_8601)儲存，以避免不同系統介接時發生轉換錯誤。
+> 本專案的時間欄位都會加上時區資訊，採[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)儲存，以避免不同系統介接時發生轉換錯誤。
 
 > **w02**
 > 本專案的地理空間欄位，都會以 `WGS84` 也就是 `EPSG:4326` 坐標系，並轉換成 WKBGeometry 格式儲存。[WGS84](https://en.wikipedia.org/wiki/World_Geodetic_System)是國際通用的經緯度座標系，[WKBGeometry](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry)則是一種較節省儲存空間的格式。

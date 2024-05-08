@@ -10,7 +10,7 @@ Python (建議額外安裝 Anaconda)、Git（可以額外安裝 GitHub Desktop�
 ### 程式編輯器
 
 Visual Studio Code（後稱 VSCode）是我們首選的程式編輯器。我們建議安裝以下擴充工具以提升開發效率：
-Python、Python Extension Pack、Python Debugger、pylint、black formater、indet-rainbow、isort。
+Python、Python Extension Pack、Python Debugger、pylint、black formater、indent-rainbow、isort。
 
 ## 技術塔
 
