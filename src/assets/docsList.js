@@ -75,7 +75,6 @@ export const docsList = {
 		"dag-table",
 		"#utils",
 		"utils-overview",
-		"utils-config",
 		"utils-generate-sql",
 		"utils-extract",
 		"utils-transform-time",

@@ -14,6 +14,7 @@ const parsedDoctext = computed(() => {
 	const renderer = {
 		blockquote(quote) {
 			const no = quote[12] === '0' ? quote[13] : quote[12] + quote[13];
+			quote = quote.replace("<pre>", "<pre class='inquote'>");
 
 			if (quote[11] === "i") {
 				quote = quote.slice(23);
@@ -223,6 +224,11 @@ onMounted(async () => {
 		position: relative;
 		margin-bottom: 1.5rem;
 		border-radius: 0.5rem;
+
+		&.inquote {
+			margin-top: 1.5rem;
+			margin-bottom: 0;
+		}
 
 		button {
 			position: absolute;

@@ -1,6 +1,6 @@
 ## 在本地運行專案
 
-**_looks_one_** Fork [專案程式庫](https://github.com/tpe-doit/Taipei-City-Dashboard)，然後將專案 clone 到您的電腦。
+**_looks_one_** Fork [專案程式庫](https://github.com/tpe-doit/Taipei-City-Dashboard-DE-Hackathon-2024)，然後將專案 clone 到您的電腦。
 
 **_looks_two_** 用 VSCode 或您偏好的程式編輯器開啟 `Taipei-City-Dashboard-DE` 程式庫。
 
@@ -25,9 +25,10 @@ sys.path.append(dags_path)
 
 請根據您實際的工作資料夾，進行相應調整。
 
-
 ## 全域設定
+
 本專案將使用到的全域設定集中在 `/dags/settings/global_config.py`。開發者需要手動調整讓其適用於您的本地端，以下是 `global_config.py` 的內容：
+
 ```python
 import os
 
