@@ -83,7 +83,10 @@ const parsedDoctext = computed(() => {
 			}
 			const parsedText = text.replaceAll('<em><strong>', '<span>').replaceAll('<strong><em>', '<span>').replaceAll('</strong></em>', '</span>').replaceAll('</em></strong>', '</span>');
 			return `<p>${parsedText}</p>`;
-		}
+		},
+		table(header, body) {
+			return `<div class="tablewrapper"><table>${header}${body}</table></div>`;
+		},
 	};
 	marked.use({ renderer, mangle: false, headerIds: false });
 	// eslint-disable-next-line no-misleading-character-class
@@ -113,7 +116,7 @@ onMounted(async () => {
 .docpagecontent {
 	display: flex;
 	flex-direction: column;
-	overflow: visible;
+	overflow-y: visible;
 
 	h2 {
 		margin-top: 0.5rem;
@@ -318,30 +321,50 @@ onMounted(async () => {
 		}
 	}
 
-	table {
-		width: 100%;
-		border-collapse: collapse;
-		margin-bottom: 1.5rem;
+	.tablewrapper {
 		border-top-left-radius: 5px;
 		border-top-right-radius: 5px;
+		overflow-x: scroll;
+		margin-bottom: 1rem;
 
-		th,
-		td {
-			border: solid 1px var(--color-border);
-			padding: 0.5rem;
-			text-align: center;
+		table {
+			width: max(800px, 100%);
+			border-collapse: collapse;
+
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+
+			th,
+			td {
+				border: solid 1px var(--color-border);
+				padding: 0.5rem;
+				text-align: center;
+			}
+
+			th {
+				background-color: var(--color-border);
+			}
+
+			td:first-child {
+				width: 110px;
+			}
+
+			td:nth-child(2) {
+				text-align: left;
+			}
 		}
 
-		th {
-			background-color: var(--color-border);
+		&::-webkit-scrollbar {
+			height: 8px;
 		}
 
-		td:first-child {
-			width: 110px;
+		&::-webkit-scrollbar-thumb {
+			background-color: var(--color-complement-text);
+			border-radius: 8px;
 		}
 
-		td:nth-child(2) {
-			text-align: left;
+		&::-webkit-scrollbar-corner {
+			background-color: var(--color-component-background);
 		}
 	}
 
