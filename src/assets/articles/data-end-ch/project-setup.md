@@ -73,7 +73,7 @@ READY_DATA_DB_URI = "postgresql://{USER_NAME}:{PASSWORD}@{IP}:{PORT}/{DATABASE_N
 ### 資料庫設定
 
 為了使本地環境可以直接連到資料庫，必須在前後端的設定檔 `/Taipei-City-Dashboard-main/docker/docker-compose-db.yaml` 檔案裡的 service **postgres-data** 設定 port (如下示範)，
-修改此 yaml 檔後，再重新執行 `docker-compose -f docker-compose-db.yaml up -d`，即可透過我們提供的函式 `save_geodataframe_to_postgresql` 將處理過的資料寫入資料庫。
+修改此 yaml 檔後，再重新執行 `docker-compose -f docker-compose-db.yaml up -d`，即可透過我們提供的函式 `save_geodataframe_to_postgresql` 將資料寫入資料庫。
 
 ``` yaml
   postgres-data:
