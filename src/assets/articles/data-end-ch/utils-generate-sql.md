@@ -9,18 +9,9 @@
 
 此函式無作用，僅供參考常使用的欄位類型。
 
-### def generate_sql_to_delete_db_table(table_name):
-
-產出刪表的 SQL。在創建新表之前，為了避免有同樣名稱的表格存在，可透過此函式產生刪表的 SQL，SQL 中包含刪表、刪流水號的 sequnce 及刪`_mtime`的 trigger。表格不存在也不會產生錯誤。
-
-```python
-table_name = 'childcare_family_hub_history'
-drop_table_sql = generate_sql_to_delete_db_table(table_name)
-```
-
 ### def generate_sql_to_delete_db_table(table_name, col_map):
 
-產出建表的 SQL。SQL 可讓你建立一張名為 `table_name` 且符合 `col_map` 欄位，並包含適當權限。預設會自動產出欄位 `ogc_fid`、`_ctime`、`_mitme`。
+產出建表 SQL。SQL 可讓您建立一張名為 `table_name` 且符合 `col_map` 欄位，並包含適當權限。預設會自動產出欄位 `ogc_fid`, `_ctime`, `_mitme`。
 
 ```python
 IS_HISTRORY_TABLE = True
@@ -43,10 +34,20 @@ for table in table_name:
     print(create_table_sql)
 ```
 
-其中，若 `IS_HISTRORY_TABLE` 設定為 `True`，代表需同時建立 current+histroy 表格，會產出創建兩張表所需的 SQL。
+其中，若 `IS_HISTRORY_TABLE` 設定為 `True`，代表需同時建立 current 與 histroy 表，會產出創建兩張表所需的 SQL。
 
 > **i02**
-> histroy 表格固定以原始表格名稱加上後"\_history"
+> histroy 表以 current 表名稱加上後"\_history"
 
 > **i03**
-> current+history 的設計，是為了同時滿足快速與留存歷史資料。比如 YouBike 站點狀態雖然只呈現當下的即時資料，但我們留存所有歷史資料以供未來分析應用。長期下來，history 表會變得冗餘而查詢時間過長；因此另存 current 表，只留最後一次的資料，快速回應前端需求。
+> `current+history` 的設計，是為了同時滿足快速與留存歷史資料。比如 YouBike 站點狀態雖然只呈現當下的即時資料，但我們留存所有歷史資料以供未來分析應用。長期下來，history 表會變得冗餘而查詢時間過長；因此另存 current 表，只留最後一次的資料，快速回應前端需求。
+
+
+### def generate_sql_to_delete_db_table(table_name):
+
+產出刪表 SQL。資料庫中不可存在同樣名稱的表格，可透過此函式產生刪除`table_name`的 SQL，同時也會刪除表中流水號的 sequnce 及 `_mtime` 的 trigger。物件不存在不會產生錯誤。
+
+```python
+table_name = 'heal_hospital'
+drop_table_sql = generate_sql_to_delete_db_table(table_name)
+```

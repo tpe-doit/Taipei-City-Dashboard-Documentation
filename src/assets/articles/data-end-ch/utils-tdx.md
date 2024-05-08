@@ -1,9 +1,9 @@
-## 前言
 
-`通用函式-處理地址`取得 TDX 平台 token(需自行申請帳號)。可在`/dag/utils/transform_address.py`找到此 module。
+
+取得 TDX 平台 token(需自行申請帳號)。可在`/dag/utils/transform_address.py`找到此 module。
 
 > **w01**
-> 務必確認你已經查看[確認設定檔](/data-end/dag-config)章節並設置完成。
+> 務必確認您已經查看[下載並設定專案](/data-end/project-setup)章節並設置完成。
 
 > **w02**
 > 範例程式都會添加以下幾行程式，以確保將本專案的路徑加入環境變數，從而能找到 `utils` 與 `settings` 等資料夾。
@@ -21,7 +21,7 @@
 ### class TDXAuth
 
 可以在 `/dags/utils/auth_tdx.py` 找到原始碼。是用來取得 TDX 的 token。每次取得後會儲存 `token.pickle` 檔案，程式重複使用直到過期再取得並儲存。
-TDX 的 API 需要登入，請先修改 `TDX_CLIENT_ID` 與 `TDX_CLIENT_ID` 於行 21~24 如下:
+TDX 的 API 需要登入，請先修改 `TDX_CLIENT_ID` 與 `TDX_CLIENT_ID` 於行 21~24 如下：
 
 ```python
 def __init__(self):
@@ -30,7 +30,7 @@ def __init__(self):
     self.full_file_path = f"{DATA_PATH}/{FILE_NAME}"
 ```
 
-使用範例如下:
+使用範例如下：
 
 ```python
 # Get Taipei YouBike stations from TDX

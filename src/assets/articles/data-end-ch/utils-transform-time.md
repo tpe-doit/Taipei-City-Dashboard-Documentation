@@ -1,9 +1,8 @@
-## 前言
 
-`通用函式-轉換時間` 包含處理民國年、標準化時間與時區、去除時間中有上下午中文的函式。其中有部分為子函式，將不會說明子函式。可在 `/dag/utils/transform_time.py` 找到此 module。
+包含處理民國年、標準化時間與時區、去除時間中有上下午中文的函式。其中有部分為子函式，將不會說明子函式。可在 `/dag/utils/transform_time.py` 找到此 module。
 
 > **w01**
-> 務必確認你已經查看[確認設定檔](/data-end/dag-config)章節並設置完成。
+> 務必確認您已經查看[下載並設定專案](/data-end/project-setup)章節並設置完成。
 
 > **w02**
 > 範例程式都會添加以下幾行程式，以確保將本專案的路徑加入環境變數，從而能找到 `utils` 與 `settings` 等資料夾。
@@ -20,7 +19,7 @@
 
 ### def convert_str_to_time_format(time_column)
 
-擴充自 `pd.to_datetime`，除了讓輸出包含 time zone 以外，還可以處理民國年，並增加輸出彈性。多個範例如下:
+擴充自 `pd.to_datetime`，除了讓輸出包含 time zone 以外，還可以處理民國年，並增加輸出彈性。多個範例如下：
 
 ```python
 import os

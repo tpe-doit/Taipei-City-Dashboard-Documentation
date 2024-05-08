@@ -1,9 +1,8 @@
-## 前言
 
-`通用函式-抽取資料` 包含了取得、抽取資料的函式，包含下載、解壓縮、取得 data.taipei API、取得 data.taipei 檔案更新時間、讀取 geoJOSN 的範例、讀取 SHPfile 的範例、讀取 KML 的範例。你可以在 `/dags/utils/extract_stage.py` 找到此 module。
+包含下載、解壓縮、取得 data.taipei API、取得 data.taipei 檔案更新時間、讀取 geoJOSN 的範例、讀取 SHPfile 的範例、讀取 KML 的範例。您可以在 `/dags/utils/extract_stage.py` 找到此 module。
 
 > **w01**
-> 務必確認你已經查看[確認設定檔](/data-end/dag-config)章節並設置完成。
+> 務必確認您已經查看[下載並設定專案](/data-end/project-setup)章節並設置完成。
 
 > **w02**
 > 範例程式都會添加以下幾行程式，以確保將本專案的路徑加入環境變數，從而能找到 `utils` 與 `settings` 等資料夾。
@@ -20,7 +19,7 @@
 
 ### def download_file(filename, url, file_folder)
 
-從 `url` 下載檔案儲存成 `{file_folder}/{filename}`，回傳下載成功檔案的完整路徑。範例如下:
+從 `url` 下載檔案儲存於 `./file_folder/filename`，並回傳下載檔案的完整路徑。範例如下：
 
 ```python
 # Read GeoJSON
@@ -156,15 +155,11 @@ Name: 0, dtype: object
 ```
 
 > **i02**
-> .kmz 檔案的讀取方式非常類同，只需要一點調整:
->
-> 1. rename file extension from `{file_name}.kmz` to `{file_name}.zip`
-> 2. unzip `{file_name}.zip`
-> 3. read file `doc.kml` in the unzipped folder
+> kmz 檔案的讀取方式非常類同，只需將 `.kmz` 副檔名修改為 `.zip`，並將其解壓縮，讀取解壓縮檔案的 `doc.kml`。
 
 ### def get_data_taipei_file_last_modified_time(page_id, rank)
 
-取得 data.taipei 指定 `page_id` 頁面的檔案更新時間，通常在頁面下方，下載資料按鈕的左邊。一個頁面可能有多個檔案與更新時間，可使用 `rank` 參數取得指定位置(0 表示最上面)。
+取得 data.taipei 指定 `page_id` 頁面的檔案更新時間，通常在頁面下方，下載資料按鈕的左邊。一個頁面可能有多個檔案與更新時間，可使用 `rank` 參數取得指定位置（0 表示最上面）。
 
 ```python
 import os
@@ -187,7 +182,7 @@ print(res)
 
 ### def get_data_taipei_page_change_time(page_id, rank)
 
-取得 data.taipei 指定 `page_id` 頁面的異動時間，通常在頁面左方頁籤。一個頁面可能有多個異動時間，可使用 `rank` 參數取得指定位置(0 表示最上面)。
+取得 data.taipei 指定 `page_id` 頁面的異動時間，通常在頁面左方頁籤。一個頁面可能有多個異動時間，可使用 `rank` 參數取得指定位置（0 表示最上面）。
 
 ```python
 import os
