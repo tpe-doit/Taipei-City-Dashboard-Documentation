@@ -31,6 +31,7 @@ sys.path.append(dags_path)
 
 ```python
 import os
+from urllib.parse import quote
 
 # DAG_PATH is the path of your DAG file, and located by the path of this file.
 # You should make sure this file is in some relative path like "dags/settings/global_config.py"
@@ -53,11 +54,42 @@ else:
 # READY_DATA_DB_URI is the URI of the database where you want to store the data.
 # The format should be like "postgresql://{username}:{password}@{ip}:{port}/{database_name}"
 #   if you use PostgreSQL.
-READY_DATA_DB_URI = "postgresql://{username}:{password}@{ip}:{port}/{database_name}"
+# Please ensure that the settings below match those in the backend Docker YAML.
+# If you make any modifications, update the following settings accordingly.
+USER_NAME = quote("postgres")
+PASSWORD = quote("your_password")  # must be modified
+IP = "localhost"
+PORT = "5433"
+DATABASE_NAME = "dashboard"
+READY_DATA_DB_URI = "postgresql://{USER_NAME}:{PASSWORD}@{IP}:{PORT}/{DATABASE_NAME}"
 ```
 
 一般來說，需要確認的參數只有：
 
 `HTTPS_PROXY_ENABLED`： 此參數控制對外取得資料時是否需要經過 proxy，通常是特殊的網路環境或嚴格的資安規定才需要，一般開放網路環境維持 `False`。
 
-`READY_DATA_DB_URI`： 資料最後的目的地，務必換上您的資料庫資訊以讓 Python 連線。
+`READY_DATA_DB_URI`： 資料最後的目的地，務必換上您的資料庫資訊以讓 Python 連線。請務必修改 `PASSWORD` 以符合您的帳號設定，其他
+
+
+### 資料庫設定
+
+為了使本地環境可以直接連到資料庫，必須在前後端的設定檔 `/Taipei-City-Dashboard-main/docker/docker-compose-db.yaml` 檔案裡的 service **postgres-data** 設定 port (如下示範)，
+修改此 yaml 檔後，再重新執行 `docker-compose -f docker-compose-db.yaml up -d`，即可透過我們提供的函式 `save_geodataframe_to_postgresql` 將資料寫入資料庫。
+
+``` yaml
+  postgres-data:
+    image: postgis/postgis:16-3.4
+    container_name: postgres-data
+    restart: always
+    environment:
+      POSTGRES_DB: ${DB_DASHBOARD_DBNAME}
+      POSTGRES_USER: ${DB_DASHBOARD_USER}
+      POSTGRES_PASSWORD: ${DB_DASHBOARD_PASSWORD}
+    volumes:
+      - ./db-data/postgres-data:/var/lib/postgresql/data
+    ports:             # add here
+      - "5433:5432"    # add here
+```
+
+> **i01**
+> 前後端的設定檔請參考[這裡](https://tuic.gov.taipei/documentation/back-end/project-setup)。
