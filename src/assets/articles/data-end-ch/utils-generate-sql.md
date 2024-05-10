@@ -11,7 +11,7 @@
 
 ### def generate_sql_to_delete_db_table(table_name, col_map):
 
-產出建表 SQL。SQL 可讓您建立一張名為 `table_name` 且符合 `col_map` 欄位，並包含適當權限。預設會自動產出欄位 `ogc_fid`, `_ctime`, `_mitme`。
+產出建表 SQL。SQL 可讓您建立一張名為 `table_name` 且符合 `col_map` 欄位，並包含適當權限。
 
 ```python
 IS_HISTRORY_TABLE = True
@@ -45,7 +45,7 @@ for table in table_name:
 
 ### def generate_sql_to_delete_db_table(table_name):
 
-產出刪表 SQL。資料庫中不可存在同樣名稱的表格，可透過此函式產生刪除`table_name`的 SQL，同時也會刪除表中流水號的 sequnce 及 `_mtime` 的 trigger。物件不存在不會產生錯誤。
+產出刪表 SQL。資料庫中不可存在同樣名稱的表格，可透過此函式產生刪除`table_name`的 SQL，同時也會刪除表中流水號的 sequnce 的 trigger。物件不存在不會產生錯誤。
 
 ```python
 table_name = 'heal_hospital'

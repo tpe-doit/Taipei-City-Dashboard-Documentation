@@ -6,7 +6,7 @@
 
 ### 建表 SQL
 
-產生用來建表的 SQL。該 SQL 包含給定的資料欄位以及本專案標準表的 `_ctime`, `_mtime`, `ogc_fid` 欄位及適當的權限。[文章連結](/data-end/utils-generate-sql)。
+產生用來建表的 SQL。該 SQL 包含給定的資料欄位以及適當的權限。[文章連結](/data-end/utils-generate-sql)。
 
 > **i01**
 > 本專案的標準表定義請參閱[建立資料表](/data-end/dag-table)

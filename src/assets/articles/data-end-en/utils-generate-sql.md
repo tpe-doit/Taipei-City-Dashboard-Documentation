@@ -45,7 +45,7 @@ for table in table_name:
 
 ### def generate_sql_to_delete_db_table(table_name):
 
-產出刪表 SQL。資料庫中不可存在同樣名稱的表格，可透過此函式產生刪除`table_name`的 SQL，同時也會刪除表中流水號的 sequnce 及 `_mtime` 的 trigger。物件不存在不會產生錯誤。
+產出刪表 SQL。資料庫中不可存在同樣名稱的表格，可透過此函式產生刪除`table_name`的 SQL，同時也會刪除表中流水號的 sequnce 的 trigger。物件不存在不會產生錯誤。
 
 ```python
 table_name = 'heal_hospital'
