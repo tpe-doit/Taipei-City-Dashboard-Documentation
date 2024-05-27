@@ -1,17 +1,26 @@
+---
+title: 通用函式-轉換階段-時間
 
-包含處理民國年、標準化時間與時區、去除時間中有上下午中文的函式。其中有部分為子函式，將不會說明子函式。可在 `/dag/utils/transform_time.py` 找到此 module。
+---
+
+包含處理民國年、標準化時間與時區、去除時間中有上下午中文的函式。其中有部分為子函式，將不會說明子函式。可在 `/dag/utils/transform_time.py` 查看相關程式碼。
 
 > **w01**
-> 務必確認您已經查看[下載並設定專案](/data-end/project-setup)章節並設置完成。
+> 務必確認你已經查看[下載並設定專案](/data-end/project-setup)章節並設置完成。
 
 > **w02**
-> 範例程式都會添加以下幾行程式，以確保將本專案的路徑加入環境變數，從而能找到 `utils` 與 `settings` 等資料夾。
->
-> ```python
+> 若開發者在 Airflow 環境想單獨測試以下程式碼，需先執行以下程式碼取得環境設定。
+> ``` python
+> from airflow import DAG
+> ```
+
+> **w03**
+> 若開發者需要在非 Airflow 的環境測試以下程式碼，需添加以下幾行程式，以確保將本專案的路徑加入環境變數，從而能找到 `utils` 與 `settings` 等資料夾：
+> ``` python
 > import os
 > import sys
 >
-> dags_path = os.path.join(os.getcwd(), 'dags')  # Should be looks like '.../dags'
+> dags_path = os.path.join(os.getcwd(), 'dags')  # Should be looks like './tuic-pipeline-airflow/dags'
 > sys.path.append(dags_path)
 > ```
 
@@ -22,11 +31,6 @@
 擴充自 `pd.to_datetime`，除了讓輸出包含 time zone 以外，還可以處理民國年，並增加輸出彈性。多個範例如下：
 
 ```python
-import os
-import sys
-
-dags_path = os.path.join(os.getcwd(), 'dags')  # Should be looks like '.../dags'
-sys.path.append(dags_path)
 import pandas as pd
 from utils.transform_time import convert_str_to_time_format
 
@@ -93,11 +97,6 @@ print(type(str_datetime_col.iloc[0]))
 清除時間欄位中包含的"上下"或"下午"文字。
 
 ```python
-import os
-import sys
-
-dags_path = os.path.join(os.getcwd(), 'dags')  # Should be looks like '.../dags'
-sys.path.append(dags_path)
 import pandas as pd
 from utils.transform_time import omit_chinese_string_in_time
 omit_chinese_string_in_time(None)

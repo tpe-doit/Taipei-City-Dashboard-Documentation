@@ -1,95 +1,122 @@
-## 在本地運行專案
 
-**_looks_one_** Fork [專案程式庫](https://github.com/tpe-doit/Taipei-City-Dashboard-DE-Hackathon-2024)，然後將專案 clone 到您的電腦。
+本指南提供使用 Docker 構建和啟動 Airflow 環境的逐步過程。
 
-**_looks_two_** 用 VSCode 或您偏好的程式編輯器開啟 `Taipei-City-Dashboard-DE` 程式庫。
+## 先決條件
 
-**_looks_3_** 本專案旨在開源程式碼讓開發者參考，未使用 Docker 部屬環境，這雖然簡化了安裝的程序，卻也造成路徑使用的問題。
-您會在本專案的每個範例看到以下程式碼：
+開始之前，請確保已安裝 Docker 與 Docker Compose。
 
-```python
-import os
-import sys
+### Step 1: 建立一個新的 Docker Image
 
-dags_path = os.path.join(os.getcwd(), 'dags')  # Should be looks like '.../dags'
-sys.path.append(dags_path)
+首先，確保你位於包含 Dockerfile 的 `local-env` 目錄中。使用以下指令建立名為 `myairflow`, tag 為 `2.7.3` 的 Docker Image：
+
+```bash
+docker build -t myairflow:2.7.3 .
 ```
 
-這是為了將專案路徑加入環境變數，從而能讓程式能找到需要的設定與涵式。考慮到您可能會逐行手動測試程式，`os.getcwd()` 取得的路徑可能並不固定，導致取得非預期的 `dags_path`。
+### 第二步：創建 .env 文件
 
-請務必確保您的 `dags_path` 取得路徑如 `./dags`，而不是 `./dags/utils` 或 `./dags/proj_city_dashboard\simple_template\template_dag.py`。
+在當前目錄（docker-compose.yaml 所在目錄）中創建一個 `.env` 文件，並添加以下內容：
 
-若 `dags_path` 取得 `./dags/utils` ，則程式應修改成 `dags_path = os.path.join(os.getcwd(), "..")`。
-
-若 `dags_path` 取得 `./dags/proj_city_dashboard/simple_template\template_dag.py`，則程式應修改成 `dags_path = os.path.join(os.getcwd(), "..", "..")`。
-
-請根據您實際的工作資料夾，進行相應調整。
-
-## 全域設定
-
-本專案將使用到的全域設定集中在 `/dags/settings/global_config.py`。開發者需要手動調整讓其適用於您的本地端，以下是 `global_config.py` 的內容：
-
-```python
-import os
-from urllib.parse import quote
-
-# DAG_PATH is the path of your DAG file, and located by the path of this file.
-# You should make sure this file is in some relative path like "dags/settings/global_config.py"
-DAG_PATH = os.path.join(os.path.dirname(__file__), "..")
-
-# DATA_PATH is the path of your temporary data file storage.
-DATA_PATH = os.path.join(DAG_PATH, "..", "data")
-
-# HTTPS_PROXY_ENABLED controls whether to use the proxy.
-# If you are in a company network or in high security environment, you may need to set this to True.
-HTTPS_PROXY_ENABLED = False
-
-# If you need to use the proxy, you should set the proxy address here.
-# The format should be like "{ip}:{port}"
-if HTTPS_PROXY_ENABLED:
-    PROXIES = {"http": "{ip}:{port}", "https": "{ip}:{port}"}
-else:
-    PROXIES = None
-
-# READY_DATA_DB_URI is the URI of the database where you want to store the data.
-# The format should be like "postgresql://{username}:{password}@{ip}:{port}/{database_name}"
-#   if you use PostgreSQL.
-# Please ensure that the settings below match those in the backend Docker YAML.
-# If you make any modifications, update the following settings accordingly.
-USER_NAME = quote("postgres")
-PASSWORD = quote("your_password")  # must be modified
-IP = "localhost"
-PORT = "5433"
-DATABASE_NAME = "dashboard"
-READY_DATA_DB_URI = f"postgresql://{USER_NAME}:{PASSWORD}@{IP}:{PORT}/{DATABASE_NAME}"
+```bash
+AIRFLOW_IMAGE_NAME=myairflow:2.7.3
+AIRFLOW_UID=50000
+AIRFLOW_PROJ_DIR=../
+_AIRFLOW_WWW_USER_USERNAME=airflow
+_AIRFLOW_WWW_USER_PASSWORD=airflow
 ```
 
-一般來說，需要確認的參數只有：
+**_looks_one_** `AIRFLOW_IMAGE_NAME`: 剛構建的 Docker Image 的名稱和 tag。
 
-`HTTPS_PROXY_ENABLED`： 此參數控制對外取得資料時是否需要經過 proxy，通常是特殊的網路環境或嚴格的資安規定才需要，一般開放網路環境維持 `False`。
+**_looks_two_** `AIRFLOW_UID`: Airflow 使用的用戶 ID。
 
-`READY_DATA_DB_URI`： 資料最後的目的地，務必換上您的資料庫資訊以讓 Python 連線。請務必修改 `PASSWORD` 以符合您的帳號設定，其他
+**_looks_3_** `AIRFLOW_PROJ_DIR`: 你的 Airflow 專案目錄。
 
+**_looks_4_** `_AIRFLOW_WWW_USER_USERNAME` 與 `_AIRFLOW_WWW_USER_PASSWORD`: Airflow 預設的網頁界面帳號和密碼。
 
-### 資料庫設定
+這些環境變量將在 Docker Compose 中用於設定 Airflow 的基本配置。
 
-為了使本地環境可以直接連到資料庫，必須在前後端的設定檔 `/Taipei-City-Dashboard-main/docker/docker-compose-db.yaml` 裡的 service **postgres-data** 設定 port (如下示範)，
-修改此 yaml 檔後，再重新執行 `docker-compose -f docker-compose-db.yaml up -d`，即可透過我們提供的函式 `save_geodataframe_to_postgresql` 將資料寫入資料庫。
+### 第三步：啟動 Docker Compose
 
-``` yaml
-  postgres-data:
-    image: postgis/postgis:16-3.4
-    container_name: postgres-data
-    restart: always
-    environment:
-      POSTGRES_DB: ${DB_DASHBOARD_DBNAME}
-      POSTGRES_USER: ${DB_DASHBOARD_USER}
-      POSTGRES_PASSWORD: ${DB_DASHBOARD_PASSWORD}
-    volumes:
-      - ./db-data/postgres-data:/var/lib/postgresql/data
-    ports:             # add here
-      - "5433:5432"    # add here
+確保你位於包含 `docker-compose.yml` 的目錄中。然後使用以下命令啟動 Airflow containers：
+
+```bash
+docker-compose up -d
 ```
+
+此命令將 containers 在背景啟動。檢查 Docker containers 的狀態，請使用：
+
+```bash
+docker-compose ps
+```
+
+### 第四步：訪問 Airflow 網頁界面
+
+Airflow 啟動後，打開瀏覽器並訪問 `http://localhost:8080`。
+
+使用 `.env` 文件中指定的用戶名和密碼登錄，預設值如下：
+
+```
+- Username: airflow
+- Password: airflow
+```
+
+在 Airflow 網頁介面中，你可以根據需要，在介面的 Admin 部分配置必要的 Connections 和 Variables。
+
+> **w01**
+> 如果你沒有臺北城市儀表板的範例 PostgreSQL 資料庫，可以按照以下步驟創建。
+
+## 設置 PostgreSQL 數據庫
+
+要設置範例 PostgreSQL 環境，請按照以下步驟操作：
+
+### 第一步：啟動 PostgreSQL 和 pgAdmin 容器
+
+`docker-compose-db.yaml` 文件定義了兩個服務：分別為 PostgreSQL container（名為 dashboard-data）和 pgAdmin container。
 
 > **i01**
-> 前後端的設定檔請參考[這裡](https://tuic.gov.taipei/documentation/back-end/project-setup)。
+> pgAdmin 是用來操作 PostgreSQL 的 UI 介面，可通過 port `8889` 訪問。
+
+
+要啟動這些容器，請使用以下指令：
+
+```bash
+docker-compose -f docker-compose-db.yaml up -d
+```
+
+上述指令將會創建一個名為 dashboard 的資料庫，並默認用戶是 airflow，密碼為 airflow。會將資料儲存於本地 volume `./db-data`。
+
+> **i02**
+> 預設 email 和 password 通過 `.env` 中的環境變量設置。
+
+
+### 第二步：使用 pgAdmin 連接到 PostgreSQL
+
+啟動成功後，可以透過瀏覽器輸入 `http://localhost:8889` 訪問 pgAdmin。
+
+使用 `docker-compose-db.yaml` 中指定的電子郵件和密碼（PGADMIN_DEFAULT_EMAIL 和 PGADMIN_DEFAULT_PASSWORD）登錄。
+
+接下來，預設使用以下資訊創建到 `db:dashboard-data/dashboard` 資料庫：
+
+```
+- Host: `dashboard-data`
+- Port: `5432`
+- Database: `dashboard`
+- Username: `airflow`
+- Password: `airflow`
+```
+
+### 第三步：從備份中恢復數據庫
+
+於 pgAdmin 建立好資料庫連接後，從備份文件恢復數據庫。請按照以下步驟操作：
+
+**_looks_one_** 在 pgAdmin 中，右鍵單擊已連接的資料庫，選擇 "Restore"。
+
+**_looks_two_** 上傳並選擇文件 `local-env/dashboard-init` 進行備份資料復原。
+
+**_looks_3_** 於 "Data Options" 分頁，將 "Owner" 旁邊的開關移到右側位置，以排除設置物件所有權的命令。
+
+**_looks_4_** 同樣於 "Data Options" 分頁，將 "Privileges" 旁邊的開關移到右側位置，以排除創建訪問權限的命令。
+
+### 第四步：完成
+
+資料復原過程完成後，你應該已經準備好臺北大數據中心團隊提供的 Airflow 運行所需的資料庫 schema。你現在可以透過 Airflow 網頁介面運行你的 Airflow DAGs。
