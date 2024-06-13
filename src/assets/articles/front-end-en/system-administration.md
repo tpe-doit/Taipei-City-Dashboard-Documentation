@@ -41,3 +41,15 @@ Issues are listed and managed in the `/admin/issue` page.
 [`GET` `/api/v1/issue`](/back-end/issue-apis) returns all issues.
 
 [`PATCH` `/api/v1/issue/:id`](/back-end/issue-apis) modifies an issue.
+
+## Contributor Management
+
+Contributors are listed and managed in the `/admin/contributor` page.
+
+[`GET` `/api/v1/contributor`](/back-end/contributor-apis) returns all contributors.
+
+[`POST` `/api/v1/contributor`](/back-end/contributor-apis) creates a contributor.
+
+[`PATCH` `/api/v1/contributor/:id`](/back-end/contributor-apis) modifies a contributor.
+
+[`DEL` `/api/v1/contributor/:id`](/back-end/contributor-apis) deletes a contributor.

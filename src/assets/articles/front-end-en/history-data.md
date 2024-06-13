@@ -5,7 +5,8 @@ To correctly render history data, several parameters need to be set and passed i
 ```json
 {
 	"color": null, // Null || Array of Strings; Defaults to chart colors if null
-	"range": ["halfyear_ago", "year_ago"] // Array of Strings; Time ago to query from database
+	"range": ["halfyear_ago", "year_ago"], // Array of Strings; Time ago to query from database
+	"unit": "棟" // Null || String; Data unit; Defaults to chart unit if null
 }
 ```
 

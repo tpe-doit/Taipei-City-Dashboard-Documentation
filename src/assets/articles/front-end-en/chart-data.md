@@ -95,7 +95,10 @@ Three-Dimensional Data (henceforth referred to as 3D data) is data that could be
 }
 ```
 
-**Supported Chart Types:** Column Chart, Bar Percent Chart, Radar Chart, District Chart, Heatmap Chart, Polar Area Chart
+**Supported Chart Types:** Column Chart, Bar Percent Chart, Radar Chart, District Chart, Heatmap Chart, Polar Area Chart, Indicator Chart
+
+> **i03**
+> More details regarding the key-subcategory-value pairs for Indicator Charts are explained in [this later article](/front-end/supported-chart-types#indicator-chart).
 
 ### Time Series Data (time)
 
