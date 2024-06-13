@@ -2,7 +2,7 @@
 
 除了由第三方套件（e.g Mapbox, Apexcharts）渲染的元素之外，本專案都使用純 `css` 或 `scss` 進行樣式設計(Styling)。因爲未使用 UI 庫，本專案能輕易被客製化。本專案全域樣式和局部樣式均有使用。
 
-如果您對圖表（Apexcharts）和地圖（Mapbox）的樣式感興趣，請參考[客製化圖表](/front-end/custom-charts)和[客製化地圖](/front-end/custom-maps)文章。
+如果您對地圖（Mapbox）的樣式感興趣，請參考[客製化地圖](/front-end/custom-maps)文章。
 
 > **w01**
 > 協作者請注意，在修改本專案時，有一些全域和局部樣式是不允許被修改的。另外，我們也制定了[設計指南](/front-end/design-guide)，如果您希望對本專案貢獻新元素，應遵循該指南。

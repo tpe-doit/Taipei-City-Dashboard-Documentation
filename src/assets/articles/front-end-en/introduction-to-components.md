@@ -8,6 +8,8 @@ Each component has two unique identification codes: ID and Index. The ID is a un
 
 [`GET` `/api/v1/component`](/back-end/component-config-apis) [`DB` `dashboardmanager.components`](/back-end/components-db)
 
+_[Try out the API in our API Tester](/api)_
+
 ```json
 [{
     "id": 7, // Number; Unique serial number

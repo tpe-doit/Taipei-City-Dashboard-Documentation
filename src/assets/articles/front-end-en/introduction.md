@@ -58,6 +58,7 @@ _contributors_
 [![施柔安](/images/contributors/施柔安.png)**Ann Shih**](https://github.com/ann125697)
 [![李思橙](/images/contributors/李思橙.png)**Annie Lee**](https://github.com/annieleeeee)
 [![吳亞融](/images/contributors/吳亞融.png)**Lauren Wu**](https://github.com/Lauren8799)
+[![Max Su](https://avatars.githubusercontent.com/u/24913710?v=4)**Max Su**](https://github.com/hsuanchi)
 [![許富盈](/images/contributors/許富盈.png)**許富盈**](https://github.com/fuyingxx0)
 [![張庭梧](/images/contributors/張庭梧.png)**張庭梧**](https://github.com/tingwoo)
 [![梁璿安](/images/contributors/梁璿安.png)**梁璿安**](https://github.com/NTUBOY)

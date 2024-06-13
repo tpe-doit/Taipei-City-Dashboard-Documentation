@@ -30,13 +30,13 @@
 
 ## 本文件的內容概覽
 
-本文件涵蓋了臺北城市儀表板 2.0 的後端部分，並詳細介紹本專案的各個主要面向。
-
-> **i01**
-> 臺北城市儀表板 2.0 的後端部分在本文件中將統一稱為「本專案」。除非另有說明，所有檔案路徑皆以 `/Taipei-City-Dashboard-BE` 為根目錄。
+本文件涵蓋了臺北城市儀表板 2.0 的資料端部分，並詳細介紹本專案的各個主要面向。臺北城市儀表板 2.0 的資料端在本文件中將統一稱為「本專案」。除非另有說明，所有檔案路徑皆以 `/Taipei-City-Dashboard-DE` 為根目錄。
 
 > **t01**
-> 請點擊[這裡](/front-end)以參閱前端文件。
+> 若您需要開發儀表板的前端，請點擊[這裡](/front-end)以參閱前端文件。
+
+> **t02**
+> 若您需要開發儀表板的後端，請點擊[這裡](/back-end)以參閱後端文件。
 
 如果您在本文件中遇到任何問題或錯字，歡迎點擊每篇文章底部的「於 Github 編輯此文章」按鈕並提出修改建議。您也可以透過電子郵件直接聯繫我們。
 
@@ -53,12 +53,15 @@ _contributors_
 [![游璿達](/images/contributors/游璿達.png)**游璿達**](https://github.com/iimahao)
 [![陳威竹](/images/contributors/陳威竹.png)**陳威竹**](https://github.com/Chu-c-git)
 [![黃敬皓](/images/contributors/黃敬皓.png)**黃敬皓**](https://github.com/JHH11)
-[![Max Su](https://avatars.githubusercontent.com/u/24913710?v=4)**Max Su**](https://github.com/hsuanchi)
 
 ## 聯絡我們
 
 tuic@gov.taipei（TUIC 官方電子郵件）
 
-ey2816@gov.taipei（TUIC 全端工程師 何紹宇）
+rz3881@gov.taipei（TUIC 資料科學家 游璿達）
+
+cf2118@gov.taipei (TUIC 資料分析師 陳威竹)
+
+ky4097@gov.taipei (TUIC 資料科學家 黃敬皓)
 
 bd2456@gov.taipei (TUIC 系統工程師 施柔安)

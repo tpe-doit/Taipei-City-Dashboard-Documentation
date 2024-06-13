@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "../views/HomePage.vue";
 import DocPage from "../views/DocPage.vue";
+import RegistryPage from "../views/RegistryPage.vue";
+import ApiPage from "../views/ApiPage.vue";
 
 const routes = [
 	{
@@ -27,6 +29,26 @@ const routes = [
 		component: DocPage,
 		name: "back-end",
 		props: true,
+	},
+	{
+		path: "/data-end",
+		redirect: "/data-end/introduction",
+	},
+	{
+		path: "/data-end/:id",
+		component: DocPage,
+		name: "data-end",
+		props: true,
+	},
+	{
+		path: "/component-registry",
+		component: RegistryPage,
+		name: "component-registry",
+	},
+	{
+		path: "/api",
+		component: ApiPage,
+		name: "api",
 	},
 	{
 		path: "/:pathMatch(.*)*",

@@ -23,12 +23,12 @@ export default defineConfig({
 	},
 	base: "/documentation",
 	assetsInclude: ["**/*.md"],
-	// server: {
-	// 	proxy: {
-	// 		"/api/v1": {
-	// 			target: "http://localhost:8088",
-	// 			changeOrigin: true,
-	// 		},
-	// 	},
-	// },
+	server: {
+		proxy: {
+			"/api/v1": {
+				target: "http://localhost:8088",
+				changeOrigin: true,
+			},
+		},
+	},
 });

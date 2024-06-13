@@ -32,6 +32,7 @@ const githubEditLink = computed(() => {
 	return `https://github.com/tpe-doit/Taipei-City-Dashboard-Documentation/edit/main/src/assets/articles/${route.name}-${appStore.lang}/${props.id}.md`;
 });
 const associatedVideos = computed(() => {
+	if (route.name === 'data-end') return [];
 	return videoList[props.id];
 });
 </script>
