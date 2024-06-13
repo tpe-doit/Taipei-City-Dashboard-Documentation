@@ -12,6 +12,9 @@ dialogs: { // One of the states of the dialogStore
 	adminEditIssue: false,
 	adminAddComponent: false,
 	adminDeleteDashboard: false,
+	adminEditUser: false,
+	adminAddEditContributor: false,
+	adminDeleteContributor: false,
 	// Public Dialogs: /components/dialogs
 	addComponent: false,
 	addDashboard: false,
@@ -25,6 +28,12 @@ dialogs: { // One of the states of the dialogStore
 	notificationBar: false,
 	reportIssue: false,
 	userSettings: false,
+	embedComponent: false,
+	contributorsList: false,
+	contributorInfo: false,
+	addPin: false,
+	addViewPoint: false,
+	findClosestPoint: false,
 },
 ```
 

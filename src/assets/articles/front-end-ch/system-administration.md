@@ -41,3 +41,15 @@
 [`GET` `/api/v1/issue`](/back-end/issue-apis) 回傳所有問題。
 
 [`PATCH` `/api/v1/issue/:id`](/back-end/issue-apis) 修改一個問題。
+
+## 貢獻者管理
+
+貢獻者在 `/admin/contributor` 頁面中陳列和管理。
+
+[`GET` `/api/v1/contributor`](/back-end/contributor-apis) 回傳所有貢獻者。
+
+[`POST` `/api/v1/contributor`](/back-end/contributor-apis) 建立一個貢獻者。
+
+[`PATCH` `/api/v1/contributor/:id`](/back-end/contributor-apis) 修改一個貢獻者。
+
+[`DEL` `/api/v1/contributor/:id`](/back-end/contributor-apis) 刪除一個貢獻者。

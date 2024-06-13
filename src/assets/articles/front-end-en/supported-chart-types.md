@@ -38,7 +38,8 @@ Below is a reference of English and Mandarin names for all chart types.
 	PolarAreaChart: "極座標圖",
 	ColumnLineChart: "長條折線圖",
 	BarChartWithGoal: "長條圖(目標)",
-	IconPercentChart: "圖示比例圖"
+	IconPercentChart: "圖示比例圖",
+	IndicatorChart: "指標圖"
 };
 ```
 
@@ -129,18 +130,41 @@ District charts are used to display lists where the keys are Taipei City distric
 
 Heatmap charts are used to display three-dimensional data in a grid form. Each grid cell is asigned a different color based on its value.
 
-### Polar Area Chart **_new_**
+### Polar Area Chart
 
 Polar Area Charts are used to display three-dimensional data in circular pie slices.
 
-### Column Line Chart **_new_**
+### Column Line Chart
 
 Column line charts are used to display time series data where the first serie is displayed as columns and the second serie is displayed as a line.
 
-### Bar Chart With Goal **_new_**
+### Bar Chart With Goal
 
 Bar chart with goal adds an additional dimension to ordinary bar charts, showing the target value of each category.
 
-### Icon Percent Chart **_new_**
+### Icon Percent Chart 
 
 Icon percent charts displays percentage data via a grid of two separate icons.
+
+### Indicator Chart **_new_**
+
+Indicator charts are used to display whether a value is within a certain range. The chart displays a colored indicator based on the value. Indicator charts are rendered via 3D data but require the keys, subcategories, and values to be in a special format as displayed below.
+
+```json
+{
+	// Assuming A: 0-10, B: 11-20, C: 21-30
+	"categories": ["A", "B", "C"],
+	"data": [
+		{
+			"name": "I", // The value for I is 9 which falls under A
+			// The position of A should be filled with 9
+			// The positions of B and C should be filled with 0
+			"data": [9, 0, 0], 
+		},
+		{
+			"name": "II",
+			"data": [0, 15, 0],
+		}
+	]
+}
+```

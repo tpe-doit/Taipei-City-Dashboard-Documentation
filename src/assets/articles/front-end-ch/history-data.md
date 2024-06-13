@@ -5,7 +5,8 @@
 ```json
 {
 	"color": null, // Null || Array of Strings; 如為 null 則使用圖表顏色
-	"range": ["halfyear_ago", "year_ago"] // Array of Strings; 從資料庫查詢的時間範圍
+	"range": ["halfyear_ago", "year_ago"], // Array of Strings; 從資料庫查詢的時間範圍
+	"unit": "棟" // Null || String; 資料的單位; 如為 null 則使用圖表單位
 }
 ```
 

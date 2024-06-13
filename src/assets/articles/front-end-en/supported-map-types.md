@@ -16,8 +16,10 @@ The complete map config object can be found below.
         "property": [
 	        // key: String; a property name in the map data
 	        // name: String; Display name in the user interface
+			// mode: "video" || null; whether to embed a video or image
             { "key": "vil", "name": "里界" },
             { "key": "cnt_low_income", "name": "低收入人口數" },
+			{ "key": "video_url", "name": "影片連結", "mode": "video"}
         ], // Array of Objects; properties to show in map popup
         "title": "社福人口", // String; map name
         "type": "fill", // String; pass in 1 of the 8 available map types
@@ -61,11 +63,11 @@ The line map type renders lines onto the map. `Size` variations include `wide`. 
 
 ### Symbol
 
-The symbol map type renders points as icons. For symbol maps, the `icon` parameter must be passed into the map config. Available icons include `metro`, `metro-density`, `triangle_green`, `triangle_white`, `youbike`, and `bus`.
+The symbol map type renders points as icons. For symbol maps, the `icon` parameter must be passed into the map config. Available icons include `metro`, `metro-density`, `triangle_green`, `triangle_white`, `youbike`, `bus`, and `cctv`.
 
 ### Arc
 
-The arc map type renders lines as 3D arcs. Each line should only contain 2 points as any additional points wouldn't be rendered. The arc map type was custom built and as such only supports the following three paint properties:
+The arc map type renders lines as 3D arcs. Each line should only contain 2 points as any additional points wouldn't be rendered. The arc map type was custom built and as such only supports the following four paint properties:
 
 ```json
 "paint": {
@@ -73,20 +75,24 @@ The arc map type renders lines as 3D arcs. Each line should only contain 2 point
 	// Fill in 1 color code for single color arcs; 2 colors for a gradient arc
 	"arc-width": 4, // Number
 	"arc-opacity": 0.5, // Number; 0-1
+	"arc-animate": true, // Boolean; Default is false
 }
 ```
 
-### Voronoi **_new_**
+### Voronoi
 
 The voronoi map type generates voronoi boundaries from points. The resulting map layer can be styled the same way as line maps (see above).
 
-### Isoline **_new_**
+### Isoline
 
 The isoline map type generates contour lines from points and their respective values. Each point must contain a property that is a number. The key of the property defaults to `value` but can be modified by passing in the `isoline-key` parameter (see below). The resulting map layer can be styled the same way as line maps (see above).
 
 ```json
 "paint": {
-	"isoline-key": "" // null || String; Defaults to "value"
+	"isoline-key": "value", // null || String; Defaults to "value"
+	"isoline-step": 2, // Number; The interval between lines. Default is 2
+	"isoline-min": 0, // Number; Min value. Default is 0
+	"isoline-max": 100, // Number; Max value. Default is 100
 	// ...other line paint properties
 }
 ```

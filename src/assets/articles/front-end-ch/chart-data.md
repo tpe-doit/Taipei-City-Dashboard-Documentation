@@ -95,7 +95,10 @@ _[使用 API 測試器測試這支 API](/api)_
 }
 ```
 
-**支援的圖表類型：** 縱向長條圖(ColumnChart)、長條圖(%)(BarPercentChart)、雷達圖(RadarChart)、行政區圖(DistrictChart)、熱力圖(HeatmapChart)、極座標圖(PolarAreaChart)
+**支援的圖表類型：** 縱向長條圖(ColumnChart)、長條圖(%)(BarPercentChart)、雷達圖(RadarChart)、行政區圖(DistrictChart)、熱力圖(HeatmapChart)、極座標圖(PolarAreaChart)、指標圖(IndicatorChart)
+
+>**i03**
+> 有關指標圖的 key-subcategory-value 格式，請參[下一篇文章](/front-end/supported-chart-types#indicator-chart)。
 
 ### 時間序列資料 (time)
 

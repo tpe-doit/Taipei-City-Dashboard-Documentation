@@ -12,6 +12,9 @@ dialogs: { // dialogStore 其中一個狀態
 	adminEditIssue: false,
 	adminAddComponent: false,
 	adminDeleteDashboard: false,
+	adminEditUser: false,
+	adminAddEditContributor: false,
+	adminDeleteContributor: false,
 	// 公共彈跳視窗: /components/dialogs
 	addComponent: false,
 	addDashboard: false,
@@ -25,6 +28,12 @@ dialogs: { // dialogStore 其中一個狀態
 	notificationBar: false,
 	reportIssue: false,
 	userSettings: false,
+	embedComponent: false,
+	contributorsList: false,
+	contributorInfo: false,
+	addPin: false,
+	addViewPoint: false,
+	findClosestPoint: false,
 },
 ```
 
