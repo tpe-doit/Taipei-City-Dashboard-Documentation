@@ -98,7 +98,10 @@ ORDER BY
 	ARRAY_POSITION(ARRAY['<=5年', '5-20年', '20-40年', '>40年'], t.age);
 ```
 
-> **i01** >`three_d`、`percent`、`time` 檢索類型的 SQL 指令中應對 `x_axis` 和 `y_axis` 進行排序以確保編譯順暢。
+> **i01** 
+> 為確保編譯順暢，`three_d`、`percent`、`time` 檢索類型的 SQL 指令中應對 `x_axis` 和 `y_axis` 進行排序。
+>
+> 另外也應確保子類別零值狀況有被處理 (子類別的值如果是 0 一定要確保欄位有顯示，不能直接跳過)。建議先建立一個包含所有 xaxis-yaxis 組合之暫存 table ，並使用 left join 與 query 結合。
 
 ### percent
 

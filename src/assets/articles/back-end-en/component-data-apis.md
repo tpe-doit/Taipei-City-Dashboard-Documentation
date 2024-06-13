@@ -99,7 +99,9 @@ ORDER BY
 ```
 
 > **i01**
-> It it neccessary to order `three_d`, `percent`, and `time` data by `x_axis` and `y_axis` to ensure the data is parsed correctly.
+> To ensure the data is parsed correctly, it is necessary to order `x_axis` and `y_axis` in the SQL query for `three_d`, `percent`, and `time` query types.
+>
+> Additionally, ensure that zero values for subcategories are handled (if the value of a subcategory is 0, make sure the field is displayed, do not skip it). We recommend creating a temporary table that contains all xaxis-yaxis combinations and combining it with the query using a left join.
 
 ### percent
 

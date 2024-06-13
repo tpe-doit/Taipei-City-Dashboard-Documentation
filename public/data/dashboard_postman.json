@@ -33,13 +33,8 @@
 						],
 						"url": {
 							"raw": "{{url}}/{{version}}/component?sort=id&order=desc",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"{{version}}",
-								"component"
-							],
+							"host": ["{{url}}"],
+							"path": ["{{version}}", "component"],
 							"query": [
 								{
 									"key": "pagesize",
@@ -110,14 +105,8 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/{{version}}/component/:id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"{{version}}",
-								"component",
-								":id"
-							],
+							"host": ["{{url}}"],
+							"path": ["{{version}}", "component", ":id"],
 							"variable": [
 								{
 									"key": "id",
@@ -158,9 +147,7 @@
 						],
 						"url": {
 							"raw": "{{url}}/{{version}}/component/:id/chart?timefrom=2023-04-11T17:17:56+08:00&timeto=2024-01-11T17:17:56+08:00",
-							"host": [
-								"{{url}}"
-							],
+							"host": ["{{url}}"],
 							"path": [
 								"{{version}}",
 								"component",
@@ -217,9 +204,7 @@
 						],
 						"url": {
 							"raw": "{{url}}/{{version}}/component/:id/history?timefrom=2024-01-08T17:14:24+08:00&timeto=2024-01-11T17:14:24+08:00",
-							"host": [
-								"{{url}}"
-							],
+							"host": ["{{url}}"],
 							"path": [
 								"{{version}}",
 								"component",
@@ -272,14 +257,8 @@
 						},
 						"url": {
 							"raw": "{{url}}/{{version}}/component/:id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"{{version}}",
-								"component",
-								":id"
-							],
+							"host": ["{{url}}"],
+							"path": ["{{version}}", "component", ":id"],
 							"variable": [
 								{
 									"key": "id",
@@ -316,9 +295,7 @@
 						},
 						"url": {
 							"raw": "{{url}}/{{version}}/component/:id/chart",
-							"host": [
-								"{{url}}"
-							],
+							"host": ["{{url}}"],
 							"path": [
 								"{{version}}",
 								"component",
@@ -361,15 +338,8 @@
 						},
 						"url": {
 							"raw": "{{url}}/{{version}}/component/:id/map",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"{{version}}",
-								"component",
-								":id",
-								"map"
-							],
+							"host": ["{{url}}"],
+							"path": ["{{version}}", "component", ":id", "map"],
 							"variable": [
 								{
 									"key": "id",
@@ -397,14 +367,8 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/{{version}}/component/:id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"{{version}}",
-								"component",
-								":id"
-							],
+							"host": ["{{url}}"],
+							"path": ["{{version}}", "component", ":id"],
 							"variable": [
 								{
 									"key": "id",
@@ -443,13 +407,8 @@
 						],
 						"url": {
 							"raw": "{{url}}/{{version}}/dashboard",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"{{version}}",
-								"dashboard"
-							]
+							"host": ["{{url}}"],
+							"path": ["{{version}}", "dashboard"]
 						}
 					},
 					"response": []
@@ -471,14 +430,8 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/{{version}}/dashboard/:index",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"{{version}}",
-								"dashboard",
-								":index"
-							],
+							"host": ["{{url}}"],
+							"path": ["{{version}}", "dashboard", ":index"],
 							"variable": [
 								{
 									"key": "index",
@@ -531,13 +484,8 @@
 						},
 						"url": {
 							"raw": "{{url}}/{{version}}/dashboard",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"{{version}}",
-								"dashboard"
-							]
+							"host": ["{{url}}"],
+							"path": ["{{version}}", "dashboard"]
 						}
 					},
 					"response": []
@@ -548,9 +496,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"exec": [
-									""
-								],
+								"exec": [""],
 								"type": "text/javascript"
 							}
 						}
@@ -579,14 +525,8 @@
 						},
 						"url": {
 							"raw": "{{url}}/{{version}}/dashboard/public",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"{{version}}",
-								"dashboard",
-								"public"
-							]
+							"host": ["{{url}}"],
+							"path": ["{{version}}", "dashboard", "public"]
 						}
 					},
 					"response": []
@@ -608,9 +548,7 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/{{version}}/dashboard/check-index/:index",
-							"host": [
-								"{{url}}"
-							],
+							"host": ["{{url}}"],
 							"path": [
 								"{{version}}",
 								"dashboard",
@@ -653,14 +591,8 @@
 						},
 						"url": {
 							"raw": "{{url}}/{{version}}/dashboard/:index",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"{{version}}",
-								"dashboard",
-								":index"
-							],
+							"host": ["{{url}}"],
+							"path": ["{{version}}", "dashboard", ":index"],
 							"variable": [
 								{
 									"key": "index",
@@ -704,14 +636,8 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/{{version}}/dashboard/:index",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"{{version}}",
-								"dashboard",
-								":index"
-							],
+							"host": ["{{url}}"],
+							"path": ["{{version}}", "dashboard", ":index"],
 							"variable": [
 								{
 									"key": "index",
@@ -744,13 +670,8 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/{{version}}/issue?filterbystatus=處理, 已處",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"{{version}}",
-								"issue"
-							],
+							"host": ["{{url}}"],
+							"path": ["{{version}}", "issue"],
 							"query": [
 								{
 									"key": "pagesize",
@@ -807,13 +728,8 @@
 						},
 						"url": {
 							"raw": "{{url}}/{{version}}/issue",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"{{version}}",
-								"issue"
-							]
+							"host": ["{{url}}"],
+							"path": ["{{version}}", "issue"]
 						}
 					},
 					"response": []
@@ -844,14 +760,8 @@
 						},
 						"url": {
 							"raw": "{{url}}/{{version}}/issue/:id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"{{version}}",
-								"issue",
-								":id"
-							],
+							"host": ["{{url}}"],
+							"path": ["{{version}}", "issue", ":id"],
 							"variable": [
 								{
 									"key": "id",
@@ -898,7 +808,7 @@
 								},
 								{
 									"key": "username",
-									"value": "",
+									"value": "tuic@gov.taipei",
 									"type": "string"
 								}
 							]
@@ -911,70 +821,8 @@
 						},
 						"url": {
 							"raw": "{{url}}/{{version}}/auth/login",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"{{version}}",
-								"auth",
-								"login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Isso Login - test",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "https://demo.jrsys.com.tw/isso/oauth2/authorize?response_type=code",
-							"protocol": "https",
-							"host": [
-								"demo",
-								"jrsys",
-								"com",
-								"tw"
-							],
-							"path": [
-								"isso",
-								"oauth2",
-								"authorize"
-							],
-							"query": [
-								{
-									"key": "response_type",
-									"value": "code"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Isso Login - prod",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "https://id.taipei/isso/oauth2/authorize?response_type=code",
-							"protocol": "https",
-							"host": [
-								"id",
-								"taipei"
-							],
-							"path": [
-								"isso",
-								"oauth2",
-								"authorize"
-							],
-							"query": [
-								{
-									"key": "response_type",
-									"value": "code"
-								}
-							]
+							"host": ["{{url}}"],
+							"path": ["{{version}}", "auth", "login"]
 						}
 					},
 					"response": []
@@ -985,7 +833,7 @@
 			"name": "User",
 			"item": [
 				{
-					"name": "Get User Info",
+					"name": "Get My Info",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -1001,20 +849,14 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/{{version}}/user/me",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"{{version}}",
-								"user",
-								"me"
-							]
+							"host": ["{{url}}"],
+							"path": ["{{version}}", "user", "me"]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Edit User Info",
+					"name": "Edit My Info",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -1039,14 +881,8 @@
 						},
 						"url": {
 							"raw": "{{url}}/{{version}}/user/me",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"{{version}}",
-								"user",
-								"me"
-							]
+							"host": ["{{url}}"],
+							"path": ["{{version}}", "user", "me"]
 						}
 					},
 					"response": []
@@ -1080,13 +916,8 @@
 						},
 						"url": {
 							"raw": "{{url}}/{{version}}/user?pagesize=10&page=1&searchbyname=&searchbyid=1&sort=id&order=asc",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"{{version}}",
-								"user"
-							],
+							"host": ["{{url}}"],
+							"path": ["{{version}}", "user"],
 							"query": [
 								{
 									"key": "pagesize",
@@ -1143,18 +974,177 @@
 						},
 						"url": {
 							"raw": "{{url}}/{{version}}/user/:id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"{{version}}",
-								"user",
-								":id"
-							],
+							"host": ["{{url}}"],
+							"path": ["{{version}}", "user", ":id"],
 							"variable": [
 								{
 									"key": "id",
 									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Viewpoints of a User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{version}}/user/:userid/viewpoint",
+							"host": ["{{url}}"],
+							"path": [
+								"{{version}}",
+								"user",
+								":userid",
+								"viewpoint"
+							],
+							"variable": [
+								{
+									"key": "userid",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a Viewpoint For a User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{version}}/user/:userid/viewpoint",
+							"host": ["{{url}}"],
+							"path": [
+								"{{version}}",
+								"user",
+								":userid",
+								"viewpoint"
+							],
+							"variable": [
+								{
+									"key": "userid",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Viewpoint of a User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{version}}/user/:userid/viewpoint/:viewpointid",
+							"host": ["{{url}}"],
+							"path": [
+								"{{version}}",
+								"user",
+								":userid",
+								"viewpoint",
+								":viewpointid"
+							],
+							"variable": [
+								{
+									"key": "userid",
+									"value": ""
+								},
+								{
+									"key": "viewpointid",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contributor",
+			"item": [
+				{
+					"name": "Get All Contributors",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{version}}/contributor",
+							"host": ["{{url}}"],
+							"path": ["{{version}}", "contributor"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Contributor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{version}}/contributor",
+							"host": ["{{url}}"],
+							"path": ["{{version}}", "contributor"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Contributor",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{version}}/contributor/:id",
+							"host": ["{{url}}"],
+							"path": ["{{version}}", "contributor", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Contributor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{version}}/contributor/:id",
+							"host": ["{{url}}"],
+							"path": ["{{version}}", "contributor", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
 								}
 							]
 						}
