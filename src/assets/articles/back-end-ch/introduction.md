@@ -53,6 +53,7 @@ _contributors_
 [![游璿達](/images/contributors/游璿達.png)**游璿達**](https://github.com/iimahao)
 [![陳威竹](/images/contributors/陳威竹.png)**陳威竹**](https://github.com/Chu-c-git)
 [![黃敬皓](/images/contributors/黃敬皓.png)**黃敬皓**](https://github.com/JHH11)
+[![Max Su](https://avatars.githubusercontent.com/u/24913710?v=4)**Max Su**](https://github.com/hsuanchi)
 
 ## 聯絡我們
 

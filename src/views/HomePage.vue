@@ -92,7 +92,7 @@ onMounted(() => {
 						<h4>{{ t('component-registry.name') }}</h4>
 						<span>arrow_circle_right</span>
 					</router-link>
-					<router-link class="homepage-utility-card" to="/" :style="{ opacity: 0.5 }">
+					<router-link class="homepage-utility-card" to="/" :style="{ opacity: 0.4 }">
 						<h4>{{ t('data-pipeline-registry') }}</h4>
 						<span>arrow_circle_right</span>
 					</router-link>

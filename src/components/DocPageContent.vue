@@ -69,7 +69,7 @@ const parsedDoctext = computed(() => {
 			return `<h${level} id="${headingId}">${parsedText} <a href="#${headingId}" class="hide-if-mobile">#</a></h${level}>`;
 		},
 		image(href, title, text) {
-			return `<img src="${BASE_URL}${href}" alt="${text}" >`;
+			return `<img src="${href.includes('http') ? '' : BASE_URL}${href}" alt="${text}" >`;
 		},
 		link(href, title, text) {
 			if (href.includes('http')) {
