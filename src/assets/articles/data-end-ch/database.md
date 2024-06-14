@@ -1,7 +1,4 @@
----
-title: 資料庫概覽
 
----
 
 ## PostgreSQL簡介
 

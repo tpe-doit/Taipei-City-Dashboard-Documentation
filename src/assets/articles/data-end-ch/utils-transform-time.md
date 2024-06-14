@@ -1,7 +1,4 @@
----
-title: 通用函式-轉換階段-時間
 
----
 
 包含處理民國年、標準化時間與時區、去除時間中有上下午中文的函式。其中有部分為子函式，將不會說明子函式。可在 `/dag/utils/transform_time.py` 查看相關程式碼。
 
@@ -26,7 +23,7 @@ title: 通用函式-轉換階段-時間
 
 ## 函式說明
 
-### def convert_str_to_time_format(time_column)
+### -函式 convert_str_to_time_format(time_column)
 
 擴充自 `pd.to_datetime`，除了讓輸出包含 time zone 以外，還可以處理民國年，並增加輸出彈性。多個範例如下：
 
@@ -92,7 +89,7 @@ print(type(str_datetime_col.iloc[0]))
 # <class 'str'>
 ```
 
-### def omit_chinese_string_in_time(x)
+### -函式 omit_chinese_string_in_time(x)
 
 清除時間欄位中包含的"上下"或"下午"文字。
 

@@ -1,7 +1,4 @@
----
-title: 資料流詳述
 
----
 
 本專案使用 Airflow 監控與排程資料流，有關 Airflow 的基本概念可參考[官方文件](https://airflow.apache.org/docs/apache-airflow/stable/index.html)，以下說明將假設開發者已具備基本的 Airflow 知識。
 
@@ -11,7 +8,6 @@ title: 資料流詳述
 ## 標準的 Airflow DAG
 
 官方文件中示範的 pipeline 可以在[這裡](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html#example-pipeline-definition)查看。開發者需要對 DAG 設定許多參數，然後利用不同的 `operator` 建構 `task`，最後將這些 `task` 組成 `pipeline`。
-
 
 
 ## 本專案的 pipeline

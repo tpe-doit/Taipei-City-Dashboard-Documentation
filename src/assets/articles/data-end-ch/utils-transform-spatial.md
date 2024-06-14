@@ -1,7 +1,4 @@
----
-title: 通用函式-轉換階段-空間
 
----
 
 包含 3 維 `Polygon` 轉成 2 維、`LineString` 轉成 `MultiLineString`、`Polygon` 轉成 `MultiPolygon`、根據 x, y 加入 `Point` 欄位、地理空間資訊轉成 WKBGeometry 格式。其中有部分為子函式，以下將不會說明子函式。
 
@@ -28,7 +25,7 @@ title: 通用函式-轉換階段-空間
 
 ## 函式說明
 
-### def convert_geometry_to_wkbgeometry(gdf, from_crs)
+### -函式 convert_geometry_to_wkbgeometry(gdf, from_crs)
 
 對包含 `geometry` 欄位的 gpd.geoDataFrame 增加一個 WKBGeometry 格式的`wkb_geometry`欄位。輸出結果固定為 `EPSG:4326`，也就是 `WGS84` 坐標系。
 
@@ -60,7 +57,7 @@ wkb_geometry    POLYGON ((121.12299765144614 25.12299971980088...
 Name: 0, dtype: object
 ```
 
-### def add_point_wkbgeometry_column_to_df(data, x, y, from_crs)
+### -函式 add_point_wkbgeometry_column_to_df(data, x, y, from_crs)
 
 將 x, y 資料製成一個名為 `geometry` 的包含 `Point` 地理空間資料的欄位。同時加入另一個名為 `wkb_geometry` 的表示同樣資料但格式為 WKBGeometry 的欄位。
 
@@ -90,7 +87,7 @@ wkb_geometry    Point (121.12299999921674 25.123000193639967)
 Name: 0, dtype: object
 ```
 
-### def convert_3d_polygon_to_2d_polygon(geometry)
+### -函式 convert_3d_polygon_to_2d_polygon(geometry)
 
 將包含 z 軸的 3D `Polygon` 轉成沒有 z 軸的 2D `Polygon`。
 
@@ -115,7 +112,7 @@ print(geos_poly)
 # dtype: geometry
 ```
 
-### def convert_linestring_to_multilinestring(geo)
+### -函式 convert_linestring_to_multilinestring(geo)
 
 將 `LineString` 修改為 `MultiLineString`，通常是因為欄位值混雜此兩種格式，修改為同一種格式以符合資料庫欄位型態。範例如下：
 
@@ -137,7 +134,7 @@ print(geos_mline)
 dtype: geometry
 ```
 
-### def convert_polygon_to_multipolygon(geo)
+### -函式 convert_polygon_to_multipolygon(geo)
 
 將 `Polygon` 修改為 `MultiPolygon`，通常是因為欄位值混雜此兩種格式，修改為同一種格式以符合資料庫欄位型態。
 
