@@ -11,11 +11,11 @@
 生成用來建表的 SQL。該 SQL 包含給定的資料欄位以及本專案標準表的 `_ctime`, `_mtime`, `ogc_fid` 欄位及適當的權限。[文章連結](/data-end/utils-generate-sql)。
 
 > **i01**
-> 本專案的標準表定義請參閱[建立資料表](/data-end/dag-table)
+> 本專案的標準表定義請參閱[資料流表格](/data-end/dag-table)
 
 ### 通用函式-抽取階段
 
-包含下載、解壓縮、取得 data.taipei API、取得 data.taipei 檔案更新時間、讀取 GeoJSON 的範例、讀取 SHPfile 的範例、讀取 KML/KMZ 的範例。[文章連結](/data-end/utils-extract)。
+包含下載、解壓縮、取得 data.taipei API、取得 data.taipei 檔案更新時間、取得 GeoJSON 的範例、取得 SHPfile 的範例、取得 KML/KMZ 的範例。[文章連結](/data-end/utils-extract)。
 
 ### 通用函式-轉換時間
 

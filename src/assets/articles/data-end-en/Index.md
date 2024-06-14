@@ -1,7 +1,4 @@
----
-title: Index
 
----
 
 資料端 v1.0
 
@@ -15,17 +12,17 @@ title: Index
 ## [Airflow 概覽](/data-end/airflow)
 ## [資料庫概覽](/data-end/database)
 
-# 資料流入門
-## [確認全域變數](/data-end/global-config)
-## [設計資料流](/data-end/dag-metadata)
-## [撰寫程式碼](/data-end/dag-code)
-## [撰寫 DAG 設定](/data-end/dag-config)
-## [建立資料表](/data-end/dag-table)
-## [運行第一個DAG](/data-end/dag-test)
+# 基礎資料流開發
+## [全域變數](/data-end/global-config)
+## [資料流元資料](/data-end/dag-metadata)
+## [資料流程式碼](/data-end/dag-code)
+## [資料流設定](/data-end/dag-config)
+## [資料流表格](/data-end/dag-table)
+## [資料流測試](/data-end/dag-test)
 
 # 進階
-## [Pipeline詳述](/data-end/pipeline)
-## [通用函式概述](/data-end/utils-overview)
+## [客製 Pipeline](/data-end/pipeline)
+## [通用函式概覽](/data-end/utils-overview)
 ## [通用函式-建表](/data-end/utils-generate-sql)
 ## [通用函式-抽取階段](/data-end/utils-extract)
 ## [通用函式-轉換階段-時間](/data-end/utils-transform-time)

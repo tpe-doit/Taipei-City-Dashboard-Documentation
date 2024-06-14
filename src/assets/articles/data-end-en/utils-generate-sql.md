@@ -1,7 +1,4 @@
----
-title: 通用函式-建表
 
----
 
 此檔案的函式用以生成 SQL，生成的 SQL 可以建立本專案的標準表格。
 
@@ -14,14 +11,14 @@ title: 通用函式-建表
 原始碼可以在 `/dags/utils/generate_sql_to_create_DB_table.py` 找到，建議直接修改下方設定並執行，即可產出 SQL。其中的重要函式說明如下。
 
 > **i01**
-> 有關本專案的標準表格，請參閱[建立資料表](/data-end/dag-table)。
+> 有關本專案的標準表格，請參閱[資料流表格](/data-end/dag-table)。
 
-### def _show_smaple_column_type()
+### -函式 _show_smaple_column_type()
 
 此函式無作用，僅供參考常使用的欄位類型。
 
 
-### def generate_sql_to_delete_db_table(table_name, col_map)
+### -函式 generate_sql_to_delete_db_table(table_name, col_map)
 
 產出建表 SQL。SQL 可讓你建立一張名為 `table_name` 且符合 `col_map` 欄位，並包含適當權限。預設會自動產出欄位 `ogc_fid`, `_ctime`, `_mitme`。
 
@@ -49,7 +46,7 @@ print(create_table_sql)
 > `current+history` 的設計，是為了同時滿足快速與留存歷史資料。例如 YouBike 站點狀態雖然只呈現當下的即時資料，但我們留存所有歷史資料以供未來分析應用。長期下來，history 表會變得冗餘而查詢時間過長；因此另存 current 表，只留最後一次的資料，快速回應前端需求。
 
 
-### def generate_sql_to_delete_db_table(table_name)
+### -函式 generate_sql_to_delete_db_table(table_name)
 
 產出刪表 SQL。資料庫中不可存在同樣名稱的表格，可透過此函式生成刪除 `table_name` 的 SQL，同時也會刪除表中流水號的 sequnce 及 `_mtime` 的 trigger。物件不存在不會生成錯誤。
 

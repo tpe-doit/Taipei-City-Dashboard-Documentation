@@ -1,7 +1,4 @@
----
-title: 通用函式-TDX token
 
----
 
 取得 TDX 平台 token（需自行申請帳號）。可在 `/dag/utils/transform_address.py` 查看相關程式碼。
 

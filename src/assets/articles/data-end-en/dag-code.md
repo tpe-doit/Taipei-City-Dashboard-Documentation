@@ -72,7 +72,13 @@ def etl_function(**kwargs):
     data = raw_data
     data.columns = data.columns.str.lower()
     data = data.rename(
-        columns={"機構名稱": "name", "地址": "addr", "x": "lng", "y": "lat"}
+        columns={
+            "機構名稱": "name",
+            "地址": "addr",
+            "經度": "lng",
+            "緯度": "lat",
+            "data_time": "data_time",
+        }
     )
     # Time
     data["data_time"] = convert_str_to_time_format(data["data_time"])
@@ -272,7 +278,7 @@ Transfrom 是最複雜且無法制式化的部分，我們習慣的步驟是：
 > `load_behavior`: 控制儲存方式，必須為 `append`, `replace`, `current+history` 三者的其中一個。`append` 是將資料無條件新增至指定表格；`replace` 是將指定表格 truncate 後，再新增資料；`current+history` 共有兩個目的地，其一為 current 表，另一張為 history 表。分別對 current 表執行上面的 replace 操作，再對 history 表執行 append 操作。
 > `default_table`: 一般而言，是唯一的目的地表名，僅在 `load_behavior="current+history"` 視為 current 表儲存。
 > `ready_data_history_table`: 是 `ready_data` 的 history 表名，只有在 `load_behavior="current+history"` 時生效。
-> `geometry_type`: 是地理空間欄位的類型，必須為`Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`, `MultiPolygon` 其中之一，且與資料庫內欄位一致。
+> `geometry_type`: 是地理空間欄位的類型，必須為'Point', 'LineString', 'Polygon', 'MultiPoint', 'MultiLineString', 'MultiPolygon', 'LineStringZ', 'MultiLineStringZ', 'PolygonZ', 'MultiPolygonZ' 其中之一，且與資料庫內欄位一致。
 
 > **i07**
 > `current+history` 的設計，是為了同時滿足快速與留存歷史資料。例如 YouBike 站點狀態雖然只呈現當下的即時資料，但我們留存所有歷史資料以供未來分析應用。長期下來，歷史資料會變得冗餘而查詢時間過長；因此另存 current 表，只留最後一次的資料，快速回應前端需求。

@@ -1,7 +1,4 @@
----
-title: 開立Pull Request
 
----
 
 
 本專案沒有硬性規定 commit message 應該如何撰寫，請遵循一般常理(best practice)即可。然而，我們有要求所有的 commit 必須被簽名驗證(signed and verified)。簽名過的 commits 在 GitHub 上會有一個小的已驗證(verified)圖示顯示在 commit message 旁邊。如果你對如何簽名 commit 不熟悉，請參考 GitHub 的 [這個指南](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)。

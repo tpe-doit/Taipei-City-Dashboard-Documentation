@@ -1,7 +1,4 @@
----
-title: 通用函式-轉換階段-地址
 
----
 
 用於清洗、標準化、分解地址，建議適用於台北市地址。其中有部分為子函式，將不會說明子函式。可在 `/dag/utils/transform_address.py` 查看相關程式碼。
 
@@ -26,7 +23,7 @@ title: 通用函式-轉換階段-地址
 
 ## 函式說明
 
-### def clean_data(addr)
+### -函式 clean_data(addr)
 
 清洗地址，包含全形轉半形、去除括弧、去除標點符號、替換常見錯字、處理部分難字、段的數字改為國字數字等...
 
@@ -46,11 +43,11 @@ print(ca)
 dtype: object
 ```
 
-### def main_process(addr_cleaned)
+### -函式 main_process(addr_cleaned)
 
 辨識並切分地址，同時提供程式判斷信心等級。
 
-### def save_data(addr, addr_cleaned, standard_addr_list)
+### -函式 save_data(addr, addr_cleaned, standard_addr_list)
 
 與 `main_process` 配套使用，將結果轉換為 pd.DataFrame。
 
