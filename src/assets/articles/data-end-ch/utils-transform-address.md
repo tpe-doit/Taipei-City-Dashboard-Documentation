@@ -1,32 +1,33 @@
 
-用於清洗、標準化、分解地址，建議適用於台北市地址。其中有部分為子函式，將不會說明子函式。可在 `/dag/utils/transform_address.py` 找到此 module。
+
+用於清洗、標準化、分解地址，建議適用於台北市地址。其中有部分為子函式，將不會說明子函式。可在 `/dag/utils/transform_address.py` 查看相關程式碼。
 
 > **w01**
-> 務必確認您已經查看[下載並設定專案](/data-end/project-setup)章節並設置完成。
+> 務必確認你已經查看[下載並設定專案](/data-end/project-setup)章節並設置完成。
 
 > **w02**
-> 範例程式都會添加以下幾行程式，以確保將本專案的路徑加入環境變數，從而能找到 `utils` 與 `settings` 等資料夾。
->
-> ```python
+> 若開發者在 Airflow 環境想單獨測試以下程式碼，需先執行以下程式碼取得環境設定。
+> ``` python
+> from airflow import DAG
+> ```
+
+> **w03**
+> 若開發者需要在非 Airflow 的環境測試以下程式碼，需添加以下幾行程式，以確保將本專案的路徑加入環境變數，從而能找到 `utils` 與 `settings` 等資料夾：
+> ``` python
 > import os
 > import sys
 >
-> dags_path = os.path.join(os.getcwd(), 'dags')  # Should be looks like '.../dags'
+> dags_path = os.path.join(os.getcwd(), 'dags')  # Should be looks like './tuic-pipeline-airflow/dags'
 > sys.path.append(dags_path)
 > ```
 
 ## 函式說明
 
-### def clean_data(addr)
+### -函式 clean_data(addr)
 
 清洗地址，包含全形轉半形、去除括弧、去除標點符號、替換常見錯字、處理部分難字、段的數字改為國字數字等...
 
 ```python
-import os
-import sys
-
-dags_path = os.path.join(os.getcwd(), 'dags')  # Should be looks like '.../dags'
-sys.path.append(dags_path)
 import pandas as pd
 from utils.transform_address import clean_data
 
@@ -42,20 +43,15 @@ print(ca)
 dtype: object
 ```
 
-### def main_process(addr_cleaned)
+### -函式 main_process(addr_cleaned)
 
 辨識並切分地址，同時提供程式判斷信心等級。
 
-### def save_data(addr, addr_cleaned, standard_addr_list)
+### -函式 save_data(addr, addr_cleaned, standard_addr_list)
 
 與 `main_process` 配套使用，將結果轉換為 pd.DataFrame。
 
 ```python
-import os
-import sys
-
-dags_path = os.path.join(os.getcwd(), 'dags')  # Should be looks like '.../dags'
-sys.path.append(dags_path)
 import pandas as pd
 from utils.transform_address import (
     clean_data,
