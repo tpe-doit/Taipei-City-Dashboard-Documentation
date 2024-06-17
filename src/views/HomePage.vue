@@ -41,8 +41,8 @@ onMounted(() => {
 							rel="noreferrer"><button class="github">{{ t('github') }}<img
 									src="../assets/images/github-mark.svg" /></button></a>
 						<a href="https://citydashboard.taipei" target="_blank" rel="noreferrer"><button>{{
-						t('platform')
-					}}</button></a>
+								t('platform')
+								}}</button></a>
 					</div>
 				</div>
 				<div class="homepage-header-image">
@@ -72,9 +72,9 @@ onMounted(() => {
 					<h3>{{ t('data-end.name') }}{{ t('docs') }}</h3>
 					<h4>{{ t('data-end.desc') }}</h4>
 					<div>
-						<a href="https://github.com/tpe-doit/Taipei-City-Dashboard-DE-Hackathon-2024" target="_blank"
+						<!-- <a href="https://github.com/tpe-doit/Taipei-City-Dashboard-DE-Hackathon-2024" target="_blank"
 							rel="noreferrer"><button class="github">{{ t('github') }}<img
-									src="../assets/images/github-mark.svg" /></button></a>
+									src="../assets/images/github-mark.svg" /></button></a> -->
 						<router-link to="/data-end"><button>{{ t('get-started')
 								}}<span>east</span></button></router-link>
 					</div>
