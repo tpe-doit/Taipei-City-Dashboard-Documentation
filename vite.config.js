@@ -19,7 +19,7 @@ export default defineConfig({
 			},
 		},
 		chunkSizeWarningLimit: 1600,
-		assetsInlineLimit: 10000,
+		assetsInlineLimit: 20000,
 	},
 	base: "/documentation",
 	assetsInclude: ["**/*.md"],
